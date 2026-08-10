@@ -10,17 +10,22 @@ on:
     - cron: "15 4 * * *"
   workflow_dispatch:
 
+# "mkdocs gh-deploy" committet das gebaute Ergebnis in den gh-pages-Branch,
+# braucht dafür also Schreibrecht auf den Repository-Inhalt. In den
+# Repo-Settings ist entsprechend "Pages -> Source: Deploy from a branch"
+# mit Branch "gh-pages" / "(root)" eingestellt — genau wie beim
+# Datenbanken-Kurs (Kurs 3019).
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
+# Verhindert, dass zwei Läufe (z. B. Push und Cron) gleichzeitig auf
+# gh-pages pushen wollen.
 concurrency:
-  group: pages
+  group: gh-pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,22 +38,18 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install -r requirements.txt
 
+      # ghp-import (von gh-deploy genutzt) erzeugt einen echten Commit und
+      # braucht dafür eine Git-Identität — auf dem Runner ist keine gesetzt.
+      - name: Git-Identität setzen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       # MKDOCS_TESTMODE wird hier bewusst NICHT gesetzt: Die öffentliche
       # Seite filtert immer normal nach publish_date. Der Testmodus ist
       # ausschließlich für lokales "mkdocs serve" gedacht (siehe CLAUDE.md).
-      - name: Seite bauen
-        run: mkdocs build --strict
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      # --strict lässt den Lauf bei Warnungen (z. B. kaputten Links oder
+      # fehlenden Snippet-Pfaden) hart fehlschlagen, statt eine defekte
+      # Seite zu veröffentlichen.
+      - name: Seite bauen und nach gh-pages veröffentlichen
+        run: mkdocs gh-deploy --strict --force
