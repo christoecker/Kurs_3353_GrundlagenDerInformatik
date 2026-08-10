@@ -1,0 +1,66 @@
+site_name: "Grundlagen der Informatik (Kurs 3353) – Mechatronik/Automatisierung"
+site_url: https://christoecker.github.io/Kurs_3353_GrundlagenDerInformatik/
+repo_url: https://github.com/christoecker/Kurs_3353_GrundlagenDerInformatik
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: de
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+
+hooks:
+  - hooks/publish_scheduler.py
+  - hooks/solution_toggle.py
+
+plugins:
+  - search
+  - mkdocs_quiz
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:
+      base_path: ["docs"]
+      check_paths: true
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - tables
+
+exclude_docs: |
+  01-praxisphase/_template/
+  02-theoriephase/_templates/
+
+extra_css:
+  - stylesheets/extra.css
+
+# WICHTIG: Ein nav-Eintrag darf erst ergänzt werden, wenn die zugehörige
+# Datei tatsächlich existiert — sonst erzeugt MkDocs eine kaputte
+# Verlinkung (Klartext-Pfad statt echtem Seitenlink). Die Praxisphase-
+# Wochen und die Theoriephase-Termine werden deshalb erst nach und nach
+# eingetragen, sobald ihre Dateien angelegt sind. Vorlage:
+#
+#   - Praxisphase:
+#       - "Woche 1": 01-praxisphase/woche-01/woche-01.md
+#   - Theoriephase:
+#       - "Termin 1":
+#           - 02-theoriephase/termin-01/index.md
+#           - "Grundbegriffe und Zahlensysteme": 02-theoriephase/termin-01/block-01.md
+#           - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
+nav:
+  - Start: index.md
+  - "KI im Kurs": ki-nutzung.md
+  - Glossar: glossar.md

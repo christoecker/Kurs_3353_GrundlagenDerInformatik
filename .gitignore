@@ -1,0 +1,39 @@
+# Whitelist-Ansatz: Standardmäßig ist ALLES ausgeschlossen (= bleibt privat).
+# Nur der docs/-Ordner (öffentliche MkDocs-Seite) plus mkdocs.yml /
+# requirements.txt / .github/ / hooks/ werden versioniert (hooks/ und
+# requirements.txt werden für den Build gebraucht, siehe mkdocs.yml "hooks:"
+# und .github/workflows/deploy-docs.yml).
+#
+# CLAUDE.md ist zusätzlich versioniert: sie ist das Projektgedächtnis
+# (Konventionen, Struktur, getestete Fallstricke) und enthält nichts
+# Vertrauliches. Sie erscheint nicht auf der Kurswebseite, weil sie
+# außerhalb von docs/ liegt.
+#
+# Damit bleiben insbesondere privat: 00-projektsteuerung/ (inkl.
+# quellmaterial/), 03-quellen/, .claude/ und _referenz-datenbanken/.
+
+*
+!*/
+!docs/**
+!.github/**
+!hooks/**
+!mkdocs.yml
+!requirements.txt
+!CLAUDE.md
+# Ohne diese Zeile würde sich die Datei durch das "*" oben selbst
+# ausschließen und wäre in einem frischen Clone nicht vorhanden.
+!.gitignore
+
+# Innerhalb von docs/ sind die Templates trotzdem privat (Werkzeuge, keine
+# Studierendeninhalte)
+docs/01-praxisphase/_template/**
+docs/02-theoriephase/_templates/**
+
+# Übergangsordner mit Referenzmaterial aus dem Datenbanken-Kurs — wird
+# händisch gelöscht, sobald er nicht mehr gebraucht wird.
+_referenz-datenbanken/**
+
+# Build-Output
+site/
+__pycache__/
+*.pyc

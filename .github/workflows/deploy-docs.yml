@@ -1,0 +1,54 @@
+name: Kurswebseite bauen und veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  # Täglicher Rebuild, damit Seiten mit "publish_date" am Stichtag
+  # automatisch erscheinen, ohne dass dafür erneut gepusht werden muss
+  # (siehe hooks/publish_scheduler.py). 04:15 UTC ~ 05:15/06:15 lokal.
+  schedule:
+    - cron: "15 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      # MKDOCS_TESTMODE wird hier bewusst NICHT gesetzt: Die öffentliche
+      # Seite filtert immer normal nach publish_date. Der Testmodus ist
+      # ausschließlich für lokales "mkdocs serve" gedacht (siehe CLAUDE.md).
+      - name: Seite bauen
+        run: mkdocs build --strict
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
