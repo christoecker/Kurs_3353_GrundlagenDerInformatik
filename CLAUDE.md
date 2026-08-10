@@ -261,11 +261,20 @@ reflektiert eingesetzt, nicht als Ersatz fürs Verstehen.
 
 ## Code im Repository
 
-C-Code liegt **im selben Repository** und ist öffentlich zugänglich — sowohl
-Live-Coding-Beispiele als auch Musterlösungen zu bS-Aufgaben. Kein separates
-Code-Repo. Bewusste Entscheidung nach dem Prinzip **Eigenverantwortung**:
-Studierende könnten Musterlösungen einsehen, nehmen sich damit aber selbst
-die Lernchance.
+C-Code liegt **im selben Repository** — sowohl Live-Coding-Beispiele als auch
+Musterlösungen zu bS-Aufgaben. Kein separates Code-Repo.
+
+**Die Studierenden beziehen alles über die Kurswebseite**, nie über das
+Repository direkt. `mkdocs.yml` setzt deshalb bewusst kein `repo_url` (sonst
+baut Material oben rechts einen GitHub-Link ein), und in
+studierenden-facing Texten wird nicht auf das Repository verwiesen. Jede
+Datei, die die Studierenden brauchen, muss über eine Seite erreichbar sein —
+Code über `--8<--`-Snippets, sonstige Dateien über einen relativen Link auf
+den `code/`-Ordner.
+
+Für die Musterlösungen gilt trotzdem das Prinzip **Eigenverantwortung**:
+Sobald sie freigeschaltet sind (siehe "Sichtbarkeits-Toggles"), stehen sie
+offen auf der Seite. Wer vorab hineinsieht, nimmt sich selbst die Lernchance.
 
 ### Live-Coding wird schrittweise aufgebaut
 

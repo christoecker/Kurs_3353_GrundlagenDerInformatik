@@ -97,9 +97,14 @@ euch, was erlaubt ist, und daran haltet ihr euch oder nicht.
 
 ## Und die Musterlösungen?
 
-Die Musterlösungen zu den Aufgaben und der Code aus den Übungen liegen
-öffentlich in diesem Repository. Ihr könntet also jederzeit nachschauen.
+Die Musterlösungen zu den Aufgaben und der Code aus den Übungen stehen hier
+auf der Kurswebseite — bei den Aufgaben in aufklappbaren Blöcken, die ich
+nach der jeweiligen Einheit freischalte. Ihr könnt also jederzeit
+nachschauen.
 
 Das ist bewusst so. Es gilt das Prinzip **Eigenverantwortung**: Wer sich die
-Lösung vorher ansieht, nimmt sich selbst die Lernchance — und merkt es
-spätestens in der Klausur.
+Lösung ansieht, bevor er es selbst versucht hat, nimmt sich die Lernchance —
+und merkt es spätestens in der Klausur.
+
+Alles, was ihr für den Kurs braucht, findet ihr auf dieser Seite. Ihr müsst
+euch nirgendwo sonst etwas zusammensuchen.
