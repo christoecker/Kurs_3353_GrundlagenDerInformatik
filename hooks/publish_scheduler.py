@@ -9,12 +9,23 @@ Zukunft, wird die Seite beim Bauen komplett aus dem Build entfernt
 Ausgabeverzeichnis. Dateien ohne "publish_date" werden wie bisher immer
 eingebaut.
 
-Da eine aus den Files entfernte Seite in "mkdocs.yml" trotzdem noch in
-der "nav"-Konfiguration referenziert sein darf (das ist ja gerade der
-Sinn - man traegt sie schon ein, bevor sie sichtbar wird), wuerde MkDocs
-dafuer sonst einen kaputten Link erzeugen (Klartext-Pfad auf die
-.md-Datei statt eines echten Seitenlinks). Der zweite Hook (on_nav)
-entfernt genau diese kaputten Verweise wieder aus der Navigation.
+Eine noch nicht veroeffentlichte Seite darf in "mkdocs.yml" trotzdem
+schon in der "nav"-Konfiguration stehen - das ist ja gerade der Sinn.
+Damit MkDocs daraus keinen kaputten Link erzeugt, muss der betroffene
+nav-Eintrag ebenfalls verschwinden.
+
+WICHTIG - warum das in "on_config" passiert und nicht erst in "on_nav":
+MkDocs baut die Navigation in "get_navigation()" auf und protokolliert
+dort SOFORT eine Warnung fuer jeden nav-Eintrag, zu dem es keine Datei
+findet ("A reference to '...' is included in the 'nav' configuration,
+which is not found in the documentation files."). Das geschieht, BEVOR
+der "on_nav"-Hook ueberhaupt aufgerufen wird - ein nachtraegliches
+Aufraeumen in "on_nav" kommt also zu spaet, um die Warnung zu
+verhindern. Da der Deploy-Workflow mit "mkdocs build --strict" laeuft,
+wuerde diese Warnung den gesamten Build abbrechen lassen, sobald auch
+nur eine Seite ein zukuenftiges publish_date hat. Deshalb wird die
+nav-Konfiguration bereits in "on_config" bereinigt, also bevor MkDocs
+die Navigation baut. (Am gebauten Ergebnis getestet.)
 
 Ein taeglicher, zeitgesteuerter Rebuild (siehe
 .github/workflows/deploy-docs.yml) sorgt dafuer, dass eine Seite am
@@ -35,6 +46,7 @@ from __future__ import annotations
 import datetime
 import logging
 import os
+from pathlib import Path
 
 from mkdocs.structure.files import Files
 from mkdocs.structure.nav import Link, Navigation, Section
@@ -42,9 +54,14 @@ from mkdocs.utils import meta
 
 log = logging.getLogger("mkdocs.hooks.publish_scheduler")
 
-# Wird in on_files befuellt und in on_nav gelesen (pro Build-Lauf neu
-# gesetzt - wichtig fuer "mkdocs serve", das mehrfach neu baut).
+# Wird in on_config befuellt und in on_files/on_nav gelesen (pro
+# Build-Lauf neu gesetzt - wichtig fuer "mkdocs serve", das mehrfach neu
+# baut).
 _excluded_src_uris: set[str] = set()
+
+
+def _testmode_active() -> bool:
+    return os.environ.get("MKDOCS_TESTMODE") == "1"
 
 
 def _parse_publish_date(value: object) -> datetime.date | None:
@@ -67,53 +84,106 @@ def _parse_publish_date(value: object) -> datetime.date | None:
     return None
 
 
-def on_files(files: Files, config):
-    """Entfernt Seiten mit zukuenftigem "publish_date" komplett aus dem Build."""
+def _publish_date_of(path: Path) -> datetime.date | None:
+    """Liest das publish_date aus dem Frontmatter einer Markdown-Datei."""
+    try:
+        source = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        log.warning("'%s' konnte nicht gelesen werden: %s", path, exc)
+        return None
+    _, page_meta = meta.get_data(source)
+    return _parse_publish_date(page_meta.get("publish_date"))
+
+
+def _prune_nav_config(items: list) -> list:
+    """Entfernt nav-Eintraege, die auf noch nicht veroeffentlichte Seiten zeigen.
+
+    Arbeitet auf der ROHEN nav-Struktur aus mkdocs.yml, also auf
+    verschachtelten Listen aus Strings ("pfad/zur/datei.md") und Dicts
+    ({"Titel": "pfad.md"} bzw. {"Titel": [...]}). Sections, die dadurch
+    leer werden, fallen ebenfalls weg.
+    """
+    kept: list = []
+    for item in items:
+        if isinstance(item, str):
+            if item not in _excluded_src_uris:
+                kept.append(item)
+        elif isinstance(item, dict):
+            pruned: dict = {}
+            for title, value in item.items():
+                if isinstance(value, str):
+                    if value not in _excluded_src_uris:
+                        pruned[title] = value
+                elif isinstance(value, list):
+                    children = _prune_nav_config(value)
+                    if children:
+                        pruned[title] = children
+                else:
+                    pruned[title] = value
+            if pruned:
+                kept.append(pruned)
+        else:
+            kept.append(item)
+    return kept
+
+
+def on_config(config):
+    """Ermittelt die noch nicht faelligen Seiten und raeumt die nav auf."""
     _excluded_src_uris.clear()
 
-    if os.environ.get("MKDOCS_TESTMODE") == "1":
+    if _testmode_active():
         log.info(
             "MKDOCS_TESTMODE=1 - publish_date-Filterung wird uebersprungen, "
             "alle Seiten werden eingebunden."
         )
-        return files
+        return config
 
+    docs_dir = Path(config["docs_dir"])
     today = datetime.date.today()
-    kept = []
+    # Per "exclude_docs" ausgeschlossene Dateien (z. B. die Templates) duerfen
+    # hier gar nicht erst angefasst werden: Ihr Frontmatter enthaelt
+    # absichtlich Platzhalter wie "publish_date: <YYYY-MM-DD>", die sonst
+    # jedes Mal eine Warnung ausloesen - und unter "--strict" den Build
+    # abbrechen lassen wuerden.
+    exclude_spec = config.get("exclude_docs")
 
-    for file in files:
-        if not file.is_documentation_page() or file.inclusion.is_excluded():
-            # Nicht-Markdown-Dateien sowie bereits per "exclude_docs" (z. B.
-            # Templates) ausgeschlossene Dateien werden nicht angefasst.
-            kept.append(file)
+    for path in sorted(docs_dir.rglob("*.md")):
+        src_uri = path.relative_to(docs_dir).as_posix()
+        if exclude_spec is not None and exclude_spec.match_file(src_uri):
+            continue
+        if any(part.startswith(".") for part in path.relative_to(docs_dir).parts):
             continue
 
-        with open(file.abs_src_path, encoding="utf-8") as handle:
-            source = handle.read()
-        _, page_meta = meta.get_data(source)
-
-        publish_date = _parse_publish_date(page_meta.get("publish_date"))
+        publish_date = _publish_date_of(path)
         if publish_date is not None and publish_date > today:
+            _excluded_src_uris.add(src_uri)
             log.info(
                 "'%s' wird erst ab %s veroeffentlicht - aus dem Build ausgeschlossen.",
-                file.src_uri,
+                src_uri,
                 publish_date.isoformat(),
             )
-            _excluded_src_uris.add(file.src_uri)
-            continue
 
-        kept.append(file)
+    if _excluded_src_uris and config.get("nav"):
+        config["nav"] = _prune_nav_config(config["nav"])
 
-    return Files(kept)
+    return config
+
+
+def on_files(files: Files, config):
+    """Entfernt die in on_config ermittelten Seiten komplett aus dem Build."""
+    if not _excluded_src_uris:
+        return files
+    return Files([file for file in files if file.src_uri not in _excluded_src_uris])
 
 
 def _prune_nav_items(items: list) -> list:
-    """Entfernt Nav-Eintraege, die auf ausgeschlossene Seiten zeigen.
+    """Sicherheitsnetz: entfernt Nav-Eintraege auf ausgeschlossene Seiten.
 
-    MkDocs loest einen nav-Eintrag, dessen Datei nicht (mehr) in den
-    Files existiert, zu einem "Link" mit dem rohen Konfigurationspfad
-    als URL auf - genau diese Faelle werden hier erkannt und entfernt.
-    Leer gewordene Sections werden ebenfalls entfernt.
+    Sollte nach dem Bereinigen in on_config nichts mehr zu tun finden.
+    Bleibt als Absicherung fuer den Fall, dass ein nav-Eintrag auf einem
+    Weg entsteht, den _prune_nav_config nicht erfasst. MkDocs loest einen
+    nav-Eintrag, dessen Datei nicht (mehr) existiert, zu einem "Link" mit
+    dem rohen Konfigurationspfad als URL auf.
     """
     kept = []
     for item in items:
@@ -130,5 +200,7 @@ def _prune_nav_items(items: list) -> list:
 
 def on_nav(nav: Navigation, config, files: Files):
     """Entfernt Navigationseintraege, die auf ausgeschlossene Seiten verweisen."""
+    if not _excluded_src_uris:
+        return nav
     nav.items = _prune_nav_items(nav.items)
     return nav

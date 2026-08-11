@@ -678,19 +678,21 @@ formulierten Satz mit Lücken. Für die **Zuordnungsfrage** ist mehrzeilige
 Struktur dagegen gewollt.
 
 **Zuordnungsfrage** (Variante des Lückentext-Quiz): Vier nummerierte
-Begriffe/Aussagen/Satzanfänge werden oben aufgeführt, darunter folgen vier
-Zeilen mit je einer `[[N]]`-Lücke gefolgt von einem Text, der zu genau einem
-der oberen Punkte passt. Die vier Zuordnungszeilen stehen bewusst **nicht** in
-der Reihenfolge 1-2-3-4, sonst ist die Zuordnung trivial. Aufbau:
+Begriffe/Aussagen/Satzanfänge stehen oben in einer **Tabelle**, darunter folgen
+vier Zeilen mit je einer `[[N]]`-Lücke gefolgt von einem Text, der zu genau
+einem der oberen Punkte passt. Die vier Zuordnungszeilen stehen bewusst
+**nicht** in der Reihenfolge 1-2-3-4, sonst ist die Zuordnung trivial. Aufbau:
 
 ```
 <quiz>
 Ordne ... zu:
 
-1. Erster Begriff/Aussage/Satzanfang
-2. Zweiter Begriff/Aussage/Satzanfang
-3. Dritter Begriff/Aussage/Satzanfang
-4. Vierter Begriff/Aussage/Satzanfang
+| Nr. | Begriff |
+|---|---|
+| 1 | Erster Begriff/Aussage/Satzanfang |
+| 2 | Zweiter Begriff/Aussage/Satzanfang |
+| 3 | Dritter Begriff/Aussage/Satzanfang |
+| 4 | Vierter Begriff/Aussage/Satzanfang |
 
 - [[3]] Text, der zu Punkt 3 passt.
 - [[1]] Text, der zu Punkt 1 passt.
@@ -702,17 +704,57 @@ Optionaler Tipp, der nach dem Absenden angezeigt wird.
 </quiz>
 ```
 
-**Wichtig:** Die vier Zuordnungszeilen müssen als Markdown-Liste
-(`- [[N]] Text`) geschrieben werden, nicht als durch Leerzeilen getrennte
-einzelne Absätze. Grund: Das `mkdocs_quiz`-Plugin ersetzt `[[N]]` intern
-zunächst durch einen HTML-Kommentar als Platzhalter; steht dieser Kommentar
-ganz am Anfang eines Absatzes, erkennt Markdown ihn als eigenständigen
-HTML-Block und trennt ihn vom nachfolgenden Text — das Eingabefeld landet dann
-in einer eigenen Zeile, der zugehörige Text in einer separaten Zeile darunter
-(empirisch am Build-Output geprüft). Als Listenelement bleiben Eingabefeld und
-Text zuverlässig in derselben Zeile. Die nummerierte Liste (1.–4.) oben bleibt
-ohne Leerzeilen zusammenhängend, damit Markdown sie als eine einzige
-`<ol>`-Liste erkennt.
+Zwei Details, die beide am gebauten Ergebnis geprüft sind:
+
+- **Die Begriffe oben stehen in einer Tabelle, NICHT in einer nummerierten
+  Liste.** Python-Markdown erkennt eine direkt folgende `-`-Liste sonst nicht
+  als neue Liste, sondern hängt sie als Elemente 5–8 an die `<ol>` an. Die
+  Zuordnungszeilen bekämen dadurch sichtbar die Nummern 5, 6, 7 und 8 —
+  ausgerechnet neben den Eingabefeldern, in die 1 bis 4 gehören. Eine Tabelle
+  ist ein eigenständiger Blockmodus und beendet die Liste zuverlässig.
+- **Die vier Zuordnungszeilen müssen eine Markdown-Liste sein**
+  (`- [[N]] Text`), nicht durch Leerzeilen getrennte Absätze. Das
+  `mkdocs_quiz`-Plugin ersetzt `[[N]]` intern zunächst durch einen
+  HTML-Kommentar als Platzhalter; steht dieser ganz am Anfang eines Absatzes,
+  erkennt Markdown ihn als eigenständigen HTML-Block und trennt ihn vom
+  nachfolgenden Text — das Eingabefeld landet dann in einer eigenen Zeile, der
+  Text darunter. Als Listenelement bleiben Feld und Text in derselben Zeile.
+
+Der `---`-Trenner für den Tipp funktioniert trotz der `|---|---|`-Zeile der
+Tabelle: Das Plugin sucht die erste Zeile, die für sich genommen eine
+horizontale Linie ist.
+
+### Antwortbezogenes Feedback bei Auswahlfragen
+
+Bei `<quiz>`-Blöcken mit Checkboxen kann jede einzelne Antwortoption eine eigene
+Rückmeldung bekommen — als Blockquote-Zeile **direkt** unter der Option, ohne
+Leerzeile dazwischen:
+
+```
+- [x] Richtige Antwort.
+> Warum das stimmt.
+- [ ] Falsche Antwort.
+> Warum das nicht stimmt — und was stattdessen gilt.
+```
+
+Das ist im Selbststudium besonders wertvoll: Die Studierenden erfahren nicht nur
+*dass* sie danebenlagen, sondern *warum*. Nicht jede Option braucht eine
+Rückmeldung; sinnvoll ist sie vor allem bei der attraktivsten Fehlannahme.
+
+Eine Leerzeile zwischen Option und Blockquote lässt den Build hart
+fehlschlagen ("Orphaned feedback line"). Text nach der letzten Option (ohne
+`>`) wird zum Erklärungsabschnitt, der nach dem Absenden für die ganze Frage
+erscheint.
+
+### Antworten stehen im Seitenquelltext
+
+Das Plugin schreibt zu jedem Quiz zusätzlich den **Markdown-Quelltext der Frage
+in einen HTML-Kommentar** (`<!-- mkdocs-quiz-source ... -->`) ins gebaute HTML —
+inklusive der `- [x]`-Markierungen. Auf der Seite ist davon nichts zu sehen, im
+Seitenquelltext aber schon. Das ist Verhalten des Plugins und nicht
+abschaltbar; es passt zum Prinzip Eigenverantwortung (Musterlösungen stehen
+ohnehin offen auf der Seite), sollte aber bekannt sein: **Quizfragen sind kein
+Prüfungsinstrument.**
 
 ## Programmablaufpläne (PAP)
 
