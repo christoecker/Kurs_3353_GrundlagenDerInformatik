@@ -1,4 +1,4 @@
-site_name: "Grundlagen der Informatik (Kurs 3353) – Mechatronik/Automatisierung"
+site_name: "Grundlagen der Informatik (Kurs 3353)"
 site_url: https://christoecker.github.io/Kurs_3353_GrundlagenDerInformatik/
 # Bewusst KEIN "repo_url": Material würde daraus oben rechts einen Link auf
 # das GitHub-Repository setzen. Die Studierenden sollen alle Inhalte über
@@ -65,8 +65,10 @@ extra_css:
 #           - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
 nav:
   - Start: index.md
-  - "KI im Kurs": ki-nutzung.md
-  - Glossar: glossar.md
   - Praxisphase:
       - "Woche 1": 01-praxisphase/woche-01/woche-01.md
+  - Infos:
+      - Modulbeschreibung: modulbeschreibung.md
+      - "KI im Kurs": ki-nutzung.md
+      - Glossar: glossar.md
 

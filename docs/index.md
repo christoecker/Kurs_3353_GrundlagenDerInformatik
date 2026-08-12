@@ -36,13 +36,22 @@ Am **25.11.** gibt es statt des normalen Ablaufs ein **Zwischenprojekt**:
 Ihr entwickelt in längeren zusammenhängenden Arbeitsphasen eine kleine
 eigene Anwendung.
 
+## Wo finde ich Lehrbrief und Lehrbuch?
+
+Die eigentlichen Lernmaterialien zum Erarbeiten der Inhalte liegen **nicht** hier, sondern im
+ILIAS-Kursraum:
+
+<a href="https://www.hsbi.de/elearning/ilias.php?baseClass=ilrepositorygui&ref_id=1700733" target="_blank" rel="noopener">Zum ILIAS-Kursraum</a>
+
+Diese Seite hier ergänzt ILIAS um die konkreten wöchentlichen
+Arbeitsaufträge und Aufgaben — sie ersetzt nicht das eigentliche
+Lesen/Durcharbeiten der Lehrmaterialien.
+
 ## Womit wir arbeiten
 
-- Programmiersprache: **C**
-- Entwicklungsumgebung: **Visual Studio** bzw. **Visual Studio Code**
+Wenn es ans Programmieren geht, dreht sich hier alles um die Programmiersprache **C**. Als Entwicklungsumgebung werde ich in der Übung **Visual Studio** nutzen. Damit ihr mitarbeiten könnte, braucht ihr unbedingt auch eine Entwicklungsumgebung (IDE). Ob ihr Visual Studio oder ein anderes Programm (z.B. **Visual Studio Code**) nutzt, ist dabei egal. Wichtig its nur, dass ihr spätestens eine Woche vor Beginn der Theoriephase eine laufende Entwicklungsumgebung auf eurem Laptop installiert habt.
 
-Wie ihr beides installiert und bedient, lernt ihr in der Praxisphase — ihr
-müsst dafür jetzt noch nichts vorbereiten.
+Das Installieren einer Entwicklungsumgebung wird auch Teil eines Arbeitsauftrags in der 6. Woche sein. Jetzt müsst ihr also noch nicht zwingend aktiv werden.
 
 ## Prüfung
 

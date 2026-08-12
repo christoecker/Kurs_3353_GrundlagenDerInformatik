@@ -24,6 +24,8 @@ Verbindliche Termin- und Themenübersicht:
 `00-projektsteuerung/curriculum-map.yaml` — **das ist die Single Source of
 Truth** für was wann behandelt wird. Bei jeder inhaltlichen Änderung diese
 Datei mitpflegen. Die Pflichtinhalte laut Modulhandbuch stehen in
+`docs/modulbeschreibung.md` (studierenden-facing), die internen Notizen dazu —
+Lehrveranstaltungstabelle, bewusste Abweichungen — in
 `00-projektsteuerung/modulbeschreibung.md`; Inhalte, die noch keinem Block
 zugewiesen sind, führt `curriculum-map.yaml` am Ende unter
 `offene_pflichtinhalte` — diese Liste muss vor Kursende leer sein.
