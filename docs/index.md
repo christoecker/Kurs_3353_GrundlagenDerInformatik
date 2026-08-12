@@ -1,8 +1,7 @@
 # Grundlagen der Informatik
 
 Herzlich willkommen! Diese Seite ist eure zentrale Anlaufstelle für das Modul
-**Grundlagen der Informatik** im Studiengang Mechatronik/Automatisierung
-(B.Eng.), 1. Semester.
+**Grundlagen der Informatik** in den Studiengängen Mechatronik/Automatisierung, Digitale Technologien und Software Engineering, 1. Semester.
 
 Ihr braucht **keinerlei Vorkenntnisse** in Programmierung oder Informatik.
 Alles, was ihr wissen müsst, wird hier von Grund auf aufgebaut.
