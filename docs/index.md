@@ -8,22 +8,30 @@ Alles, was ihr wissen müsst, wird hier von Grund auf aufgebaut.
 
 ## Worum es in diesem Modul geht
 
-Am Ende dieses Semesters habt ihr eigene Programme in C geschrieben. Der Weg
-dahin führt über drei Themenstränge, die aufeinander aufbauen:
+Am Ende dieses Semesters habt ihr eigene Programme in C geschrieben. Dafür
+stehen zwei Dinge im Mittelpunkt — und die füllen auch den weitaus größten
+Teil des Moduls:
 
-**Wie ein Rechner funktioniert.** Woraus ein Rechner besteht, wie Prozessor und
-Speicher zusammenspielen — und wie Zahlen und Zeichen dort überhaupt abgelegt
-werden. Dazu gehören das Binär- und das Hexadezimalsystem.
+**Algorithmisches Denken.** Der schwierigere Teil beim Programmieren passiert,
+bevor die erste Zeile Code entsteht: ein Problem in Teilschritte zerlegen, die
+Reihenfolge festlegen, Sonderfälle erkennen. Ihr lernt, solche Abläufe zunächst
+unabhängig von jeder Programmiersprache zu beschreiben — mit
+Programmablaufplänen und in Pseudocode — und abzuschätzen, wie aufwendig ein
+Verfahren ist. Dieses Denken ist der Kern des Moduls; alles andere ist
+Handwerkszeug dafür.
 
-**Wie man einen Ablauf so beschreibt, dass eine Maschine ihn ausführen kann.**
-Was ein Algorithmus ist, wie man ihn mit einem Programmablaufplan oder in
-Pseudocode darstellt — und wie man abschätzt, wie aufwendig ein Verfahren
-eigentlich ist.
+**Programmieren in C.** Der zweite Schwerpunkt ist die Umsetzung: Variablen und
+Datentypen, Verzweigungen, Schleifen, Funktionen, Arrays, Zeiger, Strukturen,
+Dateien und dynamische Speicherverwaltung. Wir arbeiten dabei durchgehend
+**prozedural**, also mit Funktionen und ohne Objektorientierung. Dazu kommen
+einige klassische Verfahren zum Sortieren und Suchen — an ihnen lässt sich
+besonders gut sehen, wie aus einem Algorithmus lauffähiger Code wird.
 
-**Programmieren in C.** Variablen und Datentypen, Verzweigungen, Schleifen,
-Funktionen, Arrays, Zeiger, Strukturen, Dateien und dynamische
-Speicherverwaltung. Zum Schluss noch ein paar Klassiker, die man kennen
-sollte: Verfahren zum Sortieren und Suchen.
+Damit ihr einordnen könnt, was beim Ausführen eines Programms eigentlich
+passiert, schauen wir vorab noch kurz unter die Haube: wie ein Rechner grob
+aufgebaut ist und wie Zahlen und Zeichen dort abgelegt werden — Stichwort
+Binär- und Hexadezimalsystem. Dieser Teil bleibt bewusst knapp. Er ist
+Grundlage, nicht Schwerpunkt, und im Wesentlichen in der Praxisphase erledigt.
 
 Das Ziel dahinter ist ausdrücklich **nicht**, Syntax auswendig zu können. Ihr
 sollt am Ende eine Problemstellung so zerlegen können, dass sich eine Lösung
