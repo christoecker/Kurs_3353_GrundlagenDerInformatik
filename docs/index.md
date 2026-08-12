@@ -26,10 +26,8 @@ Programm.
 **Theoriephase (10 Präsenztermine, 21.10. bis 23.12.).** Jeder Termin
 besteht aus mehreren 90-Minuten-Einheiten, und jede Einheit hat zwei Teile:
 
-- 👥 **Übung** (45 Minuten) — wir schreiben gemeinsam Code, Schritt für
-  Schritt.
-- ✏️ **Betreutes Selbststudium** (45 Minuten) — ihr arbeitet allein oder zu
-  zweit an Aufgaben, ich bin für Fragen da.
+- 👥 **Übung** (45 Minuten) — hier bearbeiten wir gemeinsam Übungsaufgaben, gehen Fallbeispiele durch und vertiefen so das Verständnis der Inhalte, die ihr euch zuvor im Selbststudium erarbeitet habt. Den größten Teil der Übungseinheiten wird das *Live-Coding* einnehmen - das bedeutet wir schreiben gemeinsam Code, Schritt für Schritt. Und nicht zu vergessen: In der Übung klären wir all eure Fragen zu den Inhalten des Moduls.
+- ✏️ **Betreutes Selbststudium** (45 Minuten) — in dieser Phase arbeitet ihr allein oder in Kleingruppen an Aufgaben - ich bin für Fragen da und moderiere schließlich die Besprechung von Ergebnissen. Wichtig: Ich gebe euch zwar Aufgaben, aber ihr entscheidet selber, womit ihr euch im betreuten **Selbst**studium beschäftigt. Das kann bedeuten, dass ihr vor der Bearbeitung der Aufgaben zunächst nochmal die Inhalte aus der Übung nacharbeitet, alte Aufgaben wiederholt, eigene Fragestellungen klärt, ... Solange es mit dem Modul zu tun hat, unterstütze ich euch gerne.
 
 Woran ihr die beiden Teile erkennt: an den farbigen Kennzeichnungen an den
 Überschriften — blau für "jetzt gemeinsam", orange für "jetzt eigenständig".
@@ -48,10 +46,7 @@ müsst dafür jetzt noch nichts vorbereiten.
 
 ## Prüfung
 
-Das Modul wird mit einer **Klausur** abgeschlossen. Darauf ist der Kurs
-ausgerichtet: In jeder Einheit findet ihr auch Aufgaben, die ihr **ohne
-Rechner** lösen könnt — Code lesen, Ausgaben vorhersagen, Fehler finden.
-Genau das braucht ihr in der Klausur.
+Das Modul wird mit einer **Klausur** abgeschlossen. Detaillierte Informationen zur Klausur, zu deren Aufbau und wie ihr euch gezielt darauf vorbereiten könnt klären wir im Laufe der Veranstaltung.
 
 ## Und was ist mit KI?
 

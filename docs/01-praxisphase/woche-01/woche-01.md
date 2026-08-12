@@ -21,11 +21,11 @@ publish_date: 2026-08-31
 
 # Woche 1: Was ist Informatik? Und wie ist ein Rechner aufgebaut?
 
-> Zeitbedarf: ca. 1,5 bis 2 Stunden.
+> Zeitbedarf: ca. 2 Stunden.
 
 ## Worum geht es?
 
-In diesem Modul wirst du Programme schreiben. Bevor das losgeht, lohnt sich ein
+In diesem Modul wirst du eigene Programme in der Programmiersprache C schreiben. Bevor das losgeht, lohnt sich ein
 Blick auf zwei Fragen, die dahinterstehen: Womit beschäftigt sich die Informatik
 eigentlich — und was passiert in einem Rechner, wenn ein Programm läuft?
 
@@ -96,7 +96,7 @@ Ordne dabei gleich ein, wo du dich in diesem Modul bewegst: Der Rest dieser
 Woche gehört zur **technischen Informatik**. Alles, was danach kommt —
 Algorithmen, Programmieren in C — gehört zur **praktischen Informatik**.
 
-!!! note "Warum es gleich mit Kapitel 18 weitergeht"
+!!! info "Warum es gleich mit Kapitel 18 weitergeht"
     Die Kapitel 2 bis 17 behandeln Algorithmen und Programmierung. Damit
     beschäftigen wir uns ab Woche 3 und dann im ganzen restlichen Modul — nur
     eben nicht mit diesem Buch, sondern mit eigenem Material und in der Sprache
@@ -115,7 +115,7 @@ Je weiter oben du bist, desto näher bist du daran, wie ein Mensch ein Problem
 beschreiben würde. Je weiter unten, desto näher an dem, was die Elektronik
 tatsächlich tut.
 
-!!! tip "Bezug zu unserem Modul"
+!!! info "Bezug zu unserem Modul"
     Das Buch nennt Java als Beispiel für eine problemorientierte
     Programmiersprache. **C**, die Sprache dieses Moduls, steht auf derselben
     Ebene. Auch ein C-Programm muss also erst in Maschinensprache übersetzt
@@ -147,7 +147,7 @@ Kurzer Abschnitt, zwei Kernaussagen: Der Hauptspeicher besteht aus lauter
 gleich aufgebauten **Speicherzellen**, und jede davon hat eine **Adresse**, über
 die man sie ansprechen kann.
 
-!!! warning "Ein Begriff, den du noch nicht brauchst"
+!!! info "Ein Begriff, den du noch nicht brauchst"
     Das Buch vergleicht den Hauptspeicher an dieser Stelle mit einem *Array*.
     Diesen Begriff lernst du erst später im Modul kennen — überlies ihn
     einfach. Für jetzt genügt ein anderes Bild: eine sehr lange Reihe
@@ -183,14 +183,14 @@ gepackt hat, ist sie aber eine schöne Zugabe.
 ## Zum Ausprobieren
 
 Diese kleine Übung ist **ohne Rechner** zu lösen — Zettel und Stift genügen.
-Genau in dieser Form wirst du auch in der Klausur arbeiten.
 
-!!! abstract "KI-Einsatz in dieser Woche"
-    Du darfst KI-Werkzeuge nutzen, um dir **Begriffe erklären** zu lassen, wenn
-    dir eine Stelle im Buch unklar bleibt. Die Übung unten solltest du aber
-    selbst durchrechnen: Der Lerneffekt entsteht genau dabei, den Zyklus einmal
-    von Hand mitzugehen — nicht dabei, das Ergebnis zu lesen. Mehr dazu unter
-    [KI im Kurs](../../ki-nutzung.md).
+!!! abstract "Diese Übung bitte ohne KI"
+    Geh den Zyklus selbst durch. Der Lerneffekt entsteht genau dabei, ihn einmal
+    von Hand mitzugehen — nicht dabei, ein fertiges Ergebnis zu lesen.
+
+    Davon unberührt: Wenn beim Lesen der Kapitel eine Stelle unklar geblieben
+    ist, darfst du dir den Begriff natürlich auch von einem KI-Werkzeug erklären
+    lassen. Mehr dazu unter [KI im Kurs](../../ki-nutzung.md).
 
 Im Hauptspeicher eines Rechners steht ab Adresse 0 das folgende kleine Programm:
 
@@ -211,7 +211,7 @@ Die vier verwendeten Befehle bedeuten:
   mit der Adresse `k`
 - `halt` — beendet das Programm
 
-Der Befehlszeiger (BZ) steht am Anfang auf 0. Geh nun den
+Der Befehlszeiger (BZ) steht am Anfang auf 0. In den Befehlsregister (BR) wird der nächste auszuführende Befehl geladen. Geh nun den
 Befehlsausführungszyklus durch und fülle für jeden Durchlauf eine Zeile aus:
 
 | Durchlauf | BZ vor Schritt 1 | Inhalt des BR nach Schritt 1 | BZ nach Schritt 2 | Wirkung von Schritt 3 |
@@ -259,7 +259,7 @@ wird. Warum ist diese Reihenfolge sinnvoll? Denk dabei an die Sprungbefehle.
 ### Frage 1
 
 <quiz>
-Ordne die vier Teilbereiche der Informatik ihrer Beschreibung zu (Abbildung 1.2):
+Ordne die vier Teilbereiche der Informatik ihrer Beschreibung zu (Abbildung 1.2 im Lehrbuch):
 
 | Nr. | Teilbereich |
 |---|---|
@@ -273,8 +273,6 @@ Ordne die vier Teilbereiche der Informatik ihrer Beschreibung zu (Abbildung 1.2)
 - [[1]] Beschäftigt sich mit dem inneren Aufbau von Rechnern und allen technischen Fragen dazu.
 - [[3]] Schlägt die Brücke zwischen den Methoden der Informatik und konkreten Anwendungsproblemen.
 
----
-Trage jeweils nur die Ziffer ein. Tipp: Der Bereich, um den es in dieser Woche geht, ist derselbe, zu dem auch die Rechnerarchitektur gehört.
 </quiz>
 
 ### Frage 2
@@ -284,7 +282,7 @@ Ein Konstrukteur zeichnet einen Schaltplan für eine Förderanlage. Der Plan zei
 
 - [ ] Für einen Fehler, denn ein vollständiges Modell müsste alle Eigenschaften enthalten.
 - [x] Für Abstraktion: Es bleibt nur das übrig, was für den Zweck des Modells wesentlich ist.
-> Genau. Was "wesentlich" ist, entscheidet sich immer am Zweck — für die Elektroplanung sind Farbe und Gewicht ohne Belang, für den Transport der Anlage wäre das Gewicht sehr wohl wichtig.
+> Genau. Was "wesentlich" ist, entscheidet sich immer am Zweck.
 - [ ] Für Informationsverarbeitung, weil Daten in eine andere Form gebracht werden.
 - [ ] Für ein Programm, weil eine Handlungsanweisung beschrieben wird.
 
@@ -312,13 +310,13 @@ Ein von-Neumann-Rechner besteht aus genau drei Komponenten: Prozessor, Speicher 
 <quiz>
 Ein Rechner ist nach dem Busprinzip (Sammelschiene) aufgebaut. Welche Aussagen treffen zu? (Mehrere Antworten können richtig sein.)
 
+- [ ] Eine Bussteuerung wird nicht benötigt.
 - [x] Es werden deutlich weniger Verbindungswege gebraucht als bei Einzelverbindungen.
 - [x] Neue Komponenten lassen sich vergleichsweise einfach ergänzen.
 > Richtig — dafür sorgen die Steckplätze am Bus. Genau deshalb ist das Busprinzip im PC verbreitet.
 - [ ] Beliebig viele Komponentenpaare können gleichzeitig miteinander kommunizieren.
 > Nein, das ist gerade der Nachteil: Alle teilen sich einen Kanal, die Kommunikation muss deshalb nacheinander ablaufen.
 - [x] Die Kommunikation zwischen zwei Einheiten läuft nacheinander statt gleichzeitig ab.
-- [ ] Eine Bussteuerung wird nicht benötigt.
 
 Bei vier Komponenten braucht die Einzelverbindungsarchitektur sechs Verbindungswege, die Busarchitektur genau einen. Der Preis dafür ist die geringere Kommunikationsgeschwindigkeit, weil immer nur ein Paar zur Zeit den Bus nutzen kann.
 </quiz>
@@ -361,14 +359,14 @@ Ordne die vier Register eines Prozessors ihrer Aufgabe zu:
 - [[4]] Nimmt den Wert auf, der aus der adressierten Speicherzelle gelesen wurde.
 - [[2]] Enthält den Befehl, der gerade ausgeführt wird — bestehend aus Operationscode und Operanden.
 
----
-Trage jeweils nur die Ziffer ein. Tipp: Zwei der Register haben mit Befehlen zu tun, zwei mit dem Zugriff auf den Speicher.
 </quiz>
 
 ### Frage 7
 
 <quiz>
-Ergänze die Beschreibung des Befehlsausführungszyklus: Solange kein Halte-Befehl aufgetreten ist, holt der Prozessor zuerst den nächsten Befehl aus dem [[Hauptspeicher]] in das Befehlsregister, erhöht danach den [[Befehlszeiger]] um eins und führt zuletzt den Befehl aus, der im [[Befehlsregister]] steht.
+Ergänze die Beschreibung des Befehlsausführungszyklus: 
+
+Solange kein Halte-Befehl aufgetreten ist, holt der Prozessor zuerst den nächsten Befehl aus dem [[Hauptspeicher]] in das Befehlsregister, erhöht danach den [[Befehlszeiger]] um eins und führt zuletzt den Befehl aus, der im [[Befehlsregister]] steht.
 
 ---
 Alle drei Lücken sind Begriffe aus Abschnitt 19.3. Achte auf die Reihenfolge der drei Schritte — sie ist nicht beliebig.
@@ -381,7 +379,7 @@ Du hast ein Programm in C geschrieben. Welche Aussage trifft zu?
 
 - [ ] Der Prozessor kann den C-Quelltext direkt ausführen.
 - [x] Der C-Quelltext muss erst in Maschinensprache übersetzt werden, bevor der Prozessor ihn ausführen kann.
-> Richtig. Diese Übersetzung übernimmt ein Compiler. C steht im Ebenenmodell aus Abbildung 18.1 ganz oben, die Maschinensprache mehrere Ebenen darunter.
+> Richtig. Diese Übersetzung übernimmt ein Compiler.
 - [ ] Maschinensprache ist bei allen Prozessoren identisch, deshalb läuft übersetzter Code überall.
 > Nein, Maschinensprachen sind prozessorabhängig. Deshalb muss ein Programm für jede Prozessorfamilie neu übersetzt werden.
 - [ ] Die Assemblersprache steht im Ebenenmodell oberhalb von C.

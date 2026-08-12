@@ -16,12 +16,9 @@ Ob dieses Etwas korrekt, effizient und wartbar ist, könnt ihr nur beurteilen,
 wenn ihr das Thema selbst beherrscht. Wer sich das Verstehen abnehmen lässt,
 verliert genau die Fähigkeit, die im Beruf gebraucht wird.
 
-Dazu kommt: Die Modulprüfung ist eine **Klausur**. Dort steht euch keine KI
-zur Verfügung.
-
 ## Wann KI zum Einsatz kommt
 
-**In den ersten Terminen bewusst gar nicht oder nur sehr zurückhaltend.**
+**In den ersten Terminen bewusst nur sehr zurückhaltend.**
 Solange ihr Verzweigungen, Schleifen, Funktionen, Arrays und Pointer noch
 lernt, schreibt ihr den Code selbst. Das ist keine Schikane — es ist die
 Phase, in der sich algorithmisches Denken überhaupt erst aufbaut.
@@ -37,43 +34,29 @@ Programm und sollt es gezielt anpassen oder erweitern — gerne mit
 KI-Unterstützung, aber mit der Pflicht zu dokumentieren, was ihr übernommen,
 was ihr korrigiert und was ihr verworfen habt.
 
-**Die Wiederholung am 23.12. läuft wieder ohne KI** — so wie die Klausur.
+<!-- TODO: Zum Termin "Wiederholung am 23.12. muss hier noch etwas ergänzt werden -->
 
-## Die vier Stufen
+## Wie ihr erkennt, was gilt
 
-Bei jeder Aufgabe steht dabei, welche Stufe gilt.
+Ihr müsst euch keine Regelwerke merken. Bei jeder Aufgabe steht in einem
+Hinweiskasten, ob sie **mit** oder **ohne** KI bearbeitet werden soll.
 
-**Stufe 0 — ohne KI**
+**Ohne KI** heißt: Die Lösung soll aus eurem eigenen Kopf kommen. Warum gerade
+diese Aufgabe davon lebt, steht jeweils kurz dabei — es ist nie eine Regel um
+der Regel willen. Nachschlagen im Buch, im Kursmaterial oder in einer
+Dokumentation bleibt dabei selbstverständlich erlaubt; gemeint ist der Verzicht
+darauf, euch die Lösung erzeugen zu lassen.
 
-: Diese Aufgabe bearbeitet ihr ohne KI-Werkzeuge. Die Aufgabe nennt kurz,
-  warum. Nachschlagen in Dokumentation, Skript oder Lehrbuch ist
-  selbstverständlich erlaubt — gemeint ist nur der Verzicht auf generative
-  Werkzeuge.
+**Mit KI** heißt nicht „macht damit, was ihr wollt". In der Aufgabenstellung
+steht dann konkret, **wofür** ihr die KI einsetzen sollt — sich eine
+Fehlermeldung erklären lassen ist etwas anderes, als ein Programm gemeinsam mit
+der KI zu entwerfen, und beides wieder etwas anderes, als ein fertiges Programm
+gezielt erweitern zu lassen und anschließend zu dokumentieren, was ihr
+übernommen, korrigiert und verworfen habt. Diese Angabe gehört zur Aufgabe
+dazu, sie ist keine Empfehlung.
 
-**Stufe 1 — KI als Nachschlagewerk**
-
-: Ihr dürft KI nutzen, um euch etwas *erklären* zu lassen: einen Begriff,
-  eine Fehlermeldung, den Unterschied zwischen zwei Konstrukten. Ihr nutzt
-  sie **nicht**, um die Lösung erzeugen zu lassen. Die Faustregel: Fragt
-  nach dem Warum, nicht nach dem Code.
-
-**Stufe 2 — KI als Mitarbeiter**
-
-: KI darf beim Erarbeiten der Lösung mitwirken. Ihr bleibt in der
-  steuernden Rolle: Ihr entscheidet, was gebaut wird, ihr prüft jeden
-  Vorschlag, und ihr müsst **jede übernommene Zeile erklären können**.
-  Rechnet damit, dass genau das nachgefragt wird.
-
-**Stufe 3 — KI mit Reflexionspflicht**
-
-: KI-Einsatz ist ausdrücklich erwünscht, gekoppelt an eine kurze
-  schriftliche Reflexion als Teil der Abgabe:
-
-    - Was habt ihr **übernommen** — und warum war es gut genug?
-    - Was habt ihr **korrigiert** — was war falsch oder unpassend?
-    - Was habt ihr **verworfen** — und wie habt ihr es stattdessen gelöst?
-
-    Diese Reflexion ist nicht die Zugabe, sondern der Kern der Aufgabe.
+In beiden Fällen gilt dasselbe: **Ihr müsst jede Zeile erklären können, die ihr
+abgebt.** Rechnet damit, dass genau das nachgefragt wird.
 
 ## Ein paar praktische Hinweise
 
@@ -84,7 +67,7 @@ abbricht", bekommt Verständnis.
 
 **Misstraut plausiblem Code.** KI-generierter C-Code sieht fast immer
 richtig aus. Typische Stolperstellen in diesem Kurs: falsche
-Array-Grenzen, fehlendes `free`, verwechselte Wertübergabe und
+Array-Grenzen, verwechselte Wertübergabe und
 Zeigerübergabe, C++-Konstrukte in vermeintlichem C-Code.
 
 **Wir programmieren prozedural in C.** Keine Klassen, keine Objekte, kein
@@ -93,7 +76,7 @@ kompiliert, aber nicht das ist, was wir hier lernen. Prüft das aktiv.
 
 **Ehrlichkeit zahlt sich aus.** Wenn ihr in einer Aufgabe KI genutzt habt,
 schreibt es dazu. Es gibt dafür keinen Abzug — die Aufgabenstellung sagt
-euch, was erlaubt ist, und daran haltet ihr euch oder nicht.
+euch, was erlaubt ist.
 
 ## Und die Musterlösungen?
 
@@ -103,8 +86,7 @@ nach der jeweiligen Einheit freischalte. Ihr könnt also jederzeit
 nachschauen.
 
 Das ist bewusst so. Es gilt das Prinzip **Eigenverantwortung**: Wer sich die
-Lösung ansieht, bevor er es selbst versucht hat, nimmt sich die Lernchance —
-und merkt es spätestens in der Klausur.
+Lösung ansieht, bevor er es selbst versucht hat, nimmt sich die Lernchance.
 
 Alles, was ihr für den Kurs braucht, findet ihr auf dieser Seite. Ihr müsst
 euch nirgendwo sonst etwas zusammensuchen.

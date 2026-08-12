@@ -65,7 +65,8 @@ extra_css:
 #           - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
 nav:
   - Start: index.md
-  - Praxisphase:
-      - "Woche 1": 01-praxisphase/woche-01/woche-01.md
   - "KI im Kurs": ki-nutzung.md
   - Glossar: glossar.md
+  - Praxisphase:
+      - "Woche 1": 01-praxisphase/woche-01/woche-01.md
+

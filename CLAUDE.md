@@ -238,14 +238,14 @@ Referenzdokument für die Studierenden: `docs/ki-nutzung.md`.
 - **Die Wiederholungsblöcke (23, 24) sind wieder KI-frei** — die Prüfung ist
   es auch.
 
-### Eskalationsstufen
+### Eskalationsstufen — INTERNES Planungsraster
 
 Jede Einheit (Praxisphase-Woche, Block) trägt im Frontmatter das Feld
 `ki_einsatz` mit einer dieser Stufen:
 
-- `stufe_0_ohne` — KI ist für diese Aufgabe nicht vorgesehen. Die Aufgabe
-  benennt kurz, warum. Nachschlagen in Dokumentation oder Lehrbuch bleibt
-  erlaubt; gemeint ist der Verzicht auf generative Werkzeuge.
+- `stufe_0_ohne` — KI ist für diese Aufgabe nicht vorgesehen. Nachschlagen in
+  Dokumentation oder Lehrbuch bleibt erlaubt; gemeint ist der Verzicht darauf,
+  sich die Lösung erzeugen zu lassen.
 - `stufe_1_nachschlagewerk` — KI darf zum Nachschlagen und Erklären genutzt
   werden (Syntax, Fehlermeldungen, Begriffe), nicht zum Erzeugen der Lösung.
 - `stufe_2_pair_programmer` — KI darf beim Erarbeiten der Lösung mitwirken;
@@ -255,6 +255,32 @@ Jede Einheit (Praxisphase-Woche, Block) trägt im Frontmatter das Feld
   gekoppelt an eine verpflichtende schriftliche Reflexion: Was wurde
   übernommen, was korrigiert, was verworfen und warum. Diese Reflexion ist
   Teil der Abgabe, nicht optionaler Anhang.
+
+**Diese vier Stufen sind ausschließlich ein internes Planungsraster.** Sie
+dienen dazu, die Progression über den Kurs hinweg konsistent zu halten, und
+leben in `curriculum-map.yaml` und im Frontmatter. Sie tauchen **nirgends im
+studierenden-facing Text auf** — weder die Stufennamen noch die Nummern noch
+das Wort „Stufe".
+
+### Was die Studierenden stattdessen sehen
+
+Für die Studierenden ist der KI-Einsatz **binär**: Eine Aufgabe wird **mit**
+oder **ohne** KI bearbeitet. Das steht in einem kurzen Hinweisblock direkt bei
+der Aufgabe. Dazu kommt:
+
+- Bei **ohne KI**: eine kurze Begründung, warum genau diese Aufgabe davon lebt,
+  selbst gelöst zu werden. Ein Verbot ohne Begründung wird ignoriert.
+- Bei **mit KI**: die konkrete Angabe, **wofür** die KI eingesetzt werden soll
+  — sich eine Fehlermeldung erklären lassen, gemeinsam einen Entwurf
+  entwickeln, ein fertiges Programm erweitern und die Übernahmen
+  dokumentieren. Diese Angabe ist Teil der Aufgabenstellung, nicht eine
+  allgemeine Erlaubnis.
+
+Die Übersetzung von der internen Stufe in diesen Text passiert beim Schreiben
+der Einheit: `stufe_0_ohne` wird zu „ohne KI", die Stufen 1 bis 3 werden zu
+„mit KI" plus der jeweils passenden konkreten Zweckangabe. Referenzdokument für
+die Studierenden bleibt `docs/ki-nutzung.md`; auch dort steht nur die binäre
+Unterscheidung.
 
 Ziel durchgehend: Studierende bleiben **im Lead**, KI wird gezielt und
 reflektiert eingesetzt, nicht als Ersatz fürs Verstehen.
