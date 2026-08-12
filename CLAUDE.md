@@ -175,6 +175,23 @@ Konventionen dieser Datei einhalten, und anschließend:
 - Glossar prüfen und ergänzen (Pflichtschritt, siehe unten),
 - Nav-Eintrag in `mkdocs.yml` ergänzen — erst jetzt, wo die Datei existiert.
 
+## Git: committen und pushen nur auf Aufforderung
+
+`git commit` **und** `git push` erfolgen ausschließlich, wenn der Professor
+ausdrücklich dazu auffordert. Nicht ungefragt am Ende einer Aufgabe committen,
+auch nicht wenn der Build sauber durchläuft — nicht jede Kleinigkeit gehört in
+die Historie, und ein Push veröffentlicht zusätzlich die Kurswebseite über
+GitHub Pages.
+
+Der übliche Ablauf ist deshalb: Änderungen umsetzen, Build prüfen
+(`mkdocs build --strict`, bei Seiten mit `publish_date` zusätzlich mit
+`MKDOCS_TESTMODE=1`), Ergebnis berichten — und dann **stoppen**. Die Änderungen
+bleiben unversioniert im Arbeitsverzeichnis liegen; Commit und Push werden
+angeboten, nicht ausgeführt.
+
+Eine einmalige Freigabe gilt nur für diesen einen Vorgang, nicht für den Rest
+der Sitzung.
+
 ## Didaktische Leitplanken
 
 - **Erstsemester ohne Vorkenntnisse.** Jeder Fachbegriff wird bei seiner

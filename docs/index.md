@@ -15,12 +15,9 @@ Schwerpunkte füllen dabei den weitaus größten Teil des Moduls:
 Ablauf beschreiben, bevor die erste Zeile Code entsteht, mit
 Programmablaufplänen und Pseudocode. Das ist der Kern des Moduls.
 
-**Programmieren in C** — Variablen, Verzweigungen, Schleifen, Funktionen,
+**Programmieren in C** — Um Algorithmen umzusetzen, brauchen wir eine Programmiersprache. Hierfür nutzen wir C. Im Kurs lernen wir fast alles, was die Programmierung in C ausmacht: Variablen, Verzweigungen, Schleifen, Funktionen,
 Arrays, Zeiger, Strukturen, Dateien, dynamischer Speicher, dazu Verfahren zum
 Sortieren und Suchen. Durchgehend **prozedural**, ohne Objektorientierung.
-
-Wie ein Rechner aufgebaut ist und wie er Zahlen speichert, klären wir vorab
-kurz in der Praxisphase — Grundlage, nicht Schwerpunkt.
 
 Das Ziel ist nicht, Syntax auswendig zu können, sondern eine Problemstellung so
 zerlegen zu können, dass sich eine Lösung dafür programmieren lässt — und diese
