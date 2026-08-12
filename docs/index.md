@@ -6,15 +6,42 @@ Herzlich willkommen! Diese Seite ist eure zentrale Anlaufstelle für das Modul
 Ihr braucht **keinerlei Vorkenntnisse** in Programmierung oder Informatik.
 Alles, was ihr wissen müsst, wird hier von Grund auf aufgebaut.
 
+## Worum es in diesem Modul geht
+
+Am Ende dieses Semesters habt ihr eigene Programme in C geschrieben. Der Weg
+dahin führt über drei Themenstränge, die aufeinander aufbauen:
+
+**Wie ein Rechner funktioniert.** Woraus ein Rechner besteht, wie Prozessor und
+Speicher zusammenspielen — und wie Zahlen und Zeichen dort überhaupt abgelegt
+werden. Dazu gehören das Binär- und das Hexadezimalsystem.
+
+**Wie man einen Ablauf so beschreibt, dass eine Maschine ihn ausführen kann.**
+Was ein Algorithmus ist, wie man ihn mit einem Programmablaufplan oder in
+Pseudocode darstellt — und wie man abschätzt, wie aufwendig ein Verfahren
+eigentlich ist.
+
+**Programmieren in C.** Variablen und Datentypen, Verzweigungen, Schleifen,
+Funktionen, Arrays, Zeiger, Strukturen, Dateien und dynamische
+Speicherverwaltung. Zum Schluss noch ein paar Klassiker, die man kennen
+sollte: Verfahren zum Sortieren und Suchen.
+
+Das Ziel dahinter ist ausdrücklich **nicht**, Syntax auswendig zu können. Ihr
+sollt am Ende eine Problemstellung so zerlegen können, dass sich eine Lösung
+dafür programmieren lässt — und ihr sollt diese Lösung begründen und gegen
+Nachfragen verteidigen können. Das ist die Fähigkeit, die euch bleibt, auch
+wenn ihr später mit ganz anderen Programmiersprachen arbeitet.
+
+Die vollständige und verbindliche Auflistung findet ihr in der
+[Modulbeschreibung](modulbeschreibung.md).
+
 ## Wie der Kurs abläuft
 
 Der Kurs besteht aus zwei Phasen.
 
-**Praxisphase (7 Wochen, vor der Theoriephase).** Ihr seid im Betrieb und
-arbeitet selbstständig. Jede Woche gibt es eine kompakte Einheit, die
+**Praxisphase (7 Wochen, vor der Theoriephase).** In dieser Phase bereitet ihr euch im Selbststudium auf die Lehrveranstaltung vor und erarbeitet die Grundlagen. Wie ihr das macht? Jede Woche gibt es eine kompakte Einheit mit einem Arbeitsauftrag, die
 ungefähr **1 bis 2 Stunden** in Anspruch nimmt — nicht mehr. Am Ende jeder
 Einheit stehen Kontrollfragen und Quizze, mit denen ihr selbst überprüfen
-könnt, ob ihr das Wichtigste mitgenommen habt. Die Wochen erscheinen nach
+könnt, ob ihr das Wichtigste mitgenommen habt. Die neuen Arbeitsaufträge erscheinen nach
 und nach, jeweils montags.
 
 In der Praxisphase geht es um Grundlagen: Wie ist ein Rechner aufgebaut? Wie
