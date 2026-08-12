@@ -837,8 +837,12 @@ sind für die Zielgruppe wirklich neu.
   Quelle übernehmen (Urheberrecht).
 - Eine Erklärung, die selbst wieder drei unerklärte Fachbegriffe enthält, ist
   keine Erklärung.
-- Die Spalte "Verwendet ab" trägt die Einheit ein, in der der Begriff zuerst
-  eingeführt wird (z. B. "Praxisphase Woche 2").
+- Format: Markdown-Definitionsliste mit fett gesetztem Begriff
+  (`**Begriff**` auf eigener Zeile, darunter `: Definition`). Die
+  `def_list`-Extension ist in `mkdocs.yml` aktiv.
+- **Keine Herkunftsangabe** wie "Verwendet ab Woche 2" — bewusst weggelassen,
+  weil sie für die Studierenden keinen Nutzen hat und beim Umsortieren nur
+  Pflegeaufwand erzeugt.
 - Das Glossar bleibt durchgehend alphabetisch nach Begriff sortiert.
 
 ## Musterlösungen
