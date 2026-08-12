@@ -16,7 +16,8 @@ quellen:
   - "Müller, Heinrich; Weichert, Frank: Vorkurs Informatik. Der Einstieg ins Informatikstudium. 6. Auflage, Springer Vieweg, Wiesbaden 2023 — Kapitel 1 (S. 7–11), Kapitel 18 (S. 367–368), Kapitel 19 (S. 369–376)."
 ki_einsatz: stufe_1_nachschlagewerk
 bearbeitungsstatus: fertig
-publish_date: 2026-08-31
+publish_date: 2026-08-11
+hinweis: publish_date von dieser Einheit bewusst vorgezogen, damit die Seite als Beispiel bei der Erstsemesterbegrüßung sichtbar ist. Alle weiteren Einheiten sollen gem. Zeitlan veröffentlicht werden
 ---
 
 # Woche 1: Was ist Informatik? Und wie ist ein Rechner aufgebaut?

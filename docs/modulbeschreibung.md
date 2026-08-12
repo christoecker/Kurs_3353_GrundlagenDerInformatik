@@ -4,12 +4,7 @@ Was auf dieser Seite steht, ist der offizielle Eintrag aus dem Modulhandbuch —
 also das, was für dieses Modul verbindlich festgelegt ist. Diese Seite ist kein
 Lernmaterial, sondern zum Nachschlagen gedacht.
 
-Warum sich ein Blick trotzdem lohnt: Unter „Inhalte" steht, was in diesem Modul
-behandelt wird und damit auch, was Gegenstand der Klausur sein kann.
-
-## Rahmendaten
-
-| | |
+| Rahmendaten | |
 |---|---|
 | Modul | Grundlagen der Informatik (GdI) |
 | Kennnummer | 3353 |
@@ -25,10 +20,6 @@ Die 150 Stunden Workload sind die Gesamtzeit, die für dieses Modul veranschlagt
 ist — Präsenztermine, Vor- und Nachbereitung, Praxisphase und
 Prüfungsvorbereitung zusammengenommen. Ein Credit Point entspricht ungefähr
 30 Stunden Arbeit.
-
-Das Modul wird nicht nur in Mechatronik/Automatisierung eingesetzt, sondern
-ebenso in den praxisintegrierten Studiengängen Digitale Technologien (B.Sc.)
-und Software Engineering (B.Sc.).
 
 ## Was ihr danach können sollt
 
@@ -82,10 +73,6 @@ Nach erfolgreichem Abschluss des Moduls könnt ihr
 Das Modulhandbuch lässt **Klausur oder Projektarbeit** zu. Für diesen Durchlauf
 ist die **Klausur** gewählt. Voraussetzung für die Vergabe der Credit Points ist
 die bestandene Modulprüfung.
-
-Weil mit einer Klausur geprüft wird, enthält jede Einheit auch Aufgaben, die
-sich **ohne Rechner** lösen lassen — Code lesen, Ausgaben vorhersagen, Fehler
-finden. Genau das braucht ihr in der Prüfung.
 
 ## Wie das in diesem Kurs umgesetzt wird
 
