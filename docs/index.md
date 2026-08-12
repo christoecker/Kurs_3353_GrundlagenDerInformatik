@@ -8,38 +8,23 @@ Alles, was ihr wissen müsst, wird hier von Grund auf aufgebaut.
 
 ## Worum es in diesem Modul geht
 
-Am Ende dieses Semesters habt ihr eigene Programme in C geschrieben. Dafür
-stehen zwei Dinge im Mittelpunkt — und die füllen auch den weitaus größten
-Teil des Moduls:
+Am Ende dieses Semesters habt ihr eigene Programme in C geschrieben. Zwei
+Schwerpunkte füllen dabei den weitaus größten Teil des Moduls:
 
-**Algorithmisches Denken.** Der schwierigere Teil beim Programmieren passiert,
-bevor die erste Zeile Code entsteht: ein Problem in Teilschritte zerlegen, die
-Reihenfolge festlegen, Sonderfälle erkennen. Ihr lernt, solche Abläufe zunächst
-unabhängig von jeder Programmiersprache zu beschreiben — mit
-Programmablaufplänen und in Pseudocode — und abzuschätzen, wie aufwendig ein
-Verfahren ist. Dieses Denken ist der Kern des Moduls; alles andere ist
-Handwerkszeug dafür.
+**Algorithmisches Denken** — ein Problem in Teilschritte zerlegen und den
+Ablauf beschreiben, bevor die erste Zeile Code entsteht, mit
+Programmablaufplänen und Pseudocode. Das ist der Kern des Moduls.
 
-**Programmieren in C.** Der zweite Schwerpunkt ist die Umsetzung: Variablen und
-Datentypen, Verzweigungen, Schleifen, Funktionen, Arrays, Zeiger, Strukturen,
-Dateien und dynamische Speicherverwaltung. Wir arbeiten dabei durchgehend
-**prozedural**, also mit Funktionen und ohne Objektorientierung. Dazu kommen
-einige klassische Verfahren zum Sortieren und Suchen — an ihnen lässt sich
-besonders gut sehen, wie aus einem Algorithmus lauffähiger Code wird.
+**Programmieren in C** — Variablen, Verzweigungen, Schleifen, Funktionen,
+Arrays, Zeiger, Strukturen, Dateien, dynamischer Speicher, dazu Verfahren zum
+Sortieren und Suchen. Durchgehend **prozedural**, ohne Objektorientierung.
 
-Damit ihr einordnen könnt, was beim Ausführen eines Programms eigentlich
-passiert, schauen wir vorab noch kurz unter die Haube: wie ein Rechner grob
-aufgebaut ist und wie Zahlen und Zeichen dort abgelegt werden — Stichwort
-Binär- und Hexadezimalsystem. Dieser Teil bleibt bewusst knapp. Er ist
-Grundlage, nicht Schwerpunkt, und im Wesentlichen in der Praxisphase erledigt.
+Wie ein Rechner aufgebaut ist und wie er Zahlen speichert, klären wir vorab
+kurz in der Praxisphase — Grundlage, nicht Schwerpunkt.
 
-Das Ziel dahinter ist ausdrücklich **nicht**, Syntax auswendig zu können. Ihr
-sollt am Ende eine Problemstellung so zerlegen können, dass sich eine Lösung
-dafür programmieren lässt — und ihr sollt diese Lösung begründen und gegen
-Nachfragen verteidigen können. Das ist die Fähigkeit, die euch bleibt, auch
-wenn ihr später mit ganz anderen Programmiersprachen arbeitet.
-
-Die vollständige und verbindliche Auflistung findet ihr in der
+Das Ziel ist nicht, Syntax auswendig zu können, sondern eine Problemstellung so
+zerlegen zu können, dass sich eine Lösung dafür programmieren lässt — und diese
+Lösung zu begründen. Die vollständige Inhaltsliste steht in der
 [Modulbeschreibung](modulbeschreibung.md).
 
 ## Wie der Kurs abläuft
