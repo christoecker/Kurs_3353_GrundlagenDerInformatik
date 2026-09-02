@@ -34,11 +34,22 @@ wird — vergleichbar mit der Nummer eines Schließfachs.
 : Eine eindeutige Handlungsvorschrift, die aus Eingabewerten in endlich vielen
 Schritten ein Ergebnis erzeugt. Ausführlich in Woche 3.  
 
+**ASCII-Code**
+: Eine weit verbreitete Zeichencodierung, die jedem Zeichen (Buchstabe, Ziffer,
+Satzzeichen) eine Zahl zwischen 0 und 127 zuordnet. Diese Zahl wird dann wie
+jede andere Zahl binär im Rechner gespeichert.  
+
 **Assemblersprache**
 : Eine Programmiersprache, die den Befehlen eines bestimmten Prozessors sehr nahe
 kommt, statt der Bitmuster aber lesbare Namen verwendet. Sie liegt im
 Ebenenmodell zwischen der Maschinensprache und Sprachen wie C.
  
+
+**Basis**
+: Die Grundzahl eines Stellenwertsystems. Sie gibt an, wie viele
+verschiedene Ziffern zur Verfügung stehen und wie stark der Wert einer Ziffer
+von Stelle zu Stelle wächst. Das Dezimalsystem hat die Basis 10, das
+Dualsystem die Basis 2.  
 
 **Befehlsausführungszyklus**
 : Die drei Schritte, die ein Prozessor immer wieder durchläuft, bis ein
@@ -58,20 +69,46 @@ kann. Jede Prozessorfamilie hat ihren eigenen.
 wird. Nach jedem geholten Befehl wird es um eins erhöht — außer ein Sprungbefehl
 schreibt eine andere Adresse hinein.  
 
+**Bit**
+: Die kleinste Informationseinheit, die ein Rechner kennt: eine einzelne
+Dualstelle mit dem Wert 0 oder 1.  
+
 **Bus**
 : Ein gemeinsamer Verbindungsweg, an den alle Komponenten eines Rechners
 angeschlossen sind. Spart Verkabelung und macht Erweiterungen einfach, dafür kann
 immer nur ein Paar zur Zeit darüber kommunizieren.  
 
+**Byte**
+: Eine Gruppe von 8 Bit. Ein Byte kann `2⁸ = 256` verschiedene Werte
+annehmen (0 bis 255) und ist die gebräuchlichste Einheit, um die Größe von
+Speicher anzugeben.  
+
 **Compiler**
 : Ein Programm, das Quelltext einer Programmiersprache wie C in Maschinensprache
 übersetzt, damit der Prozessor ihn ausführen kann.  
+
+**Dualsystem**
+: Ein Stellenwertsystem mit der Basis 2 und dem Ziffernvorrat 0 und 1. Auch
+Binärsystem genannt. Alle Daten in einem Rechner liegen letztlich in dieser
+Form vor.  
 
 **Hauptspeicher**
 : Der Speicher, in dem ein laufendes Programm samt seinen Daten liegt. Er besteht
 aus vielen gleich aufgebauten Speicherzellen, ist schnell, verliert seinen Inhalt
 aber beim Ausschalten. Auch Arbeitsspeicher oder RAM genannt.
  
+
+**Hexadezimalsystem**
+: Ein Stellenwertsystem mit der Basis 16. Der Ziffernvorrat besteht aus den
+zehn Ziffern 0 bis 9 sowie den Buchstaben A bis F für die Werte 10 bis 15.
+Wird in der Informatik oft verwendet, weil sich damit lange Dualzahlen sehr
+viel kompakter aufschreiben lassen (vier Binärstellen entsprechen genau
+einer Hexadezimalziffer).  
+
+**Horner-Schema**
+: Auch Restwertmethode genannt: ein Verfahren, um eine Dezimalzahl in ein
+anderes Stellenwertsystem umzuwandeln. Man teilt die Zahl fortgesetzt durch
+die Zielbasis und liest die dabei entstehenden Reste von unten nach oben.  
 
 **Informatik**
 : Die Wissenschaft von der systematischen — vor allem der automatischen —
@@ -96,6 +133,15 @@ aus einem Operationscode und den Operanden.
 : Die Sprache, die ein Prozessor unmittelbar versteht. Ihre "Wörter" sind die
 Befehle aus seinem Befehlssatz. Sie ist von Prozessor zu Prozessor
 unterschiedlich.  
+
+**MSB**
+: Abkürzung für *Most Significant Bit*, zu Deutsch das höchstwertige Bit
+einer Dualzahl. Bei der Zweierkomplement-Darstellung zeigt es das Vorzeichen
+an: 0 für positiv (oder null), 1 für negativ.  
+
+**Oktalsystem**
+: Ein Stellenwertsystem mit der Basis 8 und dem Ziffernvorrat 0 bis 7. Drei
+Binärstellen entsprechen genau einer Oktalziffer.  
 
 **Operand**
 : Der Teil eines Maschinenbefehls, der angibt, womit gearbeitet werden soll —
@@ -158,3 +204,19 @@ den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
 und Ein-/Ausgabe, verbunden über Kommunikationswege. Entscheidend ist, dass
 Programm **und** Daten gemeinsam im Speicher liegen — nur deshalb kann der
 Rechner ein Programm selbstständig abarbeiten.  
+
+**Wortbreite**
+: Die Anzahl der Bit, die ein Prozessor in einem Rechenschritt auf einmal
+verarbeitet — bei den meisten heutigen PCs 32 oder 64 Bit, bei kleinen
+Mikrocontrollern oft weniger.  
+
+**Ziffernvorrat**
+: Die Menge der Symbole, die in einem Stellenwertsystem als Ziffern verwendet
+werden dürfen. Im Dezimalsystem sind das die zehn Ziffern 0 bis 9, im
+Dualsystem nur 0 und 1.  
+
+**Zweierkomplement**
+: Die Art, wie negative ganze Zahlen im Rechner dargestellt werden. Man
+bildet sie, indem man die Bits der positiven Zahl invertiert und
+anschließend 1 addiert. Der Vorteil: Eine Subtraktion lässt sich damit als
+gewöhnliche Addition durchführen.  
