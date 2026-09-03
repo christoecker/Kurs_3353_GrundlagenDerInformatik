@@ -122,3 +122,5 @@ kennen.
     wie ISO 8859-1 oder das heute übliche Unicode ergänzen solche Zeichen,
     indem sie mehr Bits pro Zeichen verwenden. Das ist für dieses Modul aber
     nicht weiter wichtig.
+
+:material-arrow-left: Zurück zu [Woche 2](woche-02.md).

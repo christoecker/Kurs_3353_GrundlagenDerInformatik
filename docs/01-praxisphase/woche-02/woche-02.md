@@ -125,7 +125,7 @@ muss und die gewohnten zehn Ziffern dafür nicht reichen.
   Prozessoren. Ein Mikrocontroller in einem Sensor kommt dagegen oft mit
   8 oder 16 Bit Wortbreite aus.
 
-Wie Zeichen wie Buchstaben im Rechner dargestellt werden, liest du auf einer
+Wie Zeichen, z.B. Buchstaben, im Rechner dargestellt werden, liest du auf einer
 eigenen Seite nach: [ASCII-Code](ascii-code.md). Wirf jetzt schon einen Blick
 hinein, den Rest der Seite brauchst du erst bei der Selbstkontrolle wieder.
 
@@ -209,9 +209,9 @@ Genau wie im Dezimalsystem wird ein Übertrag in die nächste Stelle
 weitergereicht.
 
 !!! example "Beispiel"
-    `1011₂ + 0110₂ = 10001₂`
+    `1011₂ + 0110₂ = 1 0001₂`
 
-    Probe im Dezimalsystem: `11 + 6 = 17`, und `10001₂ = 16+1 = 17`. ✓
+    Probe im Dezimalsystem: `11 + 6 = 17`, und `1 0001₂ = 16+1 = 17`. ✓
 
 **Schritt 6:** Lies im selben Abschnitt den Teil **„Zweierkomplement und
 Subtraktion" (S. 25–27)**, bis einschließlich Beispiel 1.14 a).

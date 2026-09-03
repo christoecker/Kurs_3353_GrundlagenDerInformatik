@@ -692,6 +692,16 @@ Template: `docs/01-praxisphase/_template/woche.template.md`.
   siehe unten).
 - Musterlösungen inline als `??? note "Musterlösung anzeigen"`, immer mit
   kurzer Begründung, nicht nur dem Ergebnis.
+- **Kein Mermaid-Diagramm innerhalb eines solchen `??? note`-Blocks** — auch
+  hier gilt die Regel aus "Programmablaufpläne (PAP)": Ein im DOM
+  vorhandenes, aber zugeklapptes Diagramm lässt die Diagrammerkennung beim
+  Laden fehlschlagen, und zwar für ALLE Diagramme der Seite (am gebauten
+  Ergebnis geprüft, siehe Woche 3). Enthält eine Musterlösung einen PAP,
+  wird dieser stattdessen als kurzer Fließtext beschrieben (Symbol- bzw.
+  Schrittfolge in Worten), während der übrige Lösungstext (z. B. Pseudocode)
+  normal im `??? note`-Block bleibt. `???+` (offen) ist für die Praxisphase
+  **keine** Lösung, da Musterlösungen hier bewusst bis zum Aufklappen
+  verborgen bleiben sollen (Eigenverantwortung).
 
 ### Selbstkontrollfragen: Format situativ wählen
 
@@ -803,26 +813,37 @@ Prüfungsinstrument.**
 
 ## Programmablaufpläne (PAP)
 
-**TODO — die Konvention wird beim ersten PAP-haltigen Termin festgelegt.**
+PAPs werden als Mermaid-`flowchart` erstellt (nicht als Bild, nicht als
+ASCII-Grafik), mit **nativen Flowchart-Shapes** statt der HTML-Label-Technik,
+die im Datenbanken-Kurs für ER-Diagramme nötig war.
 
-Feststehend ist bisher nur: PAPs werden als Mermaid-`flowchart` erstellt
-(nicht als Bild, nicht als ASCII-Grafik), mit **nativen Flowchart-Shapes**
-statt der HTML-Label-Technik, die im Datenbanken-Kurs für ER-Diagramme nötig
-war.
+**Bei der Erstellung von Praxisphase Woche 3 festgelegt** (Elemente für
+lineare Abläufe: Start/Ende, Verarbeitung, Ein-/Ausgabe):
 
-Beim ersten PAP-haltigen Termin gemeinsam festzulegen und danach hier als
-verbindliche Referenz zu dokumentieren:
+- Richtung: `TD` (top-down) — passt zum linearen, von oben nach unten
+  gelesenen Ablauf.
+- Init-Zeile: `%%{init: {'flowchart': {'htmlLabels': false}}}%%` — keine
+  Schriftgrößen-Anpassung, Standardgröße reicht.
+- Shape-Zuordnung:
+  - Start/Ende → Stadium-Form: `A(["Start"])`
+  - Verarbeitung → Rechteck: `B["Wasser aufkochen"]`
+  - Ein-/Ausgabe → Parallelogramm: `C[/"Eingabe: Menge in ml"/]` — dieselbe
+    Form für Eingabe **und** Ausgabe, unterschieden nur durch den
+    Textpräfix "Eingabe:"/"Ausgabe:" (keine gespiegelte Variante).
+- Keine eigenen `style`-Anweisungen — das Standard-Theme ist hell-/
+  dunkelmodus-tauglich ohne Zusatzaufwand.
 
-- Schriftgröße / `%%{init: ...}%%`-Zeile
-- Shape-Zuordnung: Start/Ende, Verarbeitung, Verzweigung, Ein-/Ausgabe,
-  Unterprogramm, Konnektor
+**Noch offen, bei der Planung von Woche 4 festzulegen** (Verzweigung,
+Woche 5: Schleife):
+
+- Shape für Verzweigung (Raute), Unterprogramm, Konnektor
 - Beschriftung der Kanten bei Verzweigungen (`ja`/`nein` vs. `wahr`/`falsch`)
-- Richtung (`TD` vs. `LR`) und Umgang mit Rücksprüngen bei Schleifen
+- Umgang mit Rücksprüngen bei Schleifen
 - Einrückung innerhalb von Admonition-Blöcken
 
-Bis dahin: **keine PAP-Konvention erfinden**, sondern nachfragen. Die
-Entscheidung hängt mit der Wahl der PAP-Symbolik in der Praxisphase zusammen
-(siehe `03-quellen/algorithmen-pap.md`) und wird gemeinsam getroffen.
+Bis dahin: **keine PAP-Konvention für diese offenen Punkte erfinden**,
+sondern nachfragen. Die Entscheidung wird gemeinsam getroffen, siehe
+`03-quellen/algorithmen-pap.md`.
 
 **Grundregeln, die unabhängig davon schon gelten:**
 
@@ -838,6 +859,21 @@ Entscheidung hängt mit der Wahl der PAP-Symbolik in der Praxisphase zusammen
   `#` innerhalb eines Knoten-Labels wird von Mermaid als Beginn einer
   HTML-Entity interpretiert und zerstört dabei lautlos das gesamte
   `style`-Attribut.
+
+## Pseudocode-Konvention
+
+Pseudocode verwendet durchgehend **englische Schlüsselwörter in
+Großbuchstaben** (nicht Deutsch) — sie sollen später an die Schlüsselwörter
+der C-Programme erinnern. Nummerierte Schritte, ein Schlüsselwort pro
+relevanter Anweisungsart:
+
+- `INPUT` — Eingabe (ab Woche 3)
+- `OUTPUT` — Ausgabe (ab Woche 3)
+- `IF` / `ELSE` — Verzweigung (ab Woche 4)
+- `REPEAT` — Wiederholung (ab Woche 5)
+
+Alle übrigen Schritte werden als normaler, kurzer Verarbeitungssatz notiert,
+ohne eigenes Schlüsselwort.
 
 ## Glossar pflegen
 

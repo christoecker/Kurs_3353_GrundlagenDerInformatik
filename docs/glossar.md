@@ -31,8 +31,9 @@ die Statik eines Hauses ist die Wandfarbe unwichtig, für den Malerbetrieb nicht
 wird — vergleichbar mit der Nummer eines Schließfachs.  
 
 **Algorithmus**
-: Eine eindeutige Handlungsvorschrift, die aus Eingabewerten in endlich vielen
-Schritten ein Ergebnis erzeugt. Ausführlich in Woche 3.  
+: Eine eindeutige Handlungsvorschrift, die aus gegebenen Ausgangswerten in
+endlich vielen Schritten ein Ergebnis erzeugt. Ein Algorithmus muss dabei drei
+Eigenschaften erfüllen: Eindeutigkeit, Endlichkeit und Determiniertheit.  
 
 **ASCII-Code**
 : Eine weit verbreitete Zeichencodierung, die jedem Zeichen (Buchstabe, Ziffer,
@@ -87,10 +88,23 @@ Speicher anzugeben.
 : Ein Programm, das Quelltext einer Programmiersprache wie C in Maschinensprache
 übersetzt, damit der Prozessor ihn ausführen kann.  
 
+**Determiniertheit**
+: Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
+Algorithmus immer dasselbe Ergebnis.  
+
 **Dualsystem**
 : Ein Stellenwertsystem mit der Basis 2 und dem Ziffernvorrat 0 und 1. Auch
 Binärsystem genannt. Alle Daten in einem Rechner liegen letztlich in dieser
 Form vor.  
+
+**Eindeutigkeit**
+: Eine Eigenschaft von Algorithmen: Jeder Schritt ist so klar formuliert, dass
+es keinen Interpretationsspielraum gibt.  
+
+**Endlichkeit**
+: Eine Eigenschaft von Algorithmen: Die Beschreibung besteht aus endlich
+vielen Schritten, und ihre Ausführung kommt nach endlich vielen Schritten
+tatsächlich zu einem Ende.  
 
 **Hauptspeicher**
 : Der Speicher, in dem ein laufendes Programm samt seinen Daten liegt. Er besteht
@@ -157,10 +171,21 @@ Beispiel addieren, holen oder speichern.
 angeschlossen ist: Tastatur und Maus, Festplatten, Netzwerkkarten.
  
 
+**Programmablaufplan (PAP)**
+: Eine grafische Beschreibung eines Algorithmus als Folge von Symbolen, die
+durch Pfeile verbunden sind — zum Beispiel Ovale für Start und Ende, Rechtecke
+für Verarbeitungsschritte und Parallelogramme für Ein- und Ausgabe.  
+
 **Prozessor**
 : Die Komponente eines Rechners, die ein Programm ausführt und dabei Daten
 verarbeitet. Er besteht im Wesentlichen aus Leitwerk, Rechenwerk und Registern.
  
+
+**Pseudocode**
+: Eine textuelle Beschreibung eines Algorithmus als nummerierte Schritte mit
+festen Schlüsselwörtern, zum Beispiel `INPUT` für eine Eingabe. Näher an einer
+Programmiersprache als reiner Fließtext, aber noch nicht an eine bestimmte
+Sprache gebunden.  
 
 **RAM**
 : Abkürzung für *Random Access Memory*, zu Deutsch Speicher mit wahlfreiem
