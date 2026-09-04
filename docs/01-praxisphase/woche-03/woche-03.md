@@ -55,7 +55,7 @@ und Wiederholungen dazu.
 - Du kannst einen einfachen Alltagsablauf selbstständig in einen linearen
   Algorithmus überführen.
 
-## Erarbeitung
+## Erarbeitung { .abschnitt-erarbeitung }
 
 **Schritt 1:** Lies **Abschnitt 2.2 „Algorithmen" (S. 16–18)**.
 
@@ -101,6 +101,8 @@ erfüllen:
     beim Würfeln). In diesem Kurs beschränken wir uns durchgehend auf
     deterministische Algorithmen.
 
+---
+
 **Schritt 2:** Lerne den **Programmablaufplan (PAP)** kennen.
 
 Ein PAP beschreibt einen Algorithmus grafisch, als eine Folge von Symbolen,
@@ -140,6 +142,8 @@ Jeder Schritt ist eindeutig formuliert, es sind endlich viele, und bei
 denselben Zutaten kommt immer derselbe Kaffee heraus — die drei Eigenschaften
 aus Schritt 1 sind erfüllt.
 
+---
+
 **Schritt 3:** Lerne den **Pseudocode** kennen.
 
 Ein PAP ist anschaulich, aber bei längeren Abläufen wird das Zeichnen schnell
@@ -155,19 +159,19 @@ C-Programme erinnern. Diese Woche brauchst du erst zwei davon:
 Alles andere schreibst du als normalen, kurzen Verarbeitungssatz. Der
 Kaffee-Algorithmus als Pseudocode:
 
-```
-1. INPUT: Kaffeepulver und Wasser
-2. Wasser in der Kanne erhitzen
-3. Kaffeepulver in den Filter füllen
-4. Heißes Wasser über das Kaffeepulver gießen
-5. Kaffee durch den Filter laufen lassen
-6. OUTPUT: fertiger Kaffee in der Kanne
+```text linenums="1"
+INPUT: Kaffeepulver und Wasser
+Wasser in der Kanne erhitzen
+Kaffeepulver in den Filter füllen
+Heißes Wasser über das Kaffeepulver gießen
+Kaffee durch den Filter laufen lassen
+OUTPUT: fertiger Kaffee in der Kanne
 ```
 
 PAP und Pseudocode beschreiben also exakt denselben Algorithmus — nur einmal
-grafisch und einmal als Text. Zwei weitere Schlüsselwörter, `IF`/`ELSE` für
-Verzweigungen und `REPEAT` für Wiederholungen, kommen in Woche 4 und 5 dazu,
-wenn Algorithmen nicht mehr rein linear ablaufen.
+grafisch und einmal als Text. Weitere Schlüsselwörter — `IF`/`THEN`/`ELSE`
+für Verzweigungen sowie `WHILE`/`DO`/`FOR` für Wiederholungen — kommen in
+Woche 4 dazu, wenn Algorithmen nicht mehr rein linear ablaufen.
 
 !!! tip "Warum eigentlich zwei Notationen?"
     Der PAP zeigt den Ablauf auf einen Blick, ist bei größeren Algorithmen
@@ -184,7 +188,7 @@ wenn Algorithmen nicht mehr rein linear ablaufen.
     problemlos, weil ihr oder ihm auch echte Programmiersprachen vertraut
     sind.
 
-## Zum Ausprobieren
+## Zum Ausprobieren { .abschnitt-ausprobieren }
 
 Beschreibe den Ablauf **Zähneputzen** als eigenen linearen Algorithmus —
 einmal als PAP und einmal als Pseudocode. Verwende dabei mindestens eine
@@ -220,13 +224,13 @@ formuliert ist.
 
     Als Pseudocode:
 
-    ```
-    1. INPUT: Zahnbürste und Zahnpasta
-    2. Zahnpasta auf die Bürste geben
-    3. Zähne zwei Minuten lang putzen
-    4. Mund mit Wasser ausspülen
-    5. Zahnbürste abspülen
-    6. OUTPUT: geputzte Zähne
+    ```text linenums="1"
+    INPUT: Zahnbürste und Zahnpasta
+    Zahnpasta auf die Bürste geben
+    Zähne zwei Minuten lang putzen
+    Mund mit Wasser ausspülen
+    Zahnbürste abspülen
+    OUTPUT: geputzte Zähne
     ```
 
     Achte besonders auf Schritt 3: „Zähne putzen" allein wäre nicht eindeutig
@@ -234,7 +238,7 @@ formuliert ist.
     Genau solche unscheinbaren Lücken sind es, die eine Alltagsbeschreibung
     von einem Algorithmus unterscheiden.
 
-## Selbstkontrolle
+## Selbstkontrolle { .abschnitt-selbstkontrolle }
 
 ### Frage 1
 
@@ -297,10 +301,10 @@ Beide Schlüsselwörter schreibst du in Großbuchstaben.
 Ein Mitstudierender hat für den Ablauf „Wasser kochen" folgenden Pseudocode
 geschrieben:
 
-```
-1. Wasser in den Wasserkocher füllen
-2. Wasserkocher einschalten
-3. Wasser kochen
+```text linenums="1"
+Wasser in den Wasserkocher füllen
+Wasserkocher einschalten
+Wasser kochen
 ```
 
 Findest du eine Stelle, an der eine Eigenschaft aus Schritt 1 verletzt ist?
@@ -312,10 +316,10 @@ Wie würdest du den Pseudocode korrigieren?
     sprudelt, oder sobald der Wasserkocher automatisch abschaltet). Außerdem
     fehlt eine Eingabe- und eine Ausgabeanweisung. Eine mögliche Korrektur:
 
-    ```
-    1. INPUT: Wasser
-    2. Wasser in den Wasserkocher füllen
-    3. Wasserkocher einschalten
-    4. Warten, bis der Wasserkocher automatisch abschaltet
-    5. OUTPUT: gekochtes Wasser
+    ```text linenums="1"
+    INPUT: Wasser
+    Wasser in den Wasserkocher füllen
+    Wasserkocher einschalten
+    Warten, bis der Wasserkocher automatisch abschaltet
+    OUTPUT: gekochtes Wasser
     ```

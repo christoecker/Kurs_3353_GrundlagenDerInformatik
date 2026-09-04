@@ -334,11 +334,11 @@ Die Live-Coding-Stände stehen auf der Seite in einem **zugeklappten**
 enthalten (kein Hook, kein Frontmatter-Flag) — das Zuklappen verhindert
 lediglich, dass man das Ergebnis beim Überfliegen versehentlich mitliest.
 
-**Wichtige Nebenbedingung:** In einem zugeklappten `???`-Block darf **kein
-Mermaid-Diagramm** stehen — ein im DOM vorhandenes, aber verstecktes Diagramm
-lässt die Diagrammerkennung beim Laden fehlschlagen, und zwar für ALLE
-Diagramme der Seite. Live-Coding-Blöcke enthalten deshalb ausschließlich
-Code-Fences; PAPs stehen immer außerhalb.
+Live-Coding-Blöcke enthalten ausschließlich Code-Fences; PAPs stehen immer
+außerhalb. Das ist eine inhaltliche Trennung (Live-Coding zeigt Code, keine
+Diagramme), kein technisches Muss — Mermaid-Diagramme in zugeklappten
+`???`-Blöcken sind grundsätzlich erlaubt (an Praxisphase Woche 3 und 4
+geprüft, rendert korrekt).
 
 ### Dateibenennung und Einbindung
 
@@ -560,12 +560,11 @@ aus `datum`), OHNE Trennlinie danach.
 - Bei mehreren Teilaufgaben Gliederung in `#### Teil A — ...` /
   `#### Teil B — ...` mit `---` dazwischen.
 - Musterlösungen in `???+ note "Musterlösung Teil A anzeigen"` innerhalb von
-  `<!-- MUSTERLOESUNG-START/ENDE -->`. Bewusst `???+` (offen, aber
-  zuklappbar): Ein per CSS verstecktes, aber im DOM vorhandenes
-  Mermaid-Diagramm in einem geschlossenen `???`-Block lässt die
-  Diagrammerkennung für ALLE Diagramme der Seite fehlschlagen (am gebauten
-  Ergebnis getestet). `???+` bleibt zuklappbar, startet aber offen und
-  vermeidet das Problem.
+  `<!-- MUSTERLOESUNG-START/ENDE -->`. `???+` bleibt zuklappbar, startet aber
+  offen. Mermaid-Diagramme funktionieren mittlerweile nachweislich auch in
+  geschlossenen `???`-Blöcken (an Praxisphase Woche 3 und 4 geprüft) — falls
+  bei einem konkreten Theoriephase-Block ein geschlossener Start bevorzugt
+  wird, kann das entsprechend geprüft und umgestellt werden.
 - Musterlösungen enthalten immer auch eine kurze Begründung/Erklärung, nicht
   nur den Code.
 
@@ -692,16 +691,10 @@ Template: `docs/01-praxisphase/_template/woche.template.md`.
   siehe unten).
 - Musterlösungen inline als `??? note "Musterlösung anzeigen"`, immer mit
   kurzer Begründung, nicht nur dem Ergebnis.
-- **Kein Mermaid-Diagramm innerhalb eines solchen `??? note`-Blocks** — auch
-  hier gilt die Regel aus "Programmablaufpläne (PAP)": Ein im DOM
-  vorhandenes, aber zugeklapptes Diagramm lässt die Diagrammerkennung beim
-  Laden fehlschlagen, und zwar für ALLE Diagramme der Seite (am gebauten
-  Ergebnis geprüft, siehe Woche 3). Enthält eine Musterlösung einen PAP,
-  wird dieser stattdessen als kurzer Fließtext beschrieben (Symbol- bzw.
-  Schrittfolge in Worten), während der übrige Lösungstext (z. B. Pseudocode)
-  normal im `??? note`-Block bleibt. `???+` (offen) ist für die Praxisphase
-  **keine** Lösung, da Musterlösungen hier bewusst bis zum Aufklappen
-  verborgen bleiben sollen (Eigenverantwortung).
+- Mermaid-Diagramme innerhalb eines solchen `??? note`-Blocks sind erlaubt
+  (an Praxisphase Woche 3 und 4 geprüft: rendert korrekt). Nach dem Bauen
+  trotzdem kurz kontrollieren, ob das Diagramm tatsächlich erscheint — bei
+  Auffälligkeiten Bescheid geben, dann wird die Stelle angepasst.
 
 ### Selbstkontrollfragen: Format situativ wählen
 
@@ -833,17 +826,31 @@ lineare Abläufe: Start/Ende, Verarbeitung, Ein-/Ausgabe):
 - Keine eigenen `style`-Anweisungen — das Standard-Theme ist hell-/
   dunkelmodus-tauglich ohne Zusatzaufwand.
 
-**Noch offen, bei der Planung von Woche 4 festzulegen** (Verzweigung,
-Woche 5: Schleife):
+**Bei der Erstellung von Praxisphase Woche 4 festgelegt** (Verzweigung und
+Wiederholung):
 
-- Shape für Verzweigung (Raute), Unterprogramm, Konnektor
-- Beschriftung der Kanten bei Verzweigungen (`ja`/`nein` vs. `wahr`/`falsch`)
-- Umgang mit Rücksprüngen bei Schleifen
-- Einrückung innerhalb von Admonition-Blöcken
+- Verzweigung → natives Raute-Shape: `D{"Zahl gerade?"}`.
+- Kantenbeschriftung: `-->|ja|` / `-->|nein|` (nicht `wahr`/`falsch`).
+- Zweiseitige Auswahl (`IF`/`ELSE`): beide Zweige führen zu eigenen
+  Schritten und laufen danach wieder im selben Folgeknoten zusammen.
+  Einseitige Auswahl (`IF` ohne `ELSE`): nur der ja-Zweig hat einen
+  zusätzlichen Schritt, der nein-Zweig läuft direkt zum Folgeknoten.
+- **Wiederholung — bewusste Abweichung von DIN 66001:** kein eigenes
+  Schleifensymbol. Stattdessen dieselbe Raute wie bei der Verzweigung; der
+  ja-Zweig ist ein Rücksprung-Pfeil zurück zum Anfang der
+  Schleifenanweisungen, der nein-Zweig verlässt die Schleife. Kopfgesteuert:
+  Raute vor den Schleifenanweisungen. Fußgesteuert: Raute danach.
+- Rücksprünge sind normale Pfeile auf eine bereits deklarierte Knoten-ID —
+  keine eigene Konnektor-Form, solange die Diagramme überschaubar bleiben.
 
-Bis dahin: **keine PAP-Konvention für diese offenen Punkte erfinden**,
-sondern nachfragen. Die Entscheidung wird gemeinsam getroffen, siehe
-`03-quellen/algorithmen-pap.md`.
+Details und Beispiele: `docs/pap-elemente.md` (studierenden-facing
+Referenzseite) und `03-quellen/algorithmen-pap.md` (Entscheidungsnotiz).
+
+**Weiterhin offen**, erst relevant sobald benötigt: Shape für Unterprogramm
+(ab Funktionen) und Konnektor (falls Diagramme so groß werden, dass ein
+direkter Rücksprung-Pfeil unübersichtlich wird). Einrückung innerhalb von
+Admonition-Blöcken ist keine offene PAP-Frage, sondern folgt der allgemeinen
+Regel weiter unten.
 
 **Grundregeln, die unabhängig davon schon gelten:**
 
@@ -851,8 +858,12 @@ sondern nachfragen. Die Entscheidung wird gemeinsam getroffen, siehe
   bekommt der komplette Fence (öffnende und schließende Backticks sowie jede
   Inhaltszeile dazwischen) durchgehend dieselbe Einrückung wie der restliche
   Text dieses Admonitions.
-- Ein Mermaid-Diagramm steht **nie** in einem zugeklappten `???`-Block —
-  siehe "Live-Coding wird schrittweise aufgebaut" oben.
+- Mermaid-Diagramme in einem zugeklappten `???`-Block sind erlaubt (an
+  Praxisphase Woche 3 und 4 geprüft, rendert korrekt) — nach dem Bauen kurz
+  gegenprüfen. Live-Coding-Blöcke enthalten trotzdem weiterhin ausschließlich
+  Code-Fences, PAPs stehen dort außerhalb — das ist eine bewusste
+  inhaltliche Trennung, keine Umgehung eines technischen Problems, siehe
+  "Live-Coding wird schrittweise aufgebaut" oben.
 - Jede Knoten-Definition ist eine einzige durchgehende Zeile im Quelltext,
   ohne eingebetteten Zeilenumbruch.
 - Für Farben immer `rgb(...)`/`rgba(...)` verwenden, niemals `#rrggbb`: Ein
@@ -864,16 +875,47 @@ sondern nachfragen. Die Entscheidung wird gemeinsam getroffen, siehe
 
 Pseudocode verwendet durchgehend **englische Schlüsselwörter in
 Großbuchstaben** (nicht Deutsch) — sie sollen später an die Schlüsselwörter
-der C-Programme erinnern. Nummerierte Schritte, ein Schlüsselwort pro
-relevanter Anweisungsart:
+der C-Programme erinnern. Ein Schlüsselwort pro relevanter Anweisungsart:
 
 - `INPUT` — Eingabe (ab Woche 3)
 - `OUTPUT` — Ausgabe (ab Woche 3)
-- `IF` / `ELSE` — Verzweigung (ab Woche 4)
-- `REPEAT` — Wiederholung (ab Woche 5)
+- `IF` / `THEN` / `ELSE` / `END IF` — Verzweigung (ab Woche 4). `THEN` und
+  `END IF` sind bei einer einseitigen Auswahl (kein `ELSE`) trotzdem
+  Pflicht.
+- `WHILE` / `DO` / `END WHILE` — kopfgesteuerte Wiederholung (ab Woche 4):
+  `WHILE <Bedingung> DO` vor den Schleifenanweisungen, `END WHILE` danach.
+- `DO` / `WHILE` — fußgesteuerte Wiederholung (ab Woche 4): `DO` vor den
+  Schleifenanweisungen, `WHILE <Bedingung>` danach. Kein eigenes `END`
+  nötig, das `WHILE` beendet die Schleife bereits.
+- `FOR` / `TO` / `STEP` / `END FOR` — Zählschleife (ab Woche 4):
+  `FOR <Zählvariable> := <Startwert> TO <Obergrenze> STEP <Schrittweite> DO`
+  fasst Startwert, Obergrenze und Schrittweite in einer Kopfzeile zusammen;
+  die Zählvariable darf im Schleifenkörper deshalb **nicht** zusätzlich von
+  Hand verändert werden, das übernimmt `STEP` automatisch.
+
+Alle Schlüsselwörter sind bewusst an die spätere C-Syntax angelehnt
+(`if`/`else`, `while`, `do...while`, `for`), damit die Studierenden die
+Analogie beim Programmieren wiedererkennen. Blockinhalte werden
+eingerückt dargestellt.
 
 Alle übrigen Schritte werden als normaler, kurzer Verarbeitungssatz notiert,
 ohne eigenes Schlüsselwort.
+
+**Zeilennummern:** Pseudocode-Codeblöcke bekommen keine Zahlen als
+Text-Präfix mehr (`1. ...`, `2. ...`), sondern die Fence-Option
+`linenums="1"` (unterstützt durch `pymdownx.highlight`/`pymdownx.superfences`,
+in `mkdocs.yml` aktiv):
+
+    ```text linenums="1"
+    INPUT: Zahl
+    IF Zahl < 0 THEN
+        Zahl := -Zahl
+    END IF
+    OUTPUT: Zahl
+    ```
+
+Das gilt für alle Pseudocode-Blöcke, auch bestehende (siehe Praxisphase
+Woche 3 und 4).
 
 ## Glossar pflegen
 
@@ -985,7 +1027,11 @@ vorproduziert.
 Die Infrastruktur (Templates, Hooks, Aufgaben-Register, Snippets-Einbindung,
 CSS, Deploy-Workflow) steht. Offene Punkte auf Projektebene:
 
-- **PAP-Diagramm-Konvention** — beim ersten PAP-haltigen Termin festzulegen.
+- **PAP-Diagramm-Konvention** — Grundelemente, Verzweigung und Wiederholung
+  sind seit Praxisphase Woche 4 festgelegt (siehe Abschnitt
+  "Programmablaufpläne (PAP)"). Offen bleiben nur die Shapes für
+  Unterprogramm und Konnektor, die erst gebraucht werden, sobald Funktionen
+  eingeführt werden bzw. Diagramme unübersichtlich groß werden.
 - **Struktur des Zwischenprojekt-Tags** (`projekttag.template.md`) — bei der
   Planung von Termin 6 zu entwerfen.
 - **Fachbuch** für die Programmier-Themen noch nicht bestimmt (siehe

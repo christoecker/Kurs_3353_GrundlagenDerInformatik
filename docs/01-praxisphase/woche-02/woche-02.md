@@ -77,7 +77,7 @@ Fehlermeldung mit Hexadezimalwerten vor dir hast.
 - Du kannst beschreiben, wie Zeichen wie Buchstaben im Rechner als Zahlen
   codiert werden.
 
-## Erarbeitung
+## Erarbeitung { .abschnitt-erarbeitung }
 
 **Schritt 1:** Lies **Abschnitt 1.4.1 „Darstellung von Zahlen" (S. 17–18)**.
 
@@ -113,6 +113,8 @@ muss und die gewohnten zehn Ziffern dafür nicht reichen.
 
     `1101₂ = 1·2³ + 1·2² + 0·2¹ + 1·2⁰ = 8 + 4 + 0 + 1 = 13₁₀`
 
+---
+
 **Schritt 2:** Kläre für dich die Begriffe **Bit**, **Byte** und
 **Wortbreite**.
 
@@ -128,6 +130,8 @@ muss und die gewohnten zehn Ziffern dafür nicht reichen.
 Wie Zeichen, z.B. Buchstaben, im Rechner dargestellt werden, liest du auf einer
 eigenen Seite nach: [ASCII-Code](ascii-code.md). Wirf jetzt schon einen Blick
 hinein, den Rest der Seite brauchst du erst bei der Selbstkontrolle wieder.
+
+---
 
 **Schritt 3:** Lies im Abschnitt **„Umwandlung von Zahlen in verschiedene
 Darstellungssysteme" (S. 18–19) den Teil „Direkte Methode und Zusammenfassen
@@ -163,6 +167,8 @@ Dualdarstellung ersetzt.
 
     Die beiden führenden Nullen dürfen am Ende weggelassen werden, ohne dass
     sich der Wert ändert.
+
+---
 
 **Schritt 4:** Lies im selben Abschnitt weiter den Teil **„Horner-Schema und
 Restwertmethode" (S. 20–21)**.
@@ -257,7 +263,7 @@ und das Zweierkomplement von `b`.
     `n=8` verworfen. Es bleibt `0000 0100₂ = 4` — und `9-5=4`
     stimmt. ✓
 
-## Zum Ausprobieren
+## Zum Ausprobieren { .abschnitt-ausprobieren }
 
 Beide Übungen sind **ohne Rechner** zu lösen — Zettel und Stift genügen.
 
@@ -300,7 +306,7 @@ Rechenschritt einzeln.
 
     Probe: `128 + 16 + 4 + 2 = 150`. ✓
 
-## Selbstkontrolle
+## Selbstkontrolle { .abschnitt-selbstkontrolle }
 
 ### Frage 1
 

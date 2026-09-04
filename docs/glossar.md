@@ -106,6 +106,11 @@ es keinen Interpretationsspielraum gibt.
 vielen Schritten, und ihre Ausführung kommt nach endlich vielen Schritten
 tatsächlich zu einem Ende.  
 
+**Fußgesteuerte Wiederholung**
+: Eine Wiederholung, bei der die Bedingung erst nach den
+Schleifenanweisungen geprüft wird. Dadurch laufen die Anweisungen immer
+mindestens einmal, bevor überhaupt geprüft wird.  
+
 **Hauptspeicher**
 : Der Speicher, in dem ein laufendes Programm samt seinen Daten liegt. Er besteht
 aus vielen gleich aufgebauten Speicherzellen, ist schnell, verliert seinen Inhalt
@@ -133,6 +138,11 @@ Verarbeitung und Übermittlung von Information mithilfe von Rechnern.
 : Ein abstraktes Abbild von etwas Realem, das nur die für einen bestimmten Zweck
 wichtigen Eigenschaften enthält. Ein Bauplan ist Information über ein Haus: Er
 ist nicht das Haus, aber er genügt, um es zu bauen.  
+
+**Kopfgesteuerte Wiederholung**
+: Eine Wiederholung, bei der die Bedingung vor den Schleifenanweisungen
+geprüft wird. Ist sie von Anfang an nicht erfüllt, laufen die Anweisungen
+kein einziges Mal.  
 
 **Leitwerk**
 : Die Funktionsgruppe im Prozessor, die den Ablauf des Programms steuert: Sie
@@ -204,6 +214,16 @@ nehmen die Werte auf, mit denen gerade gerechnet wird, sowie Zwischenergebnisse.
 Der Zugriff darauf ist deutlich schneller als auf den Hauptspeicher.
  
 
+**Rücksprung**
+: Ein Pfeil in einem Programmablaufplan, der zu einem bereits durchlaufenen
+Schritt zurückführt, statt weiter nach unten. Grundlage dafür, wie
+Wiederholungen im PAP ohne eigenes Schleifensymbol dargestellt werden.  
+
+**Schreibtischtest**
+: Das gedankliche Durchrechnen eines Algorithmus für eine konkrete Eingabe,
+Schritt für Schritt, ohne ihn tatsächlich auszuführen — etwa um
+nachzuvollziehen, welchen Weg ein gegebener PAP nimmt und was er ausgibt.  
+
 **Speicheradressregister (SAR)**
 : Das Register, das die Adresse derjenigen Speicherzelle enthält, auf die der
 Prozessor gerade zugreift.  
@@ -224,16 +244,38 @@ anderen Stelle des Programms fortsetzt. Er tut das, indem er eine neue Adresse i
 den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
  
 
+**Verzweigung**
+: Eine Raute in einem Programmablaufplan, bei der der Ablauf abhängig von
+einer Bedingung einen von zwei Wegen nimmt — dargestellt mit den
+beschrifteten Pfeilen "ja" und "nein". Entspricht im Pseudocode den
+Schlüsselwörtern `IF` und `ELSE`.  
+
 **von-Neumann-Architektur**
 : Das Bauprinzip, nach dem heutige Rechner aufgebaut sind: Prozessor, Speicher
 und Ein-/Ausgabe, verbunden über Kommunikationswege. Entscheidend ist, dass
 Programm **und** Daten gemeinsam im Speicher liegen — nur deshalb kann der
 Rechner ein Programm selbstständig abarbeiten.  
 
+**Wiederholung**
+: Ein Ablaufteil, der so lange erneut ausgeführt wird, wie eine Bedingung
+erfüllt ist. Im PAP dargestellt über dieselbe Raute wie bei einer
+Verzweigung, kombiniert mit einem Rücksprung — unterschieden wird zwischen
+kopf- und fußgesteuerter Wiederholung. Im Pseudocode: `WHILE`/`DO`/`END
+WHILE` für die kopfgesteuerte, `DO`/`WHILE` für die fußgesteuerte
+Variante.  
+
 **Wortbreite**
 : Die Anzahl der Bit, die ein Prozessor in einem Rechenschritt auf einmal
 verarbeitet — bei den meisten heutigen PCs 32 oder 64 Bit, bei kleinen
 Mikrocontrollern oft weniger.  
+
+**Zählschleife**
+: Eine kopfgesteuerte Wiederholung mit einer besonders regelmäßigen
+Struktur: eine Zählvariable bekommt einen Startwert, wird bei jedem
+Durchlauf mit einer Grenze verglichen und am Ende um eine feste
+Schrittweite verändert. Im Pseudocode dafür das eigene Schlüsselwort
+`FOR`, das Startwert, Grenze und Schrittweite in einer Kopfzeile
+zusammenfasst.  
 
 **Ziffernvorrat**
 : Die Menge der Symbole, die in einem Stellenwertsystem als Ziffern verwendet

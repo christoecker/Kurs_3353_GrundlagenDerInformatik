@@ -60,7 +60,7 @@ alles Rechner nach genau dem Prinzip, das du diese Woche kennenlernst.
 - Du kannst einordnen, wie Maschinensprache, Assemblersprache und eine Sprache
   wie C zusammenhängen.
 
-## Erarbeitung
+## Erarbeitung { .abschnitt-erarbeitung }
 
 !!! info "Das brauchst du dafür"
     Grundlage dieser Woche ist das Buch **Müller/Weichert: *Vorkurs Informatik.
@@ -181,7 +181,7 @@ Portionen vor:
 Die Seite 376 mit Aufgabe 19.2 kannst du überspringen. Wenn dich das Thema
 gepackt hat, ist sie aber eine schöne Zugabe.
 
-## Zum Ausprobieren
+## Zum Ausprobieren { .abschnitt-ausprobieren }
 
 Diese kleine Übung ist **ohne Rechner** zu lösen — Zettel und Stift genügen.
 
@@ -255,7 +255,7 @@ wird. Warum ist diese Reihenfolge sinnvoll? Denk dabei an die Sprungbefehle.
     Genau das ist übrigens der Grund, warum ein Programm überhaupt Schleifen und
     Verzweigungen enthalten kann und nicht bloß stur von oben nach unten läuft.
 
-## Selbstkontrolle
+## Selbstkontrolle { .abschnitt-selbstkontrolle }
 
 ### Frage 1
 

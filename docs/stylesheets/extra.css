@@ -119,6 +119,50 @@
 }
 
 
+/* Abschnitts-Kennzeichnung der drei wiederkehrenden Bereiche einer
+   Praxisphase-Woche ("## Erarbeitung { .abschnitt-erarbeitung }",
+   "## Zum Ausprobieren { .abschnitt-ausprobieren }",
+   "## Selbstkontrolle { .abschnitt-selbstkontrolle }"), per attr_list-
+   Klasse gesetzt. Bewusst zurückhaltend in Pastell gehalten (dezente
+   Hintergrundwäsche + farbiger linker Rahmen + Icon vor dem Überschriften-
+   text) statt kräftiger Farb-Pills wie beim Übung/Selbststudium-Badge oben.
+   Alle drei Abschnitte teilen sich dieselbe Farbe (Petrol) - sie markieren
+   nur "hier beginnt ein neuer Bereich", nicht drei inhaltlich verschiedene
+   Kategorien; unterschieden werden die Bereiche stattdessen über das Icon.
+   Nach Erprobung an Praxisphase Woche 4 auf Woche 1-3 und das Template
+   übertragen. */
+.md-typeset h2.abschnitt-erarbeitung,
+.md-typeset h2.abschnitt-ausprobieren,
+.md-typeset h2.abschnitt-selbstkontrolle {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4em 0.8em;
+  border-radius: 0.3em;
+  background-color: rgba(129, 199, 190, 0.15);
+  border-left: 4px solid rgb(129, 199, 190);
+}
+
+.md-typeset h2.abschnitt-erarbeitung::before,
+.md-typeset h2.abschnitt-ausprobieren::before,
+.md-typeset h2.abschnitt-selbstkontrolle::before {
+  flex-shrink: 0;
+  font-size: 0.85em;
+}
+
+.md-typeset h2.abschnitt-erarbeitung::before {
+  content: "📖";
+}
+
+.md-typeset h2.abschnitt-ausprobieren::before {
+  content: "🧪";
+}
+
+.md-typeset h2.abschnitt-selbstkontrolle::before {
+  content: "🎯";
+}
+
+
 /* Live-Coding-Staende im Uebungsteil der Theoriephase stecken in einer
    "??? quote livecoding "Code: ..."" -Admonition (siehe
    02-theoriephase/_templates/block.template.md). Anders als die
