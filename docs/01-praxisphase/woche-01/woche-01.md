@@ -87,6 +87,8 @@ Zwei Dinge sind hier wichtiger als der Rest:
   eines Hauses ist die Farbe des Verputzes unwesentlich, für den Malerbetrieb
   nicht.
 
+---
+
 **Schritt 2:** Sieh dir in Abschnitt 1.2 vor allem **Abbildung 1.2** an (S. 10).
 
 Abbildung 1.1 auf S. 9 ist sehr detailliert — überflieg sie nur, du musst dir
@@ -103,6 +105,8 @@ Algorithmen, Programmieren in C — gehört zur **praktischen Informatik**.
     eben nicht mit diesem Buch, sondern mit eigenem Material und in der Sprache
     C. Für diese Woche springst du deshalb direkt zu Teil 5 des Buchs, „Vom
     Programm zum Rechner".
+
+---
 
 **Schritt 3:** Lies **Kapitel 18 „Hardware und Programmierung" (S. 367–368)**.
 
@@ -123,6 +127,8 @@ tatsächlich tut.
     werden, bevor ein Prozessor damit etwas anfangen kann. Dieses Übersetzen
     erledigt ein *Compiler* — den lernst du in Woche 6 in der Praxis kennen.
 
+---
+
 **Schritt 4:** Lies **Abschnitt 19.1 „Rechnerarchitektur" (S. 369–371)**.
 
 Hier kommt der wichtigste Begriff der Woche: die **von-Neumann-Architektur**.
@@ -142,6 +148,8 @@ Verbindungswege bei Einzelverbindungen und auf genau einen beim Bus. Mehr musst
 du dazu nicht wissen; entscheidend sind die Vor- und Nachteile, die das Buch
 daraus ableitet.
 
+---
+
 **Schritt 5:** Lies **Abschnitt 19.2 „Hauptspeicher" (S. 371–372)**.
 
 Kurzer Abschnitt, zwei Kernaussagen: Der Hauptspeicher besteht aus lauter
@@ -158,6 +166,8 @@ die man sie ansprechen kann.
 Zum Schluss vergleicht der Abschnitt Hauptspeicher und Festplatte. Halte fest,
 worin sie sich unterscheiden — es sind drei Dinge: Geschwindigkeit, Kosten und
 was beim Ausschalten passiert.
+
+---
 
 **Schritt 6:** Lies **Abschnitt 19.3 „Prozessor, Befehlssatz und
 Maschinensprache" (S. 372–375)**, bis einschließlich Zusammenfassung 19.4.
