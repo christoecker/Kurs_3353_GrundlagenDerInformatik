@@ -20,6 +20,8 @@ Regeln:
 - Format: Markdown-Definitionsliste (def_list ist in mkdocs.yml aktiv).
 -->
 
+## A
+
 **Abstraktion**
 : Das Weglassen von allem, was für einen bestimmten Zweck unwichtig ist, damit
 das Wesentliche übrig bleibt. Was wesentlich ist, hängt immer vom Zweck ab: Für
@@ -45,6 +47,8 @@ jede andere Zahl binär im Rechner gespeichert.
 kommt, statt der Bitmuster aber lesbare Namen verwendet. Sie liegt im
 Ebenenmodell zwischen der Maschinensprache und Sprachen wie C.
  
+
+## B
 
 **Basis**
 : Die Grundzahl eines Stellenwertsystems. Sie gibt an, wie viele
@@ -84,9 +88,13 @@ immer nur ein Paar zur Zeit darüber kommunizieren.
 annehmen (0 bis 255) und ist die gebräuchlichste Einheit, um die Größe von
 Speicher anzugeben.  
 
+## C
+
 **Compiler**
 : Ein Programm, das Quelltext einer Programmiersprache wie C in Maschinensprache
 übersetzt, damit der Prozessor ihn ausführen kann.  
+
+## D
 
 **Determiniertheit**
 : Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
@@ -97,6 +105,8 @@ Algorithmus immer dasselbe Ergebnis.
 Binärsystem genannt. Alle Daten in einem Rechner liegen letztlich in dieser
 Form vor.  
 
+## E
+
 **Eindeutigkeit**
 : Eine Eigenschaft von Algorithmen: Jeder Schritt ist so klar formuliert, dass
 es keinen Interpretationsspielraum gibt.  
@@ -106,10 +116,14 @@ es keinen Interpretationsspielraum gibt.
 vielen Schritten, und ihre Ausführung kommt nach endlich vielen Schritten
 tatsächlich zu einem Ende.  
 
+## F
+
 **Fußgesteuerte Wiederholung**
 : Eine Wiederholung, bei der die Bedingung erst nach den
 Schleifenanweisungen geprüft wird. Dadurch laufen die Anweisungen immer
 mindestens einmal, bevor überhaupt geprüft wird.  
+
+## H
 
 **Hauptspeicher**
 : Der Speicher, in dem ein laufendes Programm samt seinen Daten liegt. Er besteht
@@ -129,6 +143,8 @@ einer Hexadezimalziffer).
 anderes Stellenwertsystem umzuwandeln. Man teilt die Zahl fortgesetzt durch
 die Zielbasis und liest die dabei entstehenden Reste von unten nach oben.  
 
+## I
+
 **Informatik**
 : Die Wissenschaft von der systematischen — vor allem der automatischen —
 Verarbeitung und Übermittlung von Information mithilfe von Rechnern.
@@ -139,15 +155,21 @@ Verarbeitung und Übermittlung von Information mithilfe von Rechnern.
 wichtigen Eigenschaften enthält. Ein Bauplan ist Information über ein Haus: Er
 ist nicht das Haus, aber er genügt, um es zu bauen.  
 
+## K
+
 **Kopfgesteuerte Wiederholung**
 : Eine Wiederholung, bei der die Bedingung vor den Schleifenanweisungen
 geprüft wird. Ist sie von Anfang an nicht erfüllt, laufen die Anweisungen
 kein einziges Mal.  
 
+## L
+
 **Leitwerk**
 : Die Funktionsgruppe im Prozessor, die den Ablauf des Programms steuert: Sie
 sorgt dafür, dass Befehle geholt und in der richtigen Reihenfolge ausgeführt
 werden.  
+
+## M
 
 **Maschinenbefehl**
 : Ein einzelner Befehl, den ein Prozessor unmittelbar ausführen kann. Er besteht
@@ -163,6 +185,8 @@ unterschiedlich.
 einer Dualzahl. Bei der Zweierkomplement-Darstellung zeigt es das Vorzeichen
 an: 0 für positiv (oder null), 1 für negativ.  
 
+## O
+
 **Oktalsystem**
 : Ein Stellenwertsystem mit der Basis 8 und dem Ziffernvorrat 0 bis 7. Drei
 Binärstellen entsprechen genau einer Oktalziffer.  
@@ -175,6 +199,8 @@ etwa ein Registername, eine Speicheradresse oder ein direkt angegebener Wert.
 **Operationscode**
 : Der Teil eines Maschinenbefehls, der angibt, *was* getan werden soll — zum
 Beispiel addieren, holen oder speichern.  
+
+## P
 
 **Peripherie**
 : Sammelbegriff für alles, was über die Ein-/Ausgabe an einen Rechner
@@ -197,6 +223,8 @@ festen Schlüsselwörtern, zum Beispiel `INPUT` für eine Eingabe. Näher an ein
 Programmiersprache als reiner Fließtext, aber noch nicht an eine bestimmte
 Sprache gebunden.  
 
+## R
+
 **RAM**
 : Abkürzung für *Random Access Memory*, zu Deutsch Speicher mit wahlfreiem
 Zugriff. Gemeint ist, dass auf jede Speicherzelle gleich schnell zugegriffen
@@ -218,6 +246,8 @@ Der Zugriff darauf ist deutlich schneller als auf den Hauptspeicher.
 : Ein Pfeil in einem Programmablaufplan, der zu einem bereits durchlaufenen
 Schritt zurückführt, statt weiter nach unten. Grundlage dafür, wie
 Wiederholungen im PAP ohne eigenes Schleifensymbol dargestellt werden.  
+
+## S
 
 **Schreibtischtest**
 : Das gedankliche Durchrechnen eines Algorithmus für eine konkrete Eingabe,
@@ -244,6 +274,8 @@ anderen Stelle des Programms fortsetzt. Er tut das, indem er eine neue Adresse i
 den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
  
 
+## V
+
 **Verzweigung**
 : Eine Raute in einem Programmablaufplan, bei der der Ablauf abhängig von
 einer Bedingung einen von zwei Wegen nimmt — dargestellt mit den
@@ -255,6 +287,8 @@ Schlüsselwörtern `IF` und `ELSE`.
 und Ein-/Ausgabe, verbunden über Kommunikationswege. Entscheidend ist, dass
 Programm **und** Daten gemeinsam im Speicher liegen — nur deshalb kann der
 Rechner ein Programm selbstständig abarbeiten.  
+
+## W
 
 **Wiederholung**
 : Ein Ablaufteil, der so lange erneut ausgeführt wird, wie eine Bedingung
@@ -268,6 +302,8 @@ Variante.
 : Die Anzahl der Bit, die ein Prozessor in einem Rechenschritt auf einmal
 verarbeitet — bei den meisten heutigen PCs 32 oder 64 Bit, bei kleinen
 Mikrocontrollern oft weniger.  
+
+## Z
 
 **Zählschleife**
 : Eine kopfgesteuerte Wiederholung mit einer besonders regelmäßigen

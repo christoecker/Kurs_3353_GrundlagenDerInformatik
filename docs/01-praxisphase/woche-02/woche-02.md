@@ -12,7 +12,10 @@ lernziele:
   - "Du kannst erklären, warum der Rechner negative Zahlen als Zweierkomplement darstellt, und eine einfache Zweierkomplement-Subtraktion durchführen."
   - "Du kannst beschreiben, wie Zeichen wie Buchstaben im Rechner als Zahlen codiert werden."
 quellen:
-  - "Ernst, Hartmut; Schmidt, Jochen; Beneken, Gerd: Grundkurs Informatik. Grundlagen und Konzepte für die erfolgreiche IT-Praxis – Eine umfassende Einführung. 8. Auflage, Springer Vieweg, Wiesbaden 2023 — Abschnitt 1.4 (S. 17–34)."
+  - "Youtube-Playlist, Video Nr. 1 – Zahlensysteme (9:19): https://youtu.be/y-HJjMb1q2Y"
+  - "Youtube-Playlist, Video Nr. 2 – Umrechnung zwischen Zahlensystemen (10:20): https://youtu.be/Vuu_mrIy7Pc"
+  - "Youtube-Playlist, Video Nr. 3 – Darstellung negativer Zahlen im Binärformat (11:46): https://youtu.be/ZtnFRjO42iU"
+  - "Ernst, Hartmut; Schmidt, Jochen; Beneken, Gerd: Grundkurs Informatik. Grundlagen und Konzepte für die erfolgreiche IT-Praxis – Eine umfassende Einführung. 8. Auflage, Springer Vieweg, Wiesbaden 2023 — Abschnitt 1.4 (S. 17–34), insbesondere Abschnitt 1.4.3 'Binäre Addition' (S. 25). Ergänzende/alternative Lektüre zu den Videos, deckt denselben Stoff ab; für die binäre Addition (Schritt 4) einzige Quelle, da kein Video dieses Thema behandelt."
 ki_einsatz: stufe_0_ohne
 bearbeitungsstatus: fertig
 publish_date: 2026-09-07
@@ -37,16 +40,13 @@ später zum Beispiel den Speicherinhalt eines Mikrocontrollers oder eine
 Fehlermeldung mit Hexadezimalwerten vor dir hast.
 
 !!! info "Das brauchst du dafür"
-    Für diese Woche wechseln wir die Literaturgrundlage zu **Ernst, Schmidt,
-    Beneken: *Grundkurs Informatik*, 8. Auflage, Springer Vieweg 2023**. Dieses Buch findet ihr im eBook-Angebot der HSBI oder im ILIAS-Kursraum. 
-    
-    Der Abschnitt 1.4 dieses Buchs bündelt alle Themen der Woche — von den
-    Grundlagen der Stellenwertsysteme bis zum Zweierkomplement — in einem
-    einzigen, in sich geschlossenen Kapitel und rechnet dabei jeden Schritt
-    konkret vor. Das Buch begleitet uns damit als zweites Standardwerk durch
-    den Kurs, neben dem *Vorkurs Informatik* aus Woche 1. Du findest es als
-    PDF in ILIAS im Kursbereich zu diesem Modul.
+    Diese Woche arbeitest du hauptsächlich mit drei kurzen Videos von meinem
+    Youtube-Kanal — sie erklären die Themen der Woche Schritt für Schritt und
+    mit vielen Beispielen.
 
+    Ergänzend wird das Buch **Ernst, Schmidt, Beneken: *Grundkurs Informatik*, 8. Auflage, Springer Vieweg 2023** empfohlen. Der
+    Abschnitt 1.4 dieses Buchs deckt nahezu denselben Stoff ab. Du findest es im
+    eBook-Angebot der HSBI oder als PDF im ILIAS-Kursraum zu diesem Modul.
     Alle Seitenzahlen unten beziehen sich auf die Seitenzählung des Buches.
 
 <!--
@@ -79,23 +79,26 @@ Fehlermeldung mit Hexadezimalwerten vor dir hast.
 
 ## Erarbeitung { .abschnitt-erarbeitung }
 
-**Schritt 1:** Lies **Abschnitt 1.4.1 „Darstellung von Zahlen" (S. 17–18)**.
+**Schritt 1:** Schau dir das Video **„Zahlensysteme"** an (9:19 Min.).
 
-Das vertraute Dezimalsystem ist nur ein Beispiel für ein allgemeineres
-Prinzip, ein sogenanntes **Stellenwertsystem**: Jede Ziffer einer Zahl hat je
-nach Position einen anderen Wert. Die Zahl 3247 bedeutet ja nichts anderes
-als
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/y-HJjMb1q2Y" title="Video: Zahlensysteme" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+Das Video führt allgemein in Stellenwertsysteme zur Basis B ein und zeigt
+danach konkret, wie eine Zahl im Binär- und im Hexadezimalsystem dargestellt
+wird — inklusive der Frage, warum das Binärsystem für Rechner überhaupt die
+naheliegende Wahl ist.
+
+Zwei Dinge legen ein Stellenwertsystem fest: die **Basis** und der
+**Ziffernvorrat**. Im Dezimalsystem sind das die Basis 10 und die zehn
+Ziffern 0 bis 9 — die Zahl 3247 bedeutet deshalb nichts anderes als
 
 `3247 = 3·10³ + 2·10² + 4·10¹ + 7·10⁰`
 
-Zwei Dinge legen ein Stellenwertsystem fest:
-
-- die **Basis** — im Dezimalsystem die 10 —, und
-- der **Ziffernvorrat** — im Dezimalsystem die zehn Ziffern 0 bis 9.
-
-Wenn du diese beiden Dinge kennst, kannst du jedes beliebige
-Stellenwertsystem lesen, auch eines, das du noch nie gesehen hast. Für die
-Informatik sind vor allem drei weitere Systeme wichtig:
+Die folgende Tabelle fasst die drei für uns wichtigen Systeme zusammen. Das
+Oktalsystem kommt im Video nicht gesondert vor, funktioniert aber nach genau
+demselben Prinzip, nur mit der Basis 8:
 
 | System | Basis | Ziffernvorrat |
 |---|---|---|
@@ -105,7 +108,8 @@ Informatik sind vor allem drei weitere Systeme wichtig:
 
 Im Hexadezimalsystem stehen die Buchstaben A bis F für die Werte 10 bis 15 —
 man braucht sie, weil der Ziffernvorrat 16 verschiedene Symbole umfassen
-muss und die gewohnten zehn Ziffern dafür nicht reichen.
+muss und die gewohnten zehn Ziffern dafür nicht reichen. (Ausführlicher zum
+Oktalsystem: Buch, Abschnitt 1.4.1.)
 
 !!! example "Beispiel"
     Die Dualzahl 1101 lässt sich genau wie eine Dezimalzahl auswerten, nur mit
@@ -133,51 +137,20 @@ hinein, den Rest der Seite brauchst du erst bei der Selbstkontrolle wieder.
 
 ---
 
-**Schritt 3:** Lies im Abschnitt **„Umwandlung von Zahlen in verschiedene
-Darstellungssysteme" (S. 18–19) den Teil „Direkte Methode und Zusammenfassen
-von Binärstellen"**.
+**Schritt 3:** Schau dir das Video **„Umrechnung zwischen Zahlensystemen"**
+an (10:20 Min.).
 
-Zwischen Dual-, Oktal- und Hexadezimalsystem umzurechnen ist besonders
-einfach — und zwar, weil `8 = 2³` und `16 = 2⁴` gilt. Deshalb entsprechen
-genau drei Binärstellen einer Oktalziffer und genau vier Binärstellen einer
-Hexadezimalziffer.
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/Vuu_mrIy7Pc" title="Video: Umrechnung zwischen Zahlensystemen" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
 
-Um eine Dualzahl in eine Hexadezimalzahl umzuwandeln, fasst du die Ziffern
-von rechts beginnend in Vierergruppen zusammen und liest jede Gruppe als
-eigenständige kleine Dualzahl:
+Das Video geht in dieser Reihenfolge vor: zuerst die Umrechnung
+Dezimal → Dual mit dem Horner-Schema, danach die direkte Umrechnung zwischen
+Hexadezimal und Dual durch Gruppieren der Binärstellen, und zuletzt die
+Umrechnung Dezimal → Hexadezimal. Die folgenden drei Beispiele wiederholen
+jeden dieser Schritte noch einmal mit eigenen Zahlen.
 
-!!! example "Beispiel: Dual → Hexadezimal"
-    `1011 0101₂` in Vierergruppen von rechts: `1011` und `0101`.
-
-    `1011₂ = 11 = B`, `0101₂ = 5` → Ergebnis: `B5₁₆`
-
-Für das Oktalsystem gruppierst du entsprechend in Dreiergruppen. Reicht die
-Anzahl der Binärstellen nicht aus, um die letzte Gruppe vollständig zu
-füllen, ergänzt du links führende Nullen — das ändert am Wert der Zahl
-nichts.
-
-Die Rückrichtung funktioniert genauso, nur umgekehrt: Jede Oktal- oder
-Hexadezimalziffer wird einzeln durch ihre drei- bzw. vierstellige
-Dualdarstellung ersetzt.
-
-!!! example "Beispiel: Hexadezimal → Dual"
-    `3E₁₆` einzeln ersetzt: `3 → 0011`, `E → 1110`.
-
-    Ergebnis: `0011 1110₂ = 11 1110₂`
-
-    Die beiden führenden Nullen dürfen am Ende weggelassen werden, ohne dass
-    sich der Wert ändert.
-
----
-
-**Schritt 4:** Lies im selben Abschnitt weiter den Teil **„Horner-Schema und
-Restwertmethode" (S. 20–21)**.
-
-Eine Dualzahl in eine Dezimalzahl umzurechnen kannst du bereits — das ist
-genau das, was du in Schritt 1 gemacht hast: die Stellenwerte aufsummieren.
-Die umgekehrte Richtung, also eine Dezimalzahl in eine Dualzahl umzuwandeln,
-ist weniger offensichtlich. Dafür gibt es die **Restwertmethode**, auch
-**Horner-Schema** genannt: Man teilt die Zahl fortgesetzt durch die
+**Horner-Schema (Dezimal → Dual):** Man teilt die Zahl fortgesetzt durch die
 Zielbasis und notiert bei jedem Schritt den Rest. Liest man die Reste von
 unten nach oben, ergibt sich die gesuchte Zahl.
 
@@ -199,11 +172,36 @@ unten nach oben, ergibt sich die gesuchte Zahl.
     Von unten nach oben gelesen ergibt sich `210₁₀ = 1101 0010₂`.
     Probe: `128 + 64 + 16 + 2 = 210`. ✓
 
-Dasselbe Verfahren funktioniert für jede beliebige Zielbasis — für das
-Hexadezimalsystem teilst du entsprechend fortgesetzt durch 16.
+**Gruppieren (Hexadezimal ↔ Dual):** Zwischen Dual- und Hexadezimalsystem
+umzurechnen ist besonders einfach — und zwar, weil `16 = 2⁴` gilt. Deshalb
+entsprechen genau vier Binärstellen einer Hexadezimalziffer (für das
+Oktalsystem wären es entsprechend drei, weil `8 = 2³` gilt).
 
-**Schritt 5:** Lies im Abschnitt **1.4.3 „Binäre Arithmetik" (S. 24–25) die
-Teile „Logische Operationen" und „Binäre Addition"**.
+!!! example "Beispiel: Dual → Hexadezimal"
+    `1011 0101₂` in Vierergruppen von rechts: `1011` und `0101`.
+
+    `1011₂ = 11 = B`, `0101₂ = 5` → Ergebnis: `B5₁₆`
+
+Die Rückrichtung funktioniert genauso, nur umgekehrt: Jede Hexadezimalziffer
+wird einzeln durch ihre vierstellige Dualdarstellung ersetzt.
+
+!!! example "Beispiel: Hexadezimal → Dual"
+    `3E₁₆` einzeln ersetzt: `3 → 0011`, `E → 1110`.
+
+    Ergebnis: `0011 1110₂ = 11 1110₂`
+
+    Die beiden führenden Nullen dürfen am Ende weggelassen werden, ohne dass
+    sich der Wert ändert.
+
+**Dezimal ↔ Hexadezimal:** Das Horner-Schema von oben funktioniert für jede
+beliebige Zielbasis — für das Hexadezimalsystem teilst du entsprechend
+fortgesetzt durch 16 statt durch 2. Ein durchgerechnetes Beispiel dazu zeigt
+das Video ab Minute 8:17.
+
+---
+
+**Schritt 4:** Lies im Buch **Abschnitt 1.4.3 „Binäre Arithmetik", den Teil
+„Binäre Addition" (S. 25)**.
 
 Mit Dualzahlen lässt sich genauso rechnen wie mit Dezimalzahlen — nur mit
 einem sehr kleinen Ziffernvorrat. Die Regeln für die Addition zweier
@@ -212,20 +210,51 @@ Binärstellen lauten:
 `0+0=0`, `0+1=1`, `1+0=1`, `1+1=0 Übertrag 1`
 
 Genau wie im Dezimalsystem wird ein Übertrag in die nächste Stelle
-weitergereicht.
+weitergereicht — mit dem einzigen Unterschied, dass hier schon `1+1` einen
+Übertrag auslöst und nicht erst, wenn eine Stelle zweistellig würde. Addiert
+man von rechts nach links Stelle für Stelle, kann so ein einziger Übertrag
+über mehrere Stellen hinweg weiterlaufen, wenn dort ebenfalls schon eine 1
+steht.
 
-!!! example "Beispiel"
+!!! example "Beispiel: einfache Addition"
     `1011₂ + 0110₂ = 1 0001₂`
 
     Probe im Dezimalsystem: `11 + 6 = 17`, und `1 0001₂ = 16+1 = 17`. ✓
 
-**Schritt 6:** Lies im selben Abschnitt den Teil **„Zweierkomplement und
-Subtraktion" (S. 25–27)**, bis einschließlich Beispiel 1.14 a).
+!!! example "Beispiel: Übertragskette"
+    `0111₂ + 0001₂` — hier läuft der Übertrag durch alle vier Stellen:
+
+    ```
+      0111
+    + 0001
+    ------
+      1000
+    ```
+
+    Rechte Stelle: `1+1=0`, Übertrag 1. Nächste Stelle: `1+0+1=0`, Übertrag
+    1. Nächste Stelle: `1+0+1=0`, Übertrag 1. Letzte Stelle: `0+0+1=1`, kein
+    weiterer Übertrag. Ergebnis: `1000₂`.
+
+    Probe im Dezimalsystem: `7 + 1 = 8`, und `1000₂ = 8`. ✓
+
+---
+
+**Schritt 5:** Schau dir das Video **„Darstellung negativer Zahlen im
+Binärformat"** an (11:46 Min.).
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/ZtnFRjO42iU" title="Video: Darstellung negativer Zahlen im Binärformat" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+Das Video zeigt zunächst den Wertebereich von Dualzahlen und die Idee des
+Vorzeichenbits, führt darüber das **Einerkomplement** als Zwischenschritt
+ein und kommt darüber zum **Zweierkomplement** — mit mehreren
+durchgerechneten Beispielen. Die Kurzfassung als Nachschlagehilfe:
 
 Ein Rechner muss auch negative Zahlen darstellen können. Naheliegend wäre,
 einfach ein Bit als Vorzeichen zu reservieren — das macht man in der Praxis
 aber nicht, weil dann Addition und Subtraktion getrennt behandelt werden
-müssten. Stattdessen verwendet man das **Zweierkomplement**. Bei einer
+müssten. Stattdessen verwendet man das Zweierkomplement. Bei einer
 festen Stellenzahl `n` (zum Beispiel `n=8`) geht man so vor:
 
 1. Die positive Zahl wird ganz normal binär dargestellt.
@@ -287,7 +316,7 @@ b) Wandle die Hexadezimalzahl `5D` in eine Binärzahl um.
 **Übung B — Horner-Schema:**
 
 Wandle die Dezimalzahl `150` mit der Restwertmethode (fortgesetzte Division
-durch 2) in eine Dualzahl um. Notiere wie im Beispiel aus Schritt 4 jeden
+durch 2) in eine Dualzahl um. Notiere wie im Beispiel aus Schritt 3 jeden
 Rechenschritt einzeln.
 
 ??? note "Musterlösung anzeigen"
@@ -361,7 +390,7 @@ und nicht zu Dreier- oder Fünfergruppen.
 Um eine Dezimalzahl in eine Dualzahl umzuwandeln, teilt man sie fortgesetzt durch [[2]] und notiert bei jedem Schritt den [[Rest]]; die gesuchte Dualzahl ergibt sich, wenn man diese Reste von [[unten]] nach oben liest.
 
 ---
-Das ist die Restwertmethode bzw. das Horner-Schema aus Schritt 4.
+Das ist die Restwertmethode bzw. das Horner-Schema aus Schritt 3.
 </quiz>
 
 ### Frage 5
