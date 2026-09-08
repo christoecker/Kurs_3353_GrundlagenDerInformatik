@@ -892,10 +892,18 @@ der C-Programme erinnern. Ein Schlüsselwort pro relevanter Anweisungsart:
   fasst Startwert, Obergrenze und Schrittweite in einer Kopfzeile zusammen;
   die Zählvariable darf im Schleifenkörper deshalb **nicht** zusätzlich von
   Hand verändert werden, das übernimmt `STEP` automatisch.
+- `BREAK` — vorzeitiger Abbruch einer Wiederholung (ab Woche 4, siehe
+  Praxisphase Woche 5, Aufgabe „Binäre Suche"): bricht die unmittelbar
+  umgebende Schleife sofort ab, unabhängig davon, ob deren eigentliche
+  Abbruchbedingung schon erfüllt ist. Wird sparsam eingesetzt, nur dort, wo
+  sich ein vorzeitiger Abbruch nicht sauberer über die Schleifenbedingung
+  selbst ausdrücken lässt (z. B. "gefunden, weitersuchen ist sinnlos"). An
+  der Einsatzstelle immer mit einem kurzen Kommentar/Hinweis versehen, warum
+  hier abgebrochen wird — `BREAK` ist die Ausnahme, kein Standardwerkzeug.
 
 Alle Schlüsselwörter sind bewusst an die spätere C-Syntax angelehnt
-(`if`/`else`, `while`, `do...while`, `for`), damit die Studierenden die
-Analogie beim Programmieren wiedererkennen. Blockinhalte werden
+(`if`/`else`, `while`, `do...while`, `for`, `break`), damit die Studierenden
+die Analogie beim Programmieren wiedererkennen. Blockinhalte werden
 eingerückt dargestellt.
 
 Alle übrigen Schritte werden als normaler, kurzer Verarbeitungssatz notiert,

@@ -124,3 +124,32 @@ flowchart TD
     A -->|ja| B
     A -->|nein| C
 ```
+
+## Vorzeitiger Abbruch (BREAK)
+
+Manchmal soll eine Wiederholung nicht erst über ihre reguläre Bedingung
+enden, sondern sofort, sobald im Inneren der Schleife ein bestimmtes
+Ereignis eintritt (z. B. "gesucht Element gefunden"). Dafür gibt es
+**kein eigenes Symbol** — stattdessen führt ein ganz normaler Pfeil direkt
+aus dem Schleifenkörper zu demselben Knoten, an dem die Schleife auch
+regulär verlassen wird. Zur besseren Erkennbarkeit wird dieser Pfeil mit
+`BREAK` beschriftet:
+
+```mermaid
+%%{init: {'flowchart': {'htmlLabels': false}}}%%
+flowchart TD
+    A{"Bedingung?"}
+    B["Anweisung"]
+    C{"Abbruch-Ereignis?"}
+    D["weitere Anweisungen"]
+    E["weiter"]
+    A -->|ja| B --> C
+    C -->|BREAK| E
+    C -->|nein| D --> A
+    A -->|nein| E
+```
+
+`BREAK` ist bewusst ein Ausnahmewerkzeug, kein Standardbaustein — nur dort
+einsetzen, wo sich ein vorzeitiger Abbruch nicht sauberer über die
+Schleifenbedingung selbst ausdrücken lässt, und die Stelle im Pseudocode
+immer mit einem kurzen Kommentar versehen, warum hier abgebrochen wird.

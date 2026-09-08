@@ -8,6 +8,7 @@ lernziele:
   - "Du kannst eine kopfgesteuerte Wiederholung als PAP zeichnen und im Pseudocode mit WHILE/DO/END WHILE formulieren, eine fußgesteuerte mit DO/WHILE."
   - "Du kannst erklären, worin sich kopf- und fußgesteuerte Wiederholung unterscheiden."
   - "Du kannst eine Zählschleife als Sonderfall der kopfgesteuerten Wiederholung erkennen und im Pseudocode mit FOR/TO/STEP/END FOR formulieren."
+  - "Du kannst mit BREAK eine Wiederholung vorzeitig abbrechen und begründen, warum das sparsam eingesetzt werden sollte."
   - "Du kannst einen gegebenen PAP mit Verzweigung und Wiederholung für eine konkrete Eingabe per Schreibtischtest durchrechnen und in Pseudocode übersetzen."
 quellen:
   - "Programmablaufplan- und Pseudocode-Erweiterungen: eigenes Material dieses Kurses (siehe PAP: Elemente im Überblick)"
@@ -56,6 +57,8 @@ Anfang an klar ist, was mit welchem Wert passiert.
 - Du kannst eine Zählschleife als Sonderfall der kopfgesteuerten
   Wiederholung erkennen und im Pseudocode mit `FOR`/`TO`/`STEP`/`END FOR`
   formulieren.
+- Du kannst mit `BREAK` eine Wiederholung vorzeitig abbrechen und
+  begründen, warum das sparsam eingesetzt werden sollte.
 - Du kannst einen gegebenen PAP mit Verzweigung und Wiederholung für eine
   konkrete Eingabe per Schreibtischtest durchrechnen und in Pseudocode
   übersetzen.
@@ -307,6 +310,37 @@ Startwert (`Zähler := 1`), Obergrenze (`TO N`) und Schrittweite
 (`STEP 1`). Eine eigene Anweisung, die `Zähler` von Hand hochzählt,
 brauchst du hier nicht mehr — das übernimmt `STEP` automatisch bei jedem
 Durchlauf.
+
+---
+
+**Schritt 4:** Lerne `BREAK` kennen — ein Werkzeug für den vorzeitigen
+Abbruch einer Wiederholung.
+
+Manchmal soll eine Wiederholung nicht erst über ihre reguläre Bedingung
+enden, sondern sofort, sobald im Inneren etwas Bestimmtes eintritt. Dafür
+gibt es das Schlüsselwort `BREAK`: Es verlässt die umgebende Wiederholung
+sofort, unabhängig davon, ob deren eigentliche Bedingung gerade erfüllt
+ist. Beispiel: In einer Reihe von N eingegebenen Zahlen soll die erste
+negative Zahl gefunden und sofort ausgegeben werden — ist sie gefunden,
+lohnt sich kein Weitersuchen mehr.
+
+```text linenums="1"
+INPUT: N
+FOR Zähler := 1 TO N STEP 1 DO
+    INPUT: Zahl
+    IF Zahl < 0 THEN
+        OUTPUT: Zahl
+        BREAK
+    END IF
+END FOR
+```
+
+Wie sich `BREAK` im PAP als einfacher Pfeil zum Schleifenende darstellen
+lässt, zeigt [PAP: Elemente im Überblick](../../pap-elemente.md), Abschnitt
+„Vorzeitiger Abbruch (BREAK)". Setze `BREAK` sparsam ein — nur dort, wo
+sich ein Abbruch nicht sauberer über die Schleifenbedingung selbst
+ausdrücken lässt — und kommentiere im Pseudocode immer, warum an dieser
+Stelle abgebrochen wird.
 
 ## Zum Ausprobieren { .abschnitt-ausprobieren }
 

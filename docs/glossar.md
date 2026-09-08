@@ -74,9 +74,19 @@ kann. Jede Prozessorfamilie hat ihren eigenen.
 wird. Nach jedem geholten Befehl wird es um eins erhöht — außer ein Sprungbefehl
 schreibt eine andere Adresse hinein.  
 
+**Binäre Suche**
+: Ein Algorithmus, der eine gesuchte Zahl in einem sortierten Zahlenbereich
+findet, indem er den Bereich bei jedem Schritt halbiert und die Hälfte
+verwirft, in der die Zahl nicht liegen kann. Ein Beispiel für das
+Divide-and-Conquer-Prinzip.  
+
 **Bit**
 : Die kleinste Informationseinheit, die ein Rechner kennt: eine einzelne
 Dualstelle mit dem Wert 0 oder 1.  
+
+**Brute-Force**
+: Eine Lösungsstrategie, die ein Problem löst, indem sie konsequent alle
+Möglichkeiten durchprobiert, ohne nach einem sparsameren Weg zu suchen.  
 
 **Bus**
 : Ein gemeinsamer Verbindungsweg, an den alle Komponenten eines Rechners
@@ -99,6 +109,12 @@ Speicher anzugeben.
 **Determiniertheit**
 : Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
 Algorithmus immer dasselbe Ergebnis.  
+
+**Divide-and-Conquer**
+: Zu Deutsch "Teile und herrsche": eine Lösungsstrategie, die ein Problem
+bei jedem Schritt in kleinere Teile zerlegt und dabei gezielt Teile
+verwirft, die für die Lösung nicht mehr infrage kommen. Oft deutlich
+sparsamer als Brute-Force. Beispiel: die binäre Suche.  
 
 **Dualsystem**
 : Ein Stellenwertsystem mit der Basis 2 und dem Ziffernvorrat 0 und 1. Auch
@@ -190,6 +206,11 @@ an: 0 für positiv (oder null), 1 für negativ.
 **Oktalsystem**
 : Ein Stellenwertsystem mit der Basis 8 und dem Ziffernvorrat 0 bis 7. Drei
 Binärstellen entsprechen genau einer Oktalziffer.  
+
+**O-Notation**
+: Eine Schreibweise, mit der man ausdrückt, wie stark die Zeitkomplexität
+eines Algorithmus mit wachsender Eingabemenge zunimmt. Damit lassen sich
+zwei Algorithmen für dasselbe Problem miteinander vergleichen.  
 
 **Operand**
 : Der Teil eines Maschinenbefehls, der angibt, womit gearbeitet werden soll —
@@ -312,6 +333,11 @@ Durchlauf mit einer Grenze verglichen und am Ende um eine feste
 Schrittweite verändert. Im Pseudocode dafür das eigene Schlüsselwort
 `FOR`, das Startwert, Grenze und Schrittweite in einer Kopfzeile
 zusammenfasst.  
+
+**Zeitkomplexität**
+: Ein Maß dafür, wie stark die Anzahl der nötigen Rechenschritte eines
+Algorithmus mit der Größe der Eingabe wächst. Ausgedrückt wird das mit der
+O-Notation.  
 
 **Ziffernvorrat**
 : Die Menge der Symbole, die in einem Stellenwertsystem als Ziffern verwendet
