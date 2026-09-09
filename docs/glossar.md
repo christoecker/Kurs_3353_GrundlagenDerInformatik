@@ -32,6 +32,11 @@ die Statik eines Hauses ist die Wandfarbe unwichtig, für den Malerbetrieb nicht
 : Die Nummer, über die eine einzelne Speicherzelle im Hauptspeicher angesprochen
 wird — vergleichbar mit der Nummer eines Schließfachs.  
 
+**Adressoperator**
+: Das Zeichen `&` vor einem Variablennamen in C. Es liefert nicht den Wert
+der Variable, sondern ihre Adresse im Speicher — zum Beispiel damit
+`scanf_s` weiß, wohin es einen eingelesenen Wert schreiben soll.  
+
 **Algorithmus**
 : Eine eindeutige Handlungsvorschrift, die aus gegebenen Ausgangswerten in
 endlich vielen Schritten ein Ergebnis erzeugt. Ein Algorithmus muss dabei drei
@@ -56,6 +61,12 @@ verschiedene Ziffern zur Verfügung stehen und wie stark der Wert einer Ziffer
 von Stelle zu Stelle wächst. Das Dezimalsystem hat die Basis 10, das
 Dualsystem die Basis 2.  
 
+**Basisdatentyp**
+: Einer der grundlegenden Datentypen einer Programmiersprache. In C sind
+das `int` für ganze Zahlen, `float` und `double` für Zahlen mit
+Nachkommaanteil (`double` mit höherer Genauigkeit als `float`) sowie
+`char` für ein einzelnes Zeichen.  
+
 **Bauen (Build)**
 : Der Vorgang, bei dem eine Entwicklungsumgebung den Quelltext eines
 Projekts durch den Compiler übersetzen und zu einer ausführbaren Datei
@@ -79,6 +90,11 @@ kann. Jede Prozessorfamilie hat ihren eigenen.
 : Das Register, das die Adresse des Befehls enthält, der als nächstes ausgeführt
 wird. Nach jedem geholten Befehl wird es um eins erhöht — außer ein Sprungbefehl
 schreibt eine andere Adresse hinein.  
+
+**Bibliothek**
+: Eine Sammlung fertiger Funktionen, die man per `#include` in ein eigenes
+Programm einbindet, um sie nutzen zu können, ohne sie selbst zu schreiben
+— zum Beispiel `stdio.h` für Ein- und Ausgabe.  
 
 **Binäre Suche**
 : Ein Algorithmus, der eine gesuchte Zahl in einem sortierten Zahlenbereich
@@ -112,10 +128,20 @@ Speicher anzugeben.
 
 ## D
 
+**Datentyp**
+: Legt fest, welche Art von Werten eine Variable speichern kann (zum
+Beispiel ganze Zahlen, Kommazahlen oder ein einzelnes Zeichen) und wie
+viel Speicherplatz dafür reserviert wird. Siehe auch Basisdatentyp.  
+
 **Debugger**
 : Ein Werkzeug, mit dem sich ein Programm Schritt für Schritt beobachten
 lässt, statt es nur am Stück laufen zu lassen. Wird in diesem Kurs erst
 später genauer eingeführt.  
+
+**Deklaration**
+: Das Anlegen einer Variable mit einem festgelegten Datentyp im Speicher —
+zum Beispiel `int anzahl;`. Ab diesem Zeitpunkt existiert die Variable,
+hat aber noch keinen sinnvollen Wert, solange ihr keiner zugewiesen wurde.  
 
 **Determiniertheit**
 : Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
@@ -144,6 +170,18 @@ vielen Schritten, und ihre Ausführung kommt nach endlich vielen Schritten
 tatsächlich zu einem Ende.  
 
 ## F
+
+**Formatierungszeichen**
+: Ein Platzhaltersymbol mit vorangestelltem `%` in einer `printf`- oder
+`scanf_s`-Zeichenkette, das angibt, welcher Datentyp an dieser Stelle
+ausgegeben bzw. eingelesen werden soll — zum Beispiel `%d` für eine ganze
+Zahl oder `%c` für ein einzelnes Zeichen.  
+
+**Funktion**
+: Ein benannter, in sich abgeschlossener Abschnitt eines Programms, der
+bestimmte Anweisungen ausführt. `main` ist die besondere Funktion, mit
+der jedes C-Programm startet. Wie man eigene Funktionen schreibt, folgt
+später im Kurs.  
 
 **Fußgesteuerte Wiederholung**
 : Eine Wiederholung, bei der die Bedingung erst nach den
@@ -187,6 +225,11 @@ Verarbeitung und Übermittlung von Information mithilfe von Rechnern.
 : Ein abstraktes Abbild von etwas Realem, das nur die für einen bestimmten Zweck
 wichtigen Eigenschaften enthält. Ein Bauplan ist Information über ein Haus: Er
 ist nicht das Haus, aber er genügt, um es zu bauen.  
+
+**Initialisierung**
+: Das Vergeben eines ersten Werts direkt bei der Deklaration einer
+Variable — zum Beispiel `int anzahl = 3;`. Im Unterschied zur reinen
+Deklaration hat die Variable danach sofort einen sinnvollen Wert.  
 
 ## K
 
@@ -328,6 +371,12 @@ den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
 
 ## V
 
+**Variable**
+: Ein benannter Speicherplatz für einen Wert. Beim Anlegen (Deklaration)
+muss festgelegt werden, von welchem Datentyp die Variable ist — das
+bestimmt, welche Werte sie speichern kann und wie viel Speicherplatz sie
+braucht.  
+
 **Verzweigung**
 : Eine Raute in einem Programmablaufplan, bei der der Ablauf abhängig von
 einer Bedingung einen von zwei Wegen nimmt — dargestellt mit den
@@ -374,6 +423,11 @@ O-Notation.
 : Die Menge der Symbole, die in einem Stellenwertsystem als Ziffern verwendet
 werden dürfen. Im Dezimalsystem sind das die zehn Ziffern 0 bis 9, im
 Dualsystem nur 0 und 1.  
+
+**Zuweisung**
+: Das nachträgliche Verändern des Werts einer bereits deklarierten
+Variable mit `=` — zum Beispiel `anzahl = 5;`. Anders als bei der
+Initialisierung existiert die Variable dabei schon.  
 
 **Zweierkomplement**
 : Die Art, wie negative ganze Zahlen im Rechner dargestellt werden. Man
