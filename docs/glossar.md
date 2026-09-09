@@ -56,6 +56,12 @@ verschiedene Ziffern zur Verfügung stehen und wie stark der Wert einer Ziffer
 von Stelle zu Stelle wächst. Das Dezimalsystem hat die Basis 10, das
 Dualsystem die Basis 2.  
 
+**Bauen (Build)**
+: Der Vorgang, bei dem eine Entwicklungsumgebung den Quelltext eines
+Projekts durch den Compiler übersetzen und zu einer ausführbaren Datei
+zusammenfügen lässt. Erst nach dem Bauen kann das Programm gestartet
+werden.  
+
 **Befehlsausführungszyklus**
 : Die drei Schritte, die ein Prozessor immer wieder durchläuft, bis ein
 Halte-Befehl kommt: den nächsten Befehl aus dem Hauptspeicher holen, den
@@ -105,6 +111,11 @@ Speicher anzugeben.
 übersetzt, damit der Prozessor ihn ausführen kann.  
 
 ## D
+
+**Debugger**
+: Ein Werkzeug, mit dem sich ein Programm Schritt für Schritt beobachten
+lässt, statt es nur am Stück laufen zu lassen. Wird in diesem Kurs erst
+später genauer eingeführt.  
 
 **Determiniertheit**
 : Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
@@ -161,6 +172,12 @@ die Zielbasis und liest die dabei entstehenden Reste von unten nach oben.
 
 ## I
 
+**IDE**
+: Abkürzung für *Integrated Development Environment*, zu Deutsch
+integrierte Entwicklungsumgebung. Ein Programm, das Editor, Compiler und
+weitere Werkzeuge zur Programmentwicklung an einem Ort vereint — zum
+Beispiel Visual Studio.  
+
 **Informatik**
 : Die Wissenschaft von der systematischen — vor allem der automatischen —
 Verarbeitung und Übermittlung von Information mithilfe von Rechnern.
@@ -172,6 +189,11 @@ wichtigen Eigenschaften enthält. Ein Bauplan ist Information über ein Haus: Er
 ist nicht das Haus, aber er genügt, um es zu bauen.  
 
 ## K
+
+**Konsolenanwendung**
+: Ein Programm, das ausschließlich über ein Textfenster (die Konsole) mit
+seinen Nutzern kommuniziert — Eingaben über die Tastatur, Ausgaben als
+Text. Alle Programme in diesem Kurs sind Konsolenanwendungen.  
 
 **Kopfgesteuerte Wiederholung**
 : Eine Wiederholung, bei der die Bedingung vor den Schleifenanweisungen
@@ -232,6 +254,15 @@ angeschlossen ist: Tastatur und Maus, Festplatten, Netzwerkkarten.
 : Eine grafische Beschreibung eines Algorithmus als Folge von Symbolen, die
 durch Pfeile verbunden sind — zum Beispiel Ovale für Start und Ende, Rechtecke
 für Verarbeitungsschritte und Parallelogramme für Ein- und Ausgabe.  
+
+**Projekt**
+: In einer Entwicklungsumgebung wie Visual Studio die Sammlung aller
+Dateien und Einstellungen, aus denen ein einzelnes Programm gebaut wird.  
+
+**Projektmappe (Solution)**
+: Ein Container in Visual Studio, der ein oder mehrere Projekte
+zusammenfasst. Für die Aufgaben in diesem Kurs reicht eine Projektmappe mit
+genau einem Projekt.  
 
 **Prozessor**
 : Die Komponente eines Rechners, die ein Programm ausführt und dabei Daten
