@@ -122,6 +122,12 @@ Speicher anzugeben.
 
 ## C
 
+**Codepage**
+: Eine Zuordnung zwischen Zahlenwerten und Zeichen, die festlegt, welches
+Zeichen ein Programm wie die Windows-Konsole für einen bestimmten Wert
+anzeigt. Passt die eingestellte Codepage nicht zur Codierung des Textes,
+erscheinen falsche Zeichen — zum Beispiel bei deutschen Umlauten.  
+
 **Compiler**
 : Ein Programm, das Quelltext einer Programmiersprache wie C in Maschinensprache
 übersetzt, damit der Prozessor ihn ausführen kann.  
@@ -168,6 +174,13 @@ es keinen Interpretationsspielraum gibt.
 : Eine Eigenschaft von Algorithmen: Die Beschreibung besteht aus endlich
 vielen Schritten, und ihre Ausführung kommt nach endlich vielen Schritten
 tatsächlich zu einem Ende.  
+
+**ESC-Sequenz**
+: Eine Zeichenfolge, die mit dem Escape-Zeichen beginnt und der Konsole
+statt eines auszugebenden Textes einen Steuerbefehl übermittelt — zum
+Beispiel eine andere Textfarbe oder eine neue Cursorposition. Geht über den
+eigentlichen C-Standard hinaus, funktioniert in der Windows-Konsole aber
+zuverlässig.  
 
 ## F
 
@@ -232,6 +245,12 @@ Variable — zum Beispiel `int anzahl = 3;`. Im Unterschied zur reinen
 Deklaration hat die Variable danach sofort einen sinnvollen Wert.  
 
 ## K
+
+**Kommentar**
+: Text im Quellcode, den der Compiler vollständig ignoriert — nur für
+Menschen gedacht, die den Code lesen. Ein Zeilenkommentar beginnt mit `//`
+und gilt bis zum Zeilenende, ein Blockkommentar steht zwischen `/*` und
+`*/` und kann sich über mehrere Zeilen erstrecken.  
 
 **Konsolenanwendung**
 : Ein Programm, das ausschließlich über ein Textfenster (die Konsole) mit

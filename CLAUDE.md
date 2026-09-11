@@ -13,8 +13,14 @@ oder Informatik. Turnus: jährlich im Wintersemester. Aktueller Durchlauf:
 **WS 2026/2027**.
 
 Prüfungsform: **Klausur** (voraussichtlich E-Klausur in ILIAS). Das Modulhandbuch
-lässt "Klausur oder Projektarbeit" zu; gewählt ist die Klausur. Das prägt die
-Aufgabengestaltung (siehe "Klausurbezug" unten).
+lässt "Klausur oder Projektarbeit" zu; gewählt ist die Klausur. **Der Professor
+denkt aktuell über ein anderes Prüfungsformat nach als früher üblich** — deshalb
+darf der Begriff "Klausurbezug" (oder Ähnliches) NIRGENDS in Aufgabenstellungen
+oder Planungsnotizen auftauchen, weder studierenden-facing noch intern (Stand
+2026-09-11). Das inhaltliche Prinzip bleibt trotzdem bestehen: Jede Einheit
+enthält mindestens eine Aufgabe, die ohne Rechner lösbar ist (Code lesen,
+Ausgabe vorhersagen, Fehler finden, Schreibtischtest) — nur ohne diese
+Begründung/Beschriftung, siehe "Didaktische Leitplanken" unten.
 
 Programmiersprache des gesamten Moduls ist **C**, ausschließlich prozedural.
 **Keine objektorientierten Konzepte, kein C++** — das ist eine harte Vorgabe.
@@ -205,10 +211,13 @@ der Sitzung.
   sinnvoll, zuerst als PAP gezeigt und dann in C übersetzt.
 - **Steigende Selbstständigkeit.** Frühe bS-Aufgaben sind stark geführt
   (Rahmen vorgegeben, Lücken füllen), spätere offen formuliert.
-- **Klausurbezug.** Da mit Klausur geprüft wird, enthält jede Einheit
-  mindestens eine Aufgabe, die **ohne Rechner** lösbar ist — Code lesen,
-  Ausgabe vorhersagen, Fehler finden, Schreibtischtest. Reines "am Rechner
-  ausprobieren" bereitet nicht auf die Prüfungsform vor.
+- **Aufgaben ohne Rechner.** Jede Einheit enthält mindestens eine Aufgabe,
+  die **ohne Rechner** lösbar ist — Code lesen, Ausgabe vorhersagen, Fehler
+  finden, Schreibtischtest. Reines "am Rechner ausprobieren" fördert andere
+  Fähigkeiten als das gedankliche Durchdringen von Code. **Wichtig:** Der
+  Begriff "Klausurbezug" (oder eine Formulierung, die diese Aufgaben explizit
+  mit der Klausur begründet) darf dabei NICHT verwendet werden (Stand
+  2026-09-11, siehe Hinweis oben) — nur das Prinzip selbst zählt.
 - **Kein durchgängiger Fallstudien-Case.** GdI-Aufgaben sind themenbezogen;
   es gibt bewusst keinen Fallstudien-Pool. Ein Bezug zur
   Mechatronik/Automatisierung (Sensorwerte, Motorsteuerung, Messreihen,
@@ -517,10 +526,15 @@ aus `datum`), OHNE Trennlinie danach.
   "### Lernziele"-Überschrift**, nie als nackte Liste.
 - `### Kurzer Rückblick` — einzeln nummerierte Fragen zur letzten Einheit;
   die erste bewusst allgemeiner (wozu dient das übergeordnete Konzept
-  grundsätzlich?), die weiteren spezifischer. Formuliert als
-  `**N.** Frage`-Absätze, **NICHT** als echte nummerierte Markdown-Liste:
-  Ein Admonition-Block zwischen zwei Listenpunkten wird von Python-Markdown
-  nicht mehr zuverlässig erkannt (am gebauten Ergebnis getestet). Jede Frage
+  grundsätzlich?), die weiteren spezifischer. Formuliert als `N\. Frage`-
+  Absätze — Nummer gefolgt von einem **escapten** Punkt (`\.`, kein Fett-
+  Markup mehr seit 2026-09-11) —, **NICHT** als echte nummerierte
+  Markdown-Liste UND nicht fett gesetzt: Eine echte geordnete Liste bricht
+  ihre Zählung, sobald zwischen zwei Listenpunkten ein Admonition-Block
+  eingefügt wird (am gebauten Ergebnis getestet), und lässt einen
+  unformatierten `N.`-Absatz ohne den escapten Punkt automatisch selbst zu
+  einer neuen Liste werden. Der escapte Punkt (`\.` statt `.`) verhindert
+  genau das, ohne dass der Text optisch hervorgehoben wirkt. Jede Frage
   bekommt eine eigene, einzeln umschaltbare Antwort:
   `<!-- MUSTERLOESUNG-START -->` + `??? note "Musterlösung anzeigen"` +
   `<!-- MUSTERLOESUNG-ENDE -->` — exakt derselbe Admonition-Typ und Titeltext
@@ -537,8 +551,10 @@ aus `datum`), OHNE Trennlinie danach.
   `#### `-Überschrift pro Live-Coding-Schritt. Jeder Schritt: Beschreibung an
   die Studierenden gerichtet, ggf. PAP-Ausschnitt (außerhalb des
   Code-Blocks), dann der Code des Schritts in einem zugeklappten
-  `??? quote livecoding "Code: Stand nach diesem Schritt"`-Block mit
-  `--8<--`-Einbindung.
+  `??? quote livecoding "Beispiel-Code"`-Block mit `--8<--`-Einbindung
+  (Titel seit 2026-09-11 einheitlich "Beispiel-Code", vorher "Code: Stand
+  nach diesem Schritt"). Hintergrund dieser Blöcke ist Weiß
+  (`.livecoding`-Regel in `extra.css`).
 - `### Gesamtergebnis` — das vollständige Programm einmalig per Snippet in
   einem `??? quote livecoding`-Block, plus eine Zusammenfassung der
   behandelten Konzepte **außerhalb** des zugeklappten Blocks, damit sie beim
@@ -547,24 +563,40 @@ aus `datum`), OHNE Trennlinie danach.
   Fehler", "Was passiert, wenn ...") sowie ein
   `!!! tip "Clean Code: <Prinzip>"`-Block, wenn hier ein Prinzip neu
   eingeführt wird.
+- **Untergeordnete Hinweise** (eine Randbemerkung zu einem einzelnen
+  Schritt, kein eigenständiger Warnhinweis wie Clean Code) stehen NICHT in
+  einer `!!!`-Admonition, sondern als eigener Absatz mit Fett-Label und der
+  attr_list-Klasse `.hinweis-klein` direkt darunter (seit 2026-09-11):
+  ```
+  **Kurzes Label:** Erklärender Text ...
+  {: .hinweis-klein }
+  ```
+  Begründung: Eine `!!!`-Box wirkt optisch wichtiger als der Fließtext, dem
+  sie eigentlich nachgeordnet sein soll.
 
 **Betreutes Selbststudium** — `## <Kurztitel> { .modus-selbststudium }`:
 
 - `### Worum geht es?` mit Lernzielen im gleichen
   `!!! abstract "Lernziele"`-Muster (auch hier keine eigene Überschrift).
-- Weicht `ki_einsatz` von "normal" ab, wird das hier für die Studierenden
-  sichtbar gemacht, mit Verweis auf `docs/ki-nutzung.md`.
-- `### Aufgabe <NN>: <Kurztitel>` mit fortlaufender Nummer aus dem Register
-  und einem aufklappbaren `??? info "Bezug zu Lehrinhalten"` (Verweis auf
-  Praxisphase-Woche bzw. frühere Termine).
+- **KI-Hinweis (seit 2026-09-11 kein eigener Block mehr):** Weicht
+  `ki_einsatz` einer einzelnen Aufgabe vom sonst in diesem Block üblichen
+  "ohne KI" ab, wird die konkrete Zweckangabe (wofür KI erlaubt ist) direkt
+  als Satz IN die Aufgabenstellung eingebaut, mit Verweis auf
+  `docs/ki-nutzung.md` — nicht mehr als separater `!!! abstract`-Block.
+  "Ohne KI" braucht in der Regel gar keinen sichtbaren Hinweis mehr (das ist
+  laut `docs/ki-nutzung.md` ohnehin der Normalfall in frühen Blöcken).
+- `### Aufgabe <NN>: <Kurztitel>` mit fortlaufender Nummer aus dem Register.
+  **Kein separater "Bezug zu Lehrinhalten"-Block mehr** (seit 2026-09-11):
+  Da bS-Aufgaben immer direkt an ein Live-Coding-Beispiel derselben Seite
+  anknüpfen, ist der Bezug aus dem Kontext ersichtlich.
 - Bei mehreren Teilaufgaben Gliederung in `#### Teil A — ...` /
   `#### Teil B — ...` mit `---` dazwischen.
-- Musterlösungen in `???+ note "Musterlösung Teil A anzeigen"` innerhalb von
-  `<!-- MUSTERLOESUNG-START/ENDE -->`. `???+` bleibt zuklappbar, startet aber
-  offen. Mermaid-Diagramme funktionieren mittlerweile nachweislich auch in
-  geschlossenen `???`-Blöcken (an Praxisphase Woche 3 und 4 geprüft) — falls
-  bei einem konkreten Theoriephase-Block ein geschlossener Start bevorzugt
-  wird, kann das entsprechend geprüft und umgestellt werden.
+- Musterlösungen in `??? note "Musterlösung Teil A anzeigen"` innerhalb von
+  `<!-- MUSTERLOESUNG-START/ENDE -->` — standardmäßig ZUGEKLAPPT (seit
+  2026-09-11 kein `???+` mehr für bS-Musterlösungen, damit man beim
+  Überfliegen der Seite nicht versehentlich die Lösung mitliest). Mermaid-
+  Diagramme funktionieren nachweislich auch in geschlossenen `???`-Blöcken
+  (an Praxisphase Woche 3 und 4 geprüft).
 - Musterlösungen enthalten immer auch eine kurze Begründung/Erklärung, nicht
   nur den Code.
 
@@ -575,9 +607,11 @@ Horizontale Trennlinien (`---` auf eigener Zeile, Leerzeilen davor/danach):
 - IMMER zwischen `{ .modus-uebung }` und `{ .modus-selbststudium }`.
 - IMMER zwischen den `###`-Hauptphasen innerhalb der Übung (Kurzer Rückblick
   / Beispiel / Umsetzung / Gesamtergebnis / optionale Vertiefung).
+- IMMER auch zwischen den einzelnen `####`-Live-Coding-Schritten innerhalb
+  einer Übungsphase (seit 2026-09-11 geändert — vorher bewusst NICHT, weil
+  sie inhaltlich eng zusammengehören; auf Wunsch des Professors nun
+  trotzdem durchgehend getrennt).
 - IMMER zwischen mehreren `####`-Teilaufgaben im bS (Teil A / Teil B / Teil C).
-- NICHT zwischen den kumulativen `####`-Live-Coding-Schritten innerhalb einer
-  Übungsphase — die gehören inhaltlich eng zusammen.
 - NICHT direkt nach dem Seitentitel.
 
 ### Ansprache
@@ -980,7 +1014,7 @@ Materialien einbezogen werden können:
 | Rolle | Blick |
 |---|---|
 | `fachliche-korrektheit` | Informatik-Begriffe, Zahlensysteme, Rechnerarchitektur, Algorithmen |
-| `didaktik` | Lernzielbezug, Schrittgröße, Aufgabenvielfalt, Klausurbezug |
+| `didaktik` | Lernzielbezug, Schrittgröße, Aufgabenvielfalt, Aufgaben ohne Rechner |
 | `studi-perspektive` | Erstsemester ohne Vorkenntnisse: Wo steige ich aus? |
 | `ki-nutzung` | Passt die Eskalationsstufe zur Kursphase? |
 | `technik-c` | Kompiliert das? Ist das wirklich C und nicht C++? |
@@ -1014,7 +1048,7 @@ Konkrete Prüffragen für diesen Check:
   Bearbeitbarkeit gefährden.
 - Bezieht sich jede Frage/Teilaufgabe tatsächlich auf das, was in DIESER
   Einheit erarbeitet werden soll?
-- Ist mindestens eine Teilaufgabe ohne Rechner lösbar (Klausurbezug)?
+- Ist mindestens eine Teilaufgabe ohne Rechner lösbar?
 - Verwendet jedes Codebeispiel nur Konstrukte, die zu diesem Zeitpunkt schon
   eingeführt wurden?
 

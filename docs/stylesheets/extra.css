@@ -177,7 +177,7 @@
    der Seite. Live-Coding-Bloecke enthalten deshalb ausschliesslich
    Code-Fences; PAPs stehen immer ausserhalb (siehe CLAUDE.md). */
 .md-typeset details.livecoding {
-  background-color: var(--md-default-fg-color--lightest);
+  background-color: white;
   font-size: inherit;
 }
 
@@ -240,4 +240,21 @@
 .md-typeset details.musterloesung-hervorgehoben > summary::before {
   -webkit-mask-image: var(--md-admonition-icon--success);
   mask-image: var(--md-admonition-icon--success);
+}
+
+
+/* Kleine, dem umgebenden Inhalt bewusst UNTERGEORDNETE Hinweise (z. B. eine
+   Randbemerkung zu einem einzelnen Live-Coding-Schritt) - per attr_list als
+   "{: .hinweis-klein }" direkt unter einen Absatz gesetzt. Bewusst KEINE
+   vollwertige Admonition (kein Rahmen, kein Titel, kein Icon): Eine "!!!"-Box
+   sieht optisch wichtiger aus als der Fliesstext, dem sie eigentlich nur
+   nachgeordnet sein soll. Kleinere Schrift plus grauer Rand links signalisiert
+   "das hier ist eine Randnotiz", ohne die Aufmerksamkeit vom Haupttext
+   abzuziehen. */
+.hinweis-klein {
+  font-size: 0.75em;
+  color: var(--md-default-fg-color--light);
+  border-left: 3px solid var(--md-default-fg-color--lightest);
+  padding: 0.1em 0 0.1em 0.8em;
+  margin: 1em 0;
 }

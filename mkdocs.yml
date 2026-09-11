@@ -51,6 +51,9 @@ exclude_docs: |
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/external-links.js
+
 # WICHTIG: Ein nav-Eintrag darf erst ergänzt werden, wenn die zugehörige
 # Datei tatsächlich existiert — sonst erzeugt MkDocs eine kaputte
 # Verlinkung (Klartext-Pfad statt echtem Seitenlink). Die Praxisphase-
@@ -74,6 +77,9 @@ nav:
       - "Woche 5": 01-praxisphase/woche-05/woche-05.md
       - "Woche 6": 01-praxisphase/woche-06/woche-06.md
       - "Woche 7": 01-praxisphase/woche-07/woche-07.md
+  - Theoriephase:
+      - "Termin 1":
+          - "Grundbegriffe und Zahlensysteme": 02-theoriephase/termin-01/block-01.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
