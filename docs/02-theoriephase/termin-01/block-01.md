@@ -19,6 +19,7 @@ musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code: []
 bearbeitungsstatus: in-arbeit
+publish_date: 2026-10-21
 ---
 
 # Grundbegriffe und Zahlensysteme (21.10.2026)
