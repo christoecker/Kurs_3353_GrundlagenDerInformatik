@@ -99,12 +99,12 @@ Ordne dabei gleich ein, wo du dich in diesem Modul bewegst: Der Rest dieser
 Woche gehört zur **technischen Informatik**. Alles, was danach kommt —
 Algorithmen, Programmieren in C — gehört zur **praktischen Informatik**.
 
-!!! info "Warum es gleich mit Kapitel 18 weitergeht"
-    Die Kapitel 2 bis 17 behandeln Algorithmen und Programmierung. Damit
-    beschäftigen wir uns ab Woche 3 und dann im ganzen restlichen Modul — nur
-    eben nicht mit diesem Buch, sondern mit eigenem Material und in der Sprache
-    C. Für diese Woche springst du deshalb direkt zu Teil 5 des Buchs, „Vom
-    Programm zum Rechner".
+**Warum es gleich mit Kapitel 18 weitergeht:** Die Kapitel 2 bis 17
+behandeln Algorithmen und Programmierung. Damit beschäftigen wir uns ab
+Woche 3 und dann im ganzen restlichen Modul — nur eben nicht mit diesem
+Buch, sondern mit eigenem Material und in der Sprache C. Für diese Woche
+springst du deshalb direkt zu Teil 5 des Buchs, „Vom Programm zum Rechner".
+{: .hinweis-klein }
 
 ---
 
@@ -120,12 +120,13 @@ Je weiter oben du bist, desto näher bist du daran, wie ein Mensch ein Problem
 beschreiben würde. Je weiter unten, desto näher an dem, was die Elektronik
 tatsächlich tut.
 
-!!! info "Bezug zu unserem Modul"
-    Das Buch nennt Java als Beispiel für eine problemorientierte
-    Programmiersprache. **C**, die Sprache dieses Moduls, steht auf derselben
-    Ebene. Auch ein C-Programm muss also erst in Maschinensprache übersetzt
-    werden, bevor ein Prozessor damit etwas anfangen kann. Dieses Übersetzen
-    erledigt ein *Compiler* — den lernst du in Woche 6 in der Praxis kennen.
+**Bezug zu unserem Modul:** Das Buch nennt Java als Beispiel für eine
+problemorientierte Programmiersprache. **C**, die Sprache dieses Moduls,
+steht auf derselben Ebene. Auch ein C-Programm muss also erst in
+Maschinensprache übersetzt werden, bevor ein Prozessor damit etwas anfangen
+kann. Dieses Übersetzen erledigt ein *Compiler* — den lernst du in Woche 6
+in der Praxis kennen.
+{: .hinweis-klein }
 
 ---
 
@@ -156,12 +157,12 @@ Kurzer Abschnitt, zwei Kernaussagen: Der Hauptspeicher besteht aus lauter
 gleich aufgebauten **Speicherzellen**, und jede davon hat eine **Adresse**, über
 die man sie ansprechen kann.
 
-!!! info "Ein Begriff, den du noch nicht brauchst"
-    Das Buch vergleicht den Hauptspeicher an dieser Stelle mit einem *Array*.
-    Diesen Begriff lernst du erst später im Modul kennen — überlies ihn
-    einfach. Für jetzt genügt ein anderes Bild: eine sehr lange Reihe
-    durchnummerierter Schließfächer. Die Nummer ist die Adresse, der Inhalt des
-    Fachs ist der gespeicherte Wert.
+**Ein Begriff, den du noch nicht brauchst:** Das Buch vergleicht den
+Hauptspeicher an dieser Stelle mit einem *Array*. Diesen Begriff lernst du
+erst später im Modul kennen — überlies ihn einfach. Für jetzt genügt ein
+anderes Bild: eine sehr lange Reihe durchnummerierter Schließfächer. Die
+Nummer ist die Adresse, der Inhalt des Fachs ist der gespeicherte Wert.
+{: .hinweis-klein }
 
 Zum Schluss vergleicht der Abschnitt Hauptspeicher und Festplatte. Halte fest,
 worin sie sich unterscheiden — es sind drei Dinge: Geschwindigkeit, Kosten und

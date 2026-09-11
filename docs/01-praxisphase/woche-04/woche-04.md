@@ -39,11 +39,12 @@ mathematischer werden. Rechenoperationen sind für den Einstieg oft sogar
 leichter nachzuvollziehen als vage Alltagsformulierungen, weil bei ihnen von
 Anfang an klar ist, was mit welchem Wert passiert.
 
-!!! info "Nachschlagewerk für alle PAP-Symbole"
-    Alle Symbole, die du im Kurs für Programmablaufpläne verwendest —
-    auch die aus Woche 3 — findest du gesammelt auf der Seite
-    [PAP: Elemente im Überblick](../../pap-elemente.md). Dort kannst du
-    jederzeit nachschlagen, welches Symbol wofür steht.
+**Nachschlagewerk für alle PAP-Symbole:** Alle Symbole, die du im Kurs für
+Programmablaufpläne verwendest — auch die aus Woche 3 — findest du
+gesammelt auf der Seite
+[PAP: Elemente im Überblick](../../pap-elemente.md). Dort kannst du
+jederzeit nachschlagen, welches Symbol wofür steht.
+{: .hinweis-klein }
 
 ## Das solltest du danach können
 
@@ -241,13 +242,13 @@ Anders als bei der kopfgesteuerten Variante läuft hier die Eingabe immer
 mindestens einmal, bevor überhaupt geprüft wird — bei einer fußgesteuerten
 Wiederholung ist das immer so.
 
-!!! tip "Warum zwei Varianten?"
-    Die Wahl zwischen kopf- und fußgesteuerter Wiederholung ist keine
-    Geschmacksfrage. Entscheidend ist: Muss der Schleifenkörper unter
-    Umständen null Mal laufen (dann kopfgesteuert), oder ist mindestens ein
-    Durchlauf immer sinnvoll oder sogar nötig, weil erst danach etwas zu
-    prüfen ist — wie bei der Eingabe oben, die es ja erst geben muss, bevor
-    man sie bewerten kann (dann fußgesteuert)?
+**Warum zwei Varianten?** Die Wahl zwischen kopf- und fußgesteuerter
+Wiederholung ist keine Geschmacksfrage. Entscheidend ist: Muss der
+Schleifenkörper unter Umständen null Mal laufen (dann kopfgesteuert), oder
+ist mindestens ein Durchlauf immer sinnvoll oder sogar nötig, weil erst
+danach etwas zu prüfen ist — wie bei der Eingabe oben, die es ja erst geben
+muss, bevor man sie bewerten kann (dann fußgesteuert)?
+{: .hinweis-klein }
 
 Für Wiederholungen gibt es in diesem Kurs **kein eigenes PAP-Symbol**.
 Genormt wäre das nach DIN 66001 ein eigener Schleifenblock — in der Praxis

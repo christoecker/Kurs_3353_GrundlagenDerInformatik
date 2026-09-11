@@ -170,12 +170,12 @@ Ausgaben"** an (7:33 Min.).
 `scanf_s`: Damit liest du einen Wert von der Tastatur ein und speicherst
 ihn in einer Variable.
 
-!!! info "scanf_s ist eine Visual-Studio-Besonderheit"
-    `scanf_s` ist eine von Microsoft ergänzte, sicherere Variante der
-    Standardfunktion `scanf` und funktioniert nur mit dem Visual-Studio-
-    Compiler. Andere Compiler (z. B. auf Linux oder Mac) kennen nur
-    `scanf`. Da wir in diesem Modul mit Visual Studio arbeiten, verwenden
-    wir durchgehend `scanf_s`.
+**scanf_s ist eine Visual-Studio-Besonderheit:** `scanf_s` ist eine von
+Microsoft ergänzte, sicherere Variante der Standardfunktion `scanf` und
+funktioniert nur mit dem Visual-Studio-Compiler. Andere Compiler (z. B. auf
+Linux oder Mac) kennen nur `scanf`. Da wir in diesem Modul mit Visual
+Studio arbeiten, verwenden wir durchgehend `scanf_s`.
+{: .hinweis-klein }
 
 Tippe das folgende Programm ab. Es liest eine Zahl ein und gibt sie
 anschließend in drei verschiedenen Formen wieder aus:
@@ -229,11 +229,12 @@ Die Umsetzung in C braucht dafür genau die Bausteine, die du diese Woche
 gelernt hast: zwei Variablen unterschiedlichen Typs, `scanf_s` zum
 Einlesen und `printf` zur formatierten Ausgabe.
 
-!!! warning "Dezimalzahlen mit Punkt eingeben"
-    Wenn du gleich eine Kommazahl über die Tastatur eingibst, verwende
-    einen **Punkt** statt eines Kommas (also `23.5`, nicht `23,5`).
-    `scanf_s` erwartet die Schreibweise, die C für Zahlen verwendet — mit
-    einem Komma würde das Einlesen nicht wie erwartet funktionieren.
+**Dezimalzahlen mit Punkt eingeben:** Wenn du gleich eine Kommazahl über
+die Tastatur eingibst, verwende einen **Punkt** statt eines Kommas (also
+`23.5`, nicht `23,5`). `scanf_s` erwartet die Schreibweise, die C für
+Zahlen verwendet — mit einem Komma würde das Einlesen nicht wie erwartet
+funktionieren.
+{: .hinweis-klein }
 
 ```c title="messwerte.c" linenums="1"
 --8<-- "01-praxisphase/woche-07/code/messwerte.c"

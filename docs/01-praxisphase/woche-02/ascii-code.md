@@ -116,11 +116,11 @@ kennen.
 | 110 | 6E | n | 125 | 7D | } |
 | 111 | 6F | o | 126 | 7E | ~ |
 
-!!! info "Warum keine deutschen Umlaute?"
-    Im klassischen 7-Bit-ASCII-Code gibt es keine Zeichen wie `ä`, `ö`, `ü`
-    oder `ß` — der Code wurde in den USA entwickelt. Erweiterte Codierungen
-    wie ISO 8859-1 oder das heute übliche Unicode ergänzen solche Zeichen,
-    indem sie mehr Bits pro Zeichen verwenden. Das ist für dieses Modul aber
-    nicht weiter wichtig.
+**Warum keine deutschen Umlaute?** Im klassischen 7-Bit-ASCII-Code gibt es
+keine Zeichen wie `ä`, `ö`, `ü` oder `ß` — der Code wurde in den USA
+entwickelt. Erweiterte Codierungen wie ISO 8859-1 oder das heute übliche
+Unicode ergänzen solche Zeichen, indem sie mehr Bits pro Zeichen verwenden.
+Das ist für dieses Modul aber nicht weiter wichtig.
+{: .hinweis-klein }
 
 :material-arrow-left: Zurück zu [Woche 2](woche-02.md).

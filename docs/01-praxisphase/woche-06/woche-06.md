@@ -103,15 +103,16 @@ findest du in der Gruppe **"Desktop & Mobile"**. Setze dort den Haken —
 mit den Standardeinstellungen, die dabei vorausgewählt sind. Weitere
 Workloads brauchst du für dieses Modul nicht.
 
-!!! info "Warum steht da überall 'C++', wenn wir C programmieren?"
-    Das wirst du bei der Installation und später ständig in Visual Studio
-    lesen — und es wirkt erstmal widersprüchlich, schließlich programmieren
-    wir in diesem Kurs ausschließlich in **C**, nicht in C++. Der Grund:
-    Microsoft liefert Compiler und Werkzeuge für C und C++ gemeinsam als
-    ein Paket aus, weil beide Sprachen eng verwandt sind und denselben
-    Compiler benutzen. Eine eigene Workload nur für C gibt es nicht. Ob
-    dein Code am Ende als C oder als C++ übersetzt wird, entscheidet allein
-    die **Dateiendung** deiner Quelldatei — dazu gleich mehr.
+**Warum steht da überall "C++", wenn wir C programmieren?** Das wirst du
+bei der Installation und später ständig in Visual Studio lesen — und es
+wirkt erstmal widersprüchlich, schließlich programmieren wir in diesem Kurs
+ausschließlich in **C**, nicht in C++. Der Grund: Microsoft liefert
+Compiler und Werkzeuge für C und C++ gemeinsam als ein Paket aus, weil
+beide Sprachen eng verwandt sind und denselben Compiler benutzen. Eine
+eigene Workload nur für C gibt es nicht. Ob dein Code am Ende als C oder
+als C++ übersetzt wird, entscheidet allein die **Dateiendung** deiner
+Quelldatei — dazu gleich mehr.
+{: .hinweis-klein }
 
 ---
 
@@ -175,14 +176,14 @@ und zu einer ausführbaren Datei zusammenfügen lassen. Nutze dazu im Menü
 **Erstellen → Projektmappe erstellen** (oder die Tastenkombination
 **Strg+Umschalt+B**). Erst danach kannst du das Programm starten.
 
-!!! tip "Starten ohne Debuggen"
-    Startest du dein Programm über **Debuggen → Debuggen starten** (oder
-    die Taste **F5**), öffnet sich kurz ein Konsolenfenster mit deiner
-    Ausgabe — und schließt sich sofort wieder, bevor du sie lesen kannst.
-    Das liegt daran, dass das Programm nach der letzten Zeile einfach endet
-    und das Fenster mitnimmt. Nutze stattdessen **Debuggen → Starten ohne
-    Debuggen** (oder **Strg+F5**): Dann bleibt das Fenster offen, bis du
-    eine beliebige Taste drückst.
+**Starten ohne Debuggen:** Startest du dein Programm über **Debuggen →
+Debuggen starten** (oder die Taste **F5**), öffnet sich kurz ein
+Konsolenfenster mit deiner Ausgabe — und schließt sich sofort wieder, bevor
+du sie lesen kannst. Das liegt daran, dass das Programm nach der letzten
+Zeile einfach endet und das Fenster mitnimmt. Nutze stattdessen
+**Debuggen → Starten ohne Debuggen** (oder **Strg+F5**): Dann bleibt das
+Fenster offen, bis du eine beliebige Taste drückst.
+{: .hinweis-klein }
 
 Wenn du "Hello World!" in einem offenen Konsolenfenster siehst, hat alles
 funktioniert.
@@ -200,14 +201,14 @@ kompakt auf (Datei, Zeile, Fehlertext in eigenen Spalten), das
 **Ausgabe**-Fenster zeigt zusätzlich den vollständigen Text des Compilers.
 Für den Anfang reicht ein Blick in die Fehlerliste.
 
-!!! tip "Fehlermeldungen lesen"
-    Fehlermeldungen beim Bauen wirken am Anfang oft kryptisch und manchmal
-    zeigen sie auch auf die falsche Zeile — der Compiler bemerkt ein
-    fehlendes Semikolon oft erst beim nächsten Sprachelement danach.
-    Wichtig sind vor allem zwei Angaben: die **Datei und Zeilennummer**
-    (damit weißt du, wo du suchen musst) und der **Fehlertext** selbst.
-    Solche Meldungen sind auch ein guter Kandidat dafür, sie dir von einem
-    KI-Werkzeug erklären zu lassen, wenn du nicht weiterkommst.
+**Fehlermeldungen lesen:** Fehlermeldungen beim Bauen wirken am Anfang oft
+kryptisch und manchmal zeigen sie auch auf die falsche Zeile — der Compiler
+bemerkt ein fehlendes Semikolon oft erst beim nächsten Sprachelement
+danach. Wichtig sind vor allem zwei Angaben: die **Datei und Zeilennummer**
+(damit weißt du, wo du suchen musst) und der **Fehlertext** selbst. Solche
+Meldungen sind auch ein guter Kandidat dafür, sie dir von einem
+KI-Werkzeug erklären zu lassen, wenn du nicht weiterkommst.
+{: .hinweis-klein }
 
 Setze das Semikolon danach wieder ein und baue das Projekt erneut, damit dein
 Programm wieder läuft.
