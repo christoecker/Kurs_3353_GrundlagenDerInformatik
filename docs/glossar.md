@@ -280,6 +280,12 @@ aus einem Operationscode und den Operanden.
 Befehle aus seinem Befehlssatz. Sie ist von Prozessor zu Prozessor
 unterschiedlich.  
 
+**Modulo-Operator**
+: Das Zeichen `%` in C. Es liefert den Rest einer Ganzzahldivision — zum
+Beispiel ist `17 % 5` gleich `2`. Zusammen mit der normalen Division `/`
+lässt sich damit eine Zahl in Stellen unterschiedlicher Größenordnung
+zerlegen, etwa Sekunden in Stunden, Minuten und Restsekunden.  
+
 **MSB**
 : Abkürzung für *Most Significant Bit*, zu Deutsch das höchstwertige Bit
 einer Dualzahl. Bei der Zweierkomplement-Darstellung zeigt es das Vorzeichen

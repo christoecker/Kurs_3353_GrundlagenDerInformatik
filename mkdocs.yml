@@ -11,6 +11,7 @@ theme:
   name: material
   language: de
   features:
+    - navigation.tabs
     - navigation.sections
     - navigation.indexes
     - content.code.copy
@@ -80,6 +81,7 @@ nav:
   - Theoriephase:
       - "Termin 1":
           - "Grundbegriffe und Zahlensysteme": 02-theoriephase/termin-01/block-01.md
+          - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md

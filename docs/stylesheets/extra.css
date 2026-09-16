@@ -258,3 +258,10 @@
   padding: 0.1em 0 0.1em 0.8em;
   margin: 1em 0;
 }
+
+
+/* Reiterzeile (navigation.tabs) mittig statt linksbündig anordnen - reines
+   Geschmacks-/Layoutdetail, das Material selbst nicht als Option anbietet. */
+.md-tabs__list {
+  justify-content: center;
+}
