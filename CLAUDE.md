@@ -72,16 +72,16 @@ Material muss eindeutig einem davon zugeordnet sein:
    "Zeitgesteuerte Veröffentlichung"), erste Woche 31.08.2026, letzte
    12.10.2026.
 
-2. **Übung** (Abschnitt `## <Kurztitel> { .modus-uebung }` in
+2. **Übung** (Abschnitt `## Übung { .modus-uebung }` in
    `docs/02-theoriephase/termin-XX/block-NN.md`): Präsenz, 45 Minuten, der
    Lehrende hat den aktiven Part. In GdI heißt das ganz überwiegend
    **Live-Coding**: ein kleines Problem wird gemeinsam Schritt für Schritt
    in C umgesetzt.
 
 3. **Betreutes Selbststudium** (Abschnitt
-   `## <Kurztitel> { .modus-selbststudium }` in derselben Datei, direkt im
-   Anschluss): Präsenz, 45 Minuten. Studierende arbeiten allein oder in
-   Kleingruppen, der Lehrende betreut. Aufgaben sollen
+   `## Betreutes Selbststudium { .modus-selbststudium }` in derselben
+   Datei, direkt im Anschluss): Präsenz, 45 Minuten. Studierende arbeiten
+   allein oder in Kleingruppen, der Lehrende betreut. Aufgaben sollen
    **abwechslungsreich** sein: Programmieraufgaben, Fehlersuche in
    vorgegebenem Code, Schreibtischtests, PAP-Aufgaben, kurze Recherchen,
    Code-Reviews untereinander — nicht immer nur "schreibe ein Programm,
@@ -98,9 +98,11 @@ nicht erst als Einheitstyp vor.
 getrennten Dateien. Blöcke sind über die **gesamte** Theoriephase fortlaufend
 nummeriert (nicht pro Termin neu bei 1) und nach Terminen sortiert.
 
-Die Theoriephase umfasst **10 Termine** vom 21.10. bis 23.12.2026. Die
-meisten Termine haben 2 Blöcke; drei Termine (4.11., 18.11., 2.12.) haben 3.
-Zeitraster: 08:30–10:00, 10:15–11:45, 12:30–14:00.
+Die Theoriephase umfasst **9 Termine** vom 21.10. bis 16.12.2026 (seit
+2026-09-17; zuvor 10 Termine bis 23.12., siehe entscheidungen.md). Sechs
+Termine (4.11., 18.11., 25.11., 2.12., 9.12., 16.12.) haben 3 Blöcke, drei
+Termine (21.10., 28.10., 11.11.) haben 2. Zeitraster: 08:30–10:00,
+10:15–11:45, 12:30–14:00.
 
 Zusätzlich bekommt jeder Termin eine Übersichtsseite
 (`termin-XX/index.md`) — kein Übungs-/Selbstkontrollteil, nur Überblick und
@@ -122,11 +124,14 @@ ein.
 Softwareentwicklung mit KI zu STEUERN und das Ergebnis zu BEWERTEN** — eine
 kleine Vorstufe dessen, was die Studierenden später beruflich können sollen.
 
-Der Termin belegt beide Slots des Tages (180 min) als EINE Einheit; die Datei
-heißt deshalb `block-13-14.md` mit `block_id: "13-14"` und `format: projekt`.
-Die konkrete Struktur-Variante (`_templates/projekttag.template.md`) wird
-**bei der Planung dieses Termins gemeinsam entworfen**, nicht vorab
-festgelegt.
+Der Termin belegt seit 2026-09-17 **alle drei Slots** des Tages (270 min statt
+vorher 180) als EINE Einheit; die Datei heißt deshalb `block-13-14-15.md` mit
+`block_id: "13-14-15"` und `format: projekt`. Der dritte Slot ist einer von
+zwei neuen Slots, die durch den Wegfall von Termin 10 (23.12.) frei wurden
+(siehe entscheidungen.md) und vertieft den Projekttag selbst (z. B. mehr
+Bearbeitungszeit, Zwischenstände vorstellen). Die konkrete Struktur-Variante
+(`_templates/projekttag.template.md`) wird **bei der Planung dieses Termins
+gemeinsam entworfen**, nicht vorab festgelegt.
 
 ## Planung vor Umsetzung bei Theoriephase-Inhalten
 
@@ -263,8 +268,12 @@ Referenzdokument für die Studierenden: `docs/ki-nutzung.md`.
   fertiges, lauffähiges Programm wird bereitgestellt und muss gezielt
   angepasst oder erweitert werden**, gerne mit KI-Unterstützung, aber mit
   Pflicht zur Dokumentation, was übernommen, korrigiert oder verworfen wurde.
-- **Die Wiederholungsblöcke (23, 24) sind wieder KI-frei** — die Prüfung ist
-  es auch.
+
+Es gibt **keinen eigenen Wiederholungstermin und keinen eigenen
+Wiederholungsblock mehr** (Termin 10 am 23.12. ist seit 2026-09-17
+entfallen, siehe entscheidungen.md). Wiederholung wird stattdessen
+kleinschrittig und laufend in die bestehenden Termine eingebaut — dafür ist
+keine eigene Kennzeichnung im Material nötig.
 
 ### Eskalationsstufen — INTERNES Planungsraster
 
@@ -518,7 +527,10 @@ gesammelt gepflegt — analog zum Glossar-Pflichtschritt.
 Seitentitel: `# <Kurztitel> (<DD.MM.YYYY>)` (Kurztitel aus `kurztitel`, Datum
 aus `datum`), OHNE Trennlinie danach.
 
-**Übungsteil** — `## <Kurztitel> { .modus-uebung }`:
+**Übungsteil** — `## Übung { .modus-uebung }` (Überschriftentext seit
+2026-09-21 immer wörtlich "Übung", nicht mehr der Kurztitel — sonst sehen
+beide Hauptüberschriften eines Blocks identisch aus, siehe
+"Modus-Badges" unten):
 
 - `### Worum geht es?` — kurzer Fließtext (Anschluss an die letzte Einheit),
   direkt gefolgt von den Lernzielen als ausformulierte Sätze in einem
@@ -574,7 +586,9 @@ aus `datum`), OHNE Trennlinie danach.
   Begründung: Eine `!!!`-Box wirkt optisch wichtiger als der Fließtext, dem
   sie eigentlich nachgeordnet sein soll.
 
-**Betreutes Selbststudium** — `## <Kurztitel> { .modus-selbststudium }`:
+**Betreutes Selbststudium** — `## Betreutes Selbststudium
+{ .modus-selbststudium }` (ebenfalls seit 2026-09-21 immer wörtlich, nicht
+der Kurztitel):
 
 - `### Worum geht es?` mit Lernzielen im gleichen
   `!!! abstract "Lernziele"`-Muster (auch hier keine eigene Überschrift).
@@ -643,15 +657,17 @@ Abgleich zwischen den Dateien), `lernziele` (klar, beobachtbar formuliert),
 
 ## Modus-Badges (Übung/Selbststudium)
 
-Die beiden Hauptüberschriften eines Blocks tragen die attr_list-Klassen
-`.modus-uebung` bzw. `.modus-selbststudium`. CSS-Regeln in
-`docs/stylesheets/extra.css` zeigen dadurch automatisch ein farbiges Badge
-direkt in der Überschriftenzeile — "👥 Übung" (blau) und "✏️ Betreutes
-Selbststudium" (orange) — zusätzlich zu einer dezenten Hintergrundfarbe und
-einem linken Rahmen an der ganzen Überschriftenzeile. Das macht den Wechsel
-von "jetzt gemeinsam" zu "jetzt eigenständig" auf einen Blick sichtbar, ohne
-dass die Überschrift selbst diese Wörter enthalten muss. Kein zusätzlicher
-Markdown-Aufwand nötig, die beiden Klassen im Template genügen.
+Die beiden Hauptüberschriften eines Blocks heißen wörtlich `## Übung` bzw.
+`## Betreutes Selbststudium` (seit 2026-09-21 — vorher stand dort der
+Kurztitel des Blocks, wodurch beide Hauptüberschriften identisch aussahen)
+und tragen zusätzlich die attr_list-Klassen `.modus-uebung` bzw.
+`.modus-selbststudium`. CSS-Regeln in `docs/stylesheets/extra.css` zeigen
+dadurch automatisch ein Icon direkt vor dem Überschriftentext — 👥 (blau)
+bzw. ✏️ (orange) — zusätzlich zu einer dezenten Hintergrundfarbe und einem
+linken Rahmen an der ganzen Überschriftenzeile. Das macht den Wechsel von
+"jetzt gemeinsam" zu "jetzt eigenständig" zusätzlich zum Überschriftentext
+über Farbe und Icon sichtbar. Kein zusätzlicher Markdown-Aufwand nötig, der
+wörtliche Überschriftentext plus die beiden Klassen im Template genügen.
 
 ## Zeitangaben-Konvention
 
@@ -673,8 +689,8 @@ Material-Variablen `--md-default-fg-color--light`/`--lightest`, damit es in
 Hell- und Dunkelmodus funktioniert. Der Überschriftentext bleibt linksbündig.
 
 Der Seitentitel sowie die beiden Hauptüberschriften
-(`## <Kurztitel> { .modus-uebung }` / `## <Kurztitel> { .modus-selbststudium }`)
-bleiben grundsätzlich frei von Zeitangaben.
+(`## Übung { .modus-uebung }` / `## Betreutes Selbststudium
+{ .modus-selbststudium }`) bleiben grundsätzlich frei von Zeitangaben.
 
 ## Nav-Struktur Theoriephase
 
@@ -1075,7 +1091,11 @@ CSS, Deploy-Workflow) steht. Offene Punkte auf Projektebene:
   Unterprogramm und Konnektor, die erst gebraucht werden, sobald Funktionen
   eingeführt werden bzw. Diagramme unübersichtlich groß werden.
 - **Struktur des Zwischenprojekt-Tags** (`projekttag.template.md`) — bei der
-  Planung von Termin 6 zu entwerfen.
+  Planung von Termin 6 zu entwerfen, jetzt mit drei statt zwei Slots
+  (270 min).
+- **Dritter Block am 9.12.** (Termin 8, `block_id: "21"`) hat noch kein
+  Thema — freier Slot, entstanden durch den Wegfall von Termin 10. Wird in
+  einem eigenen Planungsgespräch besetzt.
 - **Fachbuch** für die Programmier-Themen noch nicht bestimmt (siehe
   `03-quellen/fachbuch-programmierung.md`).
 - **Quellen** für Rechnerarchitektur, Zahlensysteme und Algorithmen/PAP noch

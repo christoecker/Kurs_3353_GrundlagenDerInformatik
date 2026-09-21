@@ -34,7 +34,6 @@ Programm und sollt es gezielt anpassen oder erweitern — gerne mit
 KI-Unterstützung, aber mit der Pflicht zu dokumentieren, was ihr übernommen,
 was ihr korrigiert und was ihr verworfen habt.
 
-<!-- TODO: Zum Termin "Wiederholung am 23.12. muss hier noch etwas ergänzt werden -->
 
 ## Wie ihr erkennt, was gilt
 

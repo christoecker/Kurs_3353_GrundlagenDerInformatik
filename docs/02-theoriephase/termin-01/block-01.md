@@ -24,7 +24,7 @@ publish_date: 2026-10-21
 
 # Grundbegriffe und Zahlensysteme (21.10.2026)
 
-## Grundbegriffe und Zahlensysteme { .modus-uebung }
+## Übung { .modus-uebung }
 
 ### Worum geht es?
 
@@ -249,7 +249,7 @@ Damit habt ihr heute folgende Konzepte kennengelernt:
 
 ---
 
-## Grundbegriffe und Zahlensysteme { .modus-selbststudium }
+## Betreutes Selbststudium { .modus-selbststudium }
 
 ### Worum geht es?
 

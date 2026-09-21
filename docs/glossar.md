@@ -184,6 +184,11 @@ zuverlässig.
 
 ## F
 
+**Fallthrough**
+: Wenn in einer `switch`/`case`-Anweisung nach einem Fall das `break`
+fehlt, "fällt" die Ausführung einfach in den nächsten Fall durch, statt
+die Anweisung zu verlassen — meist ein Fehler, kein gewolltes Verhalten.  
+
 **Formatierungszeichen**
 : Ein Platzhaltersymbol mit vorangestelltem `%` in einer `printf`- oder
 `scanf_s`-Zeichenkette, das angibt, welcher Datentyp an dieser Stelle

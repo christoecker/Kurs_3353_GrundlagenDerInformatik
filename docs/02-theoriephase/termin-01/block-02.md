@@ -22,12 +22,12 @@ publish_date: 2026-10-21
 
 # Algorithmen und Programmablaufpläne (21.10.2026)
 
-## Algorithmen und Programmablaufpläne { .modus-uebung }
+## Übung { .modus-uebung }
 
 ### Worum geht es?
 
-Im letzten Block habt ihr einen ganzen Werkzeugkasten für Ein- und Ausgabe
-in C gebaut. Jetzt geht es einen Schritt weiter: Bevor ihr ein neues
+In der ersten Einheit von heute habt ihr einen ganzen Werkzeugkasten für
+Ein- und Ausgabe in C gebaut. Jetzt geht es einen Schritt weiter: Bevor ihr ein neues
 Problem programmiert, entwerft ihr zuerst einen Programmablaufplan dafür —
 so wie ihr es in der Praxisphase (Woche 3 bis 5) geübt habt. Diesen roten
 Faden "erst PAP, dann Code" behalten wir vorerst bei.
@@ -120,9 +120,9 @@ dass sich Programm und PAP leicht einander zuordnen lassen.
 
 **Trennzeichen beim Einlesen:** Vergesst ihr beim Eintippen das Komma
 zwischen den beiden Zahlen, liest `scanf_s` die Eingabe anders ein als
-erwartet — genau das Problem, das in der Musterlösung zu Aufgabe 01 aus
-Block 01 schon kurz angesprochen wurde. Wir gehen im nächsten Termin genauer
-darauf ein.
+erwartet — genau das Problem, das in der Musterlösung zu Aufgabe 01 vom
+Anfang des heutigen Termins schon kurz angesprochen wurde. Wir gehen im
+nächsten Termin genauer darauf ein.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
@@ -163,7 +163,7 @@ Termin kennen.
 
 ---
 
-## Algorithmen und Programmablaufpläne { .modus-selbststudium }
+## Betreutes Selbststudium { .modus-selbststudium }
 
 ### Worum geht es?
 

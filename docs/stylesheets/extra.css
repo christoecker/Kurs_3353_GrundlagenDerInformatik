@@ -69,13 +69,14 @@
 
 /* Modus-Kennzeichnung an den beiden Hauptüberschriften eines
    Theoriephase-Blocks, per attr_list-Klasse gesetzt
-   ("## <Kurztitel> { .modus-uebung }" /
-    "## <Kurztitel> { .modus-selbststudium }"). Die Überschrift selbst
-   enthält bewusst NICHT die Wörter "Übung"/"Betreutes Selbststudium" -
-   diese Funktion übernimmt das hier per ::before erzeugte Badge. Macht
-   den Wechsel von "jetzt gemeinsam" zu "jetzt eigenständig" auf einen
-   Blick sichtbar - der horizontale Trennstrich zwischen beiden
-   Abschnitten bleibt zusätzlich bestehen. */
+   ("## Übung { .modus-uebung }" / "## Betreutes Selbststudium
+   { .modus-selbststudium }"). Die Überschrift selbst enthält seit
+   2026-09-21 den Klartext-Namen des Modus (vorher stand dort jeweils der
+   Kurztitel des Blocks, was beide Überschriften identisch aussehen ließ -
+   verwirrend). Das ::before-Element ergänzt nur noch ein Icon davor, ohne
+   eigenen Text. Macht den Wechsel von "jetzt gemeinsam" zu "jetzt
+   eigenständig" zusätzlich über Farbe/Icon sichtbar - der horizontale
+   Trennstrich zwischen beiden Abschnitten bleibt zusätzlich bestehen. */
 .md-typeset h2.modus-uebung,
 .md-typeset h2.modus-selbststudium {
   display: flex;
@@ -99,23 +100,15 @@
 .md-typeset h2.modus-uebung::before,
 .md-typeset h2.modus-selbststudium::before {
   flex-shrink: 0;
-  font-size: 0.55em;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.3em 0.7em;
-  border-radius: 1em;
-  color: rgb(255, 255, 255);
+  font-size: 0.7em;
 }
 
 .md-typeset h2.modus-uebung::before {
-  content: "👥 Übung";
-  background-color: rgb(82, 108, 254);
+  content: "👥";
 }
 
 .md-typeset h2.modus-selbststudium::before {
-  content: "✏️ Betreutes Selbststudium";
-  background-color: rgb(255, 152, 0);
+  content: "✏️";
 }
 
 

@@ -81,7 +81,7 @@ Präsenzveranstaltungen. Konkret heißt das hier:
 
 - **Praxisphase**: sieben Wochen Selbststudium vor Beginn der Präsenztermine,
   mit einem Arbeitsauftrag pro Woche.
-- **Theoriephase**: zehn Präsenztermine, aufgeteilt in Übung und betreutes
+- **Theoriephase**: neun Präsenztermine, aufgeteilt in Übung und betreutes
   Selbststudium.
 
 Eine klassische Vorlesung gibt es in diesem Modul nicht. Wie der Ablauf im

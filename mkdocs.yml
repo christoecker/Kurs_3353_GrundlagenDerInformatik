@@ -12,7 +12,6 @@ theme:
   language: de
   features:
     - navigation.tabs
-    - navigation.sections
     - navigation.indexes
     - content.code.copy
     - content.code.annotate
@@ -82,6 +81,8 @@ nav:
       - "Termin 1":
           - "Grundbegriffe und Zahlensysteme": 02-theoriephase/termin-01/block-01.md
           - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
+      - "Termin 2":
+          - "Vom PAP zum C-Programm": 02-theoriephase/termin-02/block-03.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md

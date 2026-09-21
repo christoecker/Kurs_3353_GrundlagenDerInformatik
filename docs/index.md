@@ -39,7 +39,7 @@ rechnet er mit Zahlen? Wie beschreibt man einen Ablauf so genau, dass eine
 Maschine ihn ausführen kann? Und ganz am Ende: euer erstes eigenes
 Programm.
 
-**Theoriephase (10 Präsenztermine, 21.10. bis 23.12.).** Jeder Termin
+**Theoriephase (9 Präsenztermine, 21.10. bis 16.12.).** Jeder Termin
 besteht aus mehreren 90-Minuten-Einheiten, und jede Einheit hat zwei Teile:
 
 - 👥 **Übung** (45 Minuten) — hier bearbeiten wir gemeinsam Übungsaufgaben, gehen Fallbeispiele durch und vertiefen so das Verständnis der Inhalte, die ihr euch zuvor im Selbststudium erarbeitet habt. Den größten Teil der Übungseinheiten wird das *Live-Coding* einnehmen - das bedeutet wir schreiben gemeinsam Code, Schritt für Schritt. Und nicht zu vergessen: In der Übung klären wir all eure Fragen zu den Inhalten des Moduls.
