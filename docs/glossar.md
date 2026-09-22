@@ -22,6 +22,13 @@ Regeln:
 
 ## A
 
+**Abbruchbedingung**
+: Der Teil einer rekursiven Funktion, der ohne weiteren rekursiven Aufruf
+ein Ergebnis liefert. Ist die Abbruchbedingung erreicht, endet die Kette
+der Selbstaufrufe und die Aufrufe rechnen der Reihe nach ihr Ergebnis
+fertig. Fehlt sie oder wird sie nie erreicht, ruft sich die Funktion
+unendlich oft selbst auf — ein Stapelüberlauf ist die Folge.  
+
 **Abstraktion**
 : Das Weglassen von allem, was für einen bestimmten Zweck unwichtig ist, damit
 das Wesentliche übrig bleibt. Was wesentlich ist, hängt immer vom Zweck ab: Für
@@ -387,6 +394,12 @@ Hauptspeicher.
 Addition und Multiplikation sowie logische Verknüpfungen.
  
 
+**Rekursion**
+: Wenn eine Funktion sich selbst aufruft — meist mit einem Argument, das
+der Abbruchbedingung jedes Mal ein Stück näher kommt. Jeder Aufruf wartet
+dabei, bis der von ihm gestartete Aufruf vollständig zurückgekehrt ist,
+bevor er selbst fertig rechnet (Aufrufstapel).  
+
 **Register**
 : Eine sehr kleine, sehr schnelle Speicherstelle direkt im Prozessor. Register
 nehmen die Werte auf, mit denen gerade gerechnet wird, sowie Zwischenergebnisse.
@@ -431,6 +444,12 @@ daraus, wie er verwendet wird.
 anderen Stelle des Programms fortsetzt. Er tut das, indem er eine neue Adresse in
 den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
  
+
+**Stapelüberlauf**
+: Ein Programmabsturz, der entsteht, wenn sich eine rekursive Funktion zu
+oft (im Extremfall unendlich oft) selbst aufruft, weil ihre
+Abbruchbedingung nie erreicht wird. Jeder wartende Aufruf belegt Platz auf
+dem Aufrufstapel — irgendwann ist dieser Platz erschöpft.  
 
 ## V
 

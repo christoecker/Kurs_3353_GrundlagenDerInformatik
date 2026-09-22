@@ -8,6 +8,7 @@ thema: "Funktionen"
 lernziele:
   - "Du kannst eine Funktion mit Parametern und Rückgabewert in C schreiben, per Funktionsprototyp deklarieren und aufrufen."
   - "Du kannst erklären, warum eine Funktion denselben Algorithmus mit unterschiedlichen Parametern wiederverwendbar macht."
+  - "Du kannst eine Funktion aus einer anderen Funktion heraus aufrufen."
   - "Du kannst eine Funktion, die mehrere Aufgaben übernimmt, in fokussierte Einzelfunktionen aufteilen."
   - "Du kannst einen fehlenden Funktionsprototyp als Fehlerursache erkennen und beheben."
 musterloesungen_sichtbar: true
@@ -34,6 +35,7 @@ Programme zu strukturieren und Wiederholungen zu vermeiden.
       schreiben, per Funktionsprototyp deklarieren und aufrufen.
     - Ihr könnt erklären, warum eine Funktion denselben Algorithmus mit
       unterschiedlichen Parametern wiederverwendbar macht.
+    - Ihr könnt eine Funktion aus einer anderen Funktion heraus aufrufen.
 
 ### Kurzer Rückblick <span class="zeitangabe">ca. 5 Min.</span> { data-toc-label="Kurzer Rückblick" }
 
@@ -75,7 +77,7 @@ das für uns übernimmt — und die wir beliebig oft aufrufen können.
 
 ---
 
-### Schrittweise Umsetzung <span class="zeitangabe">ca. 12 Min.</span> { data-toc-label="Schrittweise Umsetzung" }
+### Schrittweise Umsetzung <span class="zeitangabe">ca. 13 Min.</span> { data-toc-label="Schrittweise Umsetzung" }
 
 Eine Funktion besteht aus einem **Funktionsprototyp** (kündigt dem
 Compiler Name, Parameter und Rückgabetyp schon vor der eigentlichen
@@ -87,8 +89,7 @@ Prototyp direkt über `main`.
 #### Schritt 1: Eine Funktion mit einem Parameter
 
 Ganz ohne Parameter würde `begruessung` immer denselben Text ausgeben —
-wenig nützlich. Über einen **Parameter** (hier: den Anfangsbuchstaben
-eures Vornamens, wie schon in Aufgabe 01 aus Block 01) bekommt die
+wenig nützlich. Über einen **Parameter** bekommt die
 Funktion bei jedem Aufruf einen anderen Wert übergeben und kann sich
 entsprechend unterschiedlich verhalten. Das Schlüsselwort `void` vor dem
 Funktionsnamen bedeutet: Diese Funktion **gibt nichts zurück**.
@@ -100,16 +101,31 @@ Funktionsnamen bedeutet: Diese Funktion **gibt nichts zurück**.
 
 ---
 
-#### Schritt 2: Noch ein Parameter — wie oft?
+#### Schritt 2: Eine zweite Funktion — eine Linie zeichnen
 
-Eine Funktion kann mehrere Parameter haben, durch Komma getrennt. Wir
-ergänzen `anzahl`, das steuert, wie oft die Begrüßung ausgegeben wird —
-dafür reicht eine `for`-Schleife im Funktionskörper, die ihr schon aus
-Termin 2 kennt.
+Bevor wir Funktionen kombinieren, brauchen wir eine zweite: `linieZeichnen`
+zeichnet eine Linie aus einem beliebigen Zeichen und in einer beliebigen
+Länge — zwei **Parameter unterschiedlichen Typs**, durch Komma getrennt.
+Die Schleife im Funktionskörper kennt ihr schon aus Termin 2.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
-    --8<-- "02-theoriephase/termin-03/code/live-05-2-begruessung-anzahl.c"
+    --8<-- "02-theoriephase/termin-03/code/live-05-2-linie.c"
+    ```
+
+---
+
+#### Schritt 3: Funktionen rufen Funktionen
+
+Jetzt kombinieren wir beide Funktionen: `begruessung` ruft `linieZeichnen`
+zweimal auf, um die Begrüßung einzurahmen. Eine Funktion darf also nicht
+nur aus `main`, sondern auch aus einer **anderen Funktion** heraus
+aufgerufen werden — dafür muss `linieZeichnen` nur bekannt sein (ihr
+Prototyp!), bevor `begruessung` sie benutzt.
+
+??? quote livecoding "Beispiel-Code"
+    ```c linenums="1"
+    --8<-- "02-theoriephase/termin-03/code/live-05-3-begruessung-mit-linie.c"
     ```
 
 ---
@@ -136,7 +152,7 @@ Berechnungs- und Ausgabe-Code, einmal für jedes Rechteck kopiert.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
-    --8<-- "02-theoriephase/termin-03/code/live-05-3-dry-vorher.c"
+    --8<-- "02-theoriephase/termin-03/code/live-05-4-dry-vorher.c"
     ```
 
 **Was daran stört:** Ändert sich später, wie die Ausgabe formatiert wird,
@@ -153,7 +169,7 @@ geschrieben und zweimal mit unterschiedlichen Werten aufgerufen.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
-    --8<-- "02-theoriephase/termin-03/code/live-05-4-dry-nachher.c"
+    --8<-- "02-theoriephase/termin-03/code/live-05-5-dry-nachher.c"
     ```
 
 !!! tip "Clean Code: DRY"
@@ -187,7 +203,7 @@ die **echten Teiler** von `zahl`, also alle Teiler außer `zahl` selbst.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
-    --8<-- "02-theoriephase/termin-03/code/live-05-5-teiler.c"
+    --8<-- "02-theoriephase/termin-03/code/live-05-6-teiler.c"
     ```
 
     1. Es reicht, nur bis `zahl/2` zu prüfen: Ein echter Teiler von
@@ -211,7 +227,7 @@ auswertet.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
-    --8<-- "02-theoriephase/termin-03/code/live-05-6-istperfekt.c"
+    --8<-- "02-theoriephase/termin-03/code/live-05-7-istperfekt.c"
     ```
 
 !!! tip "Clean Code: Eine Funktion, eine Aufgabe"
@@ -361,6 +377,16 @@ einen Bereich mit negativen Zahlen).
     ```c linenums="1"
     --8<-- "02-theoriephase/termin-03/code/aufg-18-zufallszahl.c"
     ```
+
+    1. `<stdlib.h>` stellt `rand` und `srand` bereit, `<time.h>` zusätzlich
+       die Funktion `time`, mit der wir dem Zufallsgenerator einen bei
+       jedem Programmstart wechselnden Startwert geben.
+    2. `srand` initialisiert den Zufallsgenerator einmalig mit der
+       aktuellen Uhrzeit als Startwert (Seed) — dadurch liefert das
+       Programm bei jedem Start eine andere Zufallsfolge.
+    3. `rand()` liefert eine Zahl zwischen `0` und `RAND_MAX`; der
+       `%`-Operator schneidet daraus einen Bereich der richtigen Größe
+       heraus, `+ minimum` verschiebt ihn an die richtige Startstelle.
 
     `srand` steht bewusst nur **einmal** in `main`, nicht in
     `zufallszahl` selbst — würde man vor jedem Aufruf neu säen, könnte je

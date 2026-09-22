@@ -153,3 +153,29 @@ flowchart TD
 einsetzen, wo sich ein vorzeitiger Abbruch nicht sauberer über die
 Schleifenbedingung selbst ausdrücken lässt, und die Stelle im Pseudocode
 immer mit einem kurzen Kommentar versehen, warum hier abgebrochen wird.
+
+## Unterprogramm (z. B. rekursiver Aufruf)
+
+Ein Rechteck mit einer zusätzlichen senkrechten Linie an beiden Seiten
+steht für den Aufruf eines eigenständigen, anderswo beschriebenen Ablaufs
+— zum Beispiel eine Funktion, die sich selbst noch einmal aufruft
+(Rekursion). Der Ablauf an dieser Stelle **wartet, bis der aufgerufene
+Ablauf vollständig abgeschlossen ist**, bevor er mit dem nächsten Schritt
+weitermacht — anders als beim Rücksprung-Pfeil einer Wiederholung, der
+direkt zu einem früheren Knoten im selben PAP zurückführt.
+
+```mermaid
+%%{init: {'flowchart': {'htmlLabels': false}}}%%
+flowchart TD
+    A{"Abbruchbedingung erreicht?"}
+    B[["Sich selbst aufrufen mit kleinerem Wert"]]
+    C["Verarbeitung nach der Rückkehr"]
+    D["Ende der Verarbeitung"]
+    A -->|nein| B --> C --> D
+    A -->|ja| D
+```
+
+Wichtig für rekursive Abläufe: Schritte, die **vor** dem Unterprogramm-Block
+stehen, laufen beim aktuellen Aufruf zuerst; Schritte **danach** laufen erst,
+nachdem der rekursive Aufruf (und alle darin wieder verschachtelten Aufrufe)
+vollständig zurückgekehrt sind.

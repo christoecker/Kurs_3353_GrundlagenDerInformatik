@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <time.h> // (1)!
 
 int zufallszahl(int minimum, int maximum);
 
 int main(void)
 {
-    srand((unsigned int)time(NULL));
+    srand((unsigned int)time(NULL)); // (2)!
 
     printf("Wuerfelwurf (1-6): %d\n", zufallszahl(1, 6));
     printf("Zufallszahl (0-100): %d\n", zufallszahl(0, 100));
@@ -19,5 +19,5 @@ int main(void)
 
 int zufallszahl(int minimum, int maximum)
 {
-    return minimum + rand() % (maximum - minimum + 1);
+    return minimum + rand() % (maximum - minimum + 1); // (3)!
 }

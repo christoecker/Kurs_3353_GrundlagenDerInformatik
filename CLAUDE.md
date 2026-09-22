@@ -962,14 +962,26 @@ Wiederholung):
 - Rücksprünge sind normale Pfeile auf eine bereits deklarierte Knoten-ID —
   keine eigene Konnektor-Form, solange die Diagramme überschaubar bleiben.
 
+**Bei der Erstellung von Termin 3, Block 06 festgelegt** (Unterprogramm,
+für Funktionsaufrufe/Rekursion):
+
+- Unterprogramm → natives Mermaid-Subroutine-Shape (Rechteck mit
+  zusätzlicher senkrechter Linie an beiden Seiten): `D[["Sich selbst
+  aufrufen mit kleinerem Wert"]]` — entspricht DIN 66001, bewusst (anders
+  als bei der Wiederholung) **nicht** davon abgewichen, da Mermaid die
+  Form nativ unterstützt.
+- Abgrenzung zum Rücksprung-Pfeil der Wiederholung: Ein Unterprogramm-Block
+  bedeutet "aufrufen und auf vollständige Rückkehr warten, bevor es
+  weitergeht" (auch bei mehrfach verschachtelten rekursiven Aufrufen) —
+  kein Zurückspringen zu einem früheren Knoten im selben PAP.
+
 Details und Beispiele: `docs/pap-elemente.md` (studierenden-facing
 Referenzseite) und `03-quellen/algorithmen-pap.md` (Entscheidungsnotiz).
 
-**Weiterhin offen**, erst relevant sobald benötigt: Shape für Unterprogramm
-(ab Funktionen) und Konnektor (falls Diagramme so groß werden, dass ein
-direkter Rücksprung-Pfeil unübersichtlich wird). Einrückung innerhalb von
-Admonition-Blöcken ist keine offene PAP-Frage, sondern folgt der allgemeinen
-Regel weiter unten.
+**Weiterhin offen**, erst relevant sobald benötigt: Konnektor-Form (falls
+Diagramme so groß werden, dass ein direkter Rücksprung-Pfeil unübersichtlich
+wird). Einrückung innerhalb von Admonition-Blöcken ist keine offene
+PAP-Frage, sondern folgt der allgemeinen Regel weiter unten.
 
 **Grundregeln, die unabhängig davon schon gelten:**
 
