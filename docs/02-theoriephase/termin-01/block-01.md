@@ -108,7 +108,7 @@ geht es erst einmal nur um die Schreibweise.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-1-hello.c"
     ```
 
@@ -130,7 +130,7 @@ Nachschlagen, wenn ihr mal ein anderes Format braucht.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-2-zahlenformate.c"
     ```
 
@@ -161,7 +161,7 @@ Codepage 65001"** auswählen.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-3-codepage.c"
     ```
 
@@ -180,7 +180,7 @@ einziges Zeichen eingelesen werden darf. Das ist ein Sicherheitsmechanismus,
 den das einfache `scanf` nicht kennt.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-4-ascii.c"
     ```
 
@@ -195,7 +195,7 @@ das Programm an und wartet auf einen Tastendruck — nützlich, damit sich das
 Konsolenfenster nach Programmende nicht sofort wieder schließt.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-5-cls-pause.c"
     ```
 
@@ -219,7 +219,7 @@ Anwendung davon — ein gezeichnetes Eingabefeld — probiert ihr gleich im
 betreuten Selbststudium selbst aus.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-6-esc-basics.c"
     ```
 
@@ -231,7 +231,7 @@ Zum Schluss noch einmal das vollständige Programm, das alle Bausteine
 dieser Einheit kombiniert:
 
 ??? quote livecoding "Code: vollständiges Programm"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-01-final-werkzeugkasten.c"
     ```
 
@@ -281,7 +281,7 @@ die Zeile mit `chcp 1252` weglasst — und warum?
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/aufg-01-persoenliche-begruessung.c"
     ```
 
@@ -312,7 +312,7 @@ vier Formen ausgibt: Dezimal, Oktal, Hexadezimal und als ASCII-Zeichen.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung Teil A anzeigen"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/aufg-02-zahl-drei-systeme.c"
     ```
 
@@ -381,7 +381,7 @@ nicht dabei, die Erweiterung für euch zu erzeugen.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/aufg-03-eingabefeld-esc-erweitert.c"
     ```
 

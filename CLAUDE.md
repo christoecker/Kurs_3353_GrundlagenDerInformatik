@@ -105,8 +105,15 @@ Termine (21.10., 28.10., 11.11.) haben 2. Zeitraster: 08:30–10:00,
 10:15–11:45, 12:30–14:00.
 
 Zusätzlich bekommt jeder Termin eine Übersichtsseite
-(`termin-XX/index.md`) — kein Übungs-/Selbstkontrollteil, nur Überblick und
-Vorbereitungsauftrag, max. 90 Minuten Workload.
+(`termin-XX/index.md`) — kein Übungs-/Selbstkontrollteil, nur ein kurzer
+Tagesüberblick (Ablauftabelle der Blöcke). Diese Übersichtsseiten werden
+bewusst **erst ganz am Ende erstellt**, wenn alle Termine realisiert sind
+(Entscheidung 2026-09-22), nicht schon während einzelne Blöcke entstehen.
+
+Ab Termin 1 kommt außerdem für jeden Termin eine eigene **Vorbereitungsseite
+für den jeweils nächsten Termin** dazu — meist ein bis mehrere kurze Videos
+aus der Youtube-Playlist des Professors. Details siehe "Vorbereitung auf den
+nächsten Termin" weiter unten.
 
 Weder "Block" noch die interne `block_id` tauchen im sichtbaren Titel oder in
 Überschriften auf (siehe "Theoriephase: Block-Struktur & Templates").
@@ -503,21 +510,20 @@ gesammelt gepflegt — analog zum Glossar-Pflichtschritt.
 
 - `termin-index.template.md` — die **Termin-Übersichtsseite**
   (`termin-XX/index.md`). Frontmatter: `termin`, `datum`, `thema_termin`,
-  `workload_minuten` (max. 90), `lernziele`. Seitentitel
-  `# Termin <N> (<DD.MM.YYYY>) — <Gesamttitel>` — anders als bei den
-  Block-Seiten steht hier "Termin &lt;N&gt;" im Titel, weil diese Seite der
-  Landing-Point der ganzen Nav-Sektion ist. Kombiniert eine kurze Tagesagenda
-  (Links auf die Block-Dateien) samt einzeiligem Blockquote zum Zeitbedarf
-  (`> Zeitbedarf zur Vorbereitung: ca. <X> Minuten.`) mit dem
-  Vorbereitungsauftrag als `## Vorbereitung`, gegliedert in
-  `### Worum geht es?` und `### Zur Auffrischung` (dort je ein fett
-  hervorgehobener Unterabsatz pro Block mit konkreten Verweisen). Die
-  Lernziele aus dem Frontmatter werden hier NICHT zusätzlich als sichtbare
-  Liste wiederholt. Für Termin 1 und 2 bewusst nur ein knappes Wrap-Up, da
-  die Praxisphase Rechnerarchitektur, Zahlensysteme, Algorithmen/PAP und das
-  erste C-Programm bereits abgedeckt hat.
+  `lernziele`. Seitentitel `# Termin <N> (<DD.MM.YYYY>) — <Gesamttitel>` —
+  anders als bei den Block-Seiten steht hier "Termin &lt;N&gt;" im Titel,
+  weil diese Seite der Landing-Point der ganzen Nav-Sektion ist. Enthält nur
+  eine kurze Tagesagenda (Links auf die Block-Dateien) — **keinen**
+  Vorbereitungsauftrag mehr (der liegt seit 2026-09-22 auf einer eigenen
+  "Vorbereitung auf Termin X"-Seite, siehe "Vorbereitung auf den nächsten
+  Termin"). Die Lernziele aus dem Frontmatter werden hier NICHT zusätzlich
+  als sichtbare Liste wiederholt. **Wird erst ganz am Ende erstellt**, wenn
+  alle Termine realisiert sind — nicht parallel zu den einzelnen Blöcken.
 - `block.template.md` — der Standardweg für einen kompletten
   90-Minuten-Block. Struktur siehe unten.
+- `vorbereitung-termin.template.md` — die Vorlage für die
+  "Vorbereitung auf Termin X"-Seiten, siehe "Vorbereitung auf den nächsten
+  Termin" weiter unten.
 - `projekttag.template.md` — Struktur-Variante für Termin 6
   (Zwischenprojekt). **Existiert noch nicht**; wird bei der Planung dieses
   Termins entworfen.
@@ -655,6 +661,66 @@ Abgleich zwischen den Dateien), `lernziele` (klar, beobachtbar formuliert),
 `bearbeitungsstatus`, optional `publish_date` und `nachtrag_sichtbar`.
 **Kein `fallstudie`-Feld** — GdI hat keinen Fallstudien-Pool.
 
+## Vorbereitung auf den nächsten Termin
+
+Ab Termin 1 gibt der Professor am Ende jedes Termins eine
+Vorbereitungsaufgabe für den **jeweils nächsten** Termin auf — in der Regel
+ein bis mehrere kurze Videos aus seiner eigenen Youtube-Playlist (siehe
+"Quellen und Urheberrecht"). Diese Aufgabe bekommt eine **eigenständige
+Seite**, die im Nav unter dem **ausliefernden** (aktuellen) Termin
+erscheint, nicht unter dem Ziel-Termin — Beispiel: "Vorbereitung auf
+Termin 2" liegt unter "Termin 1", nicht unter "Termin 2". Prototyp:
+`docs/02-theoriephase/termin-01/vorbereitung-termin-02.md`.
+
+**Ablage & Dateiname:**
+`docs/02-theoriephase/termin-XX/vorbereitung-termin-<YY>.md`, wobei `XX`
+der ausliefernde Termin ist und `YY` der Ziel-Termin (`YY = XX + 1`).
+
+**Frontmatter:** `typ: theoriephase-vorbereitung`, `termin` (ausliefernder
+Termin), `vorbereitung_fuer_termin` (Ziel-Termin), `datum_naechster_termin`,
+`kurztitel` (z. B. "Vorbereitung auf Termin 2"), `publish_date` = Datum des
+ausliefernden Termins (geht also am Tag dieses Termins online, direkt
+abrufbar danach).
+
+**Seitentitel:** `# Vorbereitung auf Termin <N> am <DD.MM.YYYY>` — Datum
+ausgeschrieben mit "am", NICHT in Klammern (anders als bei Block-Seiten).
+
+**Aufbau:**
+
+- `## Worum geht es in Termin <N>?` — kurzer, studierenden-facing Ausblick
+  auf die Themen des Ziel-Termins (direkte Ansprache, wie überall sonst),
+  gefolgt von einem Zeitbedarf-Blockquote
+  (`> Zeitbedarf: ca. <X> Min. (<Anzahl> kurze Videos)`).
+- `## Videos zum Anschauen` — pro Video ein Absatz
+  `**Video <N> — "<Titel>" (<Länge>):**` gefolgt von einer **ausführlichen**
+  Beschreibung (mehr als ein Halbsatz — die offizielle Videobeschreibung
+  darf dabei, da eigenes Material des Professors, auch wörtlich einfließen,
+  siehe "Quellen und Urheberrecht"), danach die Einbettung:
+  ```html
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube-nocookie.com/embed/<VIDEO-ID>" title="Video: <Titel>" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  ```
+  (identische Einbettung wie in der Praxisphase, siehe Woche 6/7). Zwischen
+  den Videos steht jeweils eine `---`-Trennlinie (nicht nach dem letzten
+  Video).
+
+**Video-Metadaten selbst beschaffen:** Titel, Länge und Kurzinhalt jedes
+Videos werden per Browser-Tool direkt von der Youtube-Seite des Videos
+gezogen (Video-URL aufrufen, Länge aus dem Player, Beschreibungstext aus der
+Seite) — der Professor muss dafür keine Angaben liefern, kann aber jederzeit
+gegenprüfen. Jedes neu verwendete Video wird zusätzlich fortlaufend im
+Video-Index von `03-quellen/youtube-playlist.md` nachgetragen.
+
+**Keine Aufgabennummer:** Diese Seiten sind reine Vorbereitung, keine
+bewertete Aufgabe — analog zur Praxisphase bekommen sie **keinen** Eintrag
+in `aufgaben-register.yaml`.
+
+**Verhältnis zur Termin-Übersichtsseite:** `termin-XX/index.md` bekommt
+seit 2026-09-22 **keinen** eigenen Vorbereitungsauftrag mehr — diese Seite
+übernimmt die Rolle vollständig. Die Termin-Übersichtsseiten selbst werden
+ohnehin erst ganz am Ende erstellt, wenn alle Termine realisiert sind.
+
 ## Modus-Badges (Übung/Selbststudium)
 
 Die beiden Hauptüberschriften eines Blocks heißen wörtlich `## Übung` bzw.
@@ -706,9 +772,11 @@ nur dann als Sektions-Index, wenn ihr Dateiname exakt `index` ist
 Eintrag reicht NICHT aus und erzeugt einen doppelten Nav-Eintrag). Die Datei
 muss also zwingend `02-theoriephase/termin-XX/index.md` heißen.
 
-Die beiden Block-Unterseiten bekommen als Nav-Label ihren `kurztitel` aus dem
+Die Block-Unterseiten bekommen als Nav-Label ihren `kurztitel` aus dem
 Frontmatter, nicht "Block 01"/"Block 02" (das Wort "Block" ist außenwirksam
-tabu):
+tabu). Eine "Vorbereitung auf Termin X"-Seite (siehe "Vorbereitung auf den
+nächsten Termin") bekommt ebenfalls ihren `kurztitel` als Nav-Label und
+steht unter dem ausliefernden Termin, üblicherweise als letzter Eintrag:
 
 ```yaml
 nav:
@@ -717,6 +785,7 @@ nav:
           - 02-theoriephase/termin-01/index.md
           - "Grundbegriffe und Zahlensysteme": 02-theoriephase/termin-01/block-01.md
           - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
+          - "Vorbereitung auf Termin 2": 02-theoriephase/termin-01/vorbereitung-termin-02.md
 ```
 
 Ein Nav-Eintrag darf erst ergänzt werden, wenn die zugehörige Datei

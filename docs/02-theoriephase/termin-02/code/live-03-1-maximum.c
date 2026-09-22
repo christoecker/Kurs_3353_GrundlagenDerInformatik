@@ -16,11 +16,11 @@ int main(void)
     int maximum = 0;
 
     if (zahl1 > zahl2)
-    {
+    {   // (1)!
         maximum = zahl1;
     }
     else
-    {
+    {   // (2)!
         maximum = zahl2;
     }
 

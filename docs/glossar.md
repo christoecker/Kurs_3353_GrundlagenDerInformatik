@@ -175,6 +175,11 @@ es keinen Interpretationsspielraum gibt.
 vielen Schritten, und ihre Ausführung kommt nach endlich vielen Schritten
 tatsächlich zu einem Ende.  
 
+**Endlosschleife**
+: Eine Wiederholung, deren Bedingung nie unwahr wird, sodass sie nie von
+selbst endet — meist ein Programmierfehler, zum Beispiel wenn vergessen
+wird, die geprüfte Variable im Schleifenrumpf zu verändern.  
+
 **ESC-Sequenz**
 : Eine Zeichenfolge, die mit dem Escape-Zeichen beginnt und der Konsole
 statt eines auszugebenden Textes einen Steuerbefehl übermittelt — zum
@@ -197,9 +202,17 @@ Zahl oder `%c` für ein einzelnes Zeichen.
 
 **Funktion**
 : Ein benannter, in sich abgeschlossener Abschnitt eines Programms, der
-bestimmte Anweisungen ausführt. `main` ist die besondere Funktion, mit
-der jedes C-Programm startet. Wie man eigene Funktionen schreibt, folgt
-später im Kurs.  
+bestimmte Anweisungen ausführt. Über Parameter lässt sie sich mit
+unterschiedlichen Werten aufrufen, über einen Rückgabewert kann sie ein
+Ergebnis liefern. `main` ist die besondere Funktion, mit der jedes
+C-Programm startet.  
+
+**Funktionsprototyp**
+: Eine Ankündigung von Name, Parametern und Rückgabetyp einer Funktion,
+noch bevor die eigentliche Definition (der Funktionskörper) im Quelltext
+folgt. Nötig, damit der Compiler einen Aufruf schon kennt, bevor er die
+Definition gelesen hat — üblicherweise steht der Prototyp vor `main`, die
+Definition danach.  
 
 **Fußgesteuerte Wiederholung**
 : Eine Wiederholung, bei der die Bedingung erst nach den
@@ -318,6 +331,12 @@ Beispiel addieren, holen oder speichern.
 
 ## P
 
+**Parameter**
+: Ein Wert, der beim Aufruf einer Funktion übergeben wird und innerhalb
+der Funktion wie eine ganz normale Variable zur Verfügung steht. Über
+Parameter lässt sich derselbe Funktionscode mit unterschiedlichen Werten
+wiederverwenden, statt ihn für jeden Fall neu zu schreiben.  
+
 **Peripherie**
 : Sammelbegriff für alles, was über die Ein-/Ausgabe an einen Rechner
 angeschlossen ist: Tastatur und Maus, Festplatten, Netzwerkkarten.
@@ -348,6 +367,13 @@ festen Schlüsselwörtern, zum Beispiel `INPUT` für eine Eingabe. Näher an ein
 Programmiersprache als reiner Fließtext, aber noch nicht an eine bestimmte
 Sprache gebunden.  
 
+**Pseudozufallsgenerator**
+: Ein Algorithmus, der aus einem Startwert (Seed) eine Zahlenfolge
+erzeugt, die zufällig wirkt, bei gleichem Seed aber immer gleich abläuft
+— echten Zufall kann ein Computer nicht erzeugen. In C wird der Generator
+einmalig mit `srand` initialisiert, danach liefert `rand` bei jedem Aufruf
+eine neue Zahl.  
+
 ## R
 
 **RAM**
@@ -366,6 +392,13 @@ Addition und Multiplikation sowie logische Verknüpfungen.
 nehmen die Werte auf, mit denen gerade gerechnet wird, sowie Zwischenergebnisse.
 Der Zugriff darauf ist deutlich schneller als auf den Hauptspeicher.
  
+
+**Rückgabewert**
+: Ein Wert, den eine Funktion an die Stelle zurückliefert, von der aus sie
+aufgerufen wurde — zum Beispiel ein Ergebnis oder eine Ja/Nein-Antwort. Der
+Rückgabetyp einer Funktion (z. B. `int`) legt fest, von welchem Datentyp
+dieser Wert ist. Eine Funktion ohne Rückgabewert hat den Rückgabetyp
+`void`.  
 
 **Rücksprung**
 : Ein Pfeil in einem Programmablaufplan, der zu einem bereits durchlaufenen
@@ -406,6 +439,12 @@ den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
 muss festgelegt werden, von welchem Datentyp die Variable ist — das
 bestimmt, welche Werte sie speichern kann und wie viel Speicherplatz sie
 braucht.  
+
+**Verschachtelte Schleife**
+: Eine Schleife, die vollständig im Rumpf einer anderen Schleife steht. Bei
+jedem Durchlauf der äußeren Schleife läuft die innere komplett durch —
+praktisch, um zweidimensionale Muster wie Tabellen oder Figuren aus
+Zeichen zu erzeugen.  
 
 **Verzweigung**
 : Eine Raute in einem Programmablaufplan, bei der der Ablauf abhängig von

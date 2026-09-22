@@ -126,7 +126,7 @@ nächsten Termin genauer darauf ein.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-02-1-rechteck.c"
     ```
 
@@ -151,7 +151,7 @@ flowchart TD
 ```
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/live-02-2-steigung.c"
     ```
 
@@ -206,7 +206,7 @@ Operatoren `%` und `/`.
         A --> B --> C --> D --> E --> F --> G --> H
     ```
 
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-01/code/aufg-04-sekunden-umrechnen.c"
     ```
 

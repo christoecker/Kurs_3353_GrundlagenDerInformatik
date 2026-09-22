@@ -130,9 +130,14 @@ merken.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/live-03-1-maximum.c"
     ```
+
+    1. Steht im `if`-Zweig nur eine einzige Anweisung, sind die geschweiften
+       Klammern eigentlich überflüssig und könnten auch weggelassen werden.
+    2. Dasselbe gilt für den `else`-Zweig: Bei nur einer Anweisung sind die
+       geschweiften Klammern nicht zwingend nötig.
 
 !!! tip "Clean Code: Sprechende Namen"
     `zahl1`, `zahl2` und `maximum` sagen auf den ersten Blick, wofür die
@@ -158,7 +163,7 @@ Angewendet auf unser Maximum-Beispiel ersetzt eine einzige Zeile das
 komplette `if`/`else` von eben:
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/live-03-2-ternaer.c"
     ```
 
@@ -201,7 +206,7 @@ gleich in Aufgabe 09, was passiert, wenn man es vergisst.
 {: .hinweis-klein }
 
 ??? quote livecoding "Beispiel-Code"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/live-03-3-maschinenzustand.c"
     ```
 
@@ -255,7 +260,7 @@ sprechende Namen und Kommentare, die das Warum erklären.
         C -->|nein| E --> F
     ```
 
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/aufg-07-gerade-ungerade.c"
     ```
 
@@ -279,7 +284,7 @@ erklärt, warum ihr ihn braucht.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/aufg-08-fehlercode-sensor.c"
     ```
 
@@ -320,7 +325,7 @@ zu dieser falschen Ausgabe?
     `case` praktisch bei jedem Fall ein `break`, um genau das zu
     verhindern. Korrigiert:
 
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/aufg-09-getraenkeautomat-korrigiert.c"
     ```
 
@@ -344,7 +349,7 @@ Ergänzt an den beiden markierten Stellen je einen Kommentar, der das
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
-    ```c
+    ```c linenums="1"
     --8<-- "02-theoriephase/termin-02/code/aufg-10-akkustand-kommentiert.c"
     ```
 

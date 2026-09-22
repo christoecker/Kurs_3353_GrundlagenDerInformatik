@@ -81,8 +81,13 @@ nav:
       - "Termin 1":
           - "Grundbegriffe und Zahlensysteme": 02-theoriephase/termin-01/block-01.md
           - "Algorithmen und Programmablaufpläne": 02-theoriephase/termin-01/block-02.md
+          - "Vorbereitung auf Termin 2": 02-theoriephase/termin-01/vorbereitung-termin-02.md
       - "Termin 2":
           - "Vom PAP zum C-Programm": 02-theoriephase/termin-02/block-03.md
+          - "Schleifen": 02-theoriephase/termin-02/block-04.md
+          - "Vorbereitung auf Termin 3": 02-theoriephase/termin-02/vorbereitung-termin-03.md
+      - "Termin 3":
+          - "Funktionen": 02-theoriephase/termin-03/block-05.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
