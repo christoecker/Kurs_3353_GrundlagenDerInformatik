@@ -139,6 +139,13 @@ erscheinen falsche Zeichen — zum Beispiel bei deutschen Umlauten.
 : Ein Programm, das Quelltext einer Programmiersprache wie C in Maschinensprache
 übersetzt, damit der Prozessor ihn ausführen kann.  
 
+**Compound Statement**
+: Ein mit `{` und `}` eingeschlossener Block von Anweisungen, der wie eine
+einzelne Anweisung behandelt wird — zum Beispiel der Rumpf einer Funktion,
+einer Verzweigung oder einer Schleife. Jedes Compound Statement eröffnet
+einen eigenen Gültigkeitsbereich: Eine darin deklarierte Variable existiert
+nur innerhalb dieses Blocks.  
+
 ## D
 
 **Datentyp**
@@ -425,6 +432,20 @@ Wiederholungen im PAP ohne eigenes Schleifensymbol dargestellt werden.
 Schritt für Schritt, ohne ihn tatsächlich auszuführen — etwa um
 nachzuvollziehen, welchen Weg ein gegebener PAP nimmt und was er ausgibt.  
 
+**Sichtbarkeit**
+: Legt fest, in welchem Teil eines Programms auf eine Variable zugegriffen
+werden kann. Eine global deklarierte Variable ist im ganzen Programm
+sichtbar, eine lokale Variable nur innerhalb der Funktion oder des
+Compound Statement, in dem sie deklariert wurde. Tragen zwei Variablen
+unterschiedlicher Sichtbarkeitsebenen denselben Namen, verdeckt die
+innere die äußere (siehe Verdecken).  
+
+**sizeof-Operator**
+: Ein Operator, der die Größe eines Datentyps oder einer Variable in Byte
+liefert, z. B. `sizeof(int)`. Nützlich, um nachzuvollziehen, wie viel
+Speicherplatz ein Datentyp tatsächlich braucht, ohne es nachschlagen zu
+müssen.  
+
 **Speicheradressregister (SAR)**
 : Das Register, das die Adresse derjenigen Speicherzelle enthält, auf die der
 Prozessor gerade zugreift.  
@@ -433,6 +454,13 @@ Prozessor gerade zugreift.
 : Das Register, über das Werte zwischen Prozessor und Hauptspeicher ausgetauscht
 werden — es nimmt den gelesenen Wert auf oder hält den Wert, der geschrieben
 werden soll.  
+
+**Speicherklasse**
+: Legt fest, wie lange eine Variable existiert. In C gibt es dafür die
+Schlüsselwörter `auto`, `extern`, `static` und `register` — am wichtigsten
+in diesem Kurs ist `static`: Eine als `static` deklarierte lokale
+Variable behält ihren Wert über mehrere Funktionsaufrufe hinweg, statt bei
+jedem Aufruf neu angelegt zu werden.  
 
 **Speicherzelle**
 : Die kleinste über eine Adresse ansprechbare Einheit des Hauptspeichers. Alle
@@ -451,6 +479,26 @@ oft (im Extremfall unendlich oft) selbst aufruft, weil ihre
 Abbruchbedingung nie erreicht wird. Jeder wartende Aufruf belegt Platz auf
 dem Aufrufstapel — irgendwann ist dieser Platz erschöpft.  
 
+## U
+
+**unsigned**
+: Ein Modifizierer vor einem Ganzzahl-Datentyp (z. B. `unsigned char`,
+`unsigned int`), der festlegt, dass die Variable **keine negativen Werte**
+speichern kann. Der dadurch frei werdende Speicherplatz wird stattdessen
+für einen größeren positiven Wertebereich genutzt — ein `unsigned char`
+reicht z. B. von `0` bis `255` statt wie ein normaler (signed) `char` von
+`-128` bis `127`. Ohne diesen Modifizierer sind Ganzzahl-Datentypen in C
+standardmäßig **signed** (vorzeichenbehaftet).  
+
+## Ü
+
+**Überlauf**
+: Wenn eine Berechnung einen Wert ergeben würde, der außerhalb des
+Wertebereichs seines Datentyps liegt, "springt" der Wert stattdessen an
+das andere Ende dieses Wertebereichs — zum Beispiel wird aus `255` bei
+einem `unsigned char` wieder `0`. Ursache ist die feste Anzahl an Bits,
+mit der der Datentyp im Speicher dargestellt wird.  
+
 ## V
 
 **Variable**
@@ -458,6 +506,13 @@ dem Aufrufstapel — irgendwann ist dieser Platz erschöpft.
 muss festgelegt werden, von welchem Datentyp die Variable ist — das
 bestimmt, welche Werte sie speichern kann und wie viel Speicherplatz sie
 braucht.  
+
+**Verdecken (Shadowing)**
+: Wenn eine Variable in einem inneren Gültigkeitsbereich (z. B. innerhalb
+einer Funktion oder eines Compound Statement) denselben Namen trägt wie
+eine Variable in einem äußeren Bereich, ist innerhalb des inneren
+Bereichs nur noch die innere Variable ansprechbar — sie verdeckt die
+äußere, ohne sie zu verändern.  
 
 **Verschachtelte Schleife**
 : Eine Schleife, die vollständig im Rumpf einer anderen Schleife steht. Bei

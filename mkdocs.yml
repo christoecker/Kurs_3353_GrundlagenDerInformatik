@@ -89,6 +89,8 @@ nav:
       - "Termin 3":
           - "Funktionen": 02-theoriephase/termin-03/block-05.md
           - "Rekursive Funktionen": 02-theoriephase/termin-03/block-06.md
+          - "Variablen im Detail": 02-theoriephase/termin-03/block-07.md
+          - "Vorbereitung auf Termin 4": 02-theoriephase/termin-03/vorbereitung-termin-04.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
