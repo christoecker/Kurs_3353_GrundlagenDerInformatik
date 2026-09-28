@@ -309,8 +309,9 @@ das Wort „Stufe".
 ### Was die Studierenden stattdessen sehen
 
 Für die Studierenden ist der KI-Einsatz **binär**: Eine Aufgabe wird **mit**
-oder **ohne** KI bearbeitet. Das steht in einem kurzen Hinweisblock direkt bei
-der Aufgabe. Dazu kommt:
+oder **ohne** KI bearbeitet. Das steht in der Aufgabenstellung selbst — ein
+Satz genügt, ein eigener Hinweisblock ist nicht nötig (seit 2026-09-26). Dazu
+kommt:
 
 - Bei **ohne KI**: eine kurze Begründung, warum genau diese Aufgabe davon lebt,
   selbst gelöst zu werden. Ein Verbot ohne Begründung wird ignoriert.

@@ -49,6 +49,12 @@ der Variable, sondern ihre Adresse im Speicher — zum Beispiel damit
 endlich vielen Schritten ein Ergebnis erzeugt. Ein Algorithmus muss dabei drei
 Eigenschaften erfüllen: Eindeutigkeit, Endlichkeit und Determiniertheit.  
 
+**Array**
+: Eine feste Anzahl von Variablen desselben Datentyps, die unter einem
+gemeinsamen Namen direkt hintereinander im Speicher liegen. Die einzelnen
+Werte heißen Elemente und werden über einen Index angesprochen — zum
+Beispiel eine ganze Messreihe unter dem Namen `messwerte`.  
+
 **ASCII-Code**
 : Eine weit verbreitete Zeichencodierung, die jedem Zeichen (Buchstabe, Ziffer,
 Satzzeichen) eine Zahl zwischen 0 und 127 zuordnet. Diese Zahl wird dann wie
@@ -117,6 +123,12 @@ Dualstelle mit dem Wert 0 oder 1.
 : Eine Lösungsstrategie, die ein Problem löst, indem sie konsequent alle
 Möglichkeiten durchprobiert, ohne nach einem sparsameren Weg zu suchen.  
 
+**Bubblesort**
+: Ein einfacher Sortieralgorithmus: Benachbarte Elemente werden von links
+nach rechts verglichen und vertauscht, wenn sie in der falschen Reihenfolge
+stehen. Nach jedem Durchlauf steht das größte der noch unsortierten Elemente
+am rechten Ende; das Verfahren wird wiederholt, bis alles sortiert ist.  
+
 **Bus**
 : Ein gemeinsamer Verbindungsweg, an den alle Komponenten eines Rechners
 angeschlossen sind. Spart Verkabelung und macht Erweiterungen einfach, dafür kann
@@ -128,6 +140,18 @@ annehmen (0 bis 255) und ist die gebräuchlichste Einheit, um die Größe von
 Speicher anzugeben.  
 
 ## C
+
+**Call by Reference**
+: Eine Art, einer Funktion einen Wert zu übergeben: Die Funktion bekommt
+nicht eine Kopie, sondern das Original. Änderungen in der Funktion wirken
+sich deshalb auch außerhalb aus. In C passiert das bei Arrays automatisch;
+wie das technisch funktioniert, klärt der Termin zu Pointern.  
+
+**Call by Value**
+: Die Normalform der Wertübergabe: Die Funktion bekommt eine Kopie des
+Werts. Änderungen an diesem Parameter betreffen nur die Kopie, das Original
+bleibt unverändert — so werden einfache Parameter wie `int` oder `char`
+übergeben.  
 
 **Codepage**
 : Eine Zuordnung zwischen Zahlenwerten und Zeichen, die festlegt, welches
@@ -169,9 +193,12 @@ Algorithmus immer dasselbe Ergebnis.
 
 **Divide-and-Conquer**
 : Zu Deutsch "Teile und herrsche": eine Lösungsstrategie, die ein Problem
-bei jedem Schritt in kleinere Teile zerlegt und dabei gezielt Teile
-verwirft, die für die Lösung nicht mehr infrage kommen. Oft deutlich
-sparsamer als Brute-Force. Beispiel: die binäre Suche.  
+bei jedem Schritt in kleinere Teile zerlegt und diese Teile unabhängig
+voneinander weiterbearbeitet. Manchmal lässt sich dabei gezielt ein Teil
+verwerfen, der für die Lösung nicht mehr infrage kommt (so bei der binären
+Suche), manchmal werden stattdessen beide Teile parallel weiterbehandelt
+(so bei Quicksort, das nach dem Partitionieren beide Teilreihen rekursiv
+sortiert). Oft deutlich sparsamer als Brute-Force.  
 
 **Dualsystem**
 : Ein Stellenwertsystem mit der Basis 2 und dem Ziffernvorrat 0 und 1. Auch
@@ -183,6 +210,10 @@ Form vor.
 **Eindeutigkeit**
 : Eine Eigenschaft von Algorithmen: Jeder Schritt ist so klar formuliert, dass
 es keinen Interpretationsspielraum gibt.  
+
+**Element (eines Arrays)**
+: Ein einzelner Wert in einem Array, angesprochen über seinen Index — zum
+Beispiel `messwerte[2]`.  
 
 **Endlichkeit**
 : Eine Eigenschaft von Algorithmen: Die Beschreibung besteht aus endlich
@@ -261,6 +292,11 @@ integrierte Entwicklungsumgebung. Ein Programm, das Editor, Compiler und
 weitere Werkzeuge zur Programmentwicklung an einem Ort vereint — zum
 Beispiel Visual Studio.  
 
+**Index**
+: Die Nummer, mit der ein Element eines Arrays angesprochen wird. In C hat
+das erste Element den Index `0`, bei `n` Elementen ist `n - 1` der letzte
+gültige Index.  
+
 **Informatik**
 : Die Wissenschaft von der systematischen — vor allem der automatischen —
 Verarbeitung und Übermittlung von Information mithilfe von Rechnern.
@@ -312,6 +348,11 @@ aus einem Operationscode und den Operanden.
 Befehle aus seinem Befehlssatz. Sie ist von Prozessor zu Prozessor
 unterschiedlich.  
 
+**Mehrdimensionales Array**
+: Ein Array, dessen Elemente selbst wieder Arrays sind — zum Beispiel eine
+Tabelle mit Zeilen und Spalten. Angesprochen wird ein Element mit einem
+Index pro Dimension, etwa `matrix[1][2]`.  
+
 **Modulo-Operator**
 : Das Zeichen `%` in C. Es liefert den Rest einer Ganzzahldivision — zum
 Beispiel ist `17 % 5` gleich `2`. Zusammen mit der normalen Division `/`
@@ -355,6 +396,14 @@ wiederverwenden, statt ihn für jeden Fall neu zu schreiben.
 : Sammelbegriff für alles, was über die Ein-/Ausgabe an einen Rechner
 angeschlossen ist: Tastatur und Maus, Festplatten, Netzwerkkarten.
  
+
+**Pivot-Element**
+: Das Element, das beim Sortieren mit Quicksort als Referenzwert für einen
+Partitionierungsschritt ausgewählt wird. Nach dem Partitionieren stehen
+links vom Pivot-Element nur kleinere oder gleiche Werte, rechts davon nur
+größere — das Pivot-Element selbst steht damit schon an seiner endgültigen
+Position. Welches Element als Pivot gewählt wird, beeinflusst nicht, ob am
+Ende richtig sortiert wird, aber wie schnell das geht.  
 
 **Programmablaufplan (PAP)**
 : Eine grafische Beschreibung eines Algorithmus als Folge von Symbolen, die
@@ -446,6 +495,10 @@ liefert, z. B. `sizeof(int)`. Nützlich, um nachzuvollziehen, wie viel
 Speicherplatz ein Datentyp tatsächlich braucht, ohne es nachschlagen zu
 müssen.  
 
+**Sortieralgorithmus**
+: Ein Algorithmus, der die Elemente einer Reihe, zum Beispiel eines Arrays,
+in eine bestimmte Reihenfolge bringt — etwa aufsteigend nach Größe.  
+
 **Speicheradressregister (SAR)**
 : Das Register, das die Adresse derjenigen Speicherzelle enthält, auf die der
 Prozessor gerade zugreift.  
@@ -478,6 +531,17 @@ den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
 oft (im Extremfall unendlich oft) selbst aufruft, weil ihre
 Abbruchbedingung nie erreicht wird. Jeder wartende Aufruf belegt Platz auf
 dem Aufrufstapel — irgendwann ist dieser Platz erschöpft.  
+
+**String**
+: Eine Zeichenkette, also ein Text. In C ist ein String ein `char`-Array,
+dessen letztes Element das Stringende-Zeichen ist. Strings entstehen zum
+Beispiel durch Text in Anführungszeichen wie `"Hallo"`.  
+
+**Stringende-Zeichen**
+: Das unsichtbare Zeichen `'\0'` (Zeichencode 0) am Ende eines Strings. Es
+markiert, wo der Text aufhört, und wird deshalb von Funktionen wie `printf`
+und `strlen` erwartet — man spricht von einem nullterminierten String. Fehlt
+es, laufen diese Funktionen über das Ende des Arrays hinaus.  
 
 ## U
 

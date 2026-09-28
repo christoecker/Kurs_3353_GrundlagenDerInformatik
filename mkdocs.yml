@@ -91,6 +91,12 @@ nav:
           - "Rekursive Funktionen": 02-theoriephase/termin-03/block-06.md
           - "Variablen im Detail": 02-theoriephase/termin-03/block-07.md
           - "Vorbereitung auf Termin 4": 02-theoriephase/termin-03/vorbereitung-termin-04.md
+      - "Termin 4":
+          - "Arrays": 02-theoriephase/termin-04/block-08.md
+          - "Strings": 02-theoriephase/termin-04/block-09.md
+          - "Vorbereitung auf Termin 5": 02-theoriephase/termin-04/vorbereitung-termin-05.md
+      - "Termin 5":
+          - "Sortieralgorithmen": 02-theoriephase/termin-05/block-10.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md

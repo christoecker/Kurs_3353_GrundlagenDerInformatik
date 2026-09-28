@@ -18,11 +18,13 @@ Messwert. Direkt im Anschluss wendet ihr Arrays an einem konkreten Beispiel
 an: **Sortieralgorithmen**, mit denen die Werte eines Arrays in eine
 Reihenfolge gebracht werden.
 
-Die folgenden zwei Videos aus meiner YouTube-Playlist bereiten euch auf
-diese Themen vor. Schaut sie euch vor dem Termin an — im Termin selbst
-bauen wir direkt darauf auf.
+Auf Arrays bereiten euch zwei Videos aus meiner YouTube-Playlist vor. Auf
+die Sortieralgorithmen bereitet ihr euch mit einem Wikipedia-Artikel zu
+**Bubblesort** und einem kleinen Schreibtischtest vor. Bearbeitet alles vor
+dem Termin — im Termin selbst bauen wir direkt darauf auf.
 
-> Zeitbedarf: ca. 30 Min. (zwei kurze Videos)
+> Zeitbedarf: ca. 60 Min. (zwei kurze Videos, ein Wikipedia-Artikel und
+> ein Schreibtischtest)
 
 ## Videos zum Anschauen
 
@@ -47,3 +49,72 @@ angeboten, von denen hier einige vorgestellt werden.
 <div class="video-wrapper">
   <iframe src="https://www.youtube-nocookie.com/embed/l3dNcqKiboE" title="Video: C-Programmierung #17: Strings und die Bibliothek string.h" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
+
+## Sortieren vorbereiten: Bubblesort
+
+**Schritt 1: Artikel lesen.** Lest den Wikipedia-Artikel
+[Bubblesort](https://de.wikipedia.org/wiki/Bubblesort) durch. Den Abschnitt
+„Abgrenzung" könnt ihr überspringen. Bubblesort ist ein einfaches Verfahren,
+das die Werte einer Reihe (bei uns später: eines Arrays) durch wiederholtes
+Vergleichen und Vertauschen benachbarter Elemente sortiert. Achtet beim
+Lesen besonders darauf, was in einem einzelnen Durchlauf passiert und
+warum ein Durchlauf mehrfach wiederholt werden muss. Mit der Komplexität
+und den Optimierungen am Ende des Artikels müsst ihr noch nichts
+anfangen können — ein erster Eindruck genügt.
+
+**Schritt 2: Schreibtischtest.** Der Artikel zeigt das Verfahren an einem
+Beispiel. Damit ihr es wirklich verstanden habt, spielt ihr es jetzt an
+einer eigenen Zahlenreihe durch — mit Stift und Papier, ohne Rechner und
+ohne KI: Nur wer jeden Schritt selbst nachvollzieht, merkt, wo er den
+Algorithmus noch nicht durchschaut hat.
+
+Sortiert die folgende Reihe mit 5 Elementen **aufsteigend** mit Bubblesort:
+
+```text
+29   8   41   15   3
+```
+
+Vergleicht in jedem Durchlauf immer ein Element mit seinem rechten
+Nachbarn (von links nach rechts) und tauscht die beiden, wenn sie in der
+falschen Reihenfolge stehen. Haltet nach jedem Durchlauf den Zustand der
+Reihe fest und zählt die Vertauschungen:
+
+| Durchlauf | Zustand der Reihe nach dem Durchlauf | Vertauschungen |
+|---|---|---|
+| Start | 29   8   41   15   3 | – |
+| 1 | | |
+| 2 | | |
+| 3 | | |
+| 4 | | |
+
+Beantwortet dazu:
+
+* Welches Element steht nach dem ersten Durchlauf an seinem endgültigen
+  Platz, und warum steht es dort schon richtig?
+* Wie viele Vertauschungen sind insgesamt nötig gewesen?
+
+??? note "Musterlösung anzeigen"
+    | Durchlauf | Zustand der Reihe nach dem Durchlauf | Vertauschungen |
+    |---|---|---|
+    | Start | 29   8   41   15   3 | – |
+    | 1 | 8   29   15   3   41 | 3 |
+    | 2 | 8   15   3   29   41 | 2 |
+    | 3 | 8   3   15   29   41 | 1 |
+    | 4 | 3   8   15   29   41 | 1 |
+
+    Durchlauf 1 im Detail: `29` und `8` werden getauscht, `29` und `41`
+    bleiben stehen, `41` und `15` werden getauscht, `41` und `3` werden
+    getauscht. Die `41` als größtes Element wandert dabei wie eine
+    aufsteigende Blase Schritt für Schritt bis ans rechte Ende.
+
+    Nach dem ersten Durchlauf steht die `41` an ihrem endgültigen Platz:
+    Sie ist das größte Element und wurde bei jedem Vergleich weitergereicht,
+    bis sie am Ende der Reihe ankam. Größer als sie ist nichts, also kann
+    sie nie wieder getauscht werden. Genauso steht nach Durchlauf 2 die
+    `29` fest, nach Durchlauf 3 die `15` und so weiter — mit jedem
+    Durchlauf ist ein Element mehr am rechten Ende endgültig sortiert.
+
+    Insgesamt sind 3 + 2 + 1 + 1 = **7 Vertauschungen** nötig. Vier
+    Durchläufe reichen für 5 Elemente aus, weil nach dem vierten
+    Durchlauf schon vier Elemente an ihrem Platz stehen und das fünfte
+    damit automatisch richtig liegt.

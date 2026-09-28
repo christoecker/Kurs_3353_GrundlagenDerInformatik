@@ -21,7 +21,9 @@ verliert genau die Fähigkeit, die im Beruf gebraucht wird.
 **In den ersten Terminen bewusst nur sehr zurückhaltend.**
 Solange ihr Verzweigungen, Schleifen, Funktionen, Arrays und Pointer noch
 lernt, schreibt ihr den Code selbst. Das ist keine Schikane — es ist die
-Phase, in der sich algorithmisches Denken überhaupt erst aufbaut.
+Phase, in der sich algorithmisches Denken überhaupt erst aufbaut. Einzelne
+optionale Erweiterungen dürfen davon gezielt abweichen; das steht dann
+ausdrücklich in der jeweiligen Aufgabe.
 
 **Das Zwischenprojekt am 25.11. ist der Wendepunkt.** Dort entwickelt ihr
 mit KI-Unterstützung eine eigene kleine Anwendung. Das Lernziel dieses Tages
@@ -37,8 +39,8 @@ was ihr korrigiert und was ihr verworfen habt.
 
 ## Wie ihr erkennt, was gilt
 
-Ihr müsst euch keine Regelwerke merken. Bei jeder Aufgabe steht in einem
-Hinweiskasten, ob sie **mit** oder **ohne** KI bearbeitet werden soll.
+Ihr müsst euch keine Regelwerke merken. In der Aufgabenstellung steht, ob
+sie **mit** oder **ohne** KI bearbeitet werden soll.
 
 **Ohne KI** heißt: Die Lösung soll aus eurem eigenen Kopf kommen. Warum gerade
 diese Aufgabe davon lebt, steht jeweils kurz dabei — es ist nie eine Regel um
