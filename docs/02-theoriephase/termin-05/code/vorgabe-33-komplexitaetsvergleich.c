@@ -3,9 +3,8 @@
 
 #define MAX_N 12800
 
-static long quicksortVergleiche;
+static long quicksortVergleiche; // (1)!
 
-int vergleicheZahlen(int a, int b); // (1)!
 long vergleicheBubblesort(int a[], int n);
 int teileMitZaehler(int a[], int links, int rechts);
 void quicksortMitZaehler(int a[], int links, int rechts);
@@ -44,12 +43,6 @@ int main(void)
     return 0;
 }
 
-int vergleicheZahlen(int a, int b)
-{
-    quicksortVergleiche++;
-    return a - b;
-}
-
 long vergleicheBubblesort(int a[], int n)
 {
     long vergleiche = 0;
@@ -77,13 +70,20 @@ int teileMitZaehler(int a[], int links, int rechts)
 
     while (i < j)
     {
-        while (i < j && vergleicheZahlen(a[i], pivot) <= 0)
+        while (i < j && a[i] <= pivot)
+        {
+            quicksortVergleiche++; // (5)!
             i++;
+        }
 
-        while (j > i && vergleicheZahlen(a[j], pivot) > 0)
+        while (j > i && a[j] > pivot)
+        {
+            quicksortVergleiche++;
             j--;
+        }
 
-        if (vergleicheZahlen(a[i], a[j]) > 0)
+        quicksortVergleiche++;
+        if (a[i] > a[j])
         {
             int zwischenspeicher = a[i];
             a[i] = a[j];
@@ -91,7 +91,8 @@ int teileMitZaehler(int a[], int links, int rechts)
         }
     }
 
-    if (vergleicheZahlen(a[i], pivot) > 0)
+    quicksortVergleiche++;
+    if (a[i] > pivot)
     {
         int zwischenspeicher = a[i];
         a[i] = a[rechts];

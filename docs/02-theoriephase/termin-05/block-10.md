@@ -12,7 +12,7 @@ lernziele:
   - "Du kannst die Standardfunktion qsort aus stdlib.h mit einer eigenen Vergleichsfunktion einsetzen, um ein Array nach einem gewählten Kriterium zu sortieren."
   - "Du kannst Quicksort anhand eines gegebenen Pseudocodes als rekursive Funktion in C umsetzen."
   - "Du kannst die Anzahl der Vergleiche zweier Sortieralgorithmen experimentell messen und mit ihrer theoretischen Zeitkomplexität in Beziehung setzen."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code: []
 bearbeitungsstatus: in-arbeit
@@ -361,44 +361,49 @@ Testet eure Lösung mit dem vorgegebenen Array:
 ### Aufgabe 33: Bubblesort vs. Quicksort — experimenteller Komplexitätsvergleich
 
 Ihr habt in der Vorbereitung gesehen, dass sich die Zeitkomplexität eines
-Algorithmus mit der O-Notation beschreiben lässt. Jetzt prüft ihr, was das
-für echte Zahlen bedeutet: Bubblesort hat *immer* die Komplexität `O(n²)`.
-Quicksort hat im **Durchschnitt** `O(n log n)` — im **schlechtesten Fall**
-aber ebenfalls `O(n²)`, nämlich genau dann, wenn das Pivot-Element (wie in
-der Übung besprochen) die Reihe immer maximal ungleich teilt, zum Beispiel
-bei einer bereits sortierten Reihe. Die Zufallsarrays in diesem Experiment
-sorgen dafür, dass dieser schlechteste Fall so gut wie nie auftritt.
+Algorithmus mit der O-Notation beschreiben lässt: Bubblesort hat *immer*
+die Komplexität `O(n²)`. Quicksort hat im **Durchschnitt** `O(n log n)` —
+im **schlechtesten Fall** aber ebenfalls `O(n²)`, nämlich genau dann, wenn
+das Pivot-Element (wie in der Übung besprochen) die Reihe immer maximal
+ungleich teilt, zum Beispiel bei einer bereits sortierten Reihe.
 
-Als **Kennzahl** verwendet ihr die **Anzahl der Vergleiche** zwischen zwei
-Elementen (bzw. einem Element und dem Pivot-Element) — nicht die Anzahl der
-Vertauschungen. Der Grund: Genau die Anzahl der Vergleiche ist es, die in
-der O-Notation für beide Algorithmen beschrieben wird.
+Aber was bedeutet dieser Unterschied *konkret*, wenn tatsächlich sortiert
+wird? Das findet ihr jetzt heraus: Ihr lasst ein Testprogramm mehrere
+Arrays mit wachsender Länge nacheinander einmal mit Bubblesort und einmal
+mit Quicksort sortieren. Beide Algorithmen zählen dabei selbst mit, wie oft
+sie zwei Zahlen miteinander vergleichen — an dieser Zahl lässt sich der
+theoretische Unterschied direkt ablesen.
 
-Das folgende, bereits vollständige Programm sortiert Zufallsarrays
-wachsender Größe (`n = 100` bis `n = 12800`, jeweils dasselbe Array für
-beide Algorithmen) mit einer mitzählenden Bubblesort- und einer
-mitzählenden Quicksort-Funktion und gibt das Ergebnis als CSV-Zeilen aus:
+Als **Kennzahl** verwendet ihr also die **Anzahl der Vergleiche** zwischen
+zwei Elementen (bzw. einem Element und dem Pivot-Element) — nicht die
+Anzahl der Vertauschungen. Der Grund: Genau die Anzahl der Vergleiche ist
+es, die in der O-Notation für beide Algorithmen beschrieben wird.
+
+Das folgende, bereits vollständige Programm setzt das um:
 
 ```c linenums="1"
 --8<-- "02-theoriephase/termin-05/code/vorgabe-33-komplexitaetsvergleich.c"
 ```
 
-1. `vergleicheZahlen` ist der Trick hinter der ganzen Messung: eine kleine
-   Hilfsfunktion, die zwei Zahlen vergleicht *und dabei* eine globale
-   Zählvariable erhöht. Überall dort, wo `teileMitZaehler` sonst direkt
-   `a[i] <= pivot` schreiben würde, steht deshalb
-   `vergleicheZahlen(a[i], pivot) <= 0` — das Ergebnis ist dasselbe, nur
-   dass jetzt jeder einzelne Vergleich mitgezählt wird.
+1. Der globale Zähler `quicksortVergleiche`: Bei Quicksort gibt es —
+   anders als bei Bubblesort — mehrere Stellen im Code, an denen zwei
+   Zahlen verglichen werden (siehe Anmerkung 5). Eine globale Variable
+   sammelt die Vergleiche aus all diesen Stellen zu einer einzigen Zahl.
 2. `srand(42)` legt einen **festen** Startwert für die Zufallszahlen fest.
    So erzeugt das Programm bei jedem Lauf exakt dieselben Zahlen — wichtig,
    damit Bubblesort und Quicksort wirklich auf denselben Daten verglichen
    werden, nicht auf zufällig unterschiedlichen.
-3. Das ist derselbe rekursive Aufbau wie eure Lösung zu Aufgabe 32 — nur
-   dass `teileMitZaehler` statt eines direkten Vergleichs die
-   Zählfunktion aus Anmerkung 1 benutzt.
-4. Bei Bubblesort genügt ein einfacher Zähler direkt an der Vergleichsstelle
-   `a[i] > a[i + 1]`, weil es hier (anders als bei Quicksort) nur eine
-   einzige Stelle im Code gibt, an der zwei Elemente verglichen werden.
+3. Das ist derselbe rekursive Aufbau wie eure Lösung zu Aufgabe 32 — der
+   einzige Unterschied ist das Mitzählen, das in `teileMitZaehler`
+   dazukommt (siehe Anmerkung 5).
+4. Bei Bubblesort genügt ein einfacher Zähler direkt an der einzigen
+   Vergleichsstelle `a[i] > a[i + 1]`.
+5. Bei Quicksort steht an jeder Stelle, an der `teileMitZaehler` zwei
+   Zahlen vergleicht — also überall dort, wo eure Lösung aus Aufgabe 32
+   `a[i] <= pivot`, `a[j] > pivot` oder `a[i] > a[j]` prüft —, zusätzlich
+   ein `quicksortVergleiche++;`. Die eigentliche Sortierlogik ist damit
+   identisch zu eurer eigenen Implementierung, nur das Mitzählen kommt
+   dazu.
 
 **Zwei feste, unveränderliche Arrays statt Rechner-Speicherverwaltung:**
 `original` und `arbeitskopie` sind mit `MAX_N = 12800` groß genug für den
@@ -408,22 +413,67 @@ speichersparendere Lösung (Arrays passend zur jeweiligen Größe anlegen)
 brauchte dynamische Speicherverwaltung, die kommt in einem späteren Termin.
 {: .hinweis-klein }
 
-**Schritt 1:** Führt das Programm aus. Es gibt für jede Array-Größe eine
+**Schritt 1:** Macht euch zunächst mit dem vorgegebenen Programm vertraut,
+bevor ihr es ausführt. Beantwortet dazu die folgenden Fragen — ihr findet
+die Antworten direkt im Code oben.
+
+1\. Wie viele unterschiedliche Array-Größen werden untersucht, und welche
+Größen sind das?
+
+<!-- MUSTERLOESUNG-START -->
+??? note "Musterlösung anzeigen"
+    Acht Größen, jede davon doppelt so groß wie die vorherige: `100, 200,
+    400, 800, 1600, 3200, 6400, 12800` (Zeile 16, Array `groessen`).
+<!-- MUSTERLOESUNG-ENDE -->
+
+2\. Wo wird das zu sortierende Array initialisiert, und warum passiert das
+nur ein einziges Mal?
+
+<!-- MUSTERLOESUNG-START -->
+??? note "Musterlösung anzeigen"
+    In den Zeilen 19–21: `srand(42)` legt den Startwert fest, danach füllt
+    eine Schleife das Array `original` einmalig mit `MAX_N = 12800`
+    Zufallszahlen. Das passiert nur einmal, weil dieselben Ausgangsdaten
+    für **alle** acht Array-Größen und für **beide** Algorithmen verwendet
+    werden sollen — nur so ist der Vergleich fair. Für jede Array-Größe
+    werden anschließend nur die ersten `n` Werte davon benutzt.
+<!-- MUSTERLOESUNG-ENDE -->
+
+3\. In welcher Zeile wird Bubblesort aufgerufen, in welcher Quicksort?
+
+<!-- MUSTERLOESUNG-START -->
+??? note "Musterlösung anzeigen"
+    Bubblesort in Zeile 31 (`vergleicheBubblesort(arbeitskopie, n)`),
+    Quicksort in Zeile 36 (`quicksortMitZaehler(arbeitskopie, 0, n - 1)`).
+<!-- MUSTERLOESUNG-ENDE -->
+
+4\. Was ist der Unterschied zwischen den Arrays `original` und
+`arbeitskopie`, und warum gibt es diese Unterscheidung überhaupt?
+
+<!-- MUSTERLOESUNG-START -->
+??? note "Musterlösung anzeigen"
+    `original` enthält die einmalig erzeugten Zufallszahlen und wird nie
+    verändert. `arbeitskopie` wird dagegen vor **jedem** der beiden
+    Sortierläufe neu aus `original` befüllt (Zeilen 29–30 bzw. 33–34) und
+    ist danach sortiert. Die Unterscheidung ist nötig, weil Sortieren das
+    Array verändert: Ohne die Kopie hätte Bubblesort das Array schon
+    sortiert, bevor Quicksort überhaupt an der Reihe wäre — beide
+    Algorithmen müssten dann mit unterschiedlichen (und beim zweiten Mal
+    schon halb sortierten) Daten arbeiten, der Vergleich wäre nicht mehr
+    fair.
+<!-- MUSTERLOESUNG-ENDE -->
+
+---
+
+**Schritt 2:** Führt das Programm aus. Es gibt für jede Array-Größe eine
 Zeile mit drei durch Komma getrennten Werten aus: `n`, Anzahl Vergleiche
 bei Bubblesort, Anzahl Vergleiche bei Quicksort.
 
-**Schritt 2:** Öffnet die Auswertungsvorlage
+**Schritt 3:** Öffnet die Auswertungsvorlage
 [vorlage-33-komplexitaetsvergleich.xlsx](code/vorlage-33-komplexitaetsvergleich.xlsx).
 Ihre Zeilen sind bereits nach denselben `n`-Werten sortiert wie die
 Programmausgabe — übertragt für jede Zeile die beiden gemessenen Werte von
 Hand in die gelb markierten Spalten B und C.
-
-**Die CSV-Ausgabe nicht direkt in Excel einfügen:** Je nach
-Spracheinstellung trennt Excel Spalten beim Einfügen mit Semikolon statt
-mit Komma — die Werte landen dann alle in einer einzigen Zelle statt in
-getrennten Spalten. Bei nur acht Zeilen ist das Übertragen von Hand
-zuverlässiger.
-{: .hinweis-klein }
 
 Die Vorlage berechnet automatisch zwei theoretische Vergleichskurven
 (`O(n²)` und `O(n log n)`) und zeichnet ein Diagramm mit allen vier Reihen.
@@ -432,7 +482,7 @@ Kurven so skaliert, dass sie beim größten gemessenen `n` exakt auf euren
 Messwert treffen — verglichen wird also die **Form** der Kurve, nicht ihr
 absoluter Wert.
 
-**Schritt 3:** Beantwortet anhand des Diagramms:
+**Schritt 4:** Beantwortet anhand des Diagramms:
 
 - Passt die Form der gemessenen Bubblesort-Werte zur `O(n²)`-Kurve, und die
   der Quicksort-Werte zur `O(n log n)`-Kurve?
@@ -440,10 +490,6 @@ absoluter Wert.
   im Diagramm deutlich sichtbar?
 - Was bedeutet dieser Unterschied für die Wahl eines Sortieralgorithmus bei
   großen Datenmengen?
-- In der Übung stand: Eine ungünstige Pivot-Wahl verschlechtert die
-  Laufzeit von Quicksort. Was vermutet ihr: Wie würden sich die
-  Vergleichszahlen von Quicksort verändern, wenn statt zufälliger Arrays
-  bereits **sortierte** Arrays verwendet würden?
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
