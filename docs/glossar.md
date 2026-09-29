@@ -197,6 +197,14 @@ Adressoperator `&`.
 : Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
 Algorithmus immer dasselbe Ergebnis.  
 
+**Differenzenquotient**
+: Eine Formel, mit der sich die Ableitung einer Funktion an einer Stelle
+`x` näherungsweise berechnen lässt, ohne die Ableitungsregeln der Analysis
+zu benutzen: `(f(x + h) − f(x − h)) / (2h)` für eine sehr kleine
+Schrittweite `h`. Grafisch entspricht das der Steigung einer Sekante durch
+zwei nahe beieinanderliegende Punkte des Funktionsgraphen, die sich für
+kleiner werdendes `h` immer mehr der Tangentensteigung annähert.  
+
 **Divide-and-Conquer**
 : Zu Deutsch "Teile und herrsche": eine Lösungsstrategie, die ein Problem
 bei jedem Schritt in kleinere Teile zerlegt und diese Teile unabhängig
@@ -257,6 +265,13 @@ bestimmte Anweisungen ausführt. Über Parameter lässt sie sich mit
 unterschiedlichen Werten aufrufen, über einen Rückgabewert kann sie ein
 Ergebnis liefern. `main` ist die besondere Funktion, mit der jedes
 C-Programm startet.  
+
+**Funktionspointer**
+: Ein Pointer, der nicht auf eine Variable, sondern auf eine Funktion
+zeigt — genauer: auf eine Funktion mit einer bestimmten Signatur (Anzahl
+und Typ der Parameter, Rückgabetyp). Ein Funktionspointer lässt sich wie
+ein normaler Pointer als Parameter übergeben, sodass eine Funktion selbst
+zur austauschbaren Zutat einer anderen Funktion wird.  
 
 **Funktionsprototyp**
 : Eine Ankündigung von Name, Parametern und Rückgabetyp einer Funktion,
@@ -371,6 +386,12 @@ einer Dualzahl. Bei der Zweierkomplement-Darstellung zeigt es das Vorzeichen
 an: 0 für positiv (oder null), 1 für negativ.  
 
 ## N
+
+**Newton-Verfahren**
+: Ein numerisches Verfahren, um eine Nullstelle einer Funktion
+anzunähern: Ausgehend von einem Startwert `x` wird wiederholt
+`x := x − f(x) / f'(x)` berechnet, bis der Funktionswert `f(x)` nahe genug
+an `0` liegt.  
 
 **NULL-Pointer**
 : Ein Pointer, der bewusst auf keine gültige Adresse zeigt, gekennzeichnet
@@ -559,6 +580,12 @@ den Befehlszeiger schreibt. Grundlage für Verzweigungen und Schleifen.
 oft (im Extremfall unendlich oft) selbst aufruft, weil ihre
 Abbruchbedingung nie erreicht wird. Jeder wartende Aufruf belegt Platz auf
 dem Aufrufstapel — irgendwann ist dieser Platz erschöpft.  
+
+**Stetigkeit**
+: Eine Eigenschaft einer Funktion: Ihr Graph hat keine Sprünge oder Lücken
+— er lässt sich also in einem Zug durchzeichnen, ohne den Stift abzusetzen.
+Nötig, damit sich an einer Stelle sinnvoll von einer Ableitung sprechen
+lässt.  
 
 **String**
 : Eine Zeichenkette, also ein Text. In C ist ein String ein `char`-Array,

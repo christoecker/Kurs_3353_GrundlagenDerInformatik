@@ -37,6 +37,8 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: ["docs"]
       check_paths: true
+  - pymdownx.tabbed:
+      alternate_style: true
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -98,6 +100,7 @@ nav:
       - "Termin 5":
           - "Sortieralgorithmen": 02-theoriephase/termin-05/block-10.md
           - "Pointer": 02-theoriephase/termin-05/block-11.md
+          - "Funktionspointer": 02-theoriephase/termin-05/block-12.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
