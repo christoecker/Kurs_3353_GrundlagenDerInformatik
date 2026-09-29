@@ -187,6 +187,12 @@ später genauer eingeführt.
 zum Beispiel `int anzahl;`. Ab diesem Zeitpunkt existiert die Variable,
 hat aber noch keinen sinnvollen Wert, solange ihr keiner zugewiesen wurde.  
 
+**Dereferenzierung**
+: Der Zugriff auf den Wert, auf den ein Pointer zeigt, über den Operator
+`*` vor dem Pointernamen. `*p` liefert also nicht die Adresse selbst,
+sondern den Wert an dieser Adresse — bei Pointern der Gegenspieler zum
+Adressoperator `&`.  
+
 **Determiniertheit**
 : Eine Eigenschaft von Algorithmen: Bei denselben Ausgangswerten liefert der
 Algorithmus immer dasselbe Ergebnis.  
@@ -364,6 +370,14 @@ zerlegen, etwa Sekunden in Stunden, Minuten und Restsekunden.
 einer Dualzahl. Bei der Zweierkomplement-Darstellung zeigt es das Vorzeichen
 an: 0 für positiv (oder null), 1 für negativ.  
 
+## N
+
+**NULL-Pointer**
+: Ein Pointer, der bewusst auf keine gültige Adresse zeigt, gekennzeichnet
+durch den Wert `NULL`. Wird zum Beispiel benutzt, um "hier gibt es (noch)
+nichts" auszudrücken, oder um einer Funktion beim Aufruf mitzuteilen, dass
+sie sich an einen vorherigen Aufruf erinnern soll, statt neu zu beginnen.  
+
 ## O
 
 **Oktalsystem**
@@ -404,6 +418,20 @@ links vom Pivot-Element nur kleinere oder gleiche Werte, rechts davon nur
 größere — das Pivot-Element selbst steht damit schon an seiner endgültigen
 Position. Welches Element als Pivot gewählt wird, beeinflusst nicht, ob am
 Ende richtig sortiert wird, aber wie schnell das geht.  
+
+**Pointer (Zeiger)**
+: Eine Variable, die nicht selbst einen Wert speichert, sondern die
+Adresse einer anderen Variable im Speicher. Über den Adressoperator `&`
+entsteht ein Pointer, über die Dereferenzierung `*` gelangt man vom
+Pointer zurück zum Wert, auf den er zeigt.  
+
+**Pointer-Arithmetik**
+: Das Rechnen mit Pointern, z. B. `zeiger + 1`. Anders als bei einer
+gewöhnlichen Zahl bedeutet `+ 1` hier nicht "eine Speicherzelle weiter",
+sondern "das nächste Element desselben Datentyps" — bei einem `int *`
+also vier Byte weiter, bei einem `unsigned char *` nur ein Byte. Die
+vertraute Array-Schreibweise mit eckigen Klammern ist nur eine bequemere
+Schreibweise dafür: `a[i]` bedeutet dasselbe wie `*(a + i)`.  
 
 **Programmablaufplan (PAP)**
 : Eine grafische Beschreibung eines Algorithmus als Folge von Symbolen, die
@@ -543,6 +571,15 @@ markiert, wo der Text aufhört, und wird deshalb von Funktionen wie `printf`
 und `strlen` erwartet — man spricht von einem nullterminierten String. Fehlt
 es, laufen diese Funktionen über das Ende des Arrays hinaus.  
 
+## T
+
+**Typumwandlung (Cast)**
+: Das ausdrückliche Umdeuten eines Werts oder eines Pointers in einen
+anderen Datentyp, geschrieben als Datentyp in runden Klammern direkt vor
+dem Wert, z. B. `(unsigned char *) zeiger`. Nötig, wenn der Compiler den
+gewünschten Typ nicht von selbst kennt — etwa bei einem void-Pointer, der
+vor der Dereferenzierung erst wieder einen konkreten Typ bekommen muss.  
+
 ## U
 
 **unsigned**
@@ -589,6 +626,13 @@ Zeichen zu erzeugen.
 einer Bedingung einen von zwei Wegen nimmt — dargestellt mit den
 beschrifteten Pfeilen "ja" und "nein". Entspricht im Pseudocode den
 Schlüsselwörtern `IF` und `ELSE`.  
+
+**void-Pointer**
+: Ein Pointer vom Typ `void *`, der auf eine Adresse zeigt, ohne
+festzulegen, welcher Datentyp dort liegt. Nützlich für Funktionen, die mit
+beliebigen Datentypen arbeiten sollen (z. B. eine allgemeine
+Kopierfunktion) — vor der Dereferenzierung muss er aber immer erst per
+Typumwandlung in einen konkreten Pointertyp umgewandelt werden.  
 
 **von-Neumann-Architektur**
 : Das Bauprinzip, nach dem heutige Rechner aufgebaut sind: Prozessor, Speicher

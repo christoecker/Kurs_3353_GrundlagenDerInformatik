@@ -97,6 +97,7 @@ nav:
           - "Vorbereitung auf Termin 5": 02-theoriephase/termin-04/vorbereitung-termin-05.md
       - "Termin 5":
           - "Sortieralgorithmen": 02-theoriephase/termin-05/block-10.md
+          - "Pointer": 02-theoriephase/termin-05/block-11.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
