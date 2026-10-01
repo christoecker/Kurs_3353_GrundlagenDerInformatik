@@ -102,6 +102,11 @@ nav:
           - "Pointer": 02-theoriephase/termin-05/block-11.md
           - "Funktionspointer": 02-theoriephase/termin-05/block-12.md
           - "Vorbereitung auf Termin 6": 02-theoriephase/termin-05/vorbereitung-termin-06.md
+      - "Termin 6":
+          - "Aufzählungsdatentypen": 02-theoriephase/termin-06/block-13.md
+          - "Vorbereitung auf Termin 7": 02-theoriephase/termin-06/vorbereitung-termin-07.md
+      - "Termin 7":
+          - "Zwischenprojekt": 02-theoriephase/termin-07/block-16-17-18.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md

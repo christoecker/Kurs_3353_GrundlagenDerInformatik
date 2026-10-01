@@ -65,6 +65,12 @@ jede andere Zahl binär im Rechner gespeichert.
 kommt, statt der Bitmuster aber lesbare Namen verwendet. Sie liegt im
 Ebenenmodell zwischen der Maschinensprache und Sprachen wie C.
  
+**Aufzählungsdatentyp (enum)**
+: Ein selbst definierter Datentyp für eine abgeschlossene Liste möglicher Werte,
+zum Beispiel die Betriebszustände einer Maschine oder die Einheiten einer
+Temperatur. Die Namen in der Liste sind nur Hilfsmittel für Programmierer; der
+Compiler nummeriert sie automatisch ab 0 durch (sofern keine Zahl ausdrücklich
+angegeben ist), und intern wird jeder Wert als ganze Zahl (`int`) gespeichert.  
 
 ## B
 
@@ -335,6 +341,13 @@ Deklaration hat die Variable danach sofort einen sinnvollen Wert.
 
 ## K
 
+**Kommandozeilenparameter**
+: Ein Wert, der einem Programm schon beim Start mitgegeben wird, statt
+ihn erst während der Ausführung abzufragen — zum Beispiel `programm.exe
+suche 42`. In C kommen diese Parameter über die beiden zusätzlichen
+`main`-Parameter `int argc` (Anzahl der Parameter, `argv[0]` mitgezählt)
+und `char *argv[]` (die Parameter selbst, als Strings) ins Programm.  
+
 **Kommentar**
 : Text im Quellcode, den der Compiler vollständig ignoriert — nur für
 Menschen gedacht, die den Code lesen. Ein Zeilenkommentar beginnt mit `//`
@@ -373,6 +386,13 @@ unterschiedlich.
 : Ein Array, dessen Elemente selbst wieder Arrays sind — zum Beispiel eine
 Tabelle mit Zeilen und Spalten. Angesprochen wird ein Element mit einem
 Index pro Dimension, etwa `matrix[1][2]`.  
+
+**Mockup**
+: Ein früher, noch unfertiger Entwurf einer Software, der schon Bedienung
+und Ablauf zeigt, aber bewusst noch nicht alle Teile enthält — zum
+Beispiel eine Anwendung ohne dauerhafte Datenspeicherung, weil diese
+Frage erst später geklärt wird. Dient dazu, eine Idee früh auszuprobieren
+und Rückmeldung dazu einzuholen, bevor der volle Aufwand investiert wird.  
 
 **Modulo-Operator**
 : Das Zeichen `%` in C. Es liefert den Rest einer Ganzzahldivision — zum
@@ -600,6 +620,11 @@ es, laufen diese Funktionen über das Ende des Arrays hinaus.
 
 ## T
 
+**typedef**
+: Ein Schlüsselwort in C, mit dem ein vorhandener Datentyp einen zusätzlichen,
+oft kürzeren Namen bekommt. Bei einer Aufzählung erlaubt es, statt
+`enum Zustand` nur noch `Zustand` zu schreiben.  
+
 **Typumwandlung (Cast)**
 : Das ausdrückliche Umdeuten eines Werts oder eines Pointers in einen
 anderen Datentyp, geschrieben als Datentyp in runden Klammern direkt vor
@@ -701,6 +726,18 @@ O-Notation.
 : Die Menge der Symbole, die in einem Stellenwertsystem als Ziffern verwendet
 werden dürfen. Im Dezimalsystem sind das die zehn Ziffern 0 bis 9, im
 Dualsystem nur 0 und 1.  
+
+**Zustandsautomat**
+: Ein Programm oder Gerät, das sich zu jedem Zeitpunkt in genau einem von
+endlich vielen Zuständen befindet und je nach Lage (etwa einer Störung) in
+einen anderen Zustand wechselt. Typisch in der Automatisierung, zum Beispiel
+bei einer Ampel oder der Schrittkette einer Anlage.  
+
+**Zustandsdiagramm**
+: Eine Zeichnung, die einen Zustandsautomaten darstellt: Jedes Kästchen ist ein
+Zustand, jeder Pfeil ein Übergang, und die Beschriftung am Pfeil nennt das
+Ereignis, das den Übergang auslöst. Ein Punkt mit Pfeil markiert den
+Startzustand.  
 
 **Zuweisung**
 : Das nachträgliche Verändern des Werts einer bereits deklarierten

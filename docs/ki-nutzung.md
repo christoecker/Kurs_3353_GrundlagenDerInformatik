@@ -25,12 +25,12 @@ Phase, in der sich algorithmisches Denken überhaupt erst aufbaut. Einzelne
 optionale Erweiterungen dürfen davon gezielt abweichen; das steht dann
 ausdrücklich in der jeweiligen Aufgabe.
 
-**Das Zwischenprojekt am 25.11. ist der Wendepunkt.** Dort entwickelt ihr
+**Das Zwischenprojekt am 2.12. ist der Wendepunkt.** Dort entwickelt ihr
 mit KI-Unterstützung eine eigene kleine Anwendung. Das Lernziel dieses Tages
 ist ausdrücklich **nicht** "ein Programm haben", sondern: die Entwicklung
 mit KI zu *steuern* und das Ergebnis zu *bewerten*.
 
-**Ab dem 2.12. ist KI regulär zugelassen.** Ein wiederkehrendes
+**Ab dem 9.12. ist KI regulär zugelassen.** Ein wiederkehrendes
 Aufgabenformat wird dann sein: Ihr bekommt ein fertiges, lauffähiges
 Programm und sollt es gezielt anpassen oder erweitern — gerne mit
 KI-Unterstützung, aber mit der Pflicht zu dokumentieren, was ihr übernommen,

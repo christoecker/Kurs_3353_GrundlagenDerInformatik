@@ -33,6 +33,22 @@ ist - HTML-Kommentare koennen dafuer nicht verwendet werden, weil
 Python-Markdown mehrzeilige Kommentare an Leerzeilen aufbricht und der
 Inhalt dann doch im gebauten HTML landet (am gebauten Ergebnis getestet).
 
+Braucht eine Seite MEHRERE, unabhaengig voneinander freischaltbare
+Nachtraege (z. B. zwei zeitlich getrennte Ueberraschungen am
+Zwischenprojekt-Tag), gibt es zusaetzlich eine NUMMERIERTE Variante:
+
+    <!-- NACHTRAG-1-START -->
+    ...
+    <!-- NACHTRAG-1-ENDE -->
+
+gesteuert ueber ein eigenes Feld "nachtrag_1_sichtbar" (analog
+"nachtrag_2_sichtbar" fuer NACHTRAG-2-START/-ENDE usw.). Start- und
+End-Marker muessen dieselbe Nummer tragen. Auch hier gilt: fehlt das
+jeweilige Feld, bleibt genau dieser eine nummerierte Nachtrag verborgen -
+die anderen nummerierten Nachtraege und der unnummerierte
+NACHTRAG-Block (falls auf derselben Seite vorhanden) sind davon
+unabhaengig.
+
 Setzt am "on_page_markdown"-Event an: dort ist "page.meta" bereits aus
 dem Frontmatter befuellt, aber der Markdown-Text noch nicht zu HTML
 konvertiert.
@@ -55,6 +71,11 @@ _NACHTRAG_BLOCK = re.compile(
     re.DOTALL,
 )
 
+_NACHTRAG_NUM_BLOCK = re.compile(
+    r"<!--\s*NACHTRAG-(?P<n>\d+)-START\s*-->.*?<!--\s*NACHTRAG-(?P=n)-ENDE\s*-->",
+    re.DOTALL,
+)
+
 
 def on_page_markdown(markdown, page, config, files):
     """Blendet Nachtrags- und Musterloesungs-Abschnitte aus, wenn gesetzt."""
@@ -68,6 +89,23 @@ def on_page_markdown(markdown, page, config, files):
                 page.file.src_uri,
                 count,
             )
+
+    hidden_numbered: list[str] = []
+
+    def _strip_numbered(match: "re.Match[str]") -> str:
+        n = match.group("n")
+        if page.meta.get(f"nachtrag_{n}_sichtbar", False):
+            return match.group(0)
+        hidden_numbered.append(n)
+        return ""
+
+    markdown = _NACHTRAG_NUM_BLOCK.sub(_strip_numbered, markdown)
+    if hidden_numbered:
+        log.info(
+            "'%s': nummerierte Nachtraege ausgeblendet: %s (jeweiliges nachtrag_<N>_sichtbar nicht auf true).",
+            page.file.src_uri,
+            ", ".join(hidden_numbered),
+        )
 
     if page.meta.get("musterloesungen_sichtbar", True):
         return markdown

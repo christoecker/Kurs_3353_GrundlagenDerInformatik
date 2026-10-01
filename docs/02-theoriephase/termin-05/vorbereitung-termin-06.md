@@ -11,61 +11,53 @@ publish_date: "2026-11-18"
 
 ## Worum geht es in Termin 6?
 
-In Termin 6 steht das **Zwischenprojekt** an: Ihr entwickelt einen ganzen
-Tag lang mit KI-Unterstützung eine eigene kleine Anwendung. Dabei geht es
-nicht in erster Linie darum, am Ende ein fertiges Programm zu haben —
-sondern darum, die Entwicklung mit KI zu **steuern** und das Ergebnis zu
-**bewerten**. Mehr dazu und zum genauen Ablauf erfahrt ihr direkt am
-Termin selbst.
+In Termin 6 lernt ihr zwei neue Konzepte kennen: **Strukturen** (mehrere
+zusammengehörige Werte zu einer Einheit zusammenfassen) und den
+**Aufzählungsdatentyp `enum`**. Dazu kommen **Präprozessordirektiven** und
+**Makros**. Bevor es damit losgeht, schaut euch die folgenden vier
+Videos an.
 
-Diesmal gibt es deshalb bewusst **keine Vorbereitungsvideos**. Stattdessen zwei Empfehlungen,
-die euch den Einstieg in den Projekttag erleichtern.
+## Videos zum Anschauen
 
-## KI-Unterstützung auf eurem Rechner einrichten (empfohlen)
+> Zeitbedarf: ca. 45 Min. (4 Videos)
 
-Für den Projekttag ist es hilfreich, wenn ihr direkt in eurer
-Entwicklungsumgebung auf KI-Unterstützung zugreifen könnt, statt Code
-mühsam zwischen Chatfenster und Visual Studio hin- und herzukopieren.
+**Video 1 — „C-Programmierung #21: Aufzählungsdatentyp enum" (6:30
+Min.):** In C lassen sich auch eigene Datentypen definieren. Ein sehr
+einfacher Datentyp ist der Aufzählungsdatentyp `enum`. Das Video zeigt,
+wie man ihn verwendet und wozu man einen Aufzählungsdatentyp gebrauchen
+kann.
 
-**Empfehlung: GitHub Copilot in Visual Studio.** Copilot lässt sich direkt
-in Visual Studio (der IDE, die ihr aus diesem Kurs kennt) installieren und
-schlägt euch dort Code direkt im Editor vor.
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/CPqxGaNtzds" title="Video: C-Programmierung #21: Aufzählungsdatentyp enum" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
 
-**Achtung, Verwechslungsgefahr:** Claude Code und der OpenAI Codex haben
-Anbindungen für **Visual Studio Code** — einen anderen, schlankeren Editor
-von Microsoft mit sehr ähnlichem Namen. Für **Visual Studio** (die volle
-IDE, mit der ihr in diesem Kurs arbeitet) funktionieren diese Anbindungen
-**nicht**.
-{: .hinweis-klein }
+---
 
-Wer nichts installieren möchte, kommt auch ohne IDE-Anbindung zurecht:
-Browserbasierte Chat-Tools wie ChatGPT, Claude oder Gemini funktionieren
-genauso — Code wird dann per Copy-paste zwischen Chat und Visual Studio
-hin- und hergereicht. Etwas weniger komfortabel, dafür ganz ohne
-Installationsaufwand.
+**Video 2 — „C-Programmierung #22: Strukturvariablen" (12:03 Min.):**
+Häufig muss man in Programmen Variablen unterschiedlicher Datentypen zu
+einer Einheit zusammenfassen. Dazu werden Strukturvariablen verwendet, um
+die es in diesem Video geht.
 
-Welches Werkzeug ihr wählt, ist egal — wichtig ist nur, dass euch am
-25.11. irgendeine KI-Unterstützung zur Verfügung steht.
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/TF9wFRZuNTI" title="Video: C-Programmierung #22: Strukturvariablen" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
 
-## Empfehlung: Ein kleines Testprojekt (optional)
+---
 
-Bevor am Projekttag der eigentliche Zeitdruck beginnt, lohnt es sich, den
-Workflow einmal in Ruhe auszuprobieren: einen Prompt formulieren, den
-Vorschlag der KI lesen und verstehen, ihn übernehmen, anpassen oder
-verwerfen. Dafür eine kleine, unbewertete Aufgabenstellung als Vorschlag:
+**Video 3 — „C-Programmierung #23: Strukturvariablen als
+Funktionsparameter" (5:27 Min.):** Wie können Strukturen an Funktionen
+übergeben werden, und was ist bei der Dereferenzierung eines Pointers auf
+eine Struktur zu beachten? Darum geht's in diesem Video.
 
-> Entwickelt mit KI-Unterstützung ein kleines Konsolenprogramm: ein
-> Zahlenratespiel. Das Programm denkt sich eine Zufallszahl zwischen 1 und
-> 100 aus. Die Nutzerin oder der Nutzer rät so lange, bis die Zahl
-> gefunden ist; nach jedem Versuch gibt das Programm "zu hoch" oder "zu
-> niedrig" aus, am Ende die Anzahl der benötigten Versuche.
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/xdL33vq9XqU" title="Video: C-Programmierung #23: Strukturvariablen als Funktionsparameter" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
 
-Die Aufgabe braucht nur Werkzeuge, die ihr bereits kennt (`rand`/`srand`,
-`while`, `if`/`else`, `scanf_s`) — der Fokus liegt ganz auf dem Workflow
-mit der KI, nicht auf neuem C-Wissen.
+---
 
-**Wichtig dabei** (siehe auch [KI im Kurs](../../ki-nutzung.md)): Lest
-euch den Vorschlag der KI wirklich durch, bevor ihr ihn übernehmt, und
-lasst euch alles erklären, was nicht auf Anhieb klar ist. Genau dieses
-Lesen-und-Verstehen-statt-nur-Übernehmen ist die Fähigkeit, die am
-Projekttag zählt.
+**Video 4 — „C-Programmierung #24: Präprozessoranweisungen" (17:08 Min.):** Der Präprozessor ist eine Einheit, die den Quellcode vorverarbeitet, bevor der Compiler den Code in Maschinencode übersetzt. Der Präprozessor kann dabei durch spezielle Anweisungen gesteuert werden, wodurch es möglich ist Makros mit und ohne Parameter zu definieren, eigene Header-Dateien zu erstellen und einzubinden oder Teile des Quellcodes vom Erstellungsprozess auszuschließen.
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/oeOYiI7jIq4" title="Video: C-Programmierung #24: Präprozessoranweisungen" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+

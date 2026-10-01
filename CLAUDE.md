@@ -118,7 +118,7 @@ nächsten Termin" weiter unten.
 Weder "Block" noch die interne `block_id` tauchen im sichtbaren Titel oder in
 Überschriften auf (siehe "Theoriephase: Block-Struktur & Templates").
 
-## Sonderfall Zwischenprojekt (Termin 6, 25.11.2026)
+## Sonderfall Zwischenprojekt (Termin 7, 02.12.2026)
 
 Dieser Termin folgt **nicht** dem 45'/45'-Rhythmus und benutzt **nicht** die
 Klassen `.modus-uebung`/`.modus-selbststudium`. Stattdessen: längere
@@ -132,13 +132,24 @@ Softwareentwicklung mit KI zu STEUERN und das Ergebnis zu BEWERTEN** — eine
 kleine Vorstufe dessen, was die Studierenden später beruflich können sollen.
 
 Der Termin belegt seit 2026-09-17 **alle drei Slots** des Tages (270 min statt
-vorher 180) als EINE Einheit; die Datei heißt deshalb `block-13-14-15.md` mit
-`block_id: "13-14-15"` und `format: projekt`. Der dritte Slot ist einer von
+vorher 180) als EINE Einheit; die Datei heißt deshalb `block-16-17-18.md` mit
+`block_id: "16-17-18"` und `format: projekt`. Der dritte Slot ist einer von
 zwei neuen Slots, die durch den Wegfall von Termin 10 (23.12.) frei wurden
 (siehe entscheidungen.md) und vertieft den Projekttag selbst (z. B. mehr
 Bearbeitungszeit, Zwischenstände vorstellen). Die konkrete Struktur-Variante
-(`_templates/projekttag.template.md`) wird **bei der Planung dieses Termins
-gemeinsam entworfen**, nicht vorab festgelegt.
+(`_templates/projekttag.template.md`) wurde am 2026-09-30 entworfen, Inhalte
+siehe `docs/02-theoriephase/termin-07/block-16-17-18.md`.
+
+**Tausch mit Termin 6 (2026-09-30):** Ursprünglich lag das Zwischenprojekt auf
+Termin 6 (25.11.2026) und Strukturen/Enum/Präprozessor auf Termin 7
+(02.12.2026). Auf Wunsch des Professors getauscht, damit die Studierenden
+Strukturen und `enum` bereits kennen, bevor sie im Zwischenprojekt gebraucht
+werden (vorher nur über Vorbereitungsvideos vorentlastet). Termin 6 ist damit
+jetzt "Aufzählungstypen, Strukturen, Präprozessor" (`block_id`e "13"/"14"/"15"),
+Termin 7 das Zwischenprojekt. Die Projektinhalte selbst (Auftrag, Nachträge,
+Reflexionsvorlage) blieben beim Tausch unverändert — eine inhaltliche
+Überarbeitung im Licht der dann bereits bekannten Struct/Enum-Inhalte steht
+noch aus. Details: `entscheidungen.md`, Eintrag 2026-09-30.
 
 ## Planung vor Umsetzung bei Theoriephase-Inhalten
 
@@ -177,7 +188,7 @@ geändert, bis eine explizite Freigabe erfolgt. Anpassungswünsche werden nach
 Rückmeldung eingearbeitet und erneut als aktualisierte Liste ausgegeben; erst
 nach explizitem **"GO"** folgt Phase 2.
 
-Für den Zwischenprojekt-Termin (Termin 6) gilt die Phase-1-Struktur **nicht**
+Für den Zwischenprojekt-Termin (Termin 7) gilt die Phase-1-Struktur **nicht**
 in dieser Form — dort wird stattdessen zuerst die Ablaufstruktur des
 Projekttags selbst zur Diskussion gestellt.
 
@@ -268,10 +279,16 @@ Referenzdokument für die Studierenden: `docs/ki-nutzung.md`.
   lernen. In diesen Blöcken steht in den Aufgaben ausdrücklich, dass die
   Lösung eigenständig entstehen soll — und **warum**. Ein Verbot ohne
   Begründung wird ignoriert.
-- **Wendepunkt ist das Zwischenprojekt (Termin 6, 25.11.2026).** Dort wird
+- **Wendepunkt ist das Zwischenprojekt (Termin 7, 02.12.2026).** Dort wird
   KI-Unterstützung gezielt und mit voller Reflexionspflicht eingeführt.
-- **Ab Termin 7** (Strukturen, Dateibearbeitung, dynamischer Speicher) ist KI
-  regulär zugelassen. Ein wiederkehrendes Aufgabenmuster ist dann: **ein
+  Termin 6 (Aufzählungstypen, Strukturen, Präprozessor) liegt seit
+  2026-09-30 bewusst VOR dem Zwischenprojekt (getauscht mit dem
+  ursprünglichen Termin 7), damit die Studierenden `struct`/`enum` schon
+  kennen, wenn sie im Projekt gebraucht werden — bleibt aber selbst noch
+  in der KI-zurückhaltenden Phase (`stufe_1_nachschlagewerk`/
+  `stufe_2_pair_programmer`, kein Sprung auf "regulär").
+- **Ab Termin 8** (Dateibearbeitung, dynamischer Speicher) ist KI regulär
+  zugelassen. Ein wiederkehrendes Aufgabenmuster ist dann: **ein
   fertiges, lauffähiges Programm wird bereitgestellt und muss gezielt
   angepasst oder erweitert werden**, gerne mit KI-Unterstützung, aber mit
   Pflicht zur Dokumentation, was übernommen, korrigiert oder verworfen wurde.
@@ -365,6 +382,30 @@ außerhalb. Das ist eine inhaltliche Trennung (Live-Coding zeigt Code, keine
 Diagramme), kein technisches Muss — Mermaid-Diagramme in zugeklappten
 `???`-Blöcken sind grundsätzlich erlaubt (an Praxisphase Woche 3 und 4
 geprüft, rendert korrekt).
+
+### Änderungen im Code hervorheben (Highlighting)
+
+Wird Code von Schritt zu Schritt **weiterentwickelt**, werden die Zeilen, die
+sich gegenüber dem vorherigen Stand geändert haben oder neu sind, per
+`hl_lines` hervorgehoben (seit 2026-10-01):
+
+    ```c linenums="1" hl_lines="11 15-17 24-37"
+
+Dasselbe gilt für **Übungsaufgaben mit vorgegebenem Code, den die
+Studierenden erweitern sollen**: In der Musterlösung sind die Zeilen
+hervorgehoben, die gegenüber der Vorgabe ergänzt wurden. Regeln dazu:
+
+- Der Vergleich ist immer der unmittelbar vorherige Stand (bei
+  Musterlösungen die Vorgabe). Das erste Beispiel einer Reihe und ein
+  Beispiel, das ein ganz neues Programm beginnt, bekommen kein Highlighting.
+- **Leere Zeilen werden nicht hervorgehoben** — die Bereiche in `hl_lines`
+  werden dafür aufgeteilt.
+- Reine Annotationsmarker (`// (1)!`) zählen nicht als Änderung.
+- Das Highlighting ist selbsterklärend und wird im Text **nicht** erklärt
+  (kein Satz wie „Hervorgehoben sind die geänderten Zeilen").
+- Die Zeilennummern berechnet man am besten per Dateivergleich der beiden
+  Stände und prüft sie nach dem Bauen (Anzahl der `class="hll"`-Spans im
+  HTML entspricht der Summe der hervorgehobenen Zeilen).
 
 ### Dateibenennung und Einbindung
 
@@ -470,6 +511,16 @@ Zwei bewusste Unterschiede zum Musterlösungs-Toggle:
   unabhängig von `musterloesungen_sichtbar` — der Nachtrag wird zuerst
   entfernt.
 
+**Mehrere unabhängige Nachträge auf einer Seite** (seit 2026-09-30, eingeführt
+für das Zwischenprojekt mit seinen zwei zeitlich getrennten Überraschungen):
+nummerierte Marker `<!-- NACHTRAG-1-START -->`/`<!-- NACHTRAG-1-ENDE -->`
+(analog `NACHTRAG-2`, `NACHTRAG-3`, ...), jeweils über ein eigenes Feld
+`nachtrag_1_sichtbar`/`nachtrag_2_sichtbar`/... freigeschaltet — unabhängig
+voneinander und unabhängig vom unnummerierten `NACHTRAG-START`/`-ENDE` (falls
+auf derselben Seite zusätzlich vorhanden). Start- und End-Marker müssen
+dieselbe Nummer tragen. Auch hier gilt: fehlendes Feld = genau dieser eine
+Nachtrag bleibt verborgen.
+
 **Warum nicht einfach auskommentieren:** Ein mehrzeiliger HTML-Kommentar um
 einen Markdown-Abschnitt funktioniert NICHT — Python-Markdown bricht solche
 Kommentare an Leerzeilen auf, der Inhalt landet dann trotzdem im gebauten
@@ -525,9 +576,9 @@ gesammelt gepflegt — analog zum Glossar-Pflichtschritt.
 - `vorbereitung-termin.template.md` — die Vorlage für die
   "Vorbereitung auf Termin X"-Seiten, siehe "Vorbereitung auf den nächsten
   Termin" weiter unten.
-- `projekttag.template.md` — Struktur-Variante für Termin 6
-  (Zwischenprojekt). **Existiert noch nicht**; wird bei der Planung dieses
-  Termins entworfen.
+- `projekttag.template.md` — Struktur-Variante für Termin 7
+  (Zwischenprojekt, seit 2026-09-30 getauscht mit dem ursprünglichen
+  Termin 6). Umgesetzt, siehe `docs/02-theoriephase/termin-07/block-16-17-18.md`.
 
 ### Aufbau von `block.template.md`
 
@@ -1172,9 +1223,6 @@ CSS, Deploy-Workflow) steht. Offene Punkte auf Projektebene:
   "Programmablaufpläne (PAP)"). Offen bleiben nur die Shapes für
   Unterprogramm und Konnektor, die erst gebraucht werden, sobald Funktionen
   eingeführt werden bzw. Diagramme unübersichtlich groß werden.
-- **Struktur des Zwischenprojekt-Tags** (`projekttag.template.md`) — bei der
-  Planung von Termin 6 zu entwerfen, jetzt mit drei statt zwei Slots
-  (270 min).
 - **Dritter Block am 9.12.** (Termin 8, `block_id: "21"`) hat noch kein
   Thema — freier Slot, entstanden durch den Wegfall von Termin 10. Wird in
   einem eigenen Planungsgespräch besetzt.
