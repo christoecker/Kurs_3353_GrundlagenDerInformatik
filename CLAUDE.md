@@ -1049,10 +1049,14 @@ PAP-Frage, sondern folgt der allgemeinen Regel weiter unten.
   "Live-Coding wird schrittweise aufgebaut" oben.
 - Jede Knoten-Definition ist eine einzige durchgehende Zeile im Quelltext,
   ohne eingebetteten Zeilenumbruch.
-- Für Farben immer `rgb(...)`/`rgba(...)` verwenden, niemals `#rrggbb`: Ein
-  `#` innerhalb eines Knoten-Labels wird von Mermaid als Beginn einer
+- Für Farben in `style`-Anweisungen `#rrggbb` verwenden
+  (z. B. `style B fill:#ffe082,stroke:#c88200,color:#000`), NICHT
+  `rgb(...)`/`rgba(...)`: Mermaid 11 bricht bei `rgb(...)` in `style` und
+  `classDef` mit einem Parse-Fehler ab, das Diagramm wird dann nur als
+  Quelltext angezeigt (Block 15, 2026-10-01 im Browser geprüft). Weiterhin
+  gilt: Ein `#` innerhalb eines Knoten-Labels wird von Mermaid als Beginn einer
   HTML-Entity interpretiert und zerstört dabei lautlos das gesamte
-  `style`-Attribut.
+  `style`-Attribut, in Labels also kein `#` verwenden.
 
 ## Pseudocode-Konvention
 

@@ -92,6 +92,13 @@ Projekts durch den Compiler übersetzen und zu einer ausführbaren Datei
 zusammenfügen lässt. Erst nach dem Bauen kann das Programm gestartet
 werden.  
 
+**Bedingte Kompilierung**
+: Eine Technik des Präprozessors: Bestimmte Teile des Quelltexts werden nur
+dann an den Compiler weitergegeben, wenn eine Bedingung zutrifft, etwa wenn
+ein bestimmter Name per `#define` festgelegt wurde (`#ifdef`, `#ifndef`,
+`#else`, `#endif`). So lässt sich Code wie mit einem Schalter ein- und
+ausblenden, ohne ihn zu löschen.  
+
 **Befehlsausführungszyklus**
 : Die drei Schritte, die ein Prozessor immer wieder durchläuft, bis ein
 Halte-Befehl kommt: den nächsten Befehl aus dem Hauptspeicher holen, den
@@ -124,6 +131,17 @@ Divide-and-Conquer-Prinzip.
 **Bit**
 : Die kleinste Informationseinheit, die ein Rechner kennt: eine einzelne
 Dualstelle mit dem Wert 0 oder 1.  
+
+**Bitmaske**
+: Eine Zahl, deren gesetzte Bits festlegen, welche Bits einer anderen Zahl bei
+einer Bitoperation betroffen sind. Soll zum Beispiel nur das Bit an Position 3
+geändert werden, hat die Maske genau dort eine 1 und sonst überall 0.
+
+**Bitoperator**
+: Ein Operator, der die einzelnen Bits von Zahlen verknüpft, statt mit dem
+Zahlenwert zu rechnen, zum Beispiel `|` (ODER), `&` (UND), `~` (Invertieren) und `<<`
+(Bits nach links schieben), außerdem gibt es weitere wie `^` und `>>`. Nicht zu verwechseln mit den logischen Operatoren
+`||` und `&&`.  
 
 **Brute-Force**
 : Eine Lösungsstrategie, die ein Problem löst, indem sie konsequent alle
@@ -306,6 +324,12 @@ aus vielen gleich aufgebauten Speicherzellen, ist schnell, verliert seinen Inhal
 aber beim Ausschalten. Auch Arbeitsspeicher oder RAM genannt.
  
 
+**Header-Datei**
+: Eine Textdatei mit der Endung `.h`, in der steht, was eine andere Datei an
+Funktionen, Typen und Makros anbietet, zum Beispiel `stdio.h`. Man bindet sie
+per `#include` ein. Eigene Header-Dateien bindet man mit Anführungszeichen
+ein: `#include "myUtil.h"`.  
+
 **Hexadezimalsystem**
 : Ein Stellenwertsystem mit der Basis 16. Der Ziffernvorrat besteht aus den
 zehn Ziffern 0 bis 9 sowie den Buchstaben A bis F für die Werte 10 bis 15.
@@ -325,6 +349,11 @@ die Zielbasis und liest die dabei entstehenden Reste von unten nach oben.
 integrierte Entwicklungsumgebung. Ein Programm, das Editor, Compiler und
 weitere Werkzeuge zur Programmentwicklung an einem Ort vereint — zum
 Beispiel Visual Studio.  
+
+**Include-Guard**
+: Ein Schutz in einer Header-Datei, der verhindert, dass ihr Inhalt zweimal in
+dieselbe `.c`-Datei eingefügt wird. Er besteht aus `#ifndef NAME`, `#define NAME`
+am Anfang und `#endif` am Ende der Header-Datei.  
 
 **Index**
 : Die Nummer, mit der ein Element eines Arrays angesprochen wird. In C hat
@@ -380,10 +409,21 @@ werden.
 
 ## M
 
+**Linker**
+: Das Werkzeug, das nach dem Compiler die einzelnen übersetzten Dateien eines
+Projekts zusammen mit den Bibliotheken zu einer ausführbaren Datei
+verbindet.  
+
 **Magic Number**
 : Eine Zahl, die direkt im Code steht, ohne dass ihre Bedeutung erkennbar ist,
 zum Beispiel `if (zustand == 2)`. Sie macht den Code schwer lesbar und fehleranfällig;
 besser ist eine sprechend benannte Konstante oder ein `enum`.  
+
+**Makro**
+: Ein Name, den der Präprozessor im Quelltext durch einen anderen Text ersetzt,
+bevor der Compiler den Code sieht. Definiert wird es mit `#define`. Ein
+Makro ist reine Textersetzung, es hat keinen Datentyp und keinen
+Speicherplatz.  
 
 **Maschinenbefehl**
 : Ein einzelner Befehl, den ein Prozessor unmittelbar ausführen kann. Er besteht
@@ -438,6 +478,11 @@ sie sich an einen vorherigen Aufruf erinnern soll, statt neu zu beginnen.
 
 ## O
 
+**Objektdatei**
+: Das Zwischenergebnis, das der Compiler aus einer einzelnen `.c`-Datei erzeugt:
+übersetzter Code, der noch nicht lauffähig ist. Erst der Linker fügt alle
+Objektdateien zu einem ausführbaren Programm zusammen.  
+
 **Oktalsystem**
 : Ein Stellenwertsystem mit der Basis 8 und dem Ziffernvorrat 0 bis 7. Drei
 Binärstellen entsprechen genau einer Oktalziffer.  
@@ -463,6 +508,12 @@ Beispiel addieren, holen oder speichern.
 der Funktion wie eine ganz normale Variable zur Verfügung steht. Über
 Parameter lässt sich derselbe Funktionscode mit unterschiedlichen Werten
 wiederverwenden, statt ihn für jeden Fall neu zu schreiben.  
+
+**Parametriertes Makro**
+: Ein Makro mit Parametern in Klammern, zum Beispiel `QUADRAT(x)`. Der
+Präprozessor setzt die beim Aufruf angegebenen Texte an den Stellen der
+Parameter ein. Es ist keine Funktion: Es gibt keinen Aufruf und keine
+Typprüfung.  
 
 **Peripherie**
 : Sammelbegriff für alles, was über die Ein-/Ausgabe an einen Rechner
@@ -495,6 +546,17 @@ sondern "das nächste Element desselben Datentyps" — bei einem `int *`
 also vier Byte weiter, bei einem `unsigned char *` nur ein Byte. Die
 vertraute Array-Schreibweise mit eckigen Klammern ist nur eine bequemere
 Schreibweise dafür: `a[i]` bedeutet dasselbe wie `*(a + i)`.  
+
+**Präprozessor**
+: Das Programm, das den Quelltext vor dem Compiler bearbeitet. Es führt die
+Präprozessordirektiven aus: Es fügt Dateien ein, ersetzt Makros und blendet
+Textteile ein oder aus. Es führt kein Programm aus und kennt keine Variablen, es
+arbeitet nur auf Text.
+
+**Präprozessordirektive**
+: Eine Anweisung an den Präprozessor. Sie beginnt mit `#`, zum Beispiel
+`#include`, `#define` oder `#ifdef`, und steht allein auf ihrer Zeile.
+Sie ist kein C-Code, der beim Programmlauf ausgeführt wird.  
 
 **Programmablaufplan (PAP)**
 : Eine grafische Beschreibung eines Algorithmus als Folge von Symbolen, die
