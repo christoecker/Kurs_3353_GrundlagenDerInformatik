@@ -373,6 +373,11 @@ werden.
 
 ## M
 
+**Magic Number**
+: Eine Zahl, die direkt im Code steht, ohne dass ihre Bedeutung erkennbar ist,
+zum Beispiel `if (zustand == 2)`. Sie macht den Code schwer lesbar und fehleranfällig;
+besser ist eine sprechend benannte Konstante oder ein `enum`.  
+
 **Maschinenbefehl**
 : Ein einzelner Befehl, den ein Prozessor unmittelbar ausführen kann. Er besteht
 aus einem Operationscode und den Operanden.  
@@ -386,6 +391,11 @@ unterschiedlich.
 : Ein Array, dessen Elemente selbst wieder Arrays sind — zum Beispiel eine
 Tabelle mit Zeilen und Spalten. Angesprochen wird ein Element mit einem
 Index pro Dimension, etwa `matrix[1][2]`.  
+
+**Member**
+: Eine einzelne Variable innerhalb einer Struktur, mit eigenem Namen und
+Datentyp. Auf ein Member greift man mit dem Punkt-Operator zu, zum Beispiel
+`p.wert`.  
 
 **Mockup**
 : Ein früher, noch unfertiger Entwurf einer Software, der schon Bedienung
@@ -452,6 +462,10 @@ wiederverwenden, statt ihn für jeden Fall neu zu schreiben.
 angeschlossen ist: Tastatur und Maus, Festplatten, Netzwerkkarten.
  
 
+**Pfeil-Operator**
+: Der Operator `->`. Er greift auf ein Member einer Struktur zu, auf die ein
+Pointer zeigt: `zeiger->wert`.  
+
 **Pivot-Element**
 : Das Element, das beim Sortieren mit Quicksort als Referenzwert für einen
 Partitionierungsschritt ausgewählt wird. Nach dem Partitionieren stehen
@@ -505,6 +519,11 @@ erzeugt, die zufällig wirkt, bei gleichem Seed aber immer gleich abläuft
 — echten Zufall kann ein Computer nicht erzeugen. In C wird der Generator
 einmalig mit `srand` initialisiert, danach liefert `rand` bei jedem Aufruf
 eine neue Zahl.  
+
+**Punkt-Operator**
+: Der Operator `.` zwischen einer Strukturvariable und dem Namen eines Members,
+zum Beispiel `p.wert`. Bei verschachtelten Strukturen steht er mehrfach,
+zum Beispiel `w.ablage.x`.  
 
 ## R
 
@@ -617,6 +636,13 @@ Beispiel durch Text in Anführungszeichen wie `"Hallo"`.
 markiert, wo der Text aufhört, und wird deshalb von Funktionen wie `printf`
 und `strlen` erwartet — man spricht von einem nullterminierten String. Fehlt
 es, laufen diese Funktionen über das Ende des Arrays hinaus.  
+
+**Struktur (struct)**
+: Ein selbst definierter Datentyp, der mehrere Variablen, die Member,
+unterschiedlicher Datentypen unter einem Namen zusammenfasst, zum Beispiel
+Nummer und Messwert eines Messpunkts. Eine Struktur darf andere Strukturen
+enthalten, aber nicht sich selbst. Ein Pointer auf die eigene Struktur ist
+dagegen erlaubt.  
 
 ## T
 
