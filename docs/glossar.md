@@ -176,6 +176,13 @@ einer Verzweigung oder einer Schleife. Jedes Compound Statement eröffnet
 einen eigenen Gültigkeitsbereich: Eine darin deklarierte Variable existiert
 nur innerhalb dieses Blocks.  
 
+**const**
+: Ein Schlüsselwort, das einen Wert als unveränderlich kennzeichnet. Bei einem
+Pointer-Parameter wie `const Bauteil *b` bedeutet es: Die Funktion darf lesen,
+was am Pointer liegt, aber nichts daran verändern. Der Compiler meldet einen
+Fehler, wenn sie es doch versucht.
+
+
 ## D
 
 **Datentyp**
@@ -464,7 +471,8 @@ angeschlossen ist: Tastatur und Maus, Festplatten, Netzwerkkarten.
 
 **Pfeil-Operator**
 : Der Operator `->`. Er greift auf ein Member einer Struktur zu, auf die ein
-Pointer zeigt: `zeiger->wert`.  
+Pointer zeigt: `zeiger->wert`. Er ist die Kurzform von `(*zeiger).wert`, also
+erst dereferenzieren, dann auf das Member zugreifen.
 
 **Pivot-Element**
 : Das Element, das beim Sortieren mit Quicksort als Referenzwert für einen

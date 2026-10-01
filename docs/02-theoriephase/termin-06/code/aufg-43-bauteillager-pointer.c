@@ -23,7 +23,7 @@ typedef struct
 void kategorieAusgeben(Kategorie kategorie);
 void bauteilAusgeben(Bauteil b);
 double lagerwert(const Bauteil lager[], int anzahl);
-void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge);
+void auffuellen(Bauteil *b, int menge); // (1)!
 
 int main(void)
 {
@@ -43,7 +43,7 @@ int main(void)
 
     for (int i = 0; i < ANZAHL; i++)
         if (lager[i].bestand < MINDESTBESTAND)
-            auffuellen(lager, ANZAHL, lager[i].nummer, 20);
+            auffuellen(&lager[i], 20); // (2)!
 
     printf("Lager nach dem Auffuellen:\n");
     for (int i = 0; i < ANZAHL; i++)
@@ -76,7 +76,7 @@ void kategorieAusgeben(Kategorie kategorie)
 
 void bauteilAusgeben(Bauteil b)
 {
-    printf("%d  %-16s %6.2f Euro  Bestand %3d  ", b.nummer, b.name, b.preis, b.bestand); // (1)!
+    printf("%d  %-16s %6.2f Euro  Bestand %3d  ", b.nummer, b.name, b.preis, b.bestand);
     kategorieAusgeben(b.kategorie);
 }
 
@@ -85,14 +85,12 @@ double lagerwert(const Bauteil lager[], int anzahl)
     double summe = 0.0;
 
     for (int i = 0; i < anzahl; i++)
-        summe = summe + lager[i].preis * lager[i].bestand; // (2)!
+        summe = summe + lager[i].preis * lager[i].bestand;
 
     return summe;
 }
 
-void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge)
+void auffuellen(Bauteil *b, int menge)
 {
-    for (int i = 0; i < anzahl; i++)
-        if (lager[i].nummer == nummer) // (3)!
-            lager[i].bestand = lager[i].bestand + menge; // (4)!
+    b->bestand = b->bestand + menge; // (3)!
 }

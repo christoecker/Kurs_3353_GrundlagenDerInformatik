@@ -11,7 +11,7 @@ lernziele:
   - "Ihr könnt Strukturen ineinander verschachteln und deren Member initialisieren und lesen."
   - "Ihr könnt Namenskonventionen für Typen, Variablen und Konstanten anwenden."
   - "Ihr könnt ein Array von Strukturen anlegen, in Schleifen verarbeiten und an Funktionen übergeben."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_1_nachschlagewerk
 clean_code:
   - "Konvention vor Konfiguration"
@@ -272,7 +272,9 @@ Lösungen auf die Namenskonventionen aus der Übung.
 
 Die Vorgabe enthält die Typen, ein vollständiges `main` und die Funktion
 `kategorieAusgeben`. Drei Funktionen sind nur als Rahmen angelegt und müssen
-von euch geschrieben werden:
+von euch geschrieben werden. Bei `lagerwert` ist das Lager als `const`
+gekennzeichnet, denn die Funktion darf es nur lesen (`const` kennt ihr aus
+Termin 5):
 
 ```c linenums="1"
 --8<-- "02-theoriephase/termin-06/code/vorgabe-41-bauteillager.c"

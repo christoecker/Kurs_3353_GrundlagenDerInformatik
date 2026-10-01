@@ -21,7 +21,7 @@ Termin selbst.
 Diesmal gibt es deshalb bewusst **keine Vorbereitungsvideos**. Stattdessen zwei Empfehlungen,
 die euch den Einstieg in den Projekttag erleichtern.
 
-## KI-Unterstützung auf eurem Rechner einrichten (empfohlen)
+## KI-Unterstützung auf eurem Rechner einrichten
 
 Für den Projekttag ist es hilfreich, wenn ihr direkt in eurer
 Entwicklungsumgebung auf KI-Unterstützung zugreifen könnt, statt Code
@@ -47,7 +47,7 @@ Installationsaufwand.
 Welches Werkzeug ihr wählt, ist egal — wichtig ist nur, dass euch am
 02.12. irgendeine KI-Unterstützung zur Verfügung steht.
 
-## Empfehlung: Ein kleines Testprojekt (optional)
+## Empfehlung: Ein kleines Testprojekt
 
 Bevor am Projekttag der eigentliche Zeitdruck beginnt, lohnt es sich, den
 Workflow einmal in Ruhe auszuprobieren: einen Prompt formulieren, den

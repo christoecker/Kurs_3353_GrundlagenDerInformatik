@@ -29,7 +29,7 @@ typedef struct
 
 void kategorieAusgeben(Kategorie kategorie);
 void bauteilAusgeben(Bauteil b);
-double lagerwert(Bauteil lager[], int anzahl);
+double lagerwert(const Bauteil lager[], int anzahl);
 void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge);
 
 int main(void)
@@ -94,7 +94,7 @@ void bauteilAusgeben(Bauteil b)
     kategorieAusgeben(b.kategorie);
 }
 
-double lagerwert(Bauteil lager[], int anzahl)
+double lagerwert(const Bauteil lager[], int anzahl)
 {
     double summe = 0.0;
 

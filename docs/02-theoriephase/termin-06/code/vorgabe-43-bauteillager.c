@@ -76,7 +76,7 @@ void kategorieAusgeben(Kategorie kategorie)
 
 void bauteilAusgeben(Bauteil b)
 {
-    printf("%d  %-16s %6.2f Euro  Bestand %3d  ", b.nummer, b.name, b.preis, b.bestand); // (1)!
+    printf("%d  %-16s %6.2f Euro  Bestand %3d  ", b.nummer, b.name, b.preis, b.bestand);
     kategorieAusgeben(b.kategorie);
 }
 
@@ -85,7 +85,7 @@ double lagerwert(const Bauteil lager[], int anzahl)
     double summe = 0.0;
 
     for (int i = 0; i < anzahl; i++)
-        summe = summe + lager[i].preis * lager[i].bestand; // (2)!
+        summe = summe + lager[i].preis * lager[i].bestand;
 
     return summe;
 }
@@ -93,6 +93,6 @@ double lagerwert(const Bauteil lager[], int anzahl)
 void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge)
 {
     for (int i = 0; i < anzahl; i++)
-        if (lager[i].nummer == nummer) // (3)!
-            lager[i].bestand = lager[i].bestand + menge; // (4)!
+        if (lager[i].nummer == nummer)
+            lager[i].bestand = lager[i].bestand + menge;
 }

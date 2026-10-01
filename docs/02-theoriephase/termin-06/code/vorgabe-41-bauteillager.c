@@ -22,7 +22,7 @@ typedef struct
 
 void kategorieAusgeben(Kategorie kategorie);
 void bauteilAusgeben(Bauteil b);
-double lagerwert(Bauteil lager[], int anzahl);
+double lagerwert(const Bauteil lager[], int anzahl);
 void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge);
 
 int main(void)
@@ -81,7 +81,7 @@ void bauteilAusgeben(Bauteil b)
     //              kategorieAusgeben bereits fertig aus, auch mit Zeilenumbruch.
 }
 
-double lagerwert(Bauteil lager[], int anzahl)
+double lagerwert(const Bauteil lager[], int anzahl)
 {
     // TODO Teil B: Summe aus Preis * Bestand ueber alle Bauteile zurueckgeben.
     return 0.0;
