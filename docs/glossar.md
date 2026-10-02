@@ -122,6 +122,13 @@ schreibt eine andere Adresse hinein.
 Programm einbindet, um sie nutzen zu können, ohne sie selbst zu schreiben
 — zum Beispiel `stdio.h` für Ein- und Ausgabe.  
 
+**Binärdatei**
+: Eine Datei, deren Bytes nicht als Text gelesen werden, sondern als
+Zahlen und andere Rohdaten in einem festgelegten Format. Ein Texteditor
+zeigt dabei nur Zeichensalat. Wichtig ist, dass Programme die Datei mit
+demselben Format wieder auslesen, mit dem sie geschrieben wurde, zum
+Beispiel mit `fwrite` und `fread`.
+
 **Binäre Suche**
 : Ein Algorithmus, der eine gesuchte Zahl in einem sortierten Zahlenbereich
 findet, indem er den Bereich bei jedem Schritt halbiert und die Hälfte
@@ -162,6 +169,12 @@ immer nur ein Paar zur Zeit darüber kommunizieren.
 : Eine Gruppe von 8 Bit. Ein Byte kann `2⁸ = 256` verschiedene Werte
 annehmen (0 bis 255) und ist die gebräuchlichste Einheit, um die Größe von
 Speicher anzugeben.  
+
+**Byte-Reihenfolge (Endianness)**
+: Legt fest, in welcher Reihenfolge die Bytes einer mehrbytigen Zahl im
+Speicher oder in einer Datei stehen. Bei Little Endian, wie auf PCs mit
+Windows üblich, steht das niedrigstwertige Byte zuerst: Die Zahl 301
+(hexadezimal `012D`) steht als `2D 01 00 00` in der Datei.
 
 ## C
 
@@ -215,11 +228,30 @@ Speichermedium wie einer Festplatte. Anders als eine Variable im
 Hauptspeicher bleibt eine Datei auch nach Beendigung des Programms
 erhalten.
 
+**Dateikopf**
+: Ein kleiner Bereich am Anfang einer Datei mit Angaben über die Datei
+selbst, zum Beispiel eine Kennung, eine Versionsnummer und die Anzahl der
+folgenden Datensätze. Ein Programm kann damit prüfen, ob es die Datei
+überhaupt verstehen kann.
+
+**Dateisignatur**
+: Eine feste Bytefolge am Anfang einer Datei, an der sich ihr Dateityp
+erkennen lässt. PNG-Bilder beginnen zum Beispiel immer mit denselben
+acht Bytes, PDF-Dokumente mit dem Text `%PDF`. Wird auch magische Zahl
+(magic number) genannt, nicht zu verwechseln mit den magischen Zahlen im
+Clean Code, also Zahlen ohne Namen im Quelltext.
+
 **Dateizeiger**
 : In C ein Pointer vom Typ `FILE *`, über den ein Programm nach dem Öffnen
 mit `fopen` auf eine Datei zugreift. Funktionen, die mit dieser Datei
 arbeiten (z. B. `fprintf`, `fgets`, `fclose`), bekommen diesen Zeiger als
 Parameter übergeben.
+
+**Datensatz**
+: Eine Gruppe zusammengehöriger Werte, die als Einheit gespeichert wird,
+zum Beispiel Nummer und Temperatur eines Messwerts. In C entspricht ein
+Datensatz meist einer Struktur. Haben alle Datensätze dieselbe Länge,
+lässt sich die Position jedes Datensatzes in einer Datei berechnen.
 
 **Datentyp**
 : Legt fest, welche Art von Werten eine Variable speichern kann (zum
@@ -302,6 +334,11 @@ zuverlässig.
 fehlt, "fällt" die Ausführung einfach in den nächsten Fall durch, statt
 die Anweisung zu verlassen — meist ein Fehler, kein gewolltes Verhalten.  
 
+**Fehlercode**
+: Ein Wert, mit dem eine Funktion ihrem Aufrufer meldet, ob und welcher
+Fehler aufgetreten ist, zum Beispiel ein `enum`-Wert wie
+`FEHLER_OEFFNEN`. Der Aufrufer entscheidet dann, wie er reagiert.
+
 **Formatierungszeichen**
 : Ein Platzhaltersymbol mit vorangestelltem `%` in einer `printf`- oder
 `scanf_s`-Zeichenkette, das angibt, welcher Datentyp an dieser Stelle
@@ -347,6 +384,11 @@ aber beim Ausschalten. Auch Arbeitsspeicher oder RAM genannt.
 Funktionen, Typen und Makros anbietet, zum Beispiel `stdio.h`. Man bindet sie
 per `#include` ein. Eigene Header-Dateien bindet man mit Anführungszeichen
 ein: `#include "myUtil.h"`.  
+
+**Hex-Editor**
+: Ein Programm, das den Inhalt einer beliebigen Datei Byte für Byte
+anzeigt, links als Hexadezimalzahlen und rechts als Zeichen. Damit lässt
+sich der Aufbau einer Binärdatei untersuchen.
 
 **Hexadezimalsystem**
 : Ein Stellenwertsystem mit der Basis 16. Der Ziffernvorrat besteht aus den
@@ -733,6 +775,12 @@ enthalten, aber nicht sich selbst. Ein Pointer auf die eigene Struktur ist
 dagegen erlaubt.  
 
 ## T
+
+**Textdatei**
+: Eine Datei, deren Inhalt aus lesbaren Zeichen besteht und in Zeilen
+gegliedert ist, zum Beispiel eine CSV-Datei. Ein Texteditor kann sie
+anzeigen. Zahlen stehen darin als Ziffernfolgen, nicht in ihrer
+Speicherdarstellung.
 
 **typedef**
 : Ein Schlüsselwort in C, mit dem ein vorhandener Datentyp einen zusätzlichen,

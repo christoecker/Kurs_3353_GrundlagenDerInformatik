@@ -113,6 +113,7 @@ nav:
           - "Vorbereitung auf Termin 8": 02-theoriephase/termin-07/vorbereitung-termin-08.md
       - "Termin 8":
           - "Dateien lesen und schreiben": 02-theoriephase/termin-08/block-19.md
+          - "Binärdateien und Fehlerbehandlung": 02-theoriephase/termin-08/block-20.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
