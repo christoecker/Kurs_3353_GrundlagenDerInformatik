@@ -228,7 +228,7 @@ Ein Roboter legt mehr als ein Werkstück ab. Ein Array fasst Strukturen
 desselben Typs zusammen, wie ihr es von `int`-Arrays kennt.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c linenums="1" hl_lines="4 24-28 30-31 33-34"
+    ```c linenums="1" hl_lines="4 24-34"
     --8<-- "02-theoriephase/termin-06/code/live-14a-6-struct-array.c"
     ```
 
@@ -334,7 +334,7 @@ ihr die Funktionen ausfüllt.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
-    ```c linenums="1" hl_lines="79-80 85 87-88 90 95-97"
+    ```c linenums="1" hl_lines="79-80 85-90 95-97"
     --8<-- "02-theoriephase/termin-06/code/aufg-41-bauteillager.c"
     ```
 

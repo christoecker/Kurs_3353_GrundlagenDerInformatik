@@ -149,7 +149,7 @@ Beide Funktionen bekommen den Pointer auf die `struct tm`, die `localtime`
 liefert. Wir setzen das gemeinsam um.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c linenums="1" hl_lines="7-8 15 17-20 27-31 33-36"
+    ```c linenums="1" hl_lines="7-8 15-20 27-31 33-36"
     --8<-- "02-theoriephase/termin-06/code/live-14b-3-struct-tm-funktion.c"
     ```
 
@@ -266,7 +266,7 @@ eurer Änderung genau dieselbe sein.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung Teil C anzeigen"
-    ```c linenums="1" hl_lines="26 46 93 95"
+    ```c linenums="1" hl_lines="26 46 93-96"
     --8<-- "02-theoriephase/termin-06/code/aufg-43-bauteillager-pointer.c"
     ```
 
@@ -455,7 +455,7 @@ Emil hat noch keine Partner.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung Teil C anzeigen"
-    ```c linenums="1" hl_lines="48-49 51-53 55-56 58 63-64 66-67 69 71 76-80 82-85"
+    ```c linenums="1" hl_lines="48-58 63-71 76-85"
     --8<-- "02-theoriephase/termin-06/code/aufg-44-lerngruppe-c.c"
     ```
 
@@ -497,7 +497,7 @@ gemeinsame Partnerin).
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung Teil D anzeigen"
-    ```c linenums="1" hl_lines="18 42-43 92-94 96-99 101-102"
+    ```c linenums="1" hl_lines="18 42-43 92-102"
     --8<-- "02-theoriephase/termin-06/code/aufg-44-lerngruppe-d.c"
     ```
 

@@ -260,21 +260,25 @@ bereits gespeicherten Zeilen sonst erneut anhängen würde.
         ```
 
     === "teileverwaltung.c"
-        ```c linenums="1" hl_lines="1 7 18-20 22-24 26-32 34-35 37-41 43-45"
+        ```c linenums="1" hl_lines="1 7 18-35 37-45"
         --8<-- "02-theoriephase/termin-08/code/live-19-3-csv-persistenz/teileverwaltung.c"
         ```
 
-        1. `sscanf` liest aus dem String `zeile`, genau wie `scanf_s`
-           von der Konsole liest.
-        2. `datei == NULL`: Beim allerersten Start gibt es die Datei
+        1. Unterdrückt die Visual-Studio-Warnung zu `fopen` und `sscanf`,
+           wie schon in Schritt 1.
+        2. Der Dateiname steht zentral an einer einzigen Stelle und nicht
+           mehrfach im Code verteilt (Magic Numbers vermeiden gilt auch
+           für Texte).
+        3. `datei == NULL`: Beim allerersten Start gibt es die Datei
            noch nicht (siehe Teil A, Frage 5).
-        3. `fgets` liefert `NULL`, sobald die Datei zu Ende ist.
-        4. Die Rückgabe von `sscanf` (wie viele Felder erfolgreich
-           gelesen wurden) prüfen wir hier noch bewusst nicht — das
-           kommt in der folgenden bS-Aufgabe.
-        5. Nur ins Array einfügen, **nicht** erneut in die Datei
+        4. `fgets` liefert `NULL`, sobald die Datei zu Ende ist.
+        5. `sscanf` liest aus dem String `zeile`, genau wie `scanf_s`
+           von der Konsole liest. Die Rückgabe (wie viele Felder
+           erfolgreich gelesen wurden) prüfen wir hier noch bewusst
+           nicht — das kommt in der folgenden bS-Aufgabe.
+        6. Nur ins Array einfügen, **nicht** erneut in die Datei
            schreiben — die Zeile steht dort ja schon.
-        6. `"a"` (append) hängt an die Datei an, statt sie zu
+        7. `"a"` (append) hängt an die Datei an, statt sie zu
            überschreiben.
 
 **Testen:** Startet euer Programm, tragt ein Teil ein, beendet das
@@ -358,7 +362,7 @@ und warum? Seid darauf vorbereitet, eure Statements in der Abschlussdiskussion z
     und trotzdem gut sein.
 
     === "main.c"
-        ```c linenums="1" hl_lines="23 42 64-66 98-101 103-104 106-111 113-114 116-119"
+        ```c linenums="1" hl_lines="23 42 64-66 98-119"
         --8<-- "02-theoriephase/termin-08/code/aufg-48-bestand-und-pruefung/main.c"
         ```
 
@@ -368,7 +372,7 @@ und warum? Seid darauf vorbereitet, eure Statements in der Abschlussdiskussion z
         ```
 
     === "teileverwaltung.c"
-        ```c linenums="1" hl_lines="31 33-37 55-64 66-67 69-70 86-91 93-95 97-99"
+        ```c linenums="1" hl_lines="31 33-37 55-70 86-91 93-99"
         --8<-- "02-theoriephase/termin-08/code/aufg-48-bestand-und-pruefung/teileverwaltung.c"
         ```
 
