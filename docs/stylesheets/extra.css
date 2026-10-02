@@ -258,3 +258,30 @@
 .md-tabs__list {
   justify-content: center;
 }
+
+
+/* "E-Mail"-Look fuer die Auftraggeber-Nachrichten im Zwischenprojekt
+   (Termin 7): "!!! quote email "<Absender> - <Datum>"" mit "**Betreff:**"
+   als erster Zeile im Textkoerper. Bernsteinfarben statt dem Standard-Grau
+   der "quote"-Admonition, damit die Nachrichten optisch sofort als "das
+   ist eine E-Mail, kein normales Zitat" erkennbar sind. Icon: eigenes
+   Briefumschlag-SVG als Maske (Material hat kein passendes unter den
+   eingebauten Admonition-Icons), analog zum Muster bei
+   ".musterloesung-hervorgehoben" oben (dort wird ein vorhandenes Icon
+   wiederverwendet, hier braucht es ein neues). */
+.md-typeset .admonition.email,
+.md-typeset details.email {
+  border-color: rgb(255, 179, 0);
+}
+
+.md-typeset .admonition.email > .admonition-title,
+.md-typeset details.email > summary {
+  background-color: rgba(255, 179, 0, 0.1);
+}
+
+.md-typeset .admonition.email > .admonition-title::before,
+.md-typeset details.email > summary::before {
+  background-color: rgb(255, 179, 0);
+  -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+  mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+}

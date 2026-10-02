@@ -19,6 +19,8 @@ clean_code:
   - "Prinzip der minimalen Rechte (Principle of Least Privilege, PoLP)"
 bearbeitungsstatus: in-arbeit
 publish_date: "2026-11-25"
+quiz:
+  show_progress: false
 ---
 
 # Strukturen: Vertiefung (25.11.2026)

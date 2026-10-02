@@ -133,10 +133,6 @@ gibt zwei Schreibweisen mit einem Unterschied. Vereinfacht gesagt:
 Für eigene Dateien nehmt ihr deshalb immer Anführungszeichen. Weil in der
 Header-Datei `printf` benutzt wird, bindet sie selbst `stdio.h` ein.
 
-**Visual Studio:** Legt die Datei über Hinzufügen → Neues Element an und gebt
-den Dateinamen mit der Endung `.h` an.
-{: .hinweis-klein }
-
 ??? quote livecoding "Beispiel-Code"
     ```c title="myUtil.h" linenums="1"
     --8<-- "02-theoriephase/termin-06/code/live-15-2-header/myUtil.h"
