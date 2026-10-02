@@ -110,6 +110,9 @@ nav:
           - "Vorbereitung auf Termin 7": 02-theoriephase/termin-06/vorbereitung-termin-07.md
       - "Termin 7":
           - "Zwischenprojekt": 02-theoriephase/termin-07/block-16-17-18.md
+          - "Vorbereitung auf Termin 8": 02-theoriephase/termin-07/vorbereitung-termin-08.md
+      - "Termin 8":
+          - "Dateien lesen und schreiben": 02-theoriephase/termin-08/block-19.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md

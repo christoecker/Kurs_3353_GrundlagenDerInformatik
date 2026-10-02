@@ -200,8 +200,26 @@ Pointer-Parameter wie `const Bauteil *b` bedeutet es: Die Funktion darf lesen,
 was am Pointer liegt, aber nichts daran verändern. Der Compiler meldet einen
 Fehler, wenn sie es doch versucht.
 
+**CSV**
+: Ein einfaches Textformat zum Speichern tabellarischer Daten. Jede Zeile
+entspricht einem Datensatz, die einzelnen Werte darin werden durch ein
+Trennzeichen (oft Semikolon oder Komma) voneinander getrennt. Der Name
+steht für "Comma-Separated Values".
+
 
 ## D
+
+**Datei**
+: Eine benannte, dauerhaft gespeicherte Ansammlung von Daten auf einem
+Speichermedium wie einer Festplatte. Anders als eine Variable im
+Hauptspeicher bleibt eine Datei auch nach Beendigung des Programms
+erhalten.
+
+**Dateizeiger**
+: In C ein Pointer vom Typ `FILE *`, über den ein Programm nach dem Öffnen
+mit `fopen` auf eine Datei zugreift. Funktionen, die mit dieser Datei
+arbeiten (z. B. `fprintf`, `fgets`, `fclose`), bekommen diesen Zeiger als
+Parameter übergeben.
 
 **Datentyp**
 : Legt fest, welche Art von Werten eine Variable speichern kann (zum

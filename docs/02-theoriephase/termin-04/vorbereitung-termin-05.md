@@ -18,9 +18,13 @@ mit **Pointern** eines der zentralen Konzepte von C dazu: Variablen, die
 nicht einen Wert, sondern die Adresse einer anderen Variablen speichern.
 Pointer erklären auch, was in Termin 4 bei der Übergabe eines Arrays an
 eine Funktion nur als Beobachtung stehenblieb (Call by Reference) —
-diesmal seht ihr, warum das so ist.
+diesmal seht ihr, warum das so ist. Zum Schluss geht es mit
+**Funktionspointern** noch einen Schritt weiter: Auch Funktionen selbst
+lassen sich über Pointer ansprechen und als Parameter übergeben — genau
+das macht `qsort` so flexibel, das ihr beim Quicksort-Thema am Anfang des
+Termins schon einsetzt.
 
-> Zeitbedarf: ca. 50 Min. (vier Videos)
+> Zeitbedarf: ca. 80 Min. (sieben Videos)
 
 ## Videos zum Anschauen
 
@@ -69,4 +73,42 @@ als Referenz an eine Funktion übergeben wird, erklärt dieses Video.
 
 <div class="video-wrapper">
   <iframe src="https://www.youtube-nocookie.com/embed/1XR1K-xeBvw" title="Video: C-Programmierung #20: Call by value und Call by reference" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+---
+
+**Video 5 — „C-Programmierung #29: void-Pointer" (11:50 Min.):**
+void-Pointer sind typenlose Pointer, die euch ermöglichen, Typüberprüfungen
+in C zu umgehen. Das bedeutet, dass ihr Funktionen erstellen könnt, die
+unterschiedliche Datentypen zurückgeben können oder Funktionen, die mit
+unterschiedlichen Datentypen aufgerufen werden können. Das Ganze erklärt
+dieses Video an einfachen Beispielen.
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/w72SblkZ0M8" title="Video: C-Programmierung #29: void-Pointer" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+---
+
+**Video 6 — „C-Programmierung #30: Funktionspointer" (12:39 Min.):**
+Dieses Video erklärt, was Funktionspointer sind, was es bei deren
+Verwendung zu beachten gibt und zeigt, wozu ihr Funktionspointer
+gebrauchen könnt. Dabei werden einfache Beispiele verwendet, die ihr
+leicht nachvollziehen könnt.
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/H4WP6_AjIqQ" title="Video: C-Programmierung #30: Funktionspointer" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+---
+
+**Video 7 — „C-Programmierung #31: Funktionspointer anwenden am Beispiel
+von qsort" (6:22 Min.):** Die Funktion `qsort` implementiert einen
+Sortieralgorithmus, der nach dem Prinzip des Quicksort funktioniert.
+Diese Funktion ist ein Anwendungsbeispiel für Funktionspointer, denn ihr
+könnt dabei das Sortierkriterium selbst in einer Funktion definieren und
+diese Funktion per Funktionspointer an `qsort` übergeben.
+
+<div class="video-wrapper">
+  <iframe src="https://www.youtube-nocookie.com/embed/sBwEdzptZj8" title="Video: C-Programmierung #31: Funktionspointer anwenden am Beispiel von qsort" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
