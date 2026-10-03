@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ANZAHL 5
+#define MINDESTBESTAND 10
+
+typedef enum
+{
+    KATEGORIE_MECHANIK,
+    KATEGORIE_ELEKTRIK,
+    KATEGORIE_ELEKTRONIK
+} Kategorie;
+
+typedef struct
+{
+    int nummer;
+    char name[20];
+    double preis; // in Euro
+    int bestand;
+    Kategorie kategorie;
+} Bauteil;
+
+void kategorieAusgeben(Kategorie kategorie);
+void bauteilAusgeben(Bauteil b);
+double lagerwert(const Bauteil lager[], int anzahl);
+void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge);
+
+int main(void)
+{
+    Bauteil lager[ANZAHL] =
+    {
+        { 101, "Schraube M4", 0.05, 120, KATEGORIE_MECHANIK },
+        { 102, "Kugellager", 4.80, 8, KATEGORIE_MECHANIK },
+        { 201, "Relais 24V", 3.20, 15, KATEGORIE_ELEKTRIK },
+        { 202, "Sicherung 10A", 0.40, 4, KATEGORIE_ELEKTRIK },
+        { 301, "Mikrocontroller", 6.50, 22, KATEGORIE_ELEKTRONIK }
+    };
+
+    printf("Lager vor dem Auffuellen:\n");
+    for (int i = 0; i < ANZAHL; i++)
+        bauteilAusgeben(lager[i]);
+    printf("Lagerwert: %.2f Euro\n\n", lagerwert(lager, ANZAHL));
+
+    for (int i = 0; i < ANZAHL; i++)
+        if (lager[i].bestand < MINDESTBESTAND)
+            auffuellen(lager, ANZAHL, lager[i].nummer, 20);
+
+    printf("Lager nach dem Auffuellen:\n");
+    for (int i = 0; i < ANZAHL; i++)
+        bauteilAusgeben(lager[i]);
+    printf("Lagerwert: %.2f Euro\n", lagerwert(lager, ANZAHL));
+
+    system("pause");
+
+    return 0;
+}
+
+void kategorieAusgeben(Kategorie kategorie)
+{
+    switch (kategorie)
+    {
+        case KATEGORIE_MECHANIK:
+            printf("Mechanik\n");
+            break;
+        case KATEGORIE_ELEKTRIK:
+            printf("Elektrik\n");
+            break;
+        case KATEGORIE_ELEKTRONIK:
+            printf("Elektronik\n");
+            break;
+        default:
+            printf("Unbekannte Kategorie\n");
+            break;
+    }
+}
+
+void bauteilAusgeben(Bauteil b)
+{
+    // TODO Teil A: Eine Zeile pro Bauteil ausgeben (Nummer, Name, Preis,
+    //              Bestand und Kategorie). Die Kategorie gibt
+    //              kategorieAusgeben bereits fertig aus, auch mit Zeilenumbruch.
+}
+
+double lagerwert(const Bauteil lager[], int anzahl)
+{
+    // TODO Teil B: Summe aus Preis * Bestand ueber alle Bauteile zurueckgeben.
+    return 0.0;
+}
+
+void auffuellen(Bauteil lager[], int anzahl, int nummer, int menge)
+{
+    // TODO Teil C: Das Bauteil mit der gegebenen Nummer suchen und seinen
+    //              Bestand um menge erhoehen.
+}
