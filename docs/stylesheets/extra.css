@@ -1,3 +1,24 @@
+/* Kopfleiste und Primärfarbe der Seite (Blau) */
+:root {
+  --md-primary-fg-color: #009BBB;
+  --md-primary-fg-color--light: #26B1CF;
+  --md-primary-fg-color--dark: #007A94;
+  --md-accent-fg-color: #00B4D8;
+  --md-accent-fg-color--transparent: #00B4D81A;
+}
+
+/* Code-Blöcke: leicht abgerundet, dezenter Schatten.
+   Zum Zurückbauen den gesamten Block bis CODE-STYLE-ENDE löschen. */
+.md-typeset .highlight,
+.md-typeset pre > code {
+  border-radius: 6px;
+}
+.md-typeset .highlight {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+/* CODE-STYLE-ENDE */
+
+
 /* Ausrichtung von umgebrochenem Text bei Quiz-Antworten:
    Checkbox/Radio-Button und Text sollen nebeneinander stehen, umgebrochener
    Text soll an der ersten Zeile ausgerichtet sein (nicht unter der Checkbox). */

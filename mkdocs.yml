@@ -10,11 +10,20 @@ site_dir: site
 theme:
   name: material
   language: de
+  favicon: assets/favicon.svg
+  icon:
+    logo: simple/c
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
   features:
     - navigation.tabs
     - navigation.indexes
     - content.code.copy
     - content.code.annotate
+
+copyright: © 2026 Christian Stöcker · Hochschule Bielefeld · Grundlagen der Informatik (Kurs 3353) · WS 2026/2027
 
 hooks:
   - hooks/publish_scheduler.py
@@ -49,6 +58,9 @@ markdown_extensions:
 exclude_docs: |
   01-praxisphase/_template/
   02-theoriephase/_templates/
+
+extra:
+  generator: false
 
 extra_css:
   - stylesheets/extra.css
