@@ -14,10 +14,9 @@ int main(void)
 
     fseek(datei, 0, SEEK_END); // (1)!
 
-    fpos_t groesse;
-    fgetpos(datei, &groesse); // (2)!
+    long groesse = ftell(datei); // (2)!
 
-    printf("Dateigroesse: %lld Byte\n", groesse); // (3)!
+    printf("Dateigroesse: %ld Byte\n", groesse);
 
     fclose(datei);
 

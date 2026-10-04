@@ -14,7 +14,7 @@ typedef struct
 
 void teileAusDateiLaden(Teil lager[], int *anzahlTeile);
 void teilAnDateiAnhaengen(const Teil *teil);                 // Clean Code: PoLP - nur lesender Zugriff
-void teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil);
+int teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil); // liefert 1 bei Erfolg, 0 wenn das Lager voll ist
 void teilAusgeben(const Teil *teil);                          // Clean Code: PoLP - nur lesender Zugriff
 void alleTeileAnzeigen(const Teil lager[], int anzahlTeile);  // Clean Code: PoLP - nur lesender Zugriff
 

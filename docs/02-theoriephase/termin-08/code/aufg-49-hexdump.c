@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     if (argc < 2)
     {
         printf("Aufruf: hexdump <Dateiname>\n");
+        system("pause");
         return 1;
     }
 
@@ -17,11 +18,12 @@ int main(int argc, char *argv[])
     if (datei == NULL)
     {
         printf("Datei %s konnte nicht geoeffnet werden.\n", argv[1]);
+        system("pause");
         return 1;
     }
 
     unsigned char puffer[BYTES_PRO_ZEILE];
-    int offset = 0;
+    unsigned int offset = 0;
     int gelesen = fread(puffer, 1, BYTES_PRO_ZEILE, datei); // (1)!
 
     while (gelesen > 0)
@@ -44,6 +46,8 @@ int main(int argc, char *argv[])
     }
 
     fclose(datei);
+
+    system("pause");
 
     return 0;
 }

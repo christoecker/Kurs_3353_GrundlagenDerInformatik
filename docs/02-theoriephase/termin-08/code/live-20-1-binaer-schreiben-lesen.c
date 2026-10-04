@@ -31,11 +31,10 @@ int main(void)
     int anzahlGelesen = fread(gelesen, sizeof(Messwert), ANZAHL, datei); // (4)!
 
     fseek(datei, 0, SEEK_END);
-    fpos_t groesse;
-    fgetpos(datei, &groesse);
+    long groesse = ftell(datei);
     fclose(datei);
 
-    printf("Ein Messwert belegt %zu Byte, die Datei %lld Byte.\n", sizeof(Messwert), groesse);
+    printf("Ein Messwert belegt %zu Byte, die Datei %ld Byte.\n", sizeof(Messwert), groesse);
     for (int i = 0; i < anzahlGelesen; i++)
         printf("Nr. %d: %.2f Grad\n", gelesen[i].nummer, gelesen[i].temperatur);
 

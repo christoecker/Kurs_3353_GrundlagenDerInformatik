@@ -3,9 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define ZEILENLAENGE 100
+
 int main(void)
 {
     FILE *datei = fopen("notizen.txt", "w"); // (2)!
+    if (datei == NULL)
+    {
+        printf("Datei konnte nicht angelegt werden.\n");
+        return 1;
+    }
+
     fprintf(datei, "Erste Zeile\n");
     fprintf(datei, "Zweite Zeile\n");
     fclose(datei);
@@ -17,7 +25,7 @@ int main(void)
         return 1;
     }
 
-    char zeile[100];
+    char zeile[ZEILENLAENGE];
     while (fgets(zeile, sizeof(zeile), datei) != NULL) // (5)!
         printf("%s", zeile);
 

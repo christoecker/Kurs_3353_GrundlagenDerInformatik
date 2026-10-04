@@ -7,7 +7,7 @@ kurztitel: "Dateien lesen und schreiben"
 thema: "Dateibearbeitung"
 lernziele:
   - "Ihr könnt mit FILE-Pointern und den Funktionen fopen, fclose, fgets und fprintf Daten dauerhaft in einer Textdatei speichern und wieder einlesen."
-  - "Ihr könnt mit fseek und fgetpos innerhalb einer Datei navigieren, zum Beispiel um ihre Größe zu ermitteln."
+  - "Ihr könnt mit fseek und ftell innerhalb einer Datei navigieren, zum Beispiel um ihre Größe zu ermitteln."
   - "Ihr könnt eine bestehende Datenstruktur so erweitern, dass sie ihren Zustand über einen Programmneustart hinweg behält, und dabei begründete Entwurfsentscheidungen treffen."
 musterloesungen_sichtbar: true
 ki_einsatz: stufe_3_pflicht_reflexion
@@ -33,7 +33,7 @@ Projekt.
     - Ihr könnt mit FILE-Pointern und den Funktionen `fopen`, `fclose`,
       `fgets` und `fprintf` Daten dauerhaft in einer Textdatei speichern
       und wieder einlesen.
-    - Ihr könnt mit `fseek` und `fgetpos` innerhalb einer Datei
+    - Ihr könnt mit `fseek` und `ftell` innerhalb einer Datei
       navigieren, zum Beispiel um ihre Größe zu ermitteln.
     - Ihr könnt eine bestehende Datenstruktur so erweitern, dass sie
       ihren Zustand über einen Programmneustart hinweg behält, und dabei
@@ -68,9 +68,12 @@ vergisst?
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
     `fclose` schließt die Datei und sorgt dafür, dass alle noch
-    zwischengespeicherten Daten tatsächlich geschrieben werden. Vergisst
-    man es, können Änderungen verloren gehen, und die Datei bleibt unter
-    Umständen für andere Programme gesperrt.
+    zwischengespeicherten Daten tatsächlich geschrieben werden (sie warten
+    zunächst in einem kleinen Puffer im Hauptspeicher und gelangen erst
+    beim Schließen auf den Datenträger). Vergisst man es, können
+    Änderungen verloren gehen, und die Datei bleibt unter Umständen für
+    andere Programme gesperrt, sie lässt sich dann zum Beispiel nicht
+    löschen.
 <!-- MUSTERLOESUNG-ENDE -->
 
 ---
@@ -96,16 +99,18 @@ einlesen.
        `datei` jetzt `NULL`.
     5. `fgets` liest Zeile für Zeile, bis die Datei zu Ende ist (dann
        liefert es `NULL`) — neu gegenüber der Konsoleneingabe mit
-       `scanf_s`.
+       `scanf_s`. `sizeof(zeile)` begrenzt das Lesen auf die Größe des
+       Puffers: Ist eine Zeile länger, wird sie in Stücken gelesen.
 
 ---
 
 ### Schritt 2: Dateigröße ermitteln <span class="zeitangabe">ca. 3 Min.</span> { data-toc-label="Schritt 2: Dateigröße ermitteln" }
 
 Mit `fseek` lässt sich innerhalb einer Datei an eine bestimmte Position
-springen, mit `fgetpos` die aktuelle Position auslesen. Kombiniert damit
+springen, mit `ftell` die aktuelle Position auslesen. Kombiniert damit
 lässt sich auch die Größe einer Datei bestimmen: ans Ende springen, dann
-die dortige Position abfragen.
+die dortige Position abfragen. Das Beispiel liest die Datei `notizen.txt`
+aus Schritt 1, die also im selben Projektordner liegen muss.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
@@ -115,17 +120,25 @@ die dortige Position abfragen.
     1. `fseek` springt an die angegebene Position. `SEEK_END` steht für
        das Dateiende, der Offset `0` bedeutet "genau dort, keine Bytes
        davor".
-    2. `fgetpos` schreibt die aktuelle Position in `groesse` — der Typ
-       dafür ist `fpos_t`.
-    3. Da `fpos_t` unter Windows schlicht eine ganze Zahl ist, lässt sie
-       sich direkt mit `%lld` ausgeben. Das ist eine Windows-Besonderheit,
-       keine Garantie des C-Standards.
+    2. `ftell` liefert die aktuelle Position als Zahl vom Typ `long`,
+       gezählt in Byte ab dem Dateianfang. Direkt am Dateiende ist das
+       die Größe der Datei.
 
-**Randbemerkung:** `fseek` und `fgetpos` setzt ihr selten direkt für die
-Dateigröße ein — in der Praxis reicht meist, die Datei einmal komplett zu
-lesen (wie in Schritt 1). Die Funktionen sind aber nützlich, sobald ihr
-innerhalb einer Datei gezielt an eine Position springen wollt, zum
-Beispiel zum Anhängen.
+Für die zwei Zeilen aus Schritt 1 zeigt das Programm 27 Byte: 11 und 12
+Buchstaben plus zwei Zeilenumbrüche, die Windows in einer Textdatei als je
+zwei Byte (`\r\n`) speichert.
+
+**Randbemerkung:** Als Alternative zu `ftell` gibt es `fgetpos`. Es
+liefert die Position nicht als Rückgabewert, sondern schreibt sie in eine
+Variable vom Typ `fpos_t`, die ihr als Pointer übergebt, und gehört zu
+`fsetpos`, mit dem man später genau an diese Stelle zurückspringt.
+`fpos_t` ist ein Typ, dessen Aufbau der C-Standard offen lässt. Unter
+Windows ist es zwar eine ganze Zahl, die ihr mit `%lld` ausgeben könnt,
+aber darauf solltet ihr euch nicht verlassen. Für die Dateigröße ist
+deshalb `ftell` die bessere Wahl. `fseek` setzt ihr ohnehin selten dafür
+ein, nützlich ist es, sobald ihr innerhalb einer Datei gezielt an eine
+Stelle springen wollt, zum Beispiel um dort einen Datensatz zu lesen oder
+zu überschreiben (das nutzt ihr in der nächsten Übungseinheit).
 {: .hinweis-klein }
 
 ---
@@ -153,14 +166,17 @@ Kommandozeilenparameter sind für diese Übung bewusst entfernt.
     ```
 
 Die Teile sollen künftig in einer CSV-Datei gespeichert werden, damit sie
-einen Neustart überleben.
+einen Neustart überleben. In einer CSV-Datei beschreibt jede Zeile einen
+Datensatz, ein Semikolon trennt die Werte, hier also Teilenummer,
+Bezeichnung und Bestand, zum Beispiel `101;Kugellager;25`.
 
 ---
 
 #### Teil A — Entwurf klären
 
 Bevor wir Code schreiben, klären wir gemeinsam ein paar Fragen, die die
-Struktur der Lösung beeinflussen.
+Struktur der Lösung beeinflussen. Überlegt bei jeder Frage zuerst kurz
+selbst, bevor ihr die Musterlösung aufklappt.
 
 1\. Sollte die Datei die ganze Zeit offen gehalten werden, oder nur kurz
 zum Lesen/Schreiben geöffnet und anschließend wieder geschlossen werden?
@@ -170,7 +186,10 @@ zum Lesen/Schreiben geöffnet und anschließend wieder geschlossen werden?
     Kurz öffnen, den Vorgang erledigen, sofort wieder schließen ist
     robuster: Bei einem Programmabsturz gehen so keine noch
     ungeschriebenen Daten verloren, und die Datei blockiert nicht
-    dauerhaft für andere Programme.
+    dauerhaft für andere Programme. Ein Restrisiko bleibt, wenn man die
+    ganze Datei neu schreibt (wie in Aufgabe 48): Bricht das Programm
+    mittendrin ab, ist die Datei unvollständig. Wie man das vermeidet, ist
+    Thema in Block 20.
 <!-- MUSTERLOESUNG-ENDE -->
 
 2\. Sollte der Inhalt der Datei zusätzlich in einem Array im Programm
@@ -236,23 +255,25 @@ CSV-Struktur nicht eingehalten wurde?
 #### Teil B — Umsetzen und testen
 
 Mit den Antworten aus Teil A ergänzen wir zwei neue Funktionen:
-`teileAusDateiLaden` (beim Programmstart) und `teilAnDateiAnhaengen`
-(beim Eintragen eines neuen Teils). `teilEinfuegen` selbst bleibt
+`void teileAusDateiLaden(Teil lager[], int *anzahlTeile)` (beim
+Programmstart) und `void teilAnDateiAnhaengen(const Teil *teil)` (beim
+Eintragen eines neuen Teils). Ihr verfolgt die Umsetzung am Bildschirm und
+könnt sie danach selbst ausprobieren. `teilEinfuegen` selbst bleibt
 unverändert und schreibt **nicht** in die Datei — sonst würde sich der
 Dateiinhalt bei jedem Neustart verdoppeln, weil `teileAusDateiLaden` die
 bereits gespeicherten Zeilen sonst erneut anhängen würde.
 
 ??? quote livecoding "Beispiel-Code"
     === "main.c"
-        ```c linenums="1" hl_lines="24 84"
+        ```c linenums="1" hl_lines="24 84-87"
         --8<-- "02-theoriephase/termin-08/code/live-19-3-csv-persistenz/main.c"
         ```
 
         1. Direkt nach dem Anlegen des leeren Lagers wird
            `teileAusDateiLaden` aufgerufen — lädt den gespeicherten
            Stand, falls vorhanden.
-        2. Nach erfolgreichem Eintragen wird das neue Teil zusätzlich an
-           die Datei angehängt.
+        2. Nur wenn das Teil ins Lager aufgenommen wurde (es also nicht
+           voll war), wird es zusätzlich an die Datei angehängt.
 
     === "teileverwaltung.h"
         ```c linenums="1" hl_lines="15 16"
@@ -260,20 +281,23 @@ bereits gespeicherten Zeilen sonst erneut anhängen würde.
         ```
 
     === "teileverwaltung.c"
-        ```c linenums="1" hl_lines="1 7 18-35 37-45"
+        ```c linenums="1" hl_lines="1 7-8 19-36 38-46"
         --8<-- "02-theoriephase/termin-08/code/live-19-3-csv-persistenz/teileverwaltung.c"
         ```
 
         1. Unterdrückt die Visual-Studio-Warnung zu `fopen` und `sscanf`,
            wie schon in Schritt 1.
         2. Der Dateiname steht zentral an einer einzigen Stelle und nicht
-           mehrfach im Code verteilt (Magic Numbers vermeiden gilt auch
-           für Texte).
+           mehrfach im Code verteilt. Auch die Puffergröße für eine Zeile
+           hat einen Namen (`ZEILE_LAENGE`).
         3. `datei == NULL`: Beim allerersten Start gibt es die Datei
            noch nicht (siehe Teil A, Frage 5).
         4. `fgets` liefert `NULL`, sobald die Datei zu Ende ist.
         5. `sscanf` liest aus dem String `zeile`, genau wie `scanf_s`
-           von der Konsole liest. Die Rückgabe (wie viele Felder
+           von der Konsole liest. Das Format `%d;%29[^;];%d` bedeutet:
+           eine Zahl, Semikolon, Text bis zum nächsten Semikolon (höchstens
+           29 Zeichen, denn `bezeichnung` hat 30 Plätze und braucht einen
+           für die Endmarke), Semikolon, eine Zahl. Die Rückgabe (wie viele Felder
            erfolgreich gelesen wurden) prüfen wir hier noch bewusst
            nicht — das kommt in der folgenden bS-Aufgabe.
         6. Nur ins Array einfügen, **nicht** erneut in die Datei
@@ -284,7 +308,9 @@ bereits gespeicherten Zeilen sonst erneut anhängen würde.
 **Testen:** Startet euer Programm, tragt ein Teil ein, beendet das
 Programm und startet es erneut — das Teil sollte sofort wieder in der
 Liste stehen. Schaut euch nebenbei die Datei `ersatzteile.csv` im
-Projektordner an (z. B. mit einem Texteditor).
+Projektordner an (z. B. mit einem Texteditor). Testet dieses Programm nur
+mit einer unbeschädigten Datei, denn auf fehlerhafte Zeilen ist es noch
+nicht vorbereitet (das ist das Thema der folgenden bS-Aufgabe).
 {: .hinweis-klein }
 
 ---
@@ -320,13 +346,16 @@ Daten übernehmen.
 
 Überlegt euch (gerne mit KI-Unterstützung), wie sich eine
 Bestandsänderung eines **bereits vorhandenen** Teils dauerhaft in der
-Datei speichern lässt. Anders als beim Anhängen eines neuen Teils lässt
-sich eine einzelne Zeile in einer Textdatei nicht einfach "überschreiben",
-ohne die Zeilenlänge exakt gleich zu halten.
+Datei speichern lässt. Eine Textdatei kennt kein „Zeile ersetzen“. Welche
+einfache Alternative gibt es?
 
-Setzt eine Lösung um (ein Menüpunkt "Bestand ändern" sowie eine passende
+Setzt eine Lösung um (ein Menüpunkt „Bestand ändern“ sowie eine passende
 Dateifunktion) und testet sie: Ändert den Bestand eines Teils, beendet
-das Programm, startet es neu — die Änderung muss erhalten bleiben.
+das Programm, startet es neu — die Änderung muss erhalten bleiben. Für die
+Änderung selbst könnt ihr `teilSuchen` und `bestandAendern` aus dem
+Zwischenprojekt (Termin 7) wiederverwenden, mit den Signaturen
+`Teil *teilSuchen(Teil lager[], int anzahlTeile, int teilenummer)` und
+`void bestandAendern(Teil *teil, int aenderung)`.
 
 ---
 
@@ -338,7 +367,8 @@ oder eine Zeile mit falscher Spaltenanzahl), diese Zeile überspringt und
 eine kurze Warnung ausgibt — statt sie als falsches Teil zu übernehmen
 oder das Programm abstürzen zu lassen.
 
-Testet das gezielt: Öffnet eure `ersatzteile.csv` in einem Texteditor,
+Auch hier dürft ihr die KI für die Code-Erzeugung einsetzen. Testet das
+gezielt: Öffnet eure `ersatzteile.csv` in einem Texteditor,
 baut absichtlich eine fehlerhafte Zeile ein (z. B. eine unvollständige
 letzte Zeile) und startet das Programm neu.
 
@@ -362,7 +392,7 @@ und warum? Seid darauf vorbereitet, eure Statements in der Abschlussdiskussion z
     und trotzdem gut sein.
 
     === "main.c"
-        ```c linenums="1" hl_lines="23 42 64-66 98-119"
+        ```c linenums="1" hl_lines="23 42 64-66 100-121"
         --8<-- "02-theoriephase/termin-08/code/aufg-48-bestand-und-pruefung/main.c"
         ```
 
@@ -372,7 +402,7 @@ und warum? Seid darauf vorbereitet, eure Statements in der Abschlussdiskussion z
         ```
 
     === "teileverwaltung.c"
-        ```c linenums="1" hl_lines="31 33-37 55-70 86-91 93-99"
+        ```c linenums="1" hl_lines="5 33-39 57-72 89-94 96-102"
         --8<-- "02-theoriephase/termin-08/code/aufg-48-bestand-und-pruefung/teileverwaltung.c"
         ```
 
@@ -380,8 +410,11 @@ und warum? Seid darauf vorbereitet, eure Statements in der Abschlussdiskussion z
            konnte. Sind es nicht alle drei, ist die Zeile beschädigt
            oder unvollständig — sie wird übersprungen statt als
            (falsches) Teil übernommen zu werden.
-        2. Genau diese Prüfung war in der Übung noch bewusst offen
-           gelassen.
+        2. Zusätzlich muss die Zeile mit einem Zeilenende (`\n`) enden,
+           `strchr` sucht dieses Zeichen. Eine abgebrochene Zeile wie
+           `5;Schraube;1` liefert nämlich trotzdem drei Felder, hat aber
+           kein Zeilenende. Genau diese Prüfung war in der Übung noch
+           bewusst offen gelassen.
         3. `"w"` überschreibt die komplette Datei mit dem aktuellen
            Stand des Arrays — einfacher, als eine einzelne Zeile gezielt
            zu ändern.

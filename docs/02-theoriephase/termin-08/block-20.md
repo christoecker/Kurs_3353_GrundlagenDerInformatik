@@ -23,7 +23,7 @@ publish_date: "2026-12-09"
 
 ### Worum geht es?
 
-In Block 19 habt ihr Daten als Text in einer CSV-Datei gespeichert. Das
+In der letzten Übung habt ihr Daten als Text in einer CSV-Datei gespeichert. Das
 ist gut lesbar, hat aber Grenzen: Jede Zahl muss in Text umgewandelt
 werden, und eine einzelne Zeile lässt sich nicht ändern, ohne die ganze
 Datei neu zu schreiben. Jetzt lernt ihr mit der **Binärdatei** die
@@ -44,7 +44,9 @@ Fehlern beim Dateizugriff sauber umgeht.
 Ein Temperatursensor an einem Ofen liefert regelmäßig Messwerte. Jeder
 Messwert besteht aus einer laufenden Nummer und der Temperatur. Die
 Messreihe soll in einer Datei gespeichert und später wieder eingelesen
-werden. Das ganze Programm steht in einer einzigen `main.c`.
+werden. Das ganze Programm steht in einer einzigen `main.c`. Solche
+Formate begegnen euch in der Praxis zum Beispiel bei Messdatenloggern oder
+Gerätekonfigurationen.
 
 Dafür legen wir ein eigenes, einfaches **Dateiformat** fest:
 
@@ -67,8 +69,9 @@ mit einem Texteditor lesen, ihr braucht einen **Hex-Editor**.
 
 Mit `fwrite` schreibt ihr ein ganzes Array in einem Aufruf in die Datei,
 mit `fread` lest ihr es wieder ein. Beide bekommen vier Angaben: die
-Adresse der Daten, die Größe eines Elements, die Anzahl der Elemente und
-den Dateizeiger.
+Adresse der Daten (bei einem Array reicht der Name, vor einer einzelnen
+Variable steht ein `&`), die Größe eines Elements, die Anzahl der Elemente
+und den Dateizeiger.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
@@ -77,14 +80,22 @@ den Dateizeiger.
 
     1. Ein Messwert besteht aus einem `int` und einem `float`, zusammen
        8 Byte. Genau diese 8 Byte stehen später pro Datensatz in der
-       Datei.
+       Datei. `float` ist eine Gleitkommazahl mit 4 Byte, das `f` hinter
+       `21.5f` kennzeichnet den Wert als `float` statt als `double`.
     2. Das `b` im Modus steht für **binär**: `"wb"` schreibt, `"rb"`
        liest. Ohne `b` würde Windows beim Schreiben jedes Byte mit dem
-       Wert 10 (Zeilenvorschub) in zwei Bytes umwandeln.
+       Wert 10 (das Zeichen für den Zeilenumbruch) in zwei Bytes (13 und
+       10) umwandeln, das träfe zum Beispiel die Messwert-Nummer 10. Beim
+       Lesen wertet Windows im Textmodus außerdem das Byte 26 als
+       Dateiende.
     3. `fwrite` schreibt alle `ANZAHL` Messwerte auf einmal. Die Größe
        eines Elements ermittelt `sizeof(Messwert)`.
     4. `fread` liefert zurück, wie viele Elemente tatsächlich gelesen
        wurden.
+
+Die Dateigröße am Ende bestimmt der Code wie in der letzten Übung: `fseek`
+springt ans Dateiende, `ftell` liefert dort die Größe. `%zu` gibt eine
+Größe aus, wie sie `sizeof` liefert.
 
 **Hinweis:** Dieser Code prüft nirgends, ob `fopen`, `fwrite` oder `fread`
 erfolgreich waren. Das ist hier bewusst weggelassen, damit der Blick auf
@@ -92,8 +103,11 @@ den neuen Funktionen bleibt. In Schritt 4 holen wir das nach.
 {: .hinweis-klein }
 
 Jetzt schauen wir uns an, was tatsächlich in der Datei steht. Öffnet
-`messwerte.dat` in einem Hex-Editor, zum Beispiel mit dem
-Programm HxD. Ein Hex-Editor
+`messwerte.dat` in einem Hex-Editor, zum Beispiel mit dem kostenlosen
+Programm HxD (per Websuche leicht zu finden). Alternativen sind die
+Erweiterung „Hex Editor“ in VS Code oder Visual Studio selbst: Datei
+öffnen und dann über „Öffnen mit …“ den Binär-Editor wählen. Dürft ihr auf
+eurem Rechner nichts installieren, fragt die Lehrperson. Ein Hex-Editor
 zeigt links die Position (Offset), in der Mitte die Bytes als
 Hexadezimalzahlen und rechts die Zeichen dazu:
 
@@ -109,6 +123,8 @@ Hexadezimalzahlen und rechts die Zeichen dazu:
 - Wie genau die Bits einer `float`-Zahl kodiert sind, müssen wir hier
   nicht auflösen. Wichtig ist: Die Datei enthält das Speicherabbild der
   Zahl, keinen Text.
+- Die linke Spalte (Offset) ist ebenfalls hexadezimal: `00000010`
+  bedeutet Byte 16, denn hexadezimal `10` ist 1 · 16 + 0.
 - Die Zeichenspalte rechts ist kaum lesbar, weil nur wenige Bytes
   druckbare Zeichen sind. Das `A` kommt vom Byte `41`.
 
@@ -116,8 +132,8 @@ Hexadezimalzahlen und rechts die Zeichen dazu:
 
 ### Schritt 2: Einen Datensatz direkt ändern <span class="zeitangabe">ca. 6 Min.</span> { data-toc-label="Schritt 2: Einen Datensatz direkt ändern" }
 
-In Aufgabe 48 musstet ihr die ganze Textdatei neu schreiben, um einen
-Wert zu ändern. Hier geht es einfacher: Jeder Datensatz ist 8 Byte lang,
+In der letzten Aufgabe (Bestand ändern) musstet ihr die ganze Textdatei
+neu schreiben, um einen Wert zu ändern. Hier geht es einfacher: Jeder Datensatz ist 8 Byte lang,
 der Datensatz mit dem Index `i` beginnt also bei Byte `i * 8`. Mit
 `fseek` springen wir direkt dorthin und überschreiben nur diesen einen
 Messwert.
@@ -169,7 +185,7 @@ wie Datum, Größe oder Einstellungen) und entsprechend länger sein. Die
 feste Bytefolge ganz am Anfang, hier die Kennung `MWL`, heißt
 **magische Zahl** (englisch *magic number*). Programme prüfen sie zuerst,
 um das Dateiformat zu erkennen. Verwechselt das nicht mit den „magischen
-Zahlen" aus dem Clean Code (Block 7): Dort sind Zahlen gemeint, die ohne
+Zahlen" aus dem Clean Code (aus einem früheren Termin): Dort sind Zahlen gemeint, die ohne
 Namen im Code stehen. Es ist derselbe Begriff für zwei völlig
 verschiedene Dinge.
 
@@ -180,7 +196,7 @@ Beispiel baut auf Schritt 1 auf, die Korrektur eines Messwerts aus
 Schritt 2 lassen wir weg.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c linenums="1"
+    ```c linenums="1" hl_lines="8-9 19-24 28 41-42 62-63 75-85 91-97"
     --8<-- "02-theoriephase/termin-08/code/live-20-3-dateikopf-pruefung.c"
     ```
 
@@ -228,12 +244,13 @@ stimmt. Das beheben wir im nächsten Schritt.
     `fclose`.
 
 Wir erweitern dafür den Stand aus Schritt 3. Die Fehlerarten bekommen einen
-`enum`, die Dateifunktionen geben einen Wert davon zurück. Das Ergebnis der Messwerte selbst kommt über einen
-Pointer-Parameter zurück. Die Ausgabe der Fehlermeldung steht an einer
-einzigen Stelle.
+`enum`, die Dateifunktionen geben einen Wert davon zurück. Der Rückgabewert
+ist damit schon durch den Fehlercode belegt. Deshalb kommt die Anzahl der
+gelesenen Messwerte über den Pointer-Parameter `anzahl` zurück. Die Ausgabe
+der Fehlermeldung steht an einer einzigen Stelle.
 
 ??? quote livecoding "Beispiel-Code"
-    ```c linenums="1" hl_lines="26-34 36-39 51-56 61-67 78 82 85-92 95 99 101 103-105 108-109 111-115 119 122-130 133-156"
+    ```c linenums="1" hl_lines="26-34 36-39 51-57 62-69 80 84 87-94 97 101 103 105-107 110-111 113-117 121 124-132 135-158"
     --8<-- "02-theoriephase/termin-08/code/live-20-4-fehlercodes.c"
     ```
 
@@ -244,8 +261,9 @@ einzigen Stelle.
     3. `fwrite` liefert die Anzahl der tatsächlich geschriebenen
        Elemente. Weicht sie vom erwarteten Wert ab, ist etwas
        schiefgegangen, etwa weil der Datenträger voll ist.
-    4. Auch `fclose` kann scheitern: Erst beim Schließen werden die
-       letzten Daten tatsächlich auf den Datenträger geschrieben.
+    4. Auch `fclose` kann scheitern: `fwrite` schreibt zunächst in einen
+       Zwischenspeicher, ein Fehler wie ein voller Datenträger kann deshalb
+       erst beim Schließen auftreten.
     5. Die Funktion meldet, **was** schiefgegangen ist, und entscheidet
        nicht selbst über die Reaktion.
     6. Die Meldungen für alle Fehlercodes stehen an einer Stelle und
@@ -254,7 +272,11 @@ einzigen Stelle.
 Testet es wie in Schritt 3, indem ihr in der Pause die Datei verändert:
 eine gültige Datei, eine abgeschnittene Datei und eine Datei mit
 geänderter Kennung. Löscht die Datei in der Pause außerdem einmal ganz.
-Jetzt bekommt jeder Fall seine eigene, verständliche Meldung.
+Für `FEHLER_ANZAHL_UNGUELTIG` ändert ihr im Hex-Editor die Anzahl im Kopf
+(Offset 8) auf `FF FF FF FF`, das ist die Zahl -1. Das Programm wartet
+nach einer Fehlermeldung auf eine Taste, damit das Fenster nicht sofort
+verschwindet. Jetzt bekommt jeder Fall seine eigene, verständliche
+Meldung.
 
 ---
 
@@ -320,6 +342,10 @@ vor:
 4. Wie groß muss die Datei laut Kopf sein, und stimmt das mit dem Dump
    überein?
 
+Zum Rechnen: Hexadezimal zählt ihr zur Basis 16. `1F` ist zum Beispiel
+1 · 16 + 15 = 31, und `20` ist 2 · 16 = 32. Bei einer Zahl wie
+`0x012D` zählt jede Stelle 16-mal mehr als die rechts davon.
+
 Hier zwei weitere Dateien, die beide beschädigt sind. Welche Prüfung aus
 Schritt 3 und 4 der Übung schlägt jeweils an, und woran erkennt ihr es?
 
@@ -339,7 +365,8 @@ Datei 2:
     1. Die ersten vier Bytes `4D 57 4C 00` sind die Zeichen `M`, `W`,
        `L` und die Endmarke, die Kennung lautet also `MWL`. Version:
        `01 00 00 00` = 1. Anzahl: `03 00 00 00` = 3.
-    2. Der zweite Datensatz beginnt bei Offset 20 (`14` hexadezimal). Die
+    2. Der zweite Datensatz beginnt bei Offset 20 (hexadezimal `14`, im
+       Dump steht dafür `00000014`). Die
        Nummer steht dort als `2D 01 00 00`. Das niedrigstwertige Byte
        steht zuerst, die Zahl ist also `0x012D` = 301.
     3. Die Temperatur des zweiten Messwerts sind die vier Bytes
@@ -373,6 +400,9 @@ die Datei im selben Format wie oben ausgibt. Pro Zeile 16 Bytes:
 - rechts die Zeichen dazu, nicht druckbare Zeichen (kleiner als 32 oder
   größer als 126) als Punkt.
 
+Zur Ausgabe: `%02X` gibt eine Zahl hexadezimal mit mindestens zwei Stellen
+aus (mit führender Null), `%08X` entsprechend mit mindestens acht.
+
 Die letzte Zeile ist meist kürzer. Die Spalte rechts soll trotzdem
 ausgerichtet bleiben. Testet das Tool mit der `messwerte.dat` aus der
 Übung und vergleicht mit dem Hex-Editor. Ihr dürft die KI für die
@@ -386,7 +416,8 @@ Code-Erzeugung einsetzen, prüft aber jede Zeile gegen den Hex-Editor.
 
     1. `fread` liefert die Anzahl der tatsächlich gelesenen Bytes. In
        der letzten Zeile ist sie kleiner als 16, und bei 0 ist die
-       Datei zu Ende.
+       Datei zu Ende. Der Puffer ist ein `unsigned char`, denn ein Byte
+       hat Werte von 0 bis 255.
     2. `%08X` gibt den Offset hexadezimal aus, mit führenden Nullen auf 8
        Stellen.
     3. Fehlen Bytes in der letzten Zeile, füllen Leerzeichen die Lücke,
@@ -401,12 +432,12 @@ Code-Erzeugung einsetzen, prüft aber jede Zeile gegen den Hex-Editor.
 
 ---
 
-#### Teil C — Sicher speichern
+#### Teil C — Sicher speichern (optional)
 
 Euer Logger aus der Übung hat ein Problem: `messwerteSpeichern` öffnet die
 Datei mit `"wb"`, und dabei wird der alte Inhalt **sofort** gelöscht. Bricht
-das Programm danach ab (Absturz, Stromausfall), sind die alten Daten weg
-und die neue Datei ist unvollständig.
+das Programm danach ab (zum Beispiel durch einen Absturz), sind die alten
+Daten weg und die neue Datei ist unvollständig.
 
 Die Idee zum sicheren Speichern:
 
@@ -423,16 +454,28 @@ Bricht das Programm in Schritt 1 oder 2 ab, ist die alte Datei noch
 vollständig da. Unter Windows überschreibt `rename` keine bestehende
 Datei, deshalb muss die alte vorher mit `remove` gelöscht werden. Dabei
 bleibt ein sehr kleines Zeitfenster zwischen `remove` und `rename`.
-Professionelle Systeme schließen auch das, für unsere Zwecke reicht das
-Verfahren.
+Professionelle Systeme schließen auch das. Auch gegen einen Stromausfall
+schützt das Verfahren nicht vollständig, denn das Betriebssystem schreibt
+Daten nicht sofort auf den Datenträger. Für einen Programmabbruch reicht es.
 
-Baut das in `messwerteSpeichern` aus Schritt 4 der Übung ein. Testet:
-Fügt probehalber vor dem `remove` der alten Datei ein `exit(1);` ein.
-Danach muss die alte `messwerte.dat` unverändert vorhanden sein.
+Die Funktionen: `remove(Dateiname)` löscht eine Datei, `rename(alt, neu)`
+benennt sie um, und `exit(1)` beendet das Programm sofort. Alle drei stehen
+in `stdlib.h` bzw. `stdio.h`.
+
+Baut das in die Funktion `Fehlercode messwerteSpeichern(const Messwert
+messwerte[], int anzahl)` aus Schritt 4 der Übung ein (den Code könnt ihr
+dort aus dem Beispiel kopieren). Auch hier dürft ihr die KI für die
+Code-Erzeugung einsetzen. Testet so: Lasst das Programm zuerst einmal
+normal laufen. Ändert dann im `main` einen Messwert, zum Beispiel `22.0f`
+statt `21.5f`, und fügt vor dem `remove` der alten Datei ein `exit(1);`
+ein. Nach dem Lauf muss die alte `messwerte.dat` mit den alten Werten
+unverändert da sein (prüft das mit eurem Hexdump-Tool oder im
+Hex-Editor). Die temporäre Datei `messwerte.tmp` bleibt dabei liegen, das
+ist erwartet.
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung Teil C anzeigen"
-    ```c linenums="1" hl_lines="8 81 91-94 96-98"
+    ```c linenums="1" hl_lines="8 83 93-96 98-100"
     --8<-- "02-theoriephase/termin-08/code/aufg-49-sicher-speichern.c"
     ```
 
@@ -442,7 +485,12 @@ Danach muss die alte `messwerte.dat` unverändert vorhanden sein.
        Datei entfernt, die alte Datei bleibt gültig.
     3. Der Rückgabewert von `remove` wird hier bewusst ignoriert: Beim
        allerersten Speichern gibt es noch keine alte Datei, das ist kein
-       Fehler.
+       Fehler. Das ist ein Kompromiss: Besser wäre es, den Rückgabewert
+       zu prüfen und nur den Fall „Datei existiert nicht“ zu ignorieren
+       (mit der Variable `errno` und der Konstante `ENOENT` aus
+       `errno.h`). Dann würde auch auffallen, wenn das Löschen aus einem
+       anderen Grund scheitert, zum Beispiel weil der Hex-Editor die Datei
+       noch geöffnet hat.
     4. `rename` macht aus der temporären Datei die neue
        `messwerte.dat`. Scheitert das, wird der Fehler gemeldet und nicht
        versteckt.
@@ -453,9 +501,9 @@ Danach muss die alte `messwerte.dat` unverändert vorhanden sein.
 #### Teil D — Kurze Reflexion
 
 Haltet 2 bis 3 kurze Statements fest (z. B. als Kommentar am Anfang
-eurer `main.c`): Wie habt ihr die Angaben und den Code der KI heute
-überprüft, zum Beispiel den Hexdump oder das sichere Speichern (mit
-simuliertem Abbruch)? Was habt ihr ungeprüft
-übernommen, wo hat sich die KI geirrt, und was bedeutet das für euer
-Vertrauen in ihre Antworten? Bringt eure Statements in die
-Abschlussdiskussion zur Lerneinheit mit.
+der `main.c` eures Hexdump-Tools): Wie habt ihr die Angaben und den Code
+der KI heute überprüft, zum Beispiel den Hexdump oder das sichere
+Speichern (mit simuliertem Abbruch)? Habt ihr etwas ungeprüft übernommen,
+oder hat die KI sich an einer Stelle geirrt? Und was bedeutet das für euer
+Vertrauen in ihre Antworten? Eure Statements werden am Ende des Termins
+gemeinsam besprochen.

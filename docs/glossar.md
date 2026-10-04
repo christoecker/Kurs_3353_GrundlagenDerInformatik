@@ -300,6 +300,11 @@ sortiert). Oft deutlich sparsamer als Brute-Force.
 Binärsystem genannt. Alle Daten in einem Rechner liegen letztlich in dieser
 Form vor.  
 
+**Dynamische Speicherallokierung**
+: Das Anfordern von Speicher erst zur Laufzeit des Programms, wenn bekannt
+ist, wie viel gebraucht wird. In C dienen dazu `malloc`, `calloc` und
+`realloc`. Der Speicher muss mit `free` wieder zurückgegeben werden.
+
 ## E
 
 **Eindeutigkeit**
@@ -385,6 +390,12 @@ Funktionen, Typen und Makros anbietet, zum Beispiel `stdio.h`. Man bindet sie
 per `#include` ein. Eigene Header-Dateien bindet man mit Anführungszeichen
 ein: `#include "myUtil.h"`.  
 
+**Heap**
+: Der Speicherbereich, aus dem `malloc`, `calloc` und `realloc` Speicher
+bereitstellen. Anders als eine lokale Variable verschwindet dort angelegter
+Speicher nicht am Ende einer Funktion, sondern bleibt bis zum `free`
+bestehen.
+
 **Hex-Editor**
 : Ein Programm, das den Inhalt einer beliebigen Datei Byte für Byte
 anzeigt, links als Hexadezimalzahlen und rechts als Zeichen. Damit lässt
@@ -396,6 +407,12 @@ zehn Ziffern 0 bis 9 sowie den Buchstaben A bis F für die Werte 10 bis 15.
 Wird in der Informatik oft verwendet, weil sich damit lange Dualzahlen sehr
 viel kompakter aufschreiben lassen (vier Binärstellen entsprechen genau
 einer Hexadezimalziffer).  
+
+**Hexdump**
+: Die Ausgabe des Inhalts einer Datei Byte für Byte: links die Position
+(Offset), in der Mitte die Bytes als Hexadezimalzahlen, rechts die
+Zeichen dazu. Ein Hex-Editor zeigt einen Hexdump an, man kann ihn aber
+auch mit einem eigenen Programm erzeugen.
 
 **Horner-Schema**
 : Auch Restwertmethode genannt: ein Verfahren, um eine Dezimalzahl in ein
@@ -467,17 +484,26 @@ kein einziges Mal.
 sorgt dafür, dass Befehle geholt und in der richtigen Reihenfolge ausgeführt
 werden.  
 
-## M
-
 **Linker**
 : Das Werkzeug, das nach dem Compiler die einzelnen übersetzten Dateien eines
 Projekts zusammen mit den Bibliotheken zu einer ausführbaren Datei
 verbindet.  
 
+**Little Endian**
+: Eine Byte-Reihenfolge, bei der das niedrigstwertige Byte einer Zahl
+zuerst steht. Siehe auch Byte-Reihenfolge.
+
+## M
+
 **Magic Number**
 : Eine Zahl, die direkt im Code steht, ohne dass ihre Bedeutung erkennbar ist,
 zum Beispiel `if (zustand == 2)`. Sie macht den Code schwer lesbar und fehleranfällig;
 besser ist eine sprechend benannte Konstante oder ein `enum`.  
+
+**Magische Zahl**
+: Eine feste Bytefolge am Anfang einer Datei, an der ein Programm das
+Dateiformat erkennt. Siehe auch Dateisignatur. Nicht zu verwechseln mit
+den magischen Zahlen im Clean Code, also Zahlen ohne Namen im Quelltext.
 
 **Makro**
 : Ein Name, den der Präprozessor im Quelltext durch einen anderen Text ersetzt,
@@ -732,6 +758,12 @@ Schlüsselwörter `auto`, `extern`, `static` und `register` — am wichtigsten
 in diesem Kurs ist `static`: Eine als `static` deklarierte lokale
 Variable behält ihren Wert über mehrere Funktionsaufrufe hinweg, statt bei
 jedem Aufruf neu angelegt zu werden.  
+
+**Speicherleck (Memory Leak)**
+: Speicher, der mit `malloc` angefordert wurde, aber nicht mehr freigegeben
+werden kann, weil kein Pointer mehr auf ihn zeigt. Er bleibt bis zum
+Programmende belegt. Ein typischer Auslöser ist ein früher `return`, der
+das `free` überspringt.
 
 **Speicherzelle**
 : Die kleinste über eine Adresse ansprechbare Einheit des Hauptspeichers. Alle

@@ -81,6 +81,6 @@ void teilEintragenUeberMenue(Teil lager[], int *anzahlTeile)
     printf("Bestand: ");
     scanf_s("%d", &neuesTeil.bestand);
 
-    teilEinfuegen(lager, anzahlTeile, neuesTeil);
-    printf("Teil %d wurde aufgenommen.\n", neuesTeil.teilenummer);
+    if (teilEinfuegen(lager, anzahlTeile, neuesTeil))
+        printf("Teil %d wurde aufgenommen.\n", neuesTeil.teilenummer);
 }

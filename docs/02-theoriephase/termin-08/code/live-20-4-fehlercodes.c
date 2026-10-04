@@ -30,7 +30,7 @@ typedef enum
     FEHLER_SCHREIBEN,
     FEHLER_LESEN,
     FEHLER_KENNUNG,
-    FEHLER_ANZAHL
+    FEHLER_ANZAHL_UNGUELTIG
 } Fehlercode; // (1)!
 
 Fehlercode messwerteSpeichern(const Messwert messwerte[], int anzahl);
@@ -52,6 +52,7 @@ int main(void)
     if (fehler != FEHLER_KEIN) // (2)!
     {
         fehlerAusgeben(fehler);
+        system("pause");
         return 1;
     }
     printf("Messwerte gespeichert. Jetzt koennt ihr die Datei im Hex-Editor veraendern.\n");
@@ -63,6 +64,7 @@ int main(void)
     if (fehler != FEHLER_KEIN)
     {
         fehlerAusgeben(fehler);
+        system("pause");
         return 1;
     }
 
@@ -125,7 +127,7 @@ Fehlercode kopfPruefen(const Dateikopf *kopf, int maxAnzahl)
         return FEHLER_KENNUNG;
 
     if (kopf->anzahl < 0 || kopf->anzahl > maxAnzahl)
-        return FEHLER_ANZAHL;
+        return FEHLER_ANZAHL_UNGUELTIG;
 
     return FEHLER_KEIN;
 }
@@ -146,7 +148,7 @@ void fehlerAusgeben(Fehlercode fehler)
         case FEHLER_KENNUNG:
             printf("Fehler: Das ist keine Messwert-Datei (Kennung oder Version falsch).\n");
             break;
-        case FEHLER_ANZAHL:
+        case FEHLER_ANZAHL_UNGUELTIG:
             printf("Fehler: Die Anzahl der Messwerte im Dateikopf ist unplausibel.\n");
             break;
         default:

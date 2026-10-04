@@ -2,9 +2,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "teileverwaltung.h"
 
 #define LAGER_DATEI "ersatzteile.csv"
+#define ZEILE_LAENGE 100
 
 // Clean Code: Information Hiding - wird nur innerhalb dieser Datei
 // gebraucht (von qsort/bsearch), deshalb "static" und nicht im Header
@@ -24,13 +26,13 @@ void teileAusDateiLaden(Teil lager[], int *anzahlTeile)
     if (datei == NULL)
         return;
 
-    char zeile[100];
+    char zeile[ZEILE_LAENGE];
     while (fgets(zeile, sizeof(zeile), datei) != NULL)
     {
         Teil geladenesTeil;
         int gelesen = sscanf(zeile, "%d;%29[^;];%d", &geladenesTeil.teilenummer, geladenesTeil.bezeichnung, &geladenesTeil.bestand); // (1)!
 
-        if (gelesen != 3) // (2)!
+        if (gelesen != 3 || strchr(zeile, '\n') == NULL) // (2)!
         {
             printf("Warnung: beschaedigte Zeile in %s ignoriert: %s", LAGER_DATEI, zeile);
             continue;
@@ -69,18 +71,19 @@ void lagerInDateiSpeichern(const Teil lager[], int anzahlTeile)
     fclose(datei);
 }
 
-void teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil)
+int teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil)
 {
     if (*anzahlTeile >= MAX_TEILE)
     {
         printf("Lager ist voll, Teil %d kann nicht aufgenommen werden.\n", neuesTeil.teilenummer);
-        return;
+        return 0;
     }
 
     lager[*anzahlTeile] = neuesTeil;
     (*anzahlTeile)++;
 
     qsort(lager, *anzahlTeile, sizeof(Teil), vergleicheTeilenummern);
+    return 1;
 }
 
 Teil *teilSuchen(Teil lager[], int anzahlTeile, int teilenummer)

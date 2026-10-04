@@ -90,9 +90,11 @@ void teilEintragenUeberMenue(Teil lager[], int *anzahlTeile)
     printf("Bestand: ");
     scanf_s("%d", &neuesTeil.bestand);
 
-    teilEinfuegen(lager, anzahlTeile, neuesTeil);
-    teilAnDateiAnhaengen(&neuesTeil);
-    printf("Teil %d wurde aufgenommen.\n", neuesTeil.teilenummer);
+    if (teilEinfuegen(lager, anzahlTeile, neuesTeil))
+    {
+        teilAnDateiAnhaengen(&neuesTeil);
+        printf("Teil %d wurde aufgenommen.\n", neuesTeil.teilenummer);
+    }
 }
 
 void bestandAendernUeberMenue(Teil lager[], int anzahlTeile)

@@ -11,18 +11,19 @@ static int vergleicheTeilenummern(const void *a, const void *b)
     return teilA->teilenummer - teilB->teilenummer;
 }
 
-void teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil)
+int teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil)
 {
     if (*anzahlTeile >= MAX_TEILE)
     {
         printf("Lager ist voll, Teil %d kann nicht aufgenommen werden.\n", neuesTeil.teilenummer);
-        return;
+        return 0;
     }
 
     lager[*anzahlTeile] = neuesTeil;
     (*anzahlTeile)++;
 
     qsort(lager, *anzahlTeile, sizeof(Teil), vergleicheTeilenummern);
+    return 1;
 }
 
 void teilAusgeben(const Teil *teil)

@@ -5,6 +5,7 @@
 #include "teileverwaltung.h"
 
 #define LAGER_DATEI "ersatzteile.csv" // (2)!
+#define ZEILE_LAENGE 100
 
 // Clean Code: Information Hiding - wird nur innerhalb dieser Datei
 // gebraucht (von qsort), deshalb "static" und nicht im Header deklariert.
@@ -23,7 +24,7 @@ void teileAusDateiLaden(Teil lager[], int *anzahlTeile)
     if (datei == NULL) // (3)!
         return;
 
-    char zeile[100];
+    char zeile[ZEILE_LAENGE];
     while (fgets(zeile, sizeof(zeile), datei) != NULL) // (4)!
     {
         Teil geladenesTeil;
@@ -44,18 +45,19 @@ void teilAnDateiAnhaengen(const Teil *teil)
     fclose(datei);
 }
 
-void teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil)
+int teilEinfuegen(Teil lager[], int *anzahlTeile, Teil neuesTeil)
 {
     if (*anzahlTeile >= MAX_TEILE)
     {
         printf("Lager ist voll, Teil %d kann nicht aufgenommen werden.\n", neuesTeil.teilenummer);
-        return;
+        return 0;
     }
 
     lager[*anzahlTeile] = neuesTeil;
     (*anzahlTeile)++;
 
     qsort(lager, *anzahlTeile, sizeof(Teil), vergleicheTeilenummern);
+    return 1;
 }
 
 void teilAusgeben(const Teil *teil)

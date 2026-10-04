@@ -114,6 +114,9 @@ nav:
       - "Termin 8":
           - "Dateien lesen und schreiben": 02-theoriephase/termin-08/block-19.md
           - "Binärdateien und Fehlerbehandlung": 02-theoriephase/termin-08/block-20.md
+          - "Vorbereitung auf Termin 9": 02-theoriephase/termin-08/vorbereitung-termin-09.md
+      - "Termin 9":
+          - "Dynamische Speicherallokierung": 02-theoriephase/termin-09/block-22.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md
