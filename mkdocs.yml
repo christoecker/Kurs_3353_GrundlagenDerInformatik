@@ -117,6 +117,7 @@ nav:
           - "Vorbereitung auf Termin 9": 02-theoriephase/termin-08/vorbereitung-termin-09.md
       - "Termin 9":
           - "Dynamische Speicherallokierung": 02-theoriephase/termin-09/block-22.md
+          - "Verkettete Listen": 02-theoriephase/termin-09/block-23.md
   - Infos:
       - Modulbeschreibung: modulbeschreibung.md
       - "KI im Kurs": ki-nutzung.md

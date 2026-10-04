@@ -295,6 +295,17 @@ Suche), manchmal werden stattdessen beide Teile parallel weiterbehandelt
 (so bei Quicksort, das nach dem Partitionieren beide Teilreihen rekursiv
 sortiert). Oft deutlich sparsamer als Brute-Force.  
 
+**Doppelt verkettete Liste**
+: Eine verkettete Liste, bei der jeder Knoten zusätzlich einen Zeiger auf
+seinen Vorgänger hat. Dadurch lässt sich die Liste auch rückwärts
+durchlaufen.
+
+**Doppelzeiger (Pointer auf Pointer)**
+: Ein Zeiger, der auf einen anderen Zeiger zeigt, geschrieben mit zwei Sternen,
+zum Beispiel `Knoten **kopf`. Er wird gebraucht, wenn eine Funktion nicht nur
+den Inhalt, sondern den Zeiger selbst ändern soll. Übergeben wird dafür die
+Adresse des Zeigers, zum Beispiel `&kopf`.
+
 **Dualsystem**
 : Ein Stellenwertsystem mit der Basis 2 und dem Ziffernvorrat 0 und 1. Auch
 Binärsystem genannt. Alle Daten in einem Rechner liegen letztlich in dieser
@@ -451,6 +462,11 @@ ist nicht das Haus, aber er genügt, um es zu bauen.
 : Das Vergeben eines ersten Werts direkt bei der Deklaration einer
 Variable — zum Beispiel `int anzahl = 3;`. Im Unterschied zur reinen
 Deklaration hat die Variable danach sofort einen sinnvollen Wert.  
+
+**Knoten**
+: Ein einzelnes Element einer verketteten Liste: eine Struktur mit einem
+Wert und einem Zeiger auf den Nachfolger. Der Zeiger auf den ersten Knoten
+heißt Kopf.
 
 ## K
 
@@ -860,6 +876,12 @@ einer Funktion oder eines Compound Statement) denselben Namen trägt wie
 eine Variable in einem äußeren Bereich, ist innerhalb des inneren
 Bereichs nur noch die innere Variable ansprechbar — sie verdeckt die
 äußere, ohne sie zu verändern.  
+
+**Verkettete Liste**
+: Eine Datenstruktur aus einzelnen Knoten, bei der jeder Knoten einen Wert
+und einen Zeiger auf den nächsten Knoten enthält. Der letzte Knoten zeigt
+auf `NULL`. Die Liste wächst Knoten für Knoten, ein Zugriff über einen
+Index ist nicht möglich.
 
 **Verschachtelte Schleife**
 : Eine Schleife, die vollständig im Rumpf einer anderen Schleife steht. Bei
