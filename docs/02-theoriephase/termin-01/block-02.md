@@ -13,7 +13,7 @@ lernziele:
   - "Du kannst einem gegebenen, kommentierten C-Programm mit Verzweigung und Wiederholung den passenden Programmablaufplan zuordnen."
   - "Du kannst aus einem PAP bzw. Code die dahinterliegende Absicht eines Programms erschließen und in eigenen Worten beschreiben."
   - "Du kannst einen gegebenen PAP auf einen Logikfehler hin prüfen und die Korrektur begründen."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_0_ohne
 clean_code: []
 bearbeitungsstatus: fertig

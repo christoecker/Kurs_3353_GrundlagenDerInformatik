@@ -15,10 +15,10 @@ lernziele:
   - "Du kannst ein einzelnes Zeichen mit scanf_s einlesen und sowohl als Zeichen als auch als ASCII-Zahl ausgeben."
   - "Du kannst Zeilen- und Blockkommentare sinnvoll einsetzen, um Code nachvollziehbar zu machen."
   - "Du kannst mit system(\"cls\") und system(\"pause\") den Ablauf einer Konsolenanwendung steuern."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_0_ohne
 clean_code: []
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: 2026-10-21
 ---
 
