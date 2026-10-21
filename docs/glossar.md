@@ -853,6 +853,12 @@ reicht z. B. von `0` bis `255` statt wie ein normaler (signed) `char` von
 `-128` bis `127`. Ohne diesen Modifizierer sind Ganzzahl-Datentypen in C
 standardmäßig **signed** (vorzeichenbehaftet).  
 
+**UTF-8**
+: Eine Zeichencodierung, die praktisch alle Schriftzeichen der Welt —
+auch deutsche Umlaute wie `ä`, `ö`, `ü` und `ß` — darstellen kann.
+Zeichen aus dem klassischen ASCII-Code belegen dabei weiterhin nur ein
+Byte, andere Zeichen mehrere.  
+
 ## Ü
 
 **Überlauf**

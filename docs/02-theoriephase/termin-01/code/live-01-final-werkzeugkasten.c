@@ -3,10 +3,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 
 int main(void)
 {
-    system("chcp 1252"); // Codepage fuer korrekte Umlaute in der Ausgabe
+    SetConsoleOutputCP(CP_UTF8); // Ausgabe: Umlaute korrekt darstellen
+    SetConsoleCP(CP_UTF8);       // Eingabe: Umlaute korrekt einlesen
 
     printf("Willkommen im GdI-Werkzeugkasten!\n\n");
 

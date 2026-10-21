@@ -15,7 +15,7 @@ lernziele:
   - "Du kannst ein einzelnes Zeichen mit scanf_s einlesen und sowohl als Zeichen als auch als ASCII-Zahl ausgeben."
   - "Du kannst Zeilen- und Blockkommentare sinnvoll einsetzen, um Code nachvollziehbar zu machen."
   - "Du kannst mit system(\"cls\") und system(\"pause\") den Ablauf einer Konsolenanwendung steuern."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code: []
 bearbeitungsstatus: fertig
@@ -142,23 +142,13 @@ Versucht ihr, in eurem Programm einen Text mit `ä`, `ö`, `ü` oder `ß`
 auszugeben, erscheinen in der Konsole oft merkwürdige Ersatzzeichen statt
 der erwarteten Umlaute. Der Grund: Die Windows-Konsole verwendet
 standardmäßig eine andere Zeichencodierung (**Codepage**) als die, in der
-Visual Studio eure Quelldatei speichert. Mit dem Befehl `chcp 1252` stellt
-ihr die Konsole auf die Codepage 1252 um — das ist die in Deutschland
-übliche Windows-Codepage, die unter anderem alle deutschen Umlaute enthält.
-Da `chcp` ein Befehl der Windows-Kommandozeile ist, kein Bestandteil von C,
-rufen wir ihn über die Funktion `system()` auf, die einen beliebigen
-Befehlszeilenbefehl ausführt.
-
-**Datei mit Umlauten richtig speichern:** `chcp 1252` allein reicht nicht
-immer aus: Speichert Visual Studio eure Datei ohne einen bestimmten Marker
-am Dateianfang (ein sogenanntes "BOM", *Byte Order Mark*), kann es
-passieren, dass jeder Umlaut im Quelltext falsch in euer Programm
-übernommen wird — unabhängig von der Codepage zur Laufzeit. Falls eure
-Umlaute trotz `chcp 1252` falsch erscheinen: Datei in Visual Studio über
-**Datei → Speichern unter... → den kleinen Pfeil neben "Speichern" →
-"Speichern mit Codierung..."** und dort **"Unicode (UTF-8 mit Signatur) -
-Codepage 65001"** auswählen.
-{: .hinweis-klein }
+Visual Studio eure Quelldatei speichert. Abhilfe schafft **UTF-8**, eine
+Zeichencodierung, die alle Zeichen — also auch unsere Umlaute — abbilden
+kann. Mit `SetConsoleOutputCP(CP_UTF8)` stellt ihr die Konsolen-**Ausgabe**
+darauf um, mit `SetConsoleCP(CP_UTF8)` die **Eingabe** (wichtig, sobald ihr
+mit `scanf_s` Text einlest). Beide Funktionen sind kein Bestandteil von C
+selbst, sondern gehören zur Windows-Programmierschnittstelle — deshalb
+braucht ihr dafür zusätzlich `#include <windows.h>`.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
@@ -240,7 +230,8 @@ Damit habt ihr heute folgende Konzepte kennengelernt:
 - **Formatierte Ausgabe** einer Zahl in mehreren Zahlensystemen mit
   `printf` (`%d`, `%o`, `%x`).
 - **Codepage und Zeichencodierung**: Warum Umlaute in der Konsole manchmal
-  falsch erscheinen und wie `system("chcp 1252")` das behebt.
+  falsch erscheinen und wie `SetConsoleOutputCP(CP_UTF8)` und
+  `SetConsoleCP(CP_UTF8)` das beheben.
 - **Zeichen einlesen** mit `scanf_s("%c", ...)`, inklusive des
   zusätzlichen Größenparameters.
 - **Ablaufsteuerung der Konsole** mit `system("cls")` und
@@ -267,7 +258,7 @@ kleine, vollständige Programme zu schreiben.
 Schreibt ein Programm, das nach dem Anfangsbuchstaben eures Vornamens (ein
 einzelnes Zeichen) und eurem Alter fragt und anschließend eine
 personalisierte Begrüßung mit korrekt dargestellten Umlauten ausgibt. Achtet
-darauf, dass die Codepage passend eingestellt ist, bevor ihr Umlaute
+darauf, dass die Konsole auf UTF-8 umgestellt ist, bevor ihr Umlaute
 ausgebt, kommentiert die wichtigsten Zeilen kurz, und beendet euer Programm
 mit `system("pause")`, damit ihr die Ausgabe in Ruhe lesen könnt.
 
@@ -277,7 +268,8 @@ wichtig ist, steht in der Musterlösung unten.
 {: .hinweis-klein }
 
 Notiert euch außerdem in ein bis zwei Sätzen: Was würde passieren, wenn ihr
-die Zeile mit `chcp 1252` weglasst — und warum?
+die beiden Zeilen mit `SetConsoleOutputCP` und `SetConsoleCP` weglasst —
+und warum?
 
 <!-- MUSTERLOESUNG-START -->
 ??? note "Musterlösung anzeigen"
@@ -294,10 +286,12 @@ die Zeile mit `chcp 1252` weglasst — und warum?
     Diesem Problem — dass ein übrig gebliebenes Zeichen die nächste Eingabe
     stört — begegnet ihr im nächsten Termin noch einmal genauer.
 
-    Ohne `chcp 1252` würde die Konsole eure Umlaute mit der falschen
-    Codepage interpretieren und stattdessen merkwürdige Ersatzzeichen
-    anzeigen — der Text bliebe inhaltlich unverändert, nur die Darstellung
-    der Umlaute wäre kaputt.
+    Ohne `SetConsoleOutputCP(CP_UTF8)` würde die Konsole eure Umlaute mit
+    der falschen Codepage interpretieren und stattdessen merkwürdige
+    Ersatzzeichen anzeigen — der Text bliebe inhaltlich unverändert, nur die
+    Darstellung der Umlaute wäre kaputt. `SetConsoleCP(CP_UTF8)` betrifft
+    dagegen die Eingabe: Ohne diese Zeile würden Umlaute, die ihr selbst
+    eintippt, falsch eingelesen.
 
 <!-- MUSTERLOESUNG-ENDE -->
 

@@ -9,11 +9,11 @@ lernziele:
   - "Ihr könnt mit malloc, calloc, realloc und free Speicher zur Laufzeit anfordern, vergrößern und wieder freigeben."
   - "Ihr könnt ein Array passender Größe erst zur Laufzeit anlegen, nachdem die Anzahl der Elemente aus einer Datei bekannt ist."
   - "Ihr könnt begründen, wer für das free zuständig ist, wenn eine Funktion allokierten Speicher zurückgibt."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_3_pflicht_reflexion
 clean_code:
   - "Wer allokiert, gibt frei"
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-12-16"
 ---
 

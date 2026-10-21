@@ -9,10 +9,10 @@ lernziele:
   - "Ihr könnt mit FILE-Pointern und den Funktionen fopen, fclose, fgets und fprintf Daten dauerhaft in einer Textdatei speichern und wieder einlesen."
   - "Ihr könnt mit fseek und ftell innerhalb einer Datei navigieren, zum Beispiel um ihre Größe zu ermitteln."
   - "Ihr könnt eine bestehende Datenstruktur so erweitern, dass sie ihren Zustand über einen Programmneustart hinweg behält, und dabei begründete Entwurfsentscheidungen treffen."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_3_pflicht_reflexion
 clean_code: []
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-12-09"
 ---
 

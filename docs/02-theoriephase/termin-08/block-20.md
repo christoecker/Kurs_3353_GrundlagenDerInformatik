@@ -9,11 +9,11 @@ lernziele:
   - "Ihr könnt Datensätze fester Länge mit fwrite und fread in einer Binärdatei speichern und mit fseek gezielt einzelne Datensätze überschreiben."
   - "Ihr könnt den Inhalt einer Binärdatei in einem Hex-Editor einem Dateiformat aus Dateikopf und Datensätzen zuordnen."
   - "Ihr könnt Fehler in Dateifunktionen über Fehlercodes melden, statt sie zu verstecken."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_3_pflicht_reflexion
 clean_code:
   - "Fehler melden statt verstecken"
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-12-09"
 ---
 

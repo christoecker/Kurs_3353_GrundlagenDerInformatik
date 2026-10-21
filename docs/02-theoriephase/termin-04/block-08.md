@@ -13,10 +13,10 @@ lernziele:
   - "Du kannst Bubblesort zuerst als PAP entwerfen und danach als Funktion in C umsetzen."
   - "Du kannst einen Zugriff außerhalb der Array-Grenzen als Fehlerursache erkennen."
   - "Du kannst ein zweidimensionales Array anlegen und mit Funktionen verwalten."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_0_ohne
 clean_code: []
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-11-11"
 ---
 

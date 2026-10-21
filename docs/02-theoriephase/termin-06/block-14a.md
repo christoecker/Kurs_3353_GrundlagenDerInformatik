@@ -11,11 +11,11 @@ lernziele:
   - "Ihr könnt Strukturen ineinander verschachteln und deren Member initialisieren und lesen."
   - "Ihr könnt Namenskonventionen für Typen, Variablen und Konstanten anwenden."
   - "Ihr könnt ein Array von Strukturen anlegen, in Schleifen verarbeiten und an Funktionen übergeben."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_1_nachschlagewerk
 clean_code:
   - "Konvention vor Konfiguration"
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-11-25"
 ---
 

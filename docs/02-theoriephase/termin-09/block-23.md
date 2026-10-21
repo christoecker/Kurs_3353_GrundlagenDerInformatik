@@ -9,10 +9,10 @@ lernziele:
   - "Ihr könnt eine einfach verkettete Liste aus Knoten aufbauen, bei der jeder Knoten auf seinen Nachfolger zeigt."
   - "Ihr könnt Elemente an eine Liste anhängen, die Liste durchlaufen und alle Knoten wieder freigeben."
   - "Ihr könnt begründen, warum eine Funktion, die den Anfang einer Liste ändern soll, die Liste oder den Kopf-Zeiger per Pointer bekommen muss."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_3_pflicht_reflexion
 clean_code: []
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-12-16"
 ---
 

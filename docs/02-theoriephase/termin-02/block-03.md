@@ -12,7 +12,7 @@ lernziele:
   - "Du kannst sprechende Namen in eigenem Code verwenden."
   - "Du kannst Kommentare schreiben, die das Warum statt das Was erklären."
   - "Du kannst einen Fallthrough-Fehler durch ein fehlendes break in gegebenem Code finden und erklären."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_0_ohne
 clean_code:
   - "Sprechende Namen"

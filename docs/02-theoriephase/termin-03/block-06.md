@@ -10,11 +10,11 @@ lernziele:
   - "Du kannst nachvollziehen, wie ein rekursiver Funktionsaufruf im Aufrufstapel abgearbeitet wird."
   - "Du kannst begründen, ob eine rekursive oder eine iterative Lösung für ein gegebenes Problem einfacher ist."
   - "Du kannst eine gegebene rekursive Funktion in eine iterative Lösung umwandeln."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_0_ohne
 clean_code:
   - "KISS"
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: 2026-11-04
 ---
 

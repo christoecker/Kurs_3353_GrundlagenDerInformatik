@@ -12,10 +12,10 @@ lernziele:
   - "Du kannst Zeichen über ihre ASCII-Codes vergleichen und umrechnen."
   - "Du kannst eine Funktion schreiben, die einen String Zeichen für Zeichen bis zum Stringende verarbeitet."
   - "Du kannst begründen, warum eine String-Funktion keine Längenangabe braucht, eine Funktion für ein int-Array aber schon — und welche Voraussetzung dafür gelten muss."
-musterloesungen_sichtbar: true
+musterloesungen_sichtbar: false
 ki_einsatz: stufe_0_ohne
 clean_code: []
-bearbeitungsstatus: in-arbeit
+bearbeitungsstatus: fertig
 publish_date: "2026-11-11"
 ---
 
