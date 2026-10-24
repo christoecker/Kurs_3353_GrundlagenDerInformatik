@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(void)
+{
+    int akkustand = 0;
+
+    printf("Akkustand in Prozent eingeben: ");
+    scanf_s("%d", &akkustand);
+
+    if (akkustand <= 10)
+    {
+        printf("Warnung: Akku fast leer!\n");
+    }
+    else if (akkustand <= 30)
+    {
+        printf("Akku wird schwach.\n");
+    }
+    else
+    {
+        printf("Akkustand ausreichend.\n");
+    }
+
+    return 0;
+}
