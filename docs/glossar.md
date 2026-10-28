@@ -895,6 +895,12 @@ jedem Durchlauf der äußeren Schleife läuft die innere komplett durch —
 praktisch, um zweidimensionale Muster wie Tabellen oder Figuren aus
 Zeichen zu erzeugen.  
 
+**Verschachtelte Verzweigung**
+: Eine Verzweigung, die vollständig im Zweig einer anderen Verzweigung
+steht. Die innere Bedingung wird nur geprüft, wenn der Ablauf den
+passenden Zweig der äußeren nimmt — so lassen sich Entscheidungen
+abbilden, die von anderen Entscheidungen abhängen.  
+
 **Verzweigung**
 : Eine Raute in einem Programmablaufplan, bei der der Ablauf abhängig von
 einer Bedingung einen von zwei Wegen nimmt — dargestellt mit den

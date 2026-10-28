@@ -5,9 +5,11 @@ block_id: "03"
 datum: "2026-10-28"
 kurztitel: "Vom PAP zum C-Programm"
 thema: >-
-  Grundlagen der Programmierung | Verzweigungen (if/else und switch/case)
+  Grundlagen der Programmierung | Verzweigungen (if/else, verschachtelte
+  Verzweigungen und switch/case)
 lernziele:
   - "Du kannst eine zweiseitige Verzweigung aus dem PAP mit if/else in C umsetzen."
+  - "Du kannst Verzweigungen ineinander verschachteln und eine else-if-Kette lesen und schreiben."
   - "Du kannst eine Mehrfachauswahl mit switch/case in C umsetzen und erklären, warum jeder Fall ein break braucht."
   - "Du kannst sprechende Namen in eigenem Code verwenden."
   - "Du kannst Kommentare schreiben, die das Warum statt das Was erklären."
@@ -36,6 +38,8 @@ ersten Mal in echten C-Code.
 !!! abstract "Lernziele"
     - Ihr könnt eine zweiseitige Verzweigung aus dem PAP mit `if`/`else` in
       C umsetzen.
+    - Ihr könnt Verzweigungen ineinander verschachteln und eine
+      `else if`-Kette lesen und schreiben.
     - Ihr könnt eine Mehrfachauswahl mit `switch`/`case` in C umsetzen und
       erklären, warum jeder Fall ein `break` braucht.
 
@@ -175,6 +179,73 @@ klarere Wahl — Lesbarkeit geht vor Kompaktheit.
 
 ---
 
+### Das Beispiel: Versandkosten im Online-Shop <span class="zeitangabe">ca. 3 Min.</span> { data-toc-label="Das Beispiel: Versandkosten im Online-Shop" }
+
+Ein Online-Shop braucht ein Programm, das die Versandkosten eines Pakets
+berechnet. Eingelesen werden das Paketgewicht in Gramm (`1` bis `30000`),
+die Zielregion (`1` = Inland, `2` = EU-Ausland) und die Angabe, ob
+Expressversand gewünscht ist (`1` = ja, `0` = nein). Der Grundpreis hängt
+von Region und Gewicht ab:
+
+| Gewicht | Inland | EU-Ausland |
+|---|---|---|
+| bis 1000 g | 4 € | 9 € |
+| bis 5000 g | 7 € | 14 € |
+| bis 10000 g | 10 € | 20 € |
+| über 10000 g | 15 € | 30 € |
+
+**Expressversand** kostet im Inland 5 € und im EU-Ausland 8 € Aufschlag.
+Er wird jedoch nur für Pakete bis einschließlich 10000 g angeboten. Bei
+schwereren Paketen soll ein Hinweis erscheinen, dass Express nicht
+verfügbar ist — es gilt dann der normale Preis.
+
+Bei einer **ungültigen Eingabe** (Gewicht außerhalb von `1` bis `30000`
+oder Region weder `1` noch `2`) soll stattdessen eine Fehlermeldung
+erscheinen.
+
+Das Besondere an diesem Problem: Viele Entscheidungen hängen von anderen
+Entscheidungen ab. Ob der Expressaufschlag überhaupt eine Rolle spielt,
+wird erst geprüft, wenn die Eingabe gültig ist; welcher Preis gilt,
+hängt zuerst von der Region ab und dann vom Gewicht. Dafür **verschachtelt**
+man Verzweigungen: Eine `if`/`else`-Anweisung steht innerhalb des Zweigs
+einer anderen.
+
+---
+
+### Umsetzung: Verschachtelte Verzweigungen <span class="zeitangabe">ca. 12 Min.</span> { data-toc-label="Umsetzung: Verschachtelte Verzweigungen" }
+
+??? quote livecoding "Beispiel-Code"
+    ```c linenums="1"
+    --8<-- "02-theoriephase/termin-02/code/live-03-3-versandkosten.c"
+    ```
+
+    1. `||` heißt „oder": Die Bedingung ist erfüllt, sobald **mindestens
+       eine** der beiden Teilbedingungen zutrifft — das Gewicht ist also
+       ungültig, wenn es kleiner als `1` **oder** größer als `30000` ist.
+    2. `&&` heißt „und": Die Bedingung ist nur erfüllt, wenn **beide**
+       Teilbedingungen zutreffen — die Region ist ungültig, wenn sie
+       weder `1` **noch** `2` ist. Außerdem steht hier `else if`: Das ist
+       nichts anderes als ein weiteres `if` im `else`-Zweig der Anweisung
+       davor, nur ohne zusätzliche Klammern und Einrückung geschrieben.
+       Weil die beiden Fehlerprüfungen zuerst stehen, läuft die Berechnung
+       im letzten `else` nur bei gültigen Eingaben.
+    3. Hier beginnt die Verschachtelung: Die äußere Verzweigung
+       unterscheidet nach der Region, und in **jedem** ihrer beiden
+       Zweige steckt eine weitere Verzweigung nach dem Gewicht. Die
+       Einrückung zeigt, was zu welchem Zweig gehört. Die Klammern setzen
+       wir hier bewusst überall — so bleibt bei verschachtelten
+       Verzweigungen immer eindeutig, zu welchem `if` ein `else` gehört.
+    4. Die `else if`-Kette wird von oben nach unten geprüft, und der
+       **erste** zutreffende Zweig gewinnt. Deshalb genügt hier
+       `gewicht <= 5000`: Dass das Gewicht über `1000` liegt, steht durch
+       die vorherige Bedingung ja schon fest.
+    5. Drei Ebenen tief: Express gewünscht → Paket leicht genug → welche
+       Region. Der Aufschlag wird nur auf den schon berechneten Grundpreis
+       addiert, wenn alle drei Entscheidungen zutreffen; sonst erscheint
+       der Hinweis und der normale Preis bleibt stehen.
+
+---
+
 ### Noch ein Konstrukt: switch/case <span class="zeitangabe">ca. 12 Min.</span> { data-toc-label="Noch ein Konstrukt: switch/case" }
 
 `if`/`else` eignet sich gut für zwei Möglichkeiten. Müsst ihr dagegen
@@ -207,7 +278,7 @@ gleich in Aufgabe 09, was passiert, wenn man es vergisst.
 
 ??? quote livecoding "Beispiel-Code"
     ```c linenums="1"
-    --8<-- "02-theoriephase/termin-02/code/live-03-3-maschinenzustand.c"
+    --8<-- "02-theoriephase/termin-02/code/live-03-4-maschinenzustand.c"
     ```
 
 !!! tip "Clean Code: Kommentare erklären das Warum, nicht das Was"
