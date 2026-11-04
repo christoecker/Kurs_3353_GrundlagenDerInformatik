@@ -12,7 +12,7 @@ lernziele:
   - "Du kannst den Gültigkeitsbereich einer Variable abhängig von ihrem Deklarationsort bestimmen (global, Funktion, einzelner {}-Block)."
   - "Du kannst mit dem Schlüsselwort static eine Variable über mehrere Funktionsaufrufe hinweg persistieren lassen."
   - "Du kannst Magic Numbers im Code erkennen und durch sprechend benannte Konstanten ersetzen."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code:
   - "Magic Numbers vermeiden"
