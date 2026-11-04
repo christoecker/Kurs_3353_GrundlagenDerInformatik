@@ -11,7 +11,7 @@ lernziele:
   - "Du kannst eine Funktion aus einer anderen Funktion heraus aufrufen."
   - "Du kannst eine Funktion, die mehrere Aufgaben übernimmt, in fokussierte Einzelfunktionen aufteilen."
   - "Du kannst einen fehlenden Funktionsprototyp als Fehlerursache erkennen und beheben."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code:
   - "DRY"
