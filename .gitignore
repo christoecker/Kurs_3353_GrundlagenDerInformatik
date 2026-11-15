@@ -24,6 +24,11 @@
 # ausschließen und wäre in einem frischen Clone nicht vorhanden.
 !.gitignore
 
+# Prüfungsfragen: eigenes privates Repository (nested), darf NIE im
+# öffentlichen Kurs-Repo landen. Der Ordner steht bewusst explizit hier,
+# auch wenn die Whitelist oben ihn bereits ausschließt.
+04-pruefung/
+
 # Innerhalb von docs/ sind die Templates trotzdem privat (Werkzeuge, keine
 # Studierendeninhalte)
 docs/01-praxisphase/_template/**
