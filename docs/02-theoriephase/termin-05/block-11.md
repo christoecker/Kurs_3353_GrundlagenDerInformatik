@@ -12,7 +12,7 @@ lernziele:
   - "Ihr könnt begründen, warum ein als Parameter übergebenes Array automatisch per Call by Reference übergeben wird, und erklären, was hinter der eckigen-Klammer-Schreibweise `a[i]` als Pointer-Arithmetik steckt."
   - "Ihr könnt einen void-Pointer erklären und ihn per Typumwandlung in einen konkreten Pointertyp umwandeln, bevor ihr ihn dereferenziert."
   - "Ihr könnt anhand von strtok erklären, wie sich eine Funktion mit static zwischen mehreren Aufrufen merken kann, und selbst eine Funktion nach diesem Prinzip schreiben."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code: []
 bearbeitungsstatus: fertig
