@@ -1,0 +1,22 @@
+# Lessons Learned — Zwischenprojekt
+
+Fasst eure Erfahrungen mit dem heutigen KI-Einsatz in 2 bis 3 kurzen
+Statements zusammen. Schreibt jedes Statement als einen zusammenhängenden
+Satz oder kurzen Absatz direkt hinter die Nummer — die Überschrift
+"Unsere Statements" und die Nummerierung bitte unverändert lassen, damit
+sich alle Statements aus den Gruppen später einheitlich einsammeln und
+auswerten lassen. Diese Datei ist anonym — lasst Namen und Gruppe weg.
+
+Hilfsfragen, falls euch nichts einfällt (nicht beantworten, sondern als
+Anregung für eure eigenen Statements nutzen):
+
+- Wo hat euch die KI heute am meisten geholfen?
+- An welcher Stelle musstet ihr einen Vorschlag der KI korrigieren oder
+  ganz verwerfen — und warum?
+- Was würdet ihr beim nächsten Mal anders an die KI herantragen?
+
+## Unsere Statements
+
+1.
+2.
+3. (optional — Zeile leer lassen, falls ungenutzt)
