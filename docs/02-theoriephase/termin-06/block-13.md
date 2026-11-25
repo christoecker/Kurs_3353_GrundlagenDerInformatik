@@ -12,7 +12,7 @@ lernziele:
   - "Ihr könnt die Zahlenwerte eines enum bestimmen, auch bei explizit festgelegten Werten."
   - "Ihr könnt begründen, warum man mit enum-Werten nicht rechnet, obwohl C es erlaubt."
   - "Ihr könnt für einen enum eine Ausgabefunktion schreiben, die einen Wert als Text ausgibt."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_0_ohne
 clean_code: []
 bearbeitungsstatus: fertig
