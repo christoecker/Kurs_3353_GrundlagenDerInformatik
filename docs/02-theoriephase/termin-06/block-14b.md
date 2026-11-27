@@ -13,7 +13,7 @@ lernziele:
   - "Ihr könnt beurteilen, warum es besser ist, einer Funktion nur das betroffene Element statt des ganzen Arrays zu übergeben, und die Folgen für den Code benennen."
   - "Ihr könnt eine Funktion so ändern, dass sie eine Struktur per Pointer statt eines Arrays bekommt."
   - "Ihr könnt eine Struktur mit Pointern auf Strukturen desselben Typs aufbauen und über diese Pointer auf weitere Strukturen zugreifen."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_2_pair_programmer
 clean_code:
   - "Prinzip der minimalen Rechte (Principle of Least Privilege, PoLP)"

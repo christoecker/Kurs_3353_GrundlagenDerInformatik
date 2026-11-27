@@ -13,7 +13,7 @@ lernziele:
   - "Ihr könnt Makro und const sowie parametriertes Makro und Funktion gegeneinander abgrenzen."
   - "Ihr könnt Bits einer Zahl mit Bitmasken setzen und zurücksetzen und das als parametrierte Makros umsetzen."
   - "Ihr könnt vorhersagen, welcher Text bei einem Makroaufruf entsteht, und erkennen, wenn die Ersetzung zu einem unerwarteten Ergebnis führt."
-musterloesungen_sichtbar: false
+musterloesungen_sichtbar: true
 ki_einsatz: stufe_1_nachschlagewerk
 clean_code: []
 bearbeitungsstatus: fertig
